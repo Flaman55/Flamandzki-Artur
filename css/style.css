@@ -5,6 +5,7 @@
 
 /* ── Custom Properties ───────────────────────────────────────── */
 :root {
+  color-scheme: only light;
   --navy:       #1A3A5C;
   --navy-dark:  #0f2440;
   --navy-mid:   #2d5a8e;

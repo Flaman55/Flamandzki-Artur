@@ -93,6 +93,8 @@
   padding: 1rem 1.2rem;
   font-size: .93rem;
   line-height: 1.7;
+  color: var(--text);
+  background: #fff;
 }
 .proj-box-body p { margin-bottom: .75rem; }
 .proj-box-body p:last-child { margin-bottom: 0; }
@@ -102,31 +104,40 @@
 /* Innovation style — blue */
 .proj-box--innovation {
   border: 1px solid #2d7dd2;
-  background: var(--surface);
 }
 .proj-box--innovation .proj-box-title {
   background: var(--navy);
   color: #fff;
 }
+.proj-box--innovation .proj-box-body {
+  background: #f4f8fd;
+  color: var(--text);
+}
 
 /* Result style — green */
 .proj-box--result {
   border: 1.5px solid #28a745;
-  background: #f0faf3;
 }
 .proj-box--result .proj-box-title {
   background: #28a745;
   color: #fff;
 }
+.proj-box--result .proj-box-body {
+  background: #f0faf3;
+  color: var(--text);
+}
 
 /* Note style — light blue */
 .proj-box--note {
   border: 1px solid #2d7dd2;
-  background: #e8f2fb;
 }
 .proj-box--note .proj-box-title {
   background: #d0e4f4;
   color: var(--navy);
+}
+.proj-box--note .proj-box-body {
+  background: #e8f2fb;
+  color: var(--text);
 }
 
 /* ── Code block ──────────────────────────────────────────────── */
