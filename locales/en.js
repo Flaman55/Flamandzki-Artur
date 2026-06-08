@@ -38,7 +38,7 @@
       title: 'Design Philosophy',
       sub:   'An observation in retrospect: every self-built tool forces a complete understanding of the problem it is meant to solve.',
       c1: {
-        title: '⚙️ Build your own tool',
+        title: '⚙️ Building your own tools',
         text:  'A COM terminal for debugging the boiler controller? Written from scratch, because available terminals lacked simultaneous multi-format data display and a one-click bootloader trigger button.'
       },
       c2: {
@@ -61,7 +61,7 @@
       t1: {
         period: '2004 – 2006',
         title:  'High school — first projects born of necessity',
-        text:   'Portable battery speaker (#02) and a prime divisor search algorithm on ATmega8 (#09). Starting point — electronics as a hobby, not a profession.'
+        text:   'Portable battery speaker (#02). Starting point — electronics as a hobby, not a profession.'
       },
       t2: {
         period: '2009 – 2011',
@@ -71,12 +71,12 @@
       t3: {
         period: '2011 – 2013',
         title:  'First commercial products and measurement systems',
-        text:   'Automotive voltmeter WST/WSTK (150 units, #04), AutoMobilClub Łódź timing system (#11, ATtiny2313, RS232 / false-start / Watchdog), LPG injector calibrator (#03), boiler thermometer (#10).'
+        text:   'Automotive voltmeter WST/WSTK (150 units, #04), AutoMobilClub Łódź timing system (#11), LPG injector calibrator (#03), boiler thermometer (#10).'
       },
       t4: {
         period: '2012 – 2017',
         title:  'DELFI Racing — motorsport instrument family',
-        text:   'Christmas Tree RT1/RT2, DN03 instrumentation — complete electronic racing infrastructure (#05). Simultaneously: CO₂ laser production line commissioned (#15).'
+        text:   'Christmas Tree RT1/RT2, DN03 instrumentation — complete electronic racing infrastructure (#05).'
       },
       t5: {
         period: '2013 – 2019',
@@ -86,12 +86,12 @@
       t6: {
         period: '2016 – 2022',
         title:  'Boiler controller — 5.5 years in a production environment',
-        text:   'Custom PCB, ATmega328P, triac phase-angle control at 230 V, delta-T instead of hysteresis thresholds (#01). ~11 M measurement records, 79+ firmware versions, foundation for 3 engineering theses.'
+        text:   'Custom PCB, ATmega328P, triac phase-angle control at 230 V, delta-T instead of hysteresis thresholds (#01). ~11 M measurement records, 79+ firmware versions, foundation for one engineering and two master\'s theses.'
       },
       t7: {
         period: '2019 – present',
         title:  'Commerzbank — corporate FinTech environment',
-        text:   'Corporate FinTech environment (Java / React / C#, COREP/FINREP). In parallel: first observations of rhythmic structures in prime numbers — the seed of Relational Mathematics.'
+        text:   'Corporate FinTech environment (Java / React / C#, COREP/FINREP). Unit and integration testing, Docker, CI/CD pipelines — corporate and big-tech tooling.'
       },
       t8: {
         period: '2024 – present',
@@ -165,8 +165,8 @@
       p01: {
         name:   'Autonomous Central Heating Boiler Controller',
         tag:    'Own system · power regulation and remote monitoring',
-        tech:   'AVR Assembly, Phase-Angle Control (triac 230 V), ATmega328P, BASCOM-AVR, DS18B20, UART→USB, MS Access (.mdb), OneDrive',
-        result: '5.5 years in production (Nov 2016 – Jul 2022). ~11 M measurement records, 61 MDB databases (1.65 GB), 79+ firmware versions. Foundation for 3 engineering theses, all graded 5/5.'
+        tech:   'AVR Assembly, Phase-Angle Control (triac 230 V), ATmega328P, DS18B20, UART→USB, MS Access (.mdb), OneDrive',
+        result: '5.5 years in production (Nov 2016 – Jul 2022). ~11 M measurement records, 61 MDB databases (1.65 GB), 79+ firmware versions. Foundation for one engineering and two master\'s theses, all graded 5/5.'
       },
       p02: {
         name:   'Portable Battery Speaker',
@@ -178,7 +178,7 @@
         name:   'Automatic LPG Injector Calibrator',
         tag:    'Commercial order · calibration precision',
         tech:   'ATmega32, stepper motors, coil-open event timing',
-        result: 'Calibration scatter reduced from &gt;0.3 mm to &lt;0.01 mm by closing the feedback loop on the physical coil-open event instead of caliper geometry.'
+        result: 'Calibration scatter reduced from >0.3 mm to <0.01 mm by closing the feedback loop on the physical coil-open event instead of caliper geometry.'
       },
       p04: {
         name:   'Automotive Voltmeter WST / WSTK',
@@ -213,7 +213,7 @@
       p09: {
         name:   'Prime Divisor Search Algorithm on ATmega8',
         tag:    'Embedded · bare-metal algorithmics',
-        tech:   'AVR, BASCOM, ATmega8, 8-bit MCU optimisation',
+        tech:   'AVR, ATmega8, 8-bit MCU optimisation',
         result: 'Factorisation implementation on an 8-bit microcontroller. Early precursor to interest in number theory — direct predecessor of MR research.'
       },
       p10: {
@@ -250,7 +250,7 @@
         name:   'CO₂ Laser — Infrastructure and Air-Assist System',
         tag:    'Own system · active to this day',
         tech:   'CO₂ 50 W, solenoid valves, Ruida DSP, relays, chiller, custom air-assist',
-        result: 'Automated wood-processing production line. Custom air-assist, Ruida DSP calibration. Production and commercialisation of &gt;1,000 finished products.'
+        result: 'Automated wood-processing production line. Custom air-assist, Ruida DSP calibration. Production and commercialisation of >1,000 finished products.'
       },
       p16: {
         name:   'TrueSynth — Trigonometric Library for Embedded',
@@ -300,7 +300,7 @@
       title: 'Case Studies',
       sub:   'Three projects described in depth — problem genesis, key innovations, outcome.',
       cs1: {
-        title: 'Boiler Controller — 5.5 years, 11 M records, foundation for 3 engineering theses',
+        title: 'Boiler Controller — 5.5 years, 11 M records, foundation for one engineering and two master\'s theses',
         b0: {
           title: 'Problem genesis',
           text:  'A feed-type coal boiler with no automation — maintaining temperature requires manually adjusting the blower fan. Available thermostats work in ON/OFF mode, leading to large oscillations and inefficient combustion.'
@@ -315,7 +315,7 @@
         },
         res: {
           title: 'Results (5.5 years of operation)',
-          html:  '<li>~11 million measurement records, 61 MDB databases (1.65 GB)</li><li>79+ firmware versions without interrupting system operation (USB bootloader)</li><li>Zero hardware failures throughout the entire production period</li><li>Foundation for 3 engineering theses, all graded 5/5</li>'
+          html:  '<li>~11 million measurement records, 61 MDB databases (1.65 GB)</li><li>79+ firmware versions without interrupting system operation (USB bootloader)</li><li>Zero hardware failures throughout the entire production period</li><li>Foundation for one engineering and two master\'s theses, all graded 5/5</li>'
         }
       },
       cs2: {
@@ -333,7 +333,7 @@
         title: 'AutoMobilClub Łódź Timing System — two timers in one ISR, Watchdog as flash optimisation',
         b0: {
           title: 'Engineering problem',
-          text:  'Commercial timing system for quarter-mile racing on ATtiny2313 (2 KB flash). Requirements: two independent timers (lap time 0.01 s + driver reaction time 0.001 s), false-start detection, RS232/RS485/USB communication, MMC recording, RTC — all within 2 KB of flash.'
+          text:  'Commercial timing system for quarter-mile racing on AVR (2 KB flash). Requirements: two independent timers (lap time 0.01 s + driver reaction time 0.001 s), false-start detection, RS232/RS485/USB communication, MMC recording, RTC — all within 2 KB of flash.'
         },
         b1: {
           title: 'Key technical decisions',
@@ -351,7 +351,7 @@
       sub:   'Technical profile for project collaboration and R&D partnership.',
       sk1: {
         title: 'Embedded Systems / Firmware',
-        text:  'AVR (ATmega/ATtiny), ARM Cortex-M, BASCOM-AVR, AVR ASM, C. Custom PCB (KiCad/Eagle/Altium), 230 V mains control (triac, phase-angle), UART/RS232/RS485/SPI/I²C/USB. Commercial products in serial production.'
+        text:  'AVR (ATmega/ATtiny), ARM Cortex-M, AVR ASM, C. Custom PCB (KiCad/Eagle/Altium), 230 V mains control (triac, phase-angle), UART/RS232/RS485/SPI/I²C/USB. Commercial products in serial production.'
       },
       sk2: {
         title: 'Measurement & Real-Time Systems',
@@ -363,7 +363,7 @@
       },
       sk4: {
         title: 'AI / Software',
-        text:  'FochBot V3: FastAPI, ChromaDB, multi-LLM routing. MR-AI: value-free decision framework. Java, C# (.NET), React/TypeScript (FinTech, Commerzbank), VB.NET, Python.'
+        text:  'FochBot: FastAPI, ChromaDB, multi-LLM routing. MR-AI: value-free decision framework. Java, C# (.NET), React/TypeScript (FinTech, Commerzbank), VB.NET, Python.'
       },
       sk5: {
         title: 'Own Systems & Production Tools',

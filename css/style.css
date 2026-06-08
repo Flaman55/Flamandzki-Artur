@@ -318,6 +318,7 @@ section:nth-child(even) {
 .framework-card {
   background: var(--surface);
   border: 1px solid var(--border);
+  cursor: default;
   border-radius: var(--radius-lg);
   padding: 1.4rem 1.6rem;
   transition: box-shadow var(--transition), transform var(--transition);

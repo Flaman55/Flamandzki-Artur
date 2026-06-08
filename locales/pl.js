@@ -35,7 +35,7 @@
       title: 'Filozofia projektowa',
       sub:   'Obserwacja po fakcie: każde własne narzędzie wymusza pełne zrozumienie problemu, który ma rozwiązać.',
       c1: {
-        title: '⚙️ Buduj własne narzędzie',
+        title: '⚙️ Budowa własnych narzędzi',
         text:  'Terminal COM do debugowania sterownika pieca? Napisany własny, bo dostępne terminale nie miały jednoczesnego multi-formatu danych i przycisku wyzwalającego bootloader jednym kliknięciem.'
       },
       c2: {
@@ -58,7 +58,7 @@
       t1: {
         period: '2004 – 2006',
         title:  'Liceum — pierwsze projekty z potrzeby',
-        text:   'Przenośny głośnik bateryjny (#02) i algorytm szukania dzielników na ATmega8 (#09). Punkt startowy — elektronika jako hobby, nie zawód.'
+        text:   'Przenośny głośnik bateryjny (#02). Punkt startowy — elektronika jako hobby, nie zawód.'
       },
       t2: {
         period: '2009 – 2011',
@@ -68,12 +68,12 @@
       t3: {
         period: '2011 – 2013',
         title:  'Pierwsze produkty komercyjne i systemy pomiarowe',
-        text:   'Woltomierz samochodowy WST/WSTK (150 szt., #04), System pomiaru czasu AutoMobilClub Łódź (#11, ATtiny2313, RS232/falstart/Watchdog), Kalibrator wtryskiwaczy LPG (#03), Termometr pieca (#10).'
+        text:   'Woltomierz samochodowy WST/WSTK (150 szt., #04), System pomiaru czasu AutoMobilClub Łódź (#11), Kalibrator wtryskiwaczy LPG (#03), Termometr pieca (#10).'
       },
       t4: {
         period: '2012 – 2017',
         title:  'DELFI Racing — rodzina instrumentów motorsportowych',
-        text:   'System Choinka RT1/RT2, aparatura pomiarowa DN03 — kompletna infrastruktura elektroniczna dla wyścigów (#05). Równolegle: uruchomienie linii produkcji laserowej CO₂ (#15).'
+        text:   'System Choinka RT1/RT2, aparatura pomiarowa DN03 — kompletna infrastruktura elektroniczna dla wyścigów (#05).'
       },
       t5: {
         period: '2013 – 2019',
@@ -83,12 +83,12 @@
       t6: {
         period: '2016 – 2022',
         title:  'Sterownik pieca CO — 5,5 roku w środowisku produkcyjnym',
-        text:   'Własne PCB, ATmega328P, sterowanie fazowe triakiem na 230 V, delta T zamiast progów histerezowych (#01). ~11 mln rekordów pomiarowych, 79+ wersji firmware, baza dla 3 prac inżynierskich.'
+        text:   'Własne PCB, ATmega328P, sterowanie fazowe triakiem na 230 V, delta T zamiast progów histerezowych (#01). ~11 mln rekordów pomiarowych, 79+ wersji firmware, baza dla jednej pracy inżynierskiej i dwóch magisterskich.'
       },
       t7: {
         period: '2019 – obecnie',
         title:  'Commerzbank — środowisko korporacyjne FinTech',
-        text:   'Środowisko korporacyjne FinTech (Java / React / C#, COREP/FINREP). Równolegle: pierwsze obserwacje struktur rytmicznych w liczbach pierwszych — zalążek Matematyki Relacyjnej.'
+        text:   'Środowisko korporacyjne FinTech (Java / React / C#, COREP/FINREP). Testy jednostkowe i integracyjne, Docker, pipeline CI/CD — narzędzia korporacyjne i big tech.'
       },
       t8: {
         period: '2024 – obecnie',
@@ -162,8 +162,8 @@
       p01: {
         name:   'Automatyczny Sterownik Pieca Centralnego Ogrzewania',
         tag:    'Własny system · z regulacją mocy i zdalnym monitoringiem',
-        tech:   'AVR Assembly, Phase-Angle Control (triak 230 V), ATmega328P, BASCOM-AVR, DS18B20, UART→USB, MS Access (.mdb), OneDrive',
-        result: '5,5 roku w środowisku produkcyjnym (XI 2016 – VII 2022). ~11 mln rekordów pomiarowych, 61 baz danych MDB (1,65 GB), 79+ wersji firmware. Baza 3 prac inżynierskich ocena 5/5.'
+        tech:   'AVR Assembly, Phase-Angle Control (triak 230 V), ATmega328P, DS18B20, UART→USB, MS Access (.mdb), OneDrive',
+        result: '5,5 roku w środowisku produkcyjnym (XI 2016 – VII 2022). ~11 mln rekordów pomiarowych, 61 baz danych MDB (1,65 GB), 79+ wersji firmware. Baza jednej pracy inżynierskiej i dwóch magisterskich, ocena 5/5.'
       },
       p02: {
         name:   'Przenośny Głośnik Bateryjny',
@@ -175,7 +175,7 @@
         name:   'Automatyczny Kalibrator Wtryskiwaczy LPG',
         tag:    'Zlecenie komercyjne · precyzja kalibracji',
         tech:   'ATmega32, silniki krokowe, pomiar czasu otwarcia cewki',
-        result: 'Rozrzut kalibracji: z &gt;0,3 mm do &lt;0,01 mm przez zamknięcie pętli sprzężenia na fizycznym zdarzeniu otwarcia cewki zamiast geometrii suwmiarki.'
+        result: 'Rozrzut kalibracji: z >0,3 mm do <0,01 mm przez zamknięcie pętli sprzężenia na fizycznym zdarzeniu otwarcia cewki zamiast geometrii suwmiarki.'
       },
       p04: {
         name:   'Woltomierz Samochodowy WST / WSTK',
@@ -210,7 +210,7 @@
       p09: {
         name:   'Algorytm Szukania Dzielników Liczb na ATmega8',
         tag:    'Embedded · algorytmika bare-metal',
-        tech:   'AVR, BASCOM, ATmega8, optymalizacja dla 8-bit MCU',
+        tech:   'AVR, ATmega8, optymalizacja dla 8-bit MCU',
         result: 'Implementacja faktoryzacji na mikrokontrolerze 8-bit. Wczesny zalążek zainteresowań teorią liczb — bezpośredni poprzednik badań MR.'
       },
       p10: {
@@ -247,7 +247,7 @@
         name:   'Laser CO₂ — Infrastruktura i Układ Nadmuchu',
         tag:    'Własny system · aktywny do dziś',
         tech:   'CO₂ 50 W, elektrozawory, Ruida DSP, przekaźniki, chiller, własny air-assist',
-        result: 'Zautomatyzowana linia produkcyjna do obróbki drewna. Własny air-assist, kalibracja kontrolera Ruida DSP. Produkcja i komercjalizacja &gt;1000 wyrobów gotowych.'
+        result: 'Zautomatyzowana linia produkcyjna do obróbki drewna. Własny air-assist, kalibracja kontrolera Ruida DSP. Produkcja i komercjalizacja >1000 wyrobów gotowych.'
       },
       p16: {
         name:   'TrueSynth — Biblioteka Trygonometryczna dla Embedded',
@@ -297,7 +297,7 @@
       title: 'Case Studies',
       sub:   'Trzy projekty opisane w głąb — geneza problemu, kluczowe innowacje, wynik.',
       cs1: {
-        title: 'Sterownik pieca CO — 5,5 roku, 11 mln rekordów, baza 3 prac inżynierskich',
+        title: 'Sterownik pieca CO — 5,5 roku, 11 mln rekordów, baza jednej pracy inżynierskiej i dwóch magisterskich',
         b0: {
           title: 'Geneza problemu',
           text:  'Piec zasypowy (węglowy) bez żadnej automatyki — utrzymanie temperatury wymaga ręcznego regulowania nadmuchu dmuchawy. Dostępne termostaty sterują w trybie ON/OFF, co prowadzi do dużych oscylacji i nieefektywnego spalania.'
@@ -312,7 +312,7 @@
         },
         res: {
           title: 'Wyniki (5,5 roku eksploatacji)',
-          html:  '<li>~11 milionów rekordów pomiarowych, 61 baz danych MDB (1,65 GB)</li><li>79+ wersji firmware bez przerwy w pracy systemu (USB bootloader)</li><li>Zero awarii sprzętowych przez cały okres produkcyjny</li><li>Baza dla 3 prac inżynierskich ocenionych na 5/5</li>'
+          html:  '<li>~11 milionów rekordów pomiarowych, 61 baz danych MDB (1,65 GB)</li><li>79+ wersji firmware bez przerwy w pracy systemu (USB bootloader)</li><li>Zero awarii sprzętowych przez cały okres produkcyjny</li><li>Baza dla jednej pracy inżynierskiej i dwóch magisterskich, ocena 5/5</li>'
         }
       },
       cs2: {
@@ -330,7 +330,7 @@
         title: 'System pomiaru czasu AutoMobilClub Łódź — dwa timery w jednym ISR, Watchdog jako optymalizacja flash',
         b0: {
           title: 'Problem inżynierski',
-          text:  'Komercyjny system pomiaru czasu dla wyścigów 1/4 mili na ATtiny2313 (2 KB flash). Wymagania: dwa niezależne timery (czas okrążenia 0,01 s + czas reakcji kierowcy 0,001 s), detekcja fałszywego startu, komunikacja RS232/RS485/USB, zapis MMC, RTC — w 2 KB pamięci.'
+          text:  'Komercyjny system pomiaru czasu dla wyścigów 1/4 mili na AVR (2 KB flash). Wymagania: dwa niezależne timery (czas okrążenia 0,01 s + czas reakcji kierowcy 0,001 s), detekcja fałszywego startu, komunikacja RS232/RS485/USB, zapis MMC, RTC — w 2 KB pamięci.'
         },
         b1: {
           title: 'Kluczowe decyzje techniczne',
@@ -348,7 +348,7 @@
       sub:   'Profil techniczny na potrzeby współpracy projektowej i partnerstwa R&D.',
       sk1: {
         title: 'Embedded Systems / Firmware',
-        text:  'AVR (ATmega/ATtiny), ARM Cortex-M, BASCOM-AVR, AVR ASM, C. Własne PCB (KiCad/Eagle/Altium), sterowanie 230 V (triak, phase-angle control), protokoły UART/RS232/RS485/SPI/I²C/USB. Produkty w produkcji seryjnej.'
+        text:  'AVR (ATmega/ATtiny), ARM Cortex-M, AVR ASM, C. Własne PCB (KiCad/Eagle/Altium), sterowanie 230 V (triak, phase-angle control), protokoły UART/RS232/RS485/SPI/I²C/USB. Produkty w produkcji seryjnej.'
       },
       sk2: {
         title: 'Systemy pomiarowe i czasu rzeczywistego',
@@ -360,7 +360,7 @@
       },
       sk4: {
         title: 'AI / Software',
-        text:  'FochBot V3: FastAPI, ChromaDB, multi-LLM routing. MR-AI: framework decyzyjny „bez wartości bezwzględnych". Java, C# (.NET), React/TypeScript (FinTech, Commerzbank), VB.NET, Python.'
+        text:  'FochBot: FastAPI, ChromaDB, multi-LLM routing. MR-AI: framework decyzyjny „bez wartości bezwzględnych". Java, C# (.NET), React/TypeScript (FinTech, Commerzbank), VB.NET, Python.'
       },
       sk5: {
         title: 'Systemy własne i narzędzia produkcyjne',
