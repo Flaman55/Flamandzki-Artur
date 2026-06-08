@@ -375,13 +375,13 @@ section:nth-child(even) {
   box-shadow: var(--shadow-sm);
   border: 1px solid var(--border);
 }
-table {
+.table-wrapper table {
   width: 100%;
   border-collapse: collapse;
   background: var(--surface);
   font-size: .875rem;
 }
-thead th {
+.table-wrapper thead th {
   background: var(--navy);
   color: #fff;
   padding: .85rem 1rem;
@@ -391,12 +391,12 @@ thead th {
   letter-spacing: .06em;
   white-space: nowrap;
 }
-thead th:first-child { width: 42px; text-align: center; }
-tbody tr { border-bottom: 1px solid var(--border); }
-tbody tr:last-child  { border-bottom: none; }
-tbody tr:hover       { background: var(--navy-light); }
-tbody td { padding: .75rem 1rem; vertical-align: top; }
-tbody td:first-child {
+.table-wrapper thead th:first-child { width: 42px; text-align: center; }
+.table-wrapper tbody tr { border-bottom: 1px solid var(--border); }
+.table-wrapper tbody tr:last-child  { border-bottom: none; }
+.table-wrapper tbody tr:hover       { background: var(--navy-light); }
+.table-wrapper tbody td { padding: .75rem 1rem; vertical-align: top; }
+.table-wrapper tbody td:first-child {
   text-align: center;
   font-family: var(--font-mono);
   font-size: .75rem;
