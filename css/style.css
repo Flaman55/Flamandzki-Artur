@@ -107,7 +107,9 @@ section:nth-child(even) {
   font-size: 1.05rem;
   letter-spacing: .02em;
   white-space: nowrap;
+  text-decoration: none;
 }
+.nav-brand:hover { color: #a8c8e8; }
 .nav-brand span { color: #a8c8e8; font-weight: 400; }
 
 .nav-links {
