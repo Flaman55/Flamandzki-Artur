@@ -204,6 +204,20 @@ em.math {
   margin-top: .5rem;
 }
 
+/* ── Language notice (EN only) ───────────────────────────────── */
+.proj-lang-notice {
+  display: none;
+  background: #fff8e1;
+  border-left: 4px solid #C9A84C;
+  border-radius: 4px;
+  padding: .65rem 1rem;
+  font-size: .85rem;
+  color: #6d4c0a;
+  margin-bottom: 1.5rem;
+}
+html[lang="en"] .proj-lang-notice { display: block; }
+html[lang="pl"] .proj-lang-notice { display: none; }
+
 /* ── Dark mode adjustments ───────────────────────────────────── */
 @media (prefers-color-scheme: dark) {
   .proj-box--result { background: #0d2a14; }
