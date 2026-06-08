@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>#01 Automatyczny Sterownik — Artur Flamandzki</title>
+  <link rel="icon" type="image/svg+xml" href="../../favicon.svg" />
+  <link rel="stylesheet" href="../../css/style.css" />
+  <link rel="stylesheet" href="../../css/project.css" />
+</head>
+<body>
+
+<nav id="navbar" aria-label="Main navigation">
+  <div class="container nav-inner">
+    <a href="../../index.html" class="nav-brand">Artur Flamandzki <span>/ R&amp;D</span></a>
+    <div class="nav-right">
+      <a href="../../index.html#projekty" class="lang-btn" style="text-decoration:none">← Wszystkie projekty</a>
+    </div>
+  </div>
+</nav>
+
+<header class="proj-hero">
+  <div class="container">
+    <div class="proj-hero-tag">PORTFOLIO R&amp;D — PROJEKT #01</div>
+    <h1 class="proj-hero-title">Automatyczny Sterownik</h1>
+    <p class="proj-hero-sub">z regulacj</p>
+    
+  </div>
+</header>
+
+<section class="proj-summary"><div class="container"><p>Autonomiczny sterownik pieca zasypowego C.O. zaprojektowany od zera: hardware
+    (wł</strong>asna płytka PCB), firmware (ATmega328P), komunikacja USB oraz aplikacja PC
+    z potokiem danych do chmury. Głównymi innowacjami są:
+    <strong>fazowe sterowanie mocą triaka na sieci 230 V (phase-angle control)
+    jako alternatywa dla falownika VFD, oraz <strong>sterowanie deltą temperatury
+    — regulacja antycypacyjna zamiast klasycznych progów histerezowych.</p></div></section>
+
+<main class="proj-main">
+  <div class="container proj-content">
+    <h2 class="proj-section">Geneza i problem in\.zynierski</h2>
+<p>Przeprowadzka do domu z <strong>piecem zasypowym</strong> (węglowym) postawiła konkretny</p>
+<p>problem: piec nie ma \.zadnej automatyki — utrzymanie temperatury wymaga schodzenia</p>
+<p>do kotłowni i ręcznego regulowania nadmuchu. Istniejące termostaty</p>
+<p>rozwiązują jedynie część problemu — sterują w trybie ON/OFF,</p>
+<p>co prowadzi do du\.zych oscylacji temperatury i nieefektywnego spalania. Projekt</p>
+<p>reaktywował wcześniej zaprojektowaną płytkę PCB i przez</p>
+<p><strong>trzy sezony grzewcze</strong> ewoluował w odpowiedzi na realne obserwacje eksploatacyjne.</p>
+<div class="proj-table-wrap"><table class="proj-table">
+<tbody>
+<tr>
+<th><strong>Sezon 3+</strong></th>
+</tr>
+<tr>
+<td>Minimalizacja kosztu energii, obsługa bojlera. Delta control, OneDrive, telemetria.</td>
+</tr>
+</tbody></table></div>
+<h2 class="proj-section">Architektura systemu</h2>
+<div class="proj-table-wrap"><table class="proj-table">
+<tbody>
+</tbody></table></div>
+<h2 class="proj-section">Kł{</h2>
+<div class="proj-box proj-box--innovation"><div class="proj-box-title">01  Fazowe sterowanie moca</div><div class="proj-box-body"><p>title=01   Fazowe sterowanie mocą AC (Phase-Angle Control) — zamiast falownika VFD]</p>
+<p><strong>Dlaczego niezbędny jest falownik — typ silnika:</strong></p>
+<p>Dmuchawa pieca napędzana jest  indukcyjnym jednofazowym</p>
+<p>asynchronicznym (<em>single-phase induction motor</em>). Jego prędkość</p>
+<p>obrotowa jest ściśle związana z częstotliwością napięcia</p>
+<p>zasilającego:</p>
+<p>n_s = 60  fp = 60  502 = 1500\;obr/min</p>
+<p>(silnik 2-parowy, siec 50 Hz)</p>
+<p>Standardowa metoda regulacji: <strong>falownik VFD</strong> (<em>Variable Frequency Drive</em>)</p>
+<p>zmienia częstotliwość napięcia, przestrajając prędkość</p>
+<p>synchroniczną. Koszt falownika do zastosowań domowych: 200–500 zł.</p>
+<p><strong>Zastosowane rozwiązanie — phase-angle control:</strong></p>
+<p>Sterowanie fazowe opiera się na opóźnieniu wyzwolenia triaka</p>
+<p>względem momentu przejścia napięcia sieciowego przez zero. Im większe</p>
+<p>opóźnienie, tym mniejsza wartość skuteczna (RMS) napięcia na</p>
+<p>uzwojeniu silnika. Dla <strong>wentylatora odśrodkowego</strong> moment napędowy</p>
+<p>rośnie proporcjonalnie do kwadratu prędkości (&lt;em class='math'&gt;M propto n^2</em>):</p>
+<p>przy obni\.zonym napięciu silnik naturalnie stabilizuje się przy ni\.zszej</p>
+<p>prędkości — bez falownika. Technika stosowana komercyjnie w regulatorach</p>
+<p>przemysłowych.</p>
+<pre class="proj-code"><code>Faza_sub:  ' Przerwanie INT0 -- kazde przejscie napiecia przez zero (50 Hz, co 10 ms)
+  Reset Triak1 : Reset Triak2 : Reset Triak3  ' Wylacz wszystkie kanaly
+  Timer0 = 225                                ' Reset licznika opoznienia (tick ~32 us)
+
+Odmierz_1ms:  ' ISR Timer0 -- odmierza opoznienie fazowe
+  Incr Int_count
+  If Int_count &gt; Tr(1) Then Set Triak1  ' Kanal 1 -- wyzwol po Tr(1) taktach
+  If Int_count &gt; Tr(2) Then Set Triak2  ' Kanal 2 -- dmuchawa
+  If Int_count &gt; Tr(3) Then Set Triak3  ' Kanal 3 -- bojler / grzalka
+  ' Tr(n) = 0  pelna moc | Tr(n) = 20  minimum</code></pre></div></div>
+<div class="proj-box proj-box--innovation"><div class="proj-box-title">02  Sterowanie delta</div><div class="proj-box-body"><p>title=02   Sterowanie deltą temperatury — regulacja antycypacyjna zamiast progów]</p>
+<p>Klasyczny termostat: włącz gdy &lt;em class='math'&gt;T &lt; T_min</em>, wyłącz gdy &lt;em class='math'&gt;T &gt; T_max</em></p>
+<p>— efekt: oscylacje i du\.zy czas odpowiedzi na zmiany zewnętrzne.</p>
+<p>Zastosowane rozwiązanie oblicza co 15 sekund ą pochodną</p>
+<p>temperatury (<em>tendencję</em>) i podejmuje decyzje na podstawie</p>
+<p>zmian, zanim temperatura przekroczy próg. Odpowiednik członu D w regulatorze PID,</p>
+<p>zaimplementowany bez bibliotek na 8-bitowym mikrokontrolerze.</p>
+<pre class="proj-code"><code>Tendencja_sub:  ' Wywolywana co 15 s przy kazdym odczycie czujnikow
+  Temp_buf_tend = Temp_wart(2) - Temp_buf_tend  ' Pochodna dyskretna: delta T / delta t
+  Select Case Temp_buf_tend:
+    Case Is &lt; 0 : Delta_buf = 3   ' T SPADA  --&gt; wzmocnij nadmuch dmuchawy
+    Case 0      : Delta_buf = 32  ' T STABILNA --&gt; utrzymaj aktualna moc
+    Case Is &gt; 0 : Delta_buf = 2   ' T ROSNIE  --&gt; ogranicz nadmuch
+  Temp_abs = Abs(temp_buf_tend)   ' Wielkosc zmiany -- wyswietlana jako "tendencja"
+  Temp_buf_tend = Temp_wart(2)    ' Zapamietaj biezaca wartosc do kolejnego cyklu</code></pre>
+<p>Dwupoziomość regulacji: PAC steruje mocą w skali półokresu sieci</p>
+<p>(10 ms), Delta\_toggle zarządza cyklem pracy dmuchawy w skali sekund.</p></div></div>
+<div class="proj-box proj-box--innovation"><div class="proj-box-title">03  Programowe okno EMC — wył</div><div class="proj-box-body"><p>title=03   Programowe okno EMC — wyłączenie triaków podczas pomiaru 1-Wire]</p>
+<p>Triaki przełączające obcią\.zenia 230 V generują silne zakłócenia</p>
+<p>elektromagnetyczne (EMI). Protokół 1-Wire czujników DS18B20 wymaga precyzyjnego</p>
+<p>timingu (impulsy 1–480\,s). Standardowe rozwiązanie: filtry RC, rdzenie</p>
+<p>ferrytowe, ekranowanie okablowania.</p>
+<p>Rozwiązanie programowe: przed ka\.zdym pomiarem firmware wyłącza</p>
+<p><em>wszystkie</em> triaki i zatrzymuje oba przerwania — ``okno ciszy elektromagnetycznej''.</p>
+<p>Koszt: zero dodatkowego hardware.</p>
+<pre class="proj-code"><code>Pomiar_temp_sub:
+  Reset Triak1 : Reset Triak2 : Reset Triak3  ' Cisza EM -- brak przelaczen
+  Disable Int0    ' Stop: detekcja zera (brak wyzwolen triak)
+  Disable Timer0  ' Stop: odmierzanie fazy
+  Gosub Zmierz_temp_sub   ' Bezpieczny pomiar DS18B20 przez 1-Wire
+  Gosub Odczytaj_temp
+  Enable Int0 : Enable Timer0  ' Wznow pelne sterowanie</code></pre></div></div>
+<div class="proj-box proj-box--innovation"><div class="proj-box-title">04  OneDrive jako bezpieczna brama IoT — przed era</div><div class="proj-box-body"><p>title=04   OneDrive jako bezpieczna brama IoT — przed erą IoT]</p>
+<p>Rok 2017. Zdalny dostęp do sterownika bez: otwierania portów routera, dynamicznego</p>
+<p>DNS, własnych certyfikatów SSL, własnego backendu autoryzacji.</p>
+<p><strong>Rozwiązanie:</strong> aplikacja PC w kotłowni zapisuje pliki statusu do katalogu</p>
+<p>OneDrive, który synchronizuje się automatycznie z chmurą. Dostęp</p>
+<p>z dowolnego miejsca przez infrastrukturę Microsoft — autoryzacja, szyfrowanie</p>
+<p>i bezpieczeństwo dostarczane przez dostawcę, koszt implementacji: zero.</p>
+<p>Wzorzec dziś znany jako <em>file-based IoT gateway</em> — tu wdro\.zony zanim</p>
+<p>platformy IoT (MQTT, Home Assistant) stały się powszechne.</p></div></div>
+<div class="proj-box proj-box--innovation"><div class="proj-box-title">05  Pod\'s</div><div class="proj-box-body"><p>title=05   Podświetlenie LCD jako wielostanowy wskaźnik statusu]</p>
+<p>Zamiast dodatkowych diod LED (koszt, okablowanie, otwory w obudowie),</p>
+<p>podświetlenie LCD koduje stan systemu częstotliwością migania</p>
+<p>widoczną z drugiego końca kotłowni:</p>
+<div class="proj-table-wrap"><table class="proj-table">
+<tbody>
+<tr>
+<th><strong>Stan</strong></th>
+<th><strong>Miganie</strong></th>
+<th><strong>Znaczenie</strong></th>
+</tr>
+<tr>
+<td>T rośnie</td>
+<td>wolne (750 ms)</td>
+<td>System dogrzewa, nadmuch pracuje — sytuacja normalna</td>
+</tr>
+<tr>
+<td>T spada</td>
+<td>szybkie (250 ms)</td>
+<td>Piec gaśnie lub dom się wychaładza — wymaga uwagi</td>
+</tr>
+<tr>
+<td>Stabilna</td>
+<td>stałe świecenie</td>
+<td>Utrzymana temperatura zadana</td>
+</tr>
+</tbody></table></div>
+<pre class="proj-code"><code>Odmierz_1ms:  ' ISR Timer0 -- co 1 ms, steruje podswietleniem wg aktualnej delty
+  Select Case Delta:
+    Case 2:  ' Temperatura rosnie
+      If 1ms &gt; 750 Then 1ms = 0 : Toggle Podswietlenie   ' Wolne miganie
+    Case 3:  ' Temperatura spada
+      If 1ms &gt; 250 Then 1ms = 0 : Toggle Podswietlenie   ' Szybkie miganie
+  ' Case 0 (stabilna): Reset Podswietlenie -- stale swiecenie</code></pre></div></div>
+<div class="proj-box proj-box--innovation"><div class="proj-box-title">06  USB Bootloader — aktualizacja firmware bez demonta\.zu</div><div class="proj-box-body"><p>title=06   USB Bootloader — aktualizacja firmware bez demonta\.zu]</p>
+<p>Sterownik zainstalowany w kotłowni, podłączony do pieca. Wymiana</p>
+<p>mikrokontrolera w celu przeprogramowania = demonta\.z, ryzyko uszkodzenia lutowań,</p>
+<p>przerwa w pracy systemu.</p>
+<p>Rozwiązanie: własny bootloader załadowany do wektora resetu</p>
+<p>ATmega328P, aktywowany sekwencją sygnałów na linii UART/USB. Aktualizacja</p>
+<p>firmware: wyślij plik .hex z komputera przez USB — bez dotykania sprzętu.</p>
+<p>Identyczna metoda stosowana w urządzeniach produkcyjnych (Arduino oparty na tym</p>
+<p>samym mechanizmie); tu zaimplementowana samodzielnie.</p></div></div>
+<div class="proj-box proj-box--innovation"><div class="proj-box-title">07  Architektura firmware: modularno\'s</div><div class="proj-box-body"><p>title=07   Architektura firmware: modularność, buforowany rendering, kooperacyjny scheduler]</p>
+<p>Oprogramowanie v2.0 realizuje wzorzec architektoniczny bli\.zszy programowaniu</p>
+<p>strukturalnemu i deklaratywnemu ni\.z proceduralnym — w środowisku, które</p>
+<p>Trzy ortogonalne warstwy tworzą spójny system:</p>
+<p><strong>A) Modularność — plik główny jako manifest zale\.zności</strong></p>
+<p>Plik główny zawiera wyłącznie deklaracje <code>\$include</code> i 7 wywołań</p>
+<p>podsystemów w pętli głównej — zero logiki aplikacyjnej.</p>
+<p>Ka\.zdy moduł (klawiatura, RTC, pomiar temperatury, sterowanie wyjściami,</p>
+<p>komunikacja UART, wyświetlacz, menu) jest niezale\.zną jednostką</p>
+<p>kompilacji z precyzyjnie zdefiniowanym interfejsem.</p>
+<p>Wywołania podprogramowe zamiast procedur to świadoma decyzja: procedury</p>
+<p>generują prolog/epilog i ramkę stosu software; <code>CALL</code>/<code>RET</code></p>
+<p>na hardware stack MCU to kilka cykli i zero narzutu pamięciowego —</p>
+<p>krytyczne przy 2 kB RAM.</p>
+<p><strong>B) Buforowany rendering — pipeline jak w grafice komputerowej</strong></p>
+<p>Wyświetlacz 2×16 obsługiwany przez trzyetapowy pipeline:</p>
+<p>scena zdefiniowana w tablicach → compositor z clippingiem →</p>
+<p>bufor → LCD driver — zero pisania wprost do sprzętu.</p>
+<p>Ka\.zdy stan interfejsu ma zestaw <em>warstw</em> z pozycją</p>
+<p>(Axis\_x/y\_tab), widocznością (On\_tab:</p>
+<p><code>0/1/254=miga/255=zawsze miga</code>) i treścią (Layer\_tab).</p>
+<p>Layer\_sub wkleja warstwę w bufor tła z obsługą przycinania</p>
+<p>po obu stronach (<em>string blitter</em>). 25 typów dynamicznych treści</p>
+<p>(czas, daty, temperatury, delta, wersja firmware, nazwy kanałów) — zmiana</p>
+<p>layoutu ekranu to zmiana wartości w tablicach, bez dotykania kodu renderującego.</p>
+<p><strong>C) Tablice jako program, scheduler jako kernel</strong></p>
+<p>Tablice nawigacji definiują całe zachowanie interfejsu.</p>
+<p>Naciśnięcie przycisku = jedno wywołanie LOOKUP —</p>
+<p>6 zmiennych stanu pobieranych równocześnie z PROGMEM.</p>
+<p><strong>Zero instrukcji warunkowych</strong> w logice nawigacji; dodanie pozycji menu</p>
+<p>= nowy wiersz w tablicach.</p>
+<pre class="proj-code"><code>Key_klick:
+  Select Case Klawiatura:
+    Case Gora:  ' 6 zmiennych stanu naraz -- zamiast drzewa if/else
+      Menu = Lookup(buf_menu , Menu_gora) : Podmenu = Lookup(buf_menu , Podmenu_gora)
+      Wartosc = Lookup(buf_menu , Wartosc_gora) : Kursor = Lookup(buf_menu , Kursor_gora)
+      Wartosc_min = Lookup(buf_menu , Min_gora) : Wartosc_max = Lookup(buf_menu , Max_gora)
+    Case Dol:  Menu = Lookup(buf_menu , Menu_dol)
+    Case Lewo: Decr Wartosc   Case Prawo: Incr Wartosc</code></pre>
+<p>Timer0 ISR multipleksuje równolegle zadania krytyczne czasowo: sterowanie</p>
+<p>triakami PAC, miganie podświetlenia LCD, tick 1 ms. Pętla główna</p>
+<p>kooperatywnie wywołuje podsystemy w stałej kolejności —</p>
+<p><em>cooperative bare-metal scheduler</em> bez \.zadnego frameworka RTOS.</p>
+<p>Tablice mo\.zna przenieść do zewnętrznego EEPROM lub karty pamięci;</p>
+<p>rekonfiguracja urządzenia bez wgrywania nowego firmware. Ten sam wzorzec</p>
+<p>w profesjonalnych systemach: AUTOSAR (ARXML), silniki gier (ROM kartrid\.zu),</p>
+<p>frameworki UI (XML layout). Tu — na 2 kB RAM, 5,5 roku w produkcji.</p></div></div>
+<div class="proj-box proj-box--innovation"><div class="proj-box-title">08  Narze</div><div class="proj-box-body"><p>title=08   Narzędzie diagnostyczne: własny terminal portu szeregowego zamiast generycznych]</p>
+<p><strong>Problem:</strong> dostępne terminale COM nie odpowiadały potrzebom debugowania</p>
+<p>protokołu UART sterownika pieca — brakowało jednoczesnego wyboru formatu</p>
+<p>danych, bezpośredniego wyzwalania bootloadera i obsługi ramek ze znacznikami</p>
+<p>STX/ETX.</p>
+<p><strong>Rozwiązanie:</strong> własna aplikacja <strong>Terminal Portu COM</strong> (VB.NET) —</p>
+<p>trzy klasy logiki i jeden formularz, ka\.zda odpowiedzialna za osobny obszar:</p>
+<p><strong>Multi-format BIN\,/ HEX\,/ STRING\,/ ASCII</strong> osobno dla nadawania</p>
+<p>i odbioru — pozwala jednocześnie wysyłać polecenia tekstowe</p>
+<p>i obserwować odpowiedź w postaci szesnastkowej bez przełączania trybu.</p>
+<p><strong>Przycisk Bootloader:</strong> otwiera port, wysyła zdefiniowane polecenie</p>
+<p>(np. <code>boot</code>), natychmiast zamyka port —</p>
+<p>jedno kliknięcie zamiast ręcznej sekwencji open\,/ send\,/ close</p>
+<p>przy wgrywaniu firmware przez AVR bootloader.</p>
+<p><strong>Detekcja ramki STX/ETX</strong> w klasie <code>Receiver</code> —</p>
+<p>terminal rozumie granicę komunikatu protokołu, nie wyświetla surowego</p>
+<p>strumienia bajtów.</p>
+<p><strong>250 000 baud</strong> na liście — prędkość AVR bootloadera</p>
+<p>niedostępna w większości terminalów ogólnego przeznaczenia.</p>
+<p>Projekt ewoluował przez trzy generacje:</p>
+<p>VB.NET (ukończony) → C\# WinForms (porzucony) →</p>
+<p>C\# z interfejsem <code>ISerialPort</code> (architektura) —</p>
+<p>ślad nauki wzorca Dependency Inversion w trakcie pracy z produkcyjnym kodem.</p></div></div>
+<h2 class="proj-section">Wyniki i walidacja</h2>
+<div class="proj-box proj-box--result"><div class="proj-box-body"><p><strong>5,5 roku nieprzerwanej pracy</strong> w realnym domu — najlepsza mo\.zliwa</p>
+<p>walidacja systemu embedded. Sterownik działał od XI 2016 do VII 2022.</p>
+<p>Wynik: <strong>ok. 11 milionów rekordów pomiarowych</strong> w 61 miesięcznych</p>
+<p>bazach MS Access (łącznie 1,65 GB).</p>
+<p><strong>Precyzja sterowania</strong> obliczona z całego zbioru pomiarów:</p>
+<p>&lt;em class='math'&gt;pm</em>1\,C dla obiegu CO (temperatura osiągnięta vs. zadana);</p>
+<p>temperatura w domu: średnie odchylenie <strong>&lt;em class='math'&gt;-</em>0,1\,C</strong> od zadanej</p>
+<p>przez pełny sezon grzewczy.</p>
+<p>Kocioł węglowy z du\.zą bezwładnością termiczną</p>
+<p>jest z natury trudniejszym obiektem sterowania ni\.z pompa ciepła —</p>
+<p>nie mo\.zna go natychmiast zatrzymać, a spalanie trwa po zamknięciu</p>
+<p>nawiewu. Osiągnięta precyzja przewy\.zsza typowe wyniki</p>
+<p>komercyjnych systemów klimatyzacyjno-grzewczych.</p>
+<p><strong>Walidacja akademicka:</strong> na podstawie tego projektu powstały</p>
+<p><strong>dwie prace magisterskie i jedna in\.zynierska</strong> — wszystkie</p>
+<p>obronione na ocenę <strong>5</strong>. Niezale\.zna ocena komisji akademickich</p>
+<p>jako potwierdzenie jakości rozwiązań in\.zynierskich.</p>
+<p>System śledził na bie\.ząco zu\.zycie energii bojlera w kWh</p>
+<p>i przeliczał koszt w PLN — wbudowany miernik efektywności energetycznej.</p></div></div>
+<p>figure[H]</p>
+<figure class="proj-figure"><img src="img/wykres_temperatury1.png" alt="wykres_temperatury1.png" loading="lazy"></figure>
+<p>%</p>
+<p>Grudzień 2020 (197 825 rekordów, 31 dni).</p>
+<p>Zielona linia — temperatura w domu: płaska na poziomie 22\,C</p>
+<p>przez cały miesiąc (średnie odchylenie od zadanej: &lt;em class='math'&gt;-</em>0,1\,C).</p>
+<p>Po\.zółknięta — temperatura CO: osiągnięta praktycznie</p>
+<p>pokrywa zadana (&lt;em class='math'&gt;pm</em>1\,C). Efekt sterowania opartego na analizie</p>
+<p>tendencji (dyskretna pochodna temperatury co 15 s).</p>
+<p>figure</p>
+<div class="proj-box proj-box--innovation"><div class="proj-box-title">04  WSTK: wielki zegar z HD44780 — dwa wiersze jako jedna du\.za cyfra</div><div class="proj-box-body"><p>title=04   WSTK: wielki zegar z HD44780 — dwa wiersze jako jedna du\.za cyfra]</p>
+<p><strong>Ograniczenie sprzętowe:</strong> ATmega8 z ograniczoną pamięcią Flash —</p>
+<p>nie stało na wyświetlanie pełnego zestawu funkcji WST.</p>
+<p><strong>Rozwiązanie:</strong> zamiast kurczyć funkcjonalność — zmienić filozofię</p>
+<p>wyświetlania. Ka\.zda cyfra zegara składana z sześciu niestandardowych</p>
+<p>znaków HD44780 (2 kolumny × 3 wiersze segmentów), dwa wiersze alfanumeryczne</p>
+<p>tworzą jeden ciąg wielkich cyfr — efekt du\.zej czcionki bez dedykowanego kontrolera</p>
+<p>graficznego.</p>
+<p><strong>Zdefiniowane znaki CGRAM:</strong> HD44780 posiada 8 miejsc na znaki</p>
+<p>u\.zytkownika (CGRAM). Ka\.zda część cyfry — segment górny, dolny,</p>
+<p>naro\.zniki — zapisana jako oddzielny znak bitmapy &lt;em class='math'&gt;5 times 8</em>.</p>
+<p><strong>Kompozycja cyfry:</strong> ka\.zda z 10 cyfr definiowana jako kombinacja</p>
+<p>znaków CGRAM w układzie 2 × 3 — software render du\.zej cyfry na</p>
+<p>alfanumerycznym LCD.</p>
+<p><strong>Wynik:</strong> czytelny zegar z odległości na kokpicie motocykla —</p>
+<p>prymitywny sprzęt, ale kreatywne u\.zycie ograniczeń.</p></div></div>
+<div class="proj-box proj-box--innovation"><div class="proj-box-title">05  Przewaga rynkowa: stabilno\'s</div><div class="proj-box-body"><p>title=05   Przewaga rynkowa: stabilność pomiaru i bezbateryjność jako USP]</p>
+<p><strong>Problem tanich odpowiedników (chiński rynek):</strong></p>
+<p>woltomierze niskokosztowe stosowały osobną bateriową sekcję referencyjną</p>
+<p>lub niedokładne układy ADC — pomiar obcią\.zony dryftem i niestabilnością.</p>
+<p><strong>Rozwiązanie WST:</strong></p>
+<p><strong>Pomiar ze źródła zasilania układu</strong> — napięcie akumulatora jest</p>
+<p>jednocześnie napięciem zasilającym; wyeliminowana osobna bateria referencyjna,</p>
+<p>zero dryfu między źródłami.</p>
+<p><strong>Stabilność + elegancja przewa\.zyły nad cen:</strong></p>
+<p>produkt był 3× lub więcej dro\.zszy od importów chińskich,</p>
+<p>na początku bez obudowy, a mimo to utrzymywał sprzeda\.z.</p>
+<p><strong>8 kolorów podjświetlenia</strong> w ofercie — dobór do koloru</p>
+<p>deski rozdzielczej konkretnego auta lub motocykla.</p>
+<p>Opcja personalizacji niedostępna w produktach masowych.</p>
+<p><strong>Lojalność klientów:</strong> część klientów kupowała</p>
+<p>nowe urządzenia po zmianie pojazdu — retencja równa przyzwyczajeniu</p>
+<p>do jakości i interfejsu, nie do ceny.</p>
+<p><strong>Obudowa</strong> pojawiła się dopiero w końcowej fazie sprzeda\.zy —</p>
+<p>cena wzrosła jeszcze bardziej, popyt nie spadł.</p>
+<p>Klient płacił za jakość pomiaru i dopłasowanie estetyczne,</p>
+<p>nie za niską cenę.</p></div></div>
+<h2 class="proj-section">Stack techniczny</h2>
+<p>tabularx2.4cm p3.8cm X</p>
+<p>Hardware &amp;</p>
+<p>Własna płytka PCB &amp;</p>
+<p>ATmega328P, BTA16 (triak 16 A), MOC3043 (optotriak), LM7805, 4× DS18B20,</p>
+<p>LCD 2×16 \\</p>
+<p>Firmware &amp;</p>
+<p>AVR Assembly + AVR Studio 4 &amp;</p>
+<p>Bare-metal, brak RTOS; kooperacyjny scheduler; modularność przez <code>\$include</code> \\</p>
+<p>Protokół &amp;</p>
+<p>UART + 1-Wire &amp;</p>
+<p>Komunikacja z PC (logowanie), 4 kanały DS18B20 na jednej magistrali \\</p>
+<p>Logowanie &amp;</p>
+<p>VBA + MS Access &amp;</p>
+<p>Automatyczny odbiór UART, zapis rekordów, 61 baz miesięcznych \\</p>
+<p>Sterowanie &amp;</p>
+<p>Phase-Angle Control &amp;</p>
+<p>Triak BTA16 sterowany MOC3043; płynna regulacja mocy grzewczej \\</p>
+<p>Narzędzia &amp;</p>
+<p>Terminal Portu COM (VB.NET) &amp;</p>
+<p>Własny terminal UART: multi-format BIN/HEX/STRING/ASCII, bootloader, STX/ETX \\</p>
+<p>tabularx</p>
+<div class="proj-box proj-box--note"><div class="proj-box-title">Zwia</div><div class="proj-box-body"><p>title=Związek z projektem \#21 — MR-AI: Framework Rytmiczny]</p>
+<p>Podroutine Tendencja\_sub z innowacji \#02 (strona poprzednia)</p>
+<p>jest <strong>pierwszą znaną implementacją</strong> tego, co później</p>
+<p>Artur sformułował jako ARR (Analizator Rytmu Relacyjnego).</p>
+<div class="proj-table-wrap"><table class="proj-table">
+<tbody>
+<tr>
+<th><strong>Tendencja (piec)</strong></th>
+<th><strong>Symbol ARR</strong></th>
+<th><strong>Reakcja</strong></th>
+</tr>
+<tr>
+<td>&lt;em class='math'&gt;T</em> spada (&lt; 0)</td>
+<td>&lt;em class='math'&gt;downarrow</em></td>
+<td>wzmocnij nadmuch dmuchawy</td>
+</tr>
+<tr>
+<td>&lt;em class='math'&gt;T</em> stabilna (= 0)</td>
+<td>→</td>
+<td>utrzymaj aktualną moc</td>
+</tr>
+<tr>
+<td>&lt;em class='math'&gt;T</em> rośnie (&gt; 0)</td>
+<td>&lt;em class='math'&gt;uparrow</em></td>
+<td>ogranicz nadmuch</td>
+</tr>
+</tbody></table></div>
+<p>Sterownik nie sprawdzał <em>,,czy temperatura wynosi 65\,C''</em> —</p>
+<p>reagował na <strong>rytm zmiany</strong>, zanim wartość dotarła do progu.</p>
+<p>Było to mo\.zliwe dlatego, \.ze jazda po trajektorii trendu</p>
+<p>jest komputacyjnie tańsza i szybsza ni\.z czekanie na przekroczenie progu.</p>
+<p>Wynik empiryczny: <strong>&lt;em class='math'&gt;-</em>0,1\,C średnie odchylenie</strong></p>
+<p>od zadanej przez cały sezon grzewczy na kotle węglowym</p>
+<p>(obiekcie z du\.zą bezwładnością termiczną).</p>
+<p>To jest dowód działania modelu ARR w warunkach produkcyjnych —</p>
+<p><strong>ponad dekadę przed sformułowaniem frameworku MR-AI</strong>.</p>
+<p>Projekt \#21 (MR-AI) formalizuje tę intuicję jako ogólne narzędzie</p>
+<p>obliczeniowe: p20→ MR-AI: Framework Rytmiczny.</p></div></div>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <p>Artur Flamandzki · <a href="../../index.html">Portfolio R&amp;D</a></p>
+    <nav class="proj-nav-btns">
+      
+      <a href="../p02/" class="lang-btn">#02 →</a>
+    </nav>
+  </div>
+</footer>
+
+</body>
+</html>

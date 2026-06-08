@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>#08 LX-EMI01 — Artur Flamandzki</title>
+  <link rel="icon" type="image/svg+xml" href="../../favicon.svg" />
+  <link rel="stylesheet" href="../../css/style.css" />
+  <link rel="stylesheet" href="../../css/project.css" />
+</head>
+<body>
+
+<nav id="navbar" aria-label="Main navigation">
+  <div class="container nav-inner">
+    <a href="../../index.html" class="nav-brand">Artur Flamandzki <span>/ R&amp;D</span></a>
+    <div class="nav-right">
+      <a href="../../index.html#projekty" class="lang-btn" style="text-decoration:none">← Wszystkie projekty</a>
+    </div>
+  </div>
+</nav>
+
+<header class="proj-hero">
+  <div class="container">
+    <div class="proj-hero-tag">PORTFOLIO R&amp;D — PROJEKT #08</div>
+    <h1 class="proj-hero-title">LX-EMI01</h1>
+    <p class="proj-hero-sub">autonomiczny doktór centralek — edycja EEPROM bez komputera,\\</p>
+    <p class="proj-hero-date">2018</p>
+  </div>
+</header>
+
+<section class="proj-summary"><div class="container"><p>Moduł</strong> do chirurgicznej edycji pamięci EEPROM central domofonowych
+    Laskomex i Proel — bez komputera, bez baterii, bez powerbanku.
+    Obsługuje 8 modeli central (Proel CD1803 + Laskomex CD2000/2200/2500/2501/2502/3100/2600).
+    Dwa tryby dostępu: <strong>gniazdo EEPROM (chip wyjty z centralki, praca offline)
+    lub <strong>złącze ISD-02 (podłączony na \.zywo, zasilany z centralki).
+    Funkcja PELP: <strong>jednoprzyciski transfer tabeli kodów między markami i generacjami.
+    W trybie PC — transparentny most USB&lt;em class='math'&gt;łeftrightarrow</em>RS232 z architekturą
+    zdalnego zarządzania trzech poziomów.</p></div></section>
+
+<main class="proj-main">
+  <div class="container proj-content">
+    <figure class="proj-figure"><img src="img/lxemi01_foto.jpg" alt="lxemi01_foto.jpg" loading="lazy"></figure>
+<p>Prototyp LX-EMI01 (PCB v1.1, lipiec 2018).</p>
+<p>Lewy koniec: złącze IDC do centralki (ISD-02).</p>
+<p>Prawy koniec: wtyk USB-A (zasilanie lub PC).</p>
+<p>Centrum: wyświetlacz 7-seg 4-cyfrowy, DIP-switch 8-pozycyjny,</p>
+<p>gniazdo pamięci EEPROM, przycisk S1.</p>
+<p></p>
+<figure class="proj-figure"><img src="img/lxemi01_pcb_top.png" alt="lxemi01_pcb_top.png" loading="lazy"></figure>
+<p>Widok warstwy <code>top</code> PCB v1.1 (Eagle CAD, 2-warstwowa).</p>
+<p>Rewizje: v1.0  v1.1  v1.2.</p>
+<p></p>
+<p>Częste usterki central Laskomex miały prozaiczne \'zródło:</p>
+<p>błędne wartości w określonych komórkach EEPROM.</p>
+<p>Serwisant znał adres i wartość do wpisania, ale potrzebował</p>
+<p>laptopa z oprogramowaniem, kabla szeregowego i adaptera — zestaw</p>
+<p>niezgrabny w terenie, wra\.zliwy na sterowniki, niepraktyczny w szafie</p>
+<p>elektrycznej czy skrzynce na klatce schodowej.</p>
+<p>Koncepcja LX-EMI01 to <strong>skalowanie formy do środowiska pracy</strong>:</p>
+<p>centralki montowane są w miejscach trudno dostępnych, więc</p>
+<p>narzędzie musi być małe, pewne w chwycie i niezale\.zne.</p>
+<p>Ka\.zde wymaganie serwisowe stało się decyzją konstrukcyjną:</p>
+<p><strong>długi wąski kształt</strong> = pewny chwyt jedną ręką;</p>
+<p><strong>złącza naprzeciw siebie</strong> = moduł działa jak przedłu\.zacz</p>
+<p>w linii prostej, kable nie wyginają się ostro kątem prostym;</p>
+<p><strong>zasilanie z centralki przez ISD-02</strong> = zero baterii, zero powerbanku,</p>
+<p>zero szukania gniazda.</p>
+<div class="proj-box proj-box--innovation"><div class="proj-box-title">01  Ergonomia narze</div><div class="proj-box-body"><p>title=01   Ergonomia narzędzia serwisowego: forma podyktowana środowiskiem]</p>
+<p>Ka\.zda decyzja projektowa wynika z analizy miejsca pracy instalatora —</p>
+<p>nie z wygody projektanta:</p>
+<p><strong>Format pendrive'a</strong> (długi, wąski):</p>
+<p>pewny chwyt jedną ręką w ciasnej szafie elektrycznej;</p>
+<p>mo\.zliwość pracy bez odkładania modułu.</p>
+<p><strong>Złącza na przeciwnych ko\'ncach płytki:</strong></p>
+<p>moduł działa jako mechaniczny przedłu\.zacz między centralą</p>
+<p>a kablem USB — brak ostrych zgięć, brak naprę\.zeń</p>
+<p>złączy.</p>
+<p><strong>Zasilanie z centralki (ISD-02):</strong> instalator nie potrzebuje</p>
+<p>ani baterii, ani powerbanku, ani gniazdka sieciowego —</p>
+<p>energia pochodzi wprost z urządzenia serwisowanego.</p>
+<p><strong>Gniazdo EEPROM:</strong> mo\.zliwość wyjcia chipa z centralki</p>
+<p>i pracy offline przy biurku — gdy centralka jest za głęboko</p>
+<p>by wygodnie korzystać z wyświetlacza.</p></div></div>
+<div class="proj-box proj-box--innovation"><div class="proj-box-title">02  Nawigacja binarna DIP-switch: klawiatura bez klawiszy</div><div class="proj-box-body"><p>title=02   Nawigacja binarna DIP-switch: klawiatura bez klawiszy]</p>
+<p>Ka\.zda z funkcji ma unikatowy <strong>binarny adres</strong> na klawiaturze DIP-8</p>
+<p>(np. suwak 1 = hasło Proel, suwaki 3+2+1 = hasło lokatora na \.zywo).</p>
+<p>Suwak 5 = tryb edycji.</p>
+<p>Krótkie naciśnięcie S1 zmienia wartość (0–9),</p>
+<p>długie 3 s przechodzi do kolejnej cyfry.</p>
+<p><strong>Obsługa pełnego EEPROM bez klawiatury alfanumerycznej:</strong></p>
+<p>DIP-8 koduje dowolny bajt (0x00–0xFF) jednocześnie, zero błędów</p>
+<p>literowych sekwencji klawiszy.</p>
+<p>Dwa tryby wyświetlania:</p>
+<p><strong>migający fragment</strong> = aktywna edycja danej pozycji;</p>
+<p><strong>stały</strong> = podgląd bez zmian.</p>
+<p>Potwierdzenie: długie przytrzymanie  komunikat</p>
+<p><code>donE</code>.</p>
+<p><strong>Dwa tryby dostępu do pamięci:</strong></p>
+<p>gniazdo EEPROM (chip offline) lub złącze ISD-02 (centralka</p>
+<p>podłączona, zasilanie z niej).</p></div></div>
+<div class="proj-box proj-box--innovation"><div class="proj-box-title">03  PELP: jednoprzyciski transfer tabeli kodów mie</div><div class="proj-box-body"><p>title=03   PELP: jednoprzyciski transfer tabeli kodów między markami i generacjami]</p>
+<p>Funkcja <strong>PELP</strong> (suwaki 6+5+1) wykonuje pełną migrację</p>
+<p>tabeli kodów lokatorskich:</p>
+<p>centralka Proel CD1803 lub Laskomex CD2000/CD2200 (starsza generacja)</p>
+<p>Laskomex CD2500/CD2501/CD2502/CD3100 (nowsza generacja).</p>
+<p><strong>Jedno naciśnięcie S1:</strong> moduł sprawdza połączenie,</p>
+<p>weryfikuje format \'zródła, konwertuje i wpisuje do docelowej pamięci</p>
+<p>EEPROM — <strong>cały proces bez komputera, bez ręcznego przepisywania</strong>.</p>
+<p>Potencjał biznesowy: wymiana starej centralki na nową w bloku</p>
+<p>mieszkalnym = setki kodów lokatorów do przepisania.</p>
+<p>LX-EMI01 redukuje tę pracę do jednej minuty.</p>
+<p><strong>Znajomość protokołu EEPROM obu producentów od wewnątrz:</strong></p>
+<p>format danych Proel i Laskomex zaimplementowany firmware'owo</p>
+<p>na poziomie adresów pamięci.</p></div></div>
+<div class="proj-box proj-box--innovation"><div class="proj-box-title">04  Architektura zdalnego zarza</div><div class="proj-box-body"><p>title=04   Architektura zdalnego zarządzania: 3-poziomowy dostęp przez sieć]</p>
+<p>W trybie PC moduł staje się transparentnym mostem USB&lt;em class='math'&gt;łeftrightarrow</em>RS232.</p>
+<p>Aplikacja serwerowa <em>,,Serwer Manage Laskomex System''</em> (VB.NET, TCP/IP)</p>
+<p>tworzy trzy poziomy dostępu:</p>
+<p><strong>HQ Laskomex</strong>  TCP/IP</p>
+<p><strong>laptop instalatora</strong>  USB</p>
+<p><strong>LX-EMI01</strong>  ISD-02</p>
+<p><strong>centralka</strong>.</p>
+<p><strong>Demo przed managementem</strong> (lipiec 2018):</p>
+<p>zdalne pobranie tabeli z centralki Proel CD1803, konwersja formatu</p>
+<p>i wgranie do centralki Laskomex — bez fizycznej obecności przy sprzęcie.</p>
+<p>USB Bootloader: aktualizacja firmware modułu w terenie</p>
+<p>bez programatora ISP — wystarczy port USB.</p>
+<p>Topologia analogiczna do współczesnych systemów IoT:</p>
+<p>cloud  gateway  urządzenie ko\'ncowe.</p>
+<p>Zaprojektowana w 2018 r., przed upowszechnieniem się tego wzorca</p>
+<p>w bran\.zy domofonowej.</p></div></div>
+<div class="proj-table-wrap"><table class="proj-table">
+<tbody>
+<tr>
+<th>ATmega (AVR) + BASCOM BASIC; USB Bootloader do aktualizacji w terenie</th>
+</tr>
+<tr>
+<td>gniazdo EEPROM (tryb offline)</td>
+</tr>
+<tr>
+<td>USB-A — transparent bridge do PC</td>
+</tr>
+<tr>
+<td>Proel CD1803; Laskomex CD2000, CD2200, CD2500, CD2501, CD2502, CD3100, CD2600</td>
+</tr>
+<tr>
+<td>VB.NET Windows Forms + TCP/IP (<em>,,Serwer Manage Laskomex System''</em>)</td>
+</tr>
+<tr>
+<td>forma: długi, wąski (pendrive format)</td>
+</tr>
+</tbody></table></div>
+<div class="proj-box proj-box--result"><div class="proj-box-body"><p><strong>Wynik:</strong></p>
+<p>Działający prototyp (5 szt.); ≈2 sprzedane.</p>
+<p>Demo na \.zywo przed managementem Laskomex — zdalna edycja EEPROM</p>
+<p>i konwersja Proel→Laskomex — wzbudziło du\.ze zainteresowanie.</p>
+<p>Projekt został zablokowany przez długoletnich pracowników z powodów</p>
+<p>pozatechnicznych.</p>
+<p><strong>Koncepcja</strong> (ergonomia serwisowa + migracja cross-brand + zdalne</p>
+<p>zarządzanie przez sieć) <strong>pozostaje aktualna</strong>:</p>
+<p>współczesne systemy IoT budują dokładnie taką samą topologię</p>
+<p>i stoją przed identycznym problemem kompatybilności starszych protokolów.</p></div></div>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <p>Artur Flamandzki · <a href="../../index.html">Portfolio R&amp;D</a></p>
+    <nav class="proj-nav-btns">
+      <a href="../p07/" class="lang-btn">← #07</a>
+      <a href="../p09/" class="lang-btn">#09 →</a>
+    </nav>
+  </div>
+</footer>
+
+</body>
+</html>

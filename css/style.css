@@ -403,6 +403,8 @@ tbody td:first-child {
   white-space: nowrap;
 }
 .proj-name   { font-weight: 600; color: var(--navy); display: block; margin-bottom: .15rem; }
+a.proj-link  { text-decoration: none; color: inherit; display: block; }
+a.proj-link:hover .proj-name { color: #2d7dd2; text-decoration: underline; }
 .proj-tech   { font-size: .78rem; color: var(--text-muted); font-family: var(--font-mono); }
 .proj-result { font-size: .85rem; }
 .tag-domain  {

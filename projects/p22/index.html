@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>#22 Inteligentny Dom — Artur Flamandzki</title>
+  <link rel="icon" type="image/svg+xml" href="../../favicon.svg" />
+  <link rel="stylesheet" href="../../css/style.css" />
+  <link rel="stylesheet" href="../../css/project.css" />
+</head>
+<body>
+
+<nav id="navbar" aria-label="Main navigation">
+  <div class="container nav-inner">
+    <a href="../../index.html" class="nav-brand">Artur Flamandzki <span>/ R&amp;D</span></a>
+    <div class="nav-right">
+      <a href="../../index.html#projekty" class="lang-btn" style="text-decoration:none">← Wszystkie projekty</a>
+    </div>
+  </div>
+</nav>
+
+<header class="proj-hero">
+  <div class="container">
+    <div class="proj-hero-tag">PORTFOLIO R&amp;D — PROJEKT #22</div>
+    <h1 class="proj-hero-title">Inteligentny Dom</h1>
+    <p class="proj-hero-sub">Odci</p>
+    
+  </div>
+</header>
+
+<section class="proj-summary"><div class="container"><p>System automatyki domowej zbudowany wokół</strong> jednej zasady:
+    <strong>bezpieczeństwo wynika z architektury, nie z oprogramowania.
+    Brama wjazdowa i garaz mają <strong>całkowicie odcięte zasilanie gdy są zamknięte —
+    \.zaden błąd automatyki, błąd oprogramowania ani cyberatak
+    nie mo\.ze ich otworzyć bez fizycznego przełączenia.
+    Integracja obejmuje równie\.z pobranie harmonogramu odpadów z API miasta,
+    monitoring energii PV i pompy ciepła, symulację obecności
+    i wielowidokowe panele (tablet, telefon).</p></div></section>
+
+<main class="proj-main">
+  <div class="container proj-content">
+    <p>Typowy system smart home polega na przekaXnikach sterowanych programowo.</p>
+<p>Ka\.zda automatyzacja, która mo\.ze otworzyć, mo\.ze równie\.z otworzyć przez błąd.</p>
+<p>Podejście w tym projekcie jest inne: <strong>bramy fizycznie nie mają zasilania</strong> gdy są zamknięte.</p>
+<p>Automatyzacje mogą włączać zasilanie tylko pod warunkiem spełnienia określonych warunków,</p>
+<p>a noc jest <strong>twardą blokadą</strong> — \.zadna automatyzacja nie działa, sterowanie wyłącznie ręczne.</p>
+<div class="proj-box proj-box--innovation"><div class="proj-box-title">01  Odcie</div><div class="proj-box-body"><p>title=01   Odcięcie zasilania — bezpieczeństwo przez architekturę sprzętową]</p>
+<p>Standardowy sposób sterowania bramą: przekaXnik zamyka styk — brama się otwiera.</p>
+<p>Problem: je\.zeli przekaXnik się zaciera, automatyzacja jest błędna lub system zostaje</p>
+<p>zhakowany — brama otwiera się bez zgody u\.zytkownika.</p>
+<p><strong>Rozwiązanie:</strong> zasilanie bramy wjazdowej (<code>switch.brama\_zasilanie</code>)</p>
+<p>i gara\.zu (<code>switch.garaz\_zasilanie\_i\_stan\_stan</code>) jest</p>
+<p><strong>całkowicie odłączone gdy są zamknięte</strong>.</p>
+<p>Mechanizm napędowy nie ma napięcia — przekaXnik relay bypass jest fizycznie niemo\.zliwy.</p>
+<div class="proj-table-wrap"><table class="proj-table">
+<tbody>
+<tr>
+<th><strong>Stan</strong></th>
+<th><strong>Zasilanie</strong></th>
+<th><strong>Działanie</strong></th>
+</tr>
+<tr>
+<td>Brama zamknięta</td>
+<td><strong>wyłączone</strong></td>
+<td>napęd bez napięcia, ruch niemo\.zliwy</td>
+</tr>
+<tr>
+<td>Otwarcie zlecone</td>
+<td>włączenie zasilania</td>
+<td>a następnie wysłanie sygnalu sterowania</td>
+</tr>
+<tr>
+<td>Brama otwarta</td>
+<td>zasilanie aktywne</td>
+<td>monitoring stanu w panelu</td>
+</tr>
+</tbody></table></div>
+<p>Analogiczna architektura dla furtki (<code>switch.furtka\_zasilanie</code>)</p>
+<p>— oddzielny obwód, oddzielna blokada.</p>
+<p>Panel gł'owny (widok tablet) pokazuje kamerę furtki</p>
+<p><strong>tylko wtedy gdy zasilanie jest włączone</strong> (brama otwarta lub dzwonek),</p>
+<p>inaczej kafelek jest ukryty — nie ma błędnych komunikatów o rozlączeniu kamery.</p></div></div>
+<div class="proj-box proj-box--innovation"><div class="proj-box-title">02  Protokół</div><div class="proj-box-body"><p>title=02   Protokół Kuriera — autonomiczny dostęp z oknem czasowym]</p>
+<p>Kiedy kurier dzwoni do bramy w godzinach dozwolonych (np. 8:00–18:00),</p>
+<p>system uruchamia protokół kuriera:</p>
+<ol class="proj-list">
+<li><strong>Dzwonek aktywuje timer</strong>: <code>timer.zamknij\_furtke</code> startuje (np. 3 minuty)</li>
+<li><strong>Furtka otwiera się</strong>: <strong>nie cała brama</strong> — tylko furtka (wicket mode)</li>
+<li><strong>Kamera pojawia się</strong> w panelu salonu: podgląd na \.zywo <code>camera.furtka\_live\_view</code></li>
+<li><strong>Dzwonek na panelu wewnętrznym</strong>: powiadomienie w salonie (<code>binary\_sensor.dzwonek</code>)</li>
+<li>Po upływie timera lub ręcznym potwierdzeniu: <strong>furtka zamyka się automatycznie</strong></li>
+</ol>
+<p>Poza godzinami dozwolonymi: dzwonek tylko sygnalizuje — <strong>nie otwiera nic</strong>.</p>
+<p>Protokół jest całkowicie autonomiczny po konfiguracji — kurier mo\.ze zostawić</p>
+<p>przesyłkę pod drzwiami bez interwencji domowników i bez otwierania całej bramy.</p>
+<p>Warunki brzegowe: je\.zeli brama jest ju\.z otwarta — timer się nie uruchamia.</p>
+<p>Je\.zeli system jest w trybie nocnym — protokół kuriera jest zablokowany.</p></div></div>
+<div class="proj-box proj-box--innovation"><div class="proj-box-title">03  Blokada Nocna — bezpiecze\'n</div><div class="proj-box-body"><p>title=03   Blokada Nocna — bezpieczeństwo ponad wygodą]</p>
+<p>Typowy u\.zytkownik HA zostawia wszystkie automatyzacje aktywne całą dobę.</p>
+<p>Tutaj od określonej godziny nocnej <strong>wszystkie automatyzacje są wyłączane</strong>:</p>
+<div class="proj-table-wrap"><table class="proj-table">
+<tbody>
+<tr>
+<th><strong>Dzień</strong></th>
+<th>wszystkie automatyzacje aktywne</th>
+</tr>
+<tr>
+<td><strong>Noc</strong></td>
+<td>automatyzacje wyłączone — <strong>wyłącznie sterowanie ręczne</strong></td>
+</tr>
+</tbody></table></div>
+<p>Świadoma decyzja projektowa: ą brama mo\.ze otworzyć wyłącznie przez</p>
+<p>fizyczny pilot lub panel dotykowy.</p>
+<p>Wyłączenie automatyzacji uniemo\.zliwia te\.z zdalne otwarcie przez błąd</p>
+<p>oprogramowania lub zewnętrzny trigger.</p>
+<p>Dodatkowy element: <strong>symulacja obecności</strong> (tryb wyjazd wakacyjny) —</p>
+<p>skrypty włączają oświetlenie w ró\.znych pomieszczeniach według</p>
+<p>pseudolosowego harmonogramu, imitując aktywność domowników.</p>
+<p>Oświetlenie gara\.zu włącza się automatycznie przy otwarciu bramy gara\.zowej</p>
+<p>na kilka minut (czas na wyjście i rozpakownie samochodu), po czym gaśnie.</p></div></div>
+<div class="proj-box proj-box--innovation"><div class="proj-box-title">04  Integracja danych miejskich — harmonogram odpadów z API</div><div class="proj-box-body"><p>title=04   Integracja danych miejskich — harmonogram odpadów z API]</p>
+<p>Zamiast ręcznego wpisywania terminów wywozu, system automatycznie pobiera</p>
+<p>dane z serwisu miejskiego i tworzy sensory:</p>
+<div class="proj-table-wrap"><table class="proj-table">
+<tbody>
+<tr>
+<th><strong>Sensor</strong></th>
+<th><strong>Typ odpadu</strong></th>
+</tr>
+<tr>
+<td><code>sensor.odpady\_niesegregowane</code></td>
+<td>odpady zmieszane (czarny poje-mnik)</td>
+</tr>
+<tr>
+<td><code>sensor.odpady\_papier</code></td>
+<td>papier i tektura (niebieski)</td>
+</tr>
+<tr>
+<td><code>sensor.odpady\_plastik</code></td>
+<td>plastik/metal (\.zółty)</td>
+</tr>
+<tr>
+<td><code>sensor.odpady\_szkoło</code></td>
+<td>szkło (zielony)</td>
+</tr>
+<tr>
+<td><code>sensor.odpady\_bio</code></td>
+<td>bio (brązowy)</td>
+</tr>
+</tbody></table></div>
+<p>Dane pobierane są co miesiąc: harmonogram w formacie JSON przechowywany</p>
+<p>w <code>input\_text</code> (po jednym wpisie na miesiąc/typ).</p>
+<p>Automatyzacja rano sprawdza: je\.zeli dziś jest wywóz —</p>
+<p><strong>pojawia się powiadomienie i kafelek w panelu</strong>.</p>
+<p>Osobne sensory dla ka\.zdego typu pozwalają na filtrowanie według</p>
+<p>tego, który pojemnik trafi dzisiaj na ulicę.</p></div></div>
+<div class="proj-box proj-box--innovation"><div class="proj-box-title">05  Monitoring energii i pompy ciepł</div><div class="proj-box-body"><p>title=05   Monitoring energii i pompy ciepła]</p>
+<p>Trzy niezale\.zne obwody pomiarowe zintegrowane w jednym widoku:</p>
+<div class="proj-table-wrap"><table class="proj-table">
+<tbody>
+<tr>
+<th><strong>\'Zródło</strong></th>
+<th><strong>Sensor</strong></th>
+<th><strong>Zastosowanie</strong></th>
+</tr>
+<tr>
+<td>Instalacja PV</td>
+<td><code>sensor.licznik\_pv\_total\_energy</code></td>
+<td>całkowita produkcja [kWh]</td>
+</tr>
+<tr>
+<td>Sieć (pobrór)</td>
+<td><code>sensor.licznik\_energii\_total\_energy</code></td>
+<td>pobrór z sieci</td>
+</tr>
+<tr>
+<td>Komputer</td>
+<td><code>sensor.licznik\_pc\_total\_energy</code></td>
+<td>stacja robocza</td>
+</tr>
+<tr>
+<td>Pompa ciepła</td>
+<td><code>water\_heater.pompa\_ciepla</code></td>
+<td>CWU + sterowanie</td>
+</tr>
+<tr>
+<td>Klimatyzacja</td>
+<td><code>climate.pompa\_ciepla\_zone\_1/2/3</code></td>
+<td>strefy grzewcze</td>
+</tr>
+</tbody></table></div>
+<p>Panel energetyczny wyświetla bilans PV vs. pobór, historię dobowych</p>
+<p>i miesięcznych zu\.zycia oraz stan stref pompowych.</p>
+<p>Strefy pompy ciepła (<code>zone\_1</code>, <code>zone\_2</code>, <code>zone\_3</code>) odpowiadają</p>
+<p>ró\.znym obszarom budynku — mo\.zliwe niezale\.zne ustawianie temperatury</p>
+<p>z poziomu panelu HA lub telefonu.</p>
+<p>Sensory temperatury: salon (<code>sensor.temperatura\_salon</code>),</p>
+<p>zewnętrzna (<code>sensor.temperatura\_zewnetrzna</code>),</p>
+<p>dodatkowe strefy pompy ciepła — wszystkie widoczne w jednym widoku.</p></div></div>
+<div class="proj-box proj-box--result"><div class="proj-box-title">Podsumowanie: system, nie gadget</div><div class="proj-box-body"><p>title=<strong>Podsumowanie: system, nie gadget</strong>]</p>
+<p>Home Assistant jest w tym wdro\.zeniu <strong>platformą integracyjną</strong>, nie zestawem</p>
+<p>gotowych wtyczek.</p>
+<p>Kluczowe decyzje projektowe: odcięcie zasilania zamiast przekaXnika,</p>
+<p>blokada nocna jako świadoma rezygnacja z wygody na rzecz bezpieczeństwa,</p>
+<p>protokół kuriera jako mini-FSM zbudowany z timerów i warunków czasowych.</p>
+<p>Dane zewnętrzne (API miasta) uzupełniają lokalne sensory.</p>
+<p>Projekt jest rozwijany ciągle od 2021 roku — <strong>obecny status: produkcyjny</strong>.</p></div></div>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <p>Artur Flamandzki · <a href="../../index.html">Portfolio R&amp;D</a></p>
+    <nav class="proj-nav-btns">
+      <a href="../p21/" class="lang-btn">← #21</a>
+      
+    </nav>
+  </div>
+</footer>
+
+</body>
+</html>

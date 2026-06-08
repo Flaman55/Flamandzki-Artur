@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>#11 System Pomiaru Czasu — Artur Flamandzki</title>
+  <link rel="icon" type="image/svg+xml" href="../../favicon.svg" />
+  <link rel="stylesheet" href="../../css/style.css" />
+  <link rel="stylesheet" href="../../css/project.css" />
+</head>
+<body>
+
+<nav id="navbar" aria-label="Main navigation">
+  <div class="container nav-inner">
+    <a href="../../index.html" class="nav-brand">Artur Flamandzki <span>/ R&amp;D</span></a>
+    <div class="nav-right">
+      <a href="../../index.html#projekty" class="lang-btn" style="text-decoration:none">← Wszystkie projekty</a>
+    </div>
+  </div>
+</nav>
+
+<header class="proj-hero">
+  <div class="container">
+    <div class="proj-hero-tag">PORTFOLIO R&amp;D — PROJEKT #11</div>
+    <h1 class="proj-hero-title">System Pomiaru Czasu</h1>
+    <p class="proj-hero-sub">rozproszony system timing dla zawodów samochodowych —\\</p>
+    <p class="proj-hero-date">2011</p>
+  </div>
+</header>
+
+<section class="proj-summary"><div class="container"><p>Zlecenie od AutoMobilClub Ł</strong>ódzki: system elektroniczny do pomiaru czasu
+    na zawodach samochodowych.
+    Wymagania: start ze światłami (5 czerwonych + zielone),
+    pomiar czasu przejazdu z dokładnością 0,01 s,
+    pomiar czasu reakcji kierowcy z dokładnością 0,001 s,
+    detekcja falstartu, współpraca z chronometrem i komputerem przez RS232.
+    Serce: ATtiny2313 z 2 KB pamięci flash — praktycznie całkowicie
+    zapelnionej.</p></div></section>
+
+<main class="proj-main">
+  <div class="container proj-content">
+    <p>Rok 2011, przed studiami.</p>
+<p>AutoMobilClub Łódzki potrzebuje własnego systemu do pomiaru czasu</p>
+<p>na zawodach.</p>
+<p>Wymagania rosną w trakcie projektu: zaczyna się</p>
+<p>od prostego sterownika fotokomórki + chronometr,</p>
+<p>a ko\'nczy na rozproszonym systemie z komputerem, światłami startowymi</p>
+<p>i pomiarem czasu reakcji kierowcy.</p>
+<p>Dwie pełne iteracje oprogramowania, ka\.zda</p>
+<p>opisana na Elektroda.pl.</p>
+<p>Architektura docelowa: trzy węzły połączone przez RS232:</p>
+<p>(1) sterownik główny (ATtiny2313, ``KZK'') —</p>
+<p>pomiar czasu, obsługa fotokomórki i przycisku,</p>
+<p>wyjście do chronometru i komputera;</p>
+<p>(2) sterownik świateł startowych (ATtiny2313) —</p>
+<p>sekwencja LED sterowana przez RS232;</p>
+<p>(3) PC lub chronometr jako terminal.</p>
+<div class="proj-box proj-box--innovation"><div class="proj-box-body"><p>title=01   Dwa niezale\.zne timery w jednym ISR:</p>
+<p>czas przejazdu + czas reakcji jednocześnie]</p>
+<p>Timer1 z preskalerem 64 i reload <code>65411</code></p>
+<p>(przy &lt;em class='math'&gt;f_osc = 8,textMHz</em> daje dokładnie <strong>1 ms</strong>/tyknięcie).</p>
+<p>Jedno przerwanie przepełnienia obsługuje dwa niezale\.zne liczniki:</p>
+<p><strong>Czas przejazdu</strong> (<code>Licz</code> = 1): <code>1ms → 10ms → 1s → 1min</code>.</p>
+<p>Dokładność 10 ms (0,01 s).</p>
+<p><strong>Czas reakcji</strong> (<code>Licz\_reakcje</code> = 1):</p>
+<p><code>Czas\_reakcji\_1ms → 10ms → 1s</code>.</p>
+<p>Dokładność 1 ms (0,001 s).</p>
+<p>Oba liczniki startują w ró\.znych momentach:</p>
+<p>czas reakcji startuje przy zapaleniu zielonego światła,</p>
+<p>czas przejazdu — przy przerwaniu bariery startowej.</p>
+<p>Dzięki niezale\.znym bitom <code>Licz</code>/<code>Licz\_reakcje</code></p>
+<p>mogą działać jednocześnie lub niezale\.znie</p>
+<p>bez dodatkowego sprzętu.</p></div></div>
+<div class="proj-box proj-box--innovation"><div class="proj-box-title">02  Detekcja falstartu: bit Falstart</div><div class="proj-box-body"><p>title=02   Detekcja falstartu: bit <code>Falstart</code> w sekwencji świateł]</p>
+<p>Podczas sekwencji świateł startowych (5 czerwonych, odstęp 750 ms ka\.zde)</p>
+<p>sterownik monitoruje fotokomórkę startową.</p>
+<p>Jeśli bariera zostanie przerwana przed zapaleniem zielonego światła</p>
+<p>— ustawiany jest bit <code>Falstart</code>.</p>
+<p>Bit nie zatrzymuje bie\.zącego pomiaru — przełjazd jest kontynuowany.</p>
+<p>Dopiero po zatrzymaniu czasu na mecie wynik jest wyświetlany</p>
+<p>z dodatkową informacją <code>FALSTART</code>.</p>
+<p>Decyzja o wykluczeniu nale\.zy do sędziów,</p>
+<p>elektronika tylko rejestruje fakt.</p>
+<p>Implementacja: jedna linia warunkowa w pętli sekwencji świateł,</p>
+<p>bez dodatkowej zmiennej stanu, bez przerwania sekwencji.</p></div></div>
+<div class="proj-box proj-box--innovation"><div class="proj-box-title">03  Watchdog reset jako optymalizacja pamie</div><div class="proj-box-body"><p>title=03   Watchdog reset jako optymalizacja pamięci:</p>
+<p>wrót do początku bez <code>Goto</code>]</p>
+<p>ATtiny2313 ma 2 KB pamięci flash.</p>
+<p>Sterownik miał ją <strong>praktycznie całkowicie zapelnioną</strong>.</p>
+<p>Problem: po zako\'nczeniu pomiaru program powinien wrócić do początku</p>
+<p>i przygotować się na następnego zawodnika.</p>
+<p>Standardowe podejście (<code>Goto Poczatek\_programu</code>) wymagaję</p>
+<p>ponownej inicjalizacji wszystkich zmiennych.</p>
+<p>Alternatywa: <strong><code>Start Watchdog</code></strong> — włączenie watchdoga</p>
+<p>który po upływie czasu (ok. 16 ms) resetuje cały mikrokontroler.</p>
+<p>Reset sprzętowy zeruje wszystkie rejestry i pamięć RAM</p>
+<p>dokładniej ni\.z inicjalizacja programowa.</p>
+<p>Efekt uboczny: ście\.zka ``zako\'nczenie pomiaru''</p>
+<p>jest <strong>ślepą uliczką</strong> — po wyświetleniu wyniku</p>
+<p>program <em>czeka</em> na reset, zamiast wr\'acać do głównej pętli.</p>
+<p>Kilkanaście bajtów flash zaoszczędzone na skoku i inicjalizacji.</p></div></div>
+<div class="proj-box proj-box--innovation"><div class="proj-box-title">04  Dwa wyjścia RS232 (Print \#1</div><div class="proj-box-body"><p>title=04   Dwa wyjścia RS232 (<code>Print \#1</code> / <code>Print \#2</code>):</p>
+<p>synchroniczne sterowanie dwoma światłami]</p>
+<p>Do sterownika mo\.zna podłączyć dwa komplety świateł startowych</p>
+<p>(jeden po ka\.zdej stronie toru).</p>
+<p>ATtiny2313 ma jeden sprzętowy UART,</p>
+<p>drugi port szeregowy zaimplementowany na Portb (software UART przez BASCOM).</p>
+<p>Sekwencja świateł wysyłana jednocześnie na oba porty:</p>
+<p><code>Print \#1 , Chr(i) : Print \#2 , Chr(i)</code>.</p>
+<p>Kodowanie sekwencji bitowej: <code>1 → 2 → 4 → 8 → 16</code></p>
+<p>(kolejne bity portu B sterownika świateł) z odstępem 750 ms.</p>
+<p>Po zako\'nczeniu przebiegu: <code>Chr(0)</code> wygasza wszystkie diody.</p></div></div>
+<div class="proj-box proj-box--innovation"><div class="proj-box-title">05  Ewolucja systemu: V1 $$ V2 w odpowiedzi na wymagania</div><div class="proj-box-body"><p>title=05   Ewolucja systemu: V1 → V2 w odpowiedzi na wymagania]</p>
+<p><strong>Wersja 1 (KZK V1.1):</strong> sterownik fotokomórki + chronometr.</p>
+<p>Przycisk start/stop, dwie diody (zielona/czerwona), dwa wyjścia do chronometru.</p>
+<p>Bez świateł, bez komputera, bez pomiaru czasu reakcji.</p>
+<p><strong>Wersja 2 (finalna):</strong> pełny system.</p>
+<p>Dwa tryby pracy:</p>
+<p><strong>Tryb autonomiczny (z chronometrem):</strong></p>
+<p>sterownik wysyła impulsy do chronometru przez dedykowane piny</p>
+<p>(<code>Chrono\_start</code>/<code>Chrono\_meta</code>).</p>
+<p>Nie wymaga komputera.</p>
+<p><strong>Tryb komputerowy:</strong></p>
+<p>sterownik sam mierzy czas i wysyła wyniki przez RS232.</p>
+<p>Numer zawodnika wpisywany z klawiatury, wyniki wyświetlane w terminalu.</p>
+<p>Format: <code>czas: MM:SS.dd; czas reakcji: S.mmm [FALSTART]</code>.</p>
+<p>Rozbudowa ``nieplanowana'' (jak pisze autor na Elektroda.pl) —</p>
+<p>wymagania rosły wraz z mo\.zliwościami sprzętu.</p></div></div>
+<div class="proj-table-wrap"><table class="proj-table">
+<tbody>
+<tr>
+<th>ATtiny2313, 8 MHz, 2 KB flash (zapelniona), BASCOM BASIC</th>
+</tr>
+<tr>
+<td>ATtiny2313 (osobny sterownik), RS232, sekwencja bitowa 1/2/4/8/16</td>
+</tr>
+<tr>
+<td>Timer1, prescaler 64, reload <code>65411</code> → 1 ms/tick</td>
+</tr>
+<tr>
+<td>Czas przejazdu: 0,01 s  |  Czas reakcji: 0,001 s</td>
+</tr>
+<tr>
+<td>2× wyjście do świateł</td>
+</tr>
+<tr>
+<td>Detekcja falstartu, dwa tryby pracy, auto-reset przez Watchdog</td>
+</tr>
+<tr>
+<td>KZK V1.1 → V2.0 (finalna); światła V1.0 → V2.0 → V3.0</td>
+</tr>
+<tr>
+<td>Projekt \#05: Sygnalizator Startowy DELFI Racing RT1/RT2 (2012)</td>
+</tr>
+</tbody></table></div>
+<div class="proj-box proj-box--result"><div class="proj-box-body"><p><strong>Wynik:</strong></p>
+<p>System dostarczony i u\.zywany przez AutoMobilClub Łódzki.</p>
+<p>Projekt udokumentowany na Elektroda.pl w dwóch iteracjach</p>
+<p>jako przykład ewolucji systemu embedded pod wpływem</p>
+<p>rosnących wymaga\'n.</p>
+<p>Kluczowe odkrycie: 2313 przy pełnej pamięci</p>
+<p>wymusza niekonwencjonalne podejścia —</p>
+<p>Watchdog reset zamiast petli inicjalizacyjnej to nie hack,</p>
+<p>to in\.zynierska decyzja przy twardym ograniczeniu zasobowym.</p>
+<p>Doświadczenie z tego projektu bezpośrednio przeło\.zyło się</p>
+<p>na projekt \#05 (Sygnalizator Startowy DELFI Racing RT1/RT2),</p>
+<p>gdzie architektura systemów timing była ju\.z</p>
+<p>projektowana od początku z myślą o rozszerzalności.</p></div></div>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <p>Artur Flamandzki · <a href="../../index.html">Portfolio R&amp;D</a></p>
+    <nav class="proj-nav-btns">
+      <a href="../p10/" class="lang-btn">← #10</a>
+      <a href="../p12/" class="lang-btn">#12 →</a>
+    </nav>
+  </div>
+</footer>
+
+</body>
+</html>

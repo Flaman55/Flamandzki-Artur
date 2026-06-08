@@ -1,0 +1,211 @@
+/* ═══════════════════════════════════════════════════════════════
+   project.css — styles for individual project detail pages
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ── Hero ────────────────────────────────────────────────────── */
+.proj-hero {
+  background: var(--navy);
+  color: #fff;
+  padding: 5rem 0 3rem;
+  margin-top: var(--nav-h);
+}
+.proj-hero-tag {
+  font-size: .75rem;
+  font-weight: 700;
+  letter-spacing: .1em;
+  color: #C9A84C;
+  text-transform: uppercase;
+  margin-bottom: .75rem;
+}
+.proj-hero-title {
+  font-size: clamp(1.6rem, 4vw, 2.8rem);
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: .6rem;
+  color: #fff;
+}
+.proj-hero-sub {
+  font-size: 1.05rem;
+  color: #a8c8e8;
+  margin-bottom: .4rem;
+}
+.proj-hero-date {
+  font-size: .9rem;
+  color: #C9A84C;
+  font-style: italic;
+}
+
+/* ── Summary banner ──────────────────────────────────────────── */
+.proj-summary {
+  background: #1e3a5f;
+  border-left: 4px solid #C9A84C;
+  padding: 1.5rem 0;
+}
+.proj-summary p {
+  color: #d0e4f4;
+  font-size: .97rem;
+  line-height: 1.7;
+  margin: 0;
+}
+
+/* ── Main content area ───────────────────────────────────────── */
+.proj-main {
+  padding: 3rem 0 4rem;
+}
+.proj-content {
+  max-width: 860px;
+}
+.proj-content p {
+  line-height: 1.75;
+  margin-bottom: 1rem;
+  color: var(--text);
+}
+
+/* ── Section headings ────────────────────────────────────────── */
+.proj-section {
+  color: var(--navy);
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin: 2.5rem 0 1rem;
+  padding-bottom: .35rem;
+  border-bottom: 2px solid var(--navy-light);
+}
+.proj-subsection {
+  color: var(--navy);
+  font-size: 1.05rem;
+  font-weight: 600;
+  margin: 1.8rem 0 .7rem;
+}
+
+/* ── Innovation box ──────────────────────────────────────────── */
+.proj-box {
+  border-radius: 6px;
+  margin: 1.5rem 0;
+  overflow: hidden;
+}
+.proj-box-title {
+  font-size: .85rem;
+  font-weight: 700;
+  padding: .6rem 1rem;
+  letter-spacing: .01em;
+}
+.proj-box-body {
+  padding: 1rem 1.2rem;
+  font-size: .93rem;
+  line-height: 1.7;
+}
+.proj-box-body p { margin-bottom: .75rem; }
+.proj-box-body p:last-child { margin-bottom: 0; }
+.proj-box-body ul { margin: .5rem 0 .75rem 1.2rem; }
+.proj-box-body li { margin-bottom: .35rem; }
+
+/* Innovation style — blue */
+.proj-box--innovation {
+  border: 1px solid #2d7dd2;
+  background: var(--surface);
+}
+.proj-box--innovation .proj-box-title {
+  background: var(--navy);
+  color: #fff;
+}
+
+/* Result style — green */
+.proj-box--result {
+  border: 1.5px solid #28a745;
+  background: #f0faf3;
+}
+.proj-box--result .proj-box-title {
+  background: #28a745;
+  color: #fff;
+}
+
+/* Note style — light blue */
+.proj-box--note {
+  border: 1px solid #2d7dd2;
+  background: #e8f2fb;
+}
+.proj-box--note .proj-box-title {
+  background: #d0e4f4;
+  color: var(--navy);
+}
+
+/* ── Code block ──────────────────────────────────────────────── */
+.proj-code {
+  background: #1E2533;
+  color: #A8D8A8;
+  font-family: 'Consolas', 'Courier New', monospace;
+  font-size: .82rem;
+  line-height: 1.55;
+  padding: 1.1rem 1.3rem;
+  border-radius: 5px;
+  overflow-x: auto;
+  margin: 1.2rem 0;
+  white-space: pre;
+}
+.proj-code code { background: none; padding: 0; color: inherit; }
+
+/* ── Figure / image ──────────────────────────────────────────── */
+.proj-figure {
+  margin: 1.5rem 0;
+  text-align: center;
+}
+.proj-figure img {
+  max-width: 100%;
+  border-radius: 4px;
+  box-shadow: 0 2px 12px rgba(0,0,0,.12);
+}
+
+/* ── Table ───────────────────────────────────────────────────── */
+.proj-table-wrap {
+  overflow-x: auto;
+  margin: 1.2rem 0;
+}
+.proj-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: .88rem;
+}
+.proj-table th {
+  background: var(--navy);
+  color: #fff;
+  font-weight: 600;
+  padding: .55rem .8rem;
+  text-align: left;
+}
+.proj-table td {
+  padding: .5rem .8rem;
+  border-bottom: 1px solid var(--border);
+  vertical-align: top;
+  line-height: 1.55;
+}
+.proj-table tr:nth-child(even) td { background: var(--surface); }
+
+/* ── List ────────────────────────────────────────────────────── */
+.proj-list {
+  padding-left: 1.4rem;
+  margin: .6rem 0 1rem;
+}
+.proj-list li {
+  margin-bottom: .45rem;
+  line-height: 1.65;
+}
+
+/* ── math inline ─────────────────────────────────────────────── */
+em.math {
+  font-style: italic;
+  font-family: 'Georgia', serif;
+}
+
+/* ── Footer nav ──────────────────────────────────────────────── */
+.proj-nav-btns {
+  display: flex;
+  gap: .75rem;
+  flex-wrap: wrap;
+  margin-top: .5rem;
+}
+
+/* ── Dark mode adjustments ───────────────────────────────────── */
+@media (prefers-color-scheme: dark) {
+  .proj-box--result { background: #0d2a14; }
+  .proj-box--note   { background: #0d1e2e; }
+}

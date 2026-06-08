@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>#12 Konwerter USB-RS232 — Artur Flamandzki</title>
+  <link rel="icon" type="image/svg+xml" href="../../favicon.svg" />
+  <link rel="stylesheet" href="../../css/style.css" />
+  <link rel="stylesheet" href="../../css/project.css" />
+</head>
+<body>
+
+<nav id="navbar" aria-label="Main navigation">
+  <div class="container nav-inner">
+    <a href="../../index.html" class="nav-brand">Artur Flamandzki <span>/ R&amp;D</span></a>
+    <div class="nav-right">
+      <a href="../../index.html#projekty" class="lang-btn" style="text-decoration:none">← Wszystkie projekty</a>
+    </div>
+  </div>
+</nav>
+
+<header class="proj-hero">
+  <div class="container">
+    <div class="proj-hero-tag">PORTFOLIO R&amp;D — PROJEKT #12</div>
+    <h1 class="proj-hero-title">Konwerter USB-RS232</h1>
+    <p class="proj-hero-sub">kompaktowa pł{</p>
+    <p class="proj-hero-date">2015</p>
+  </div>
+</header>
+
+<section class="proj-summary"><div class="container"><p>Sterownik Pieca (projekt \#01) potrzebował</strong> interfejsu PC.
+    Płytka z METAL-TECHNIK miała UART TTL — potrzebny był
+    konwerter do RS232 i USB.
+    Gotowe moduły: drogie, za du\.ze, bez potrzebnych sygnałów
+    handshake.
+    Rozwiązanie: zaprojektować własną płytkę
+    od zera w Eagle.
+    Efekt: kompaktowy konwerter z trzema interfejsami jednocześnie,
+    pełnym handshake RS232, wybieranym napięciem logiki —
+    i pełnym kompletem Gerberów gotowym do zamowienia produkcji.</p></div></section>
+
+<main class="proj-main">
+  <div class="container proj-content">
+    <p>Projekt METAL-TECHNIK (poprzednik sterownika pieca) był pierwszym projektem</p>
+<p>w Eagle — ale tylko schemat ideowy, bez layoutu PCB.</p>
+<p>Do 2015 roku autor opanował cały przepływ: schemat</p>
+<p>→ layout → Gerbery.</p>
+<p>Konwerter USB-RS232 jest pierwszym projektem gdzie pełny</p>
+<p>cykl produkcyjny — od idei do plików gotowych do wysyłki</p>
+<p>do producenta płytek — był wykonany samodzielnie.</p>
+<p>Jednocześnie: projekt odpowiada na realną potrzebę.</p>
+<p>W pracy z mikrokontrolerami embedded potrzeba jest zawsze ta sama —</p>
+<p>połączyć MCU z komputerem, mieć pełny handshake,</p>
+<p>wybrać poziom logiki, mieć świateczka TX/RX.</p>
+<p>Gotowe moduły z Aliexpress nie mają RS232 i USB jednocześnie,</p>
+<p>nie mają pełnego handshake, nie mają wybieralnego napięcia.</p>
+<p>Ta płytka ma wszystko.</p>
+<div class="proj-box proj-box--innovation"><div class="proj-box-title">01  Trzy interfejsy jednocześnie na jednej pł</div><div class="proj-box-body"><p>title=01   Trzy interfejsy jednocześnie na jednej płytce 48×31 mm]</p>
+<p>Standardowe konwertery USB-RS232 mają jeden interfejs wyjściowy.</p>
+<p>Ta płytka udostępnia trzy niezale\.znie:</p>
+<p><strong>USB</strong> (Mini-USB, FT232RL): wirtualny port COM dla komputera,</p>
+<p>zasilanie płytki z USB — bez zewnętrznego zasilacza.</p>
+<p><strong>RS232</strong> (DB9 \.zenska, MAX3243UI): pełne poziomy RS232</p>
+<p>(&lt;em class='math'&gt;pm12,textV</em>), kompatybilne z przemysłowymi urządzeniami,</p>
+<p>starszymi PC, sterownikami PLC.</p>
+<p><strong>TTL UART 5V/3V3</strong> (złącze IDC 10): bezpośrednie</p>
+<p>podłączenie do MCU bez \.zadnych dodatkowych elementów.</p>
+<p>Sygnały: <code>RXD, TXD, RTS\#, CTS\#, DTR\#, DSR\#, DCD\#, RI\#, GND, VCC</code>.</p>
+<p>Zastosowanie: jeden kabel USB do komputera —</p>
+<p>MCU i urządzenie RS232 połączone jednocześnie.</p></div></div>
+<div class="proj-box proj-box--innovation"><div class="proj-box-title">02  Peł</div><div class="proj-box-body"><p>title=02   Pełny handshake RS232: wszystkie 8 sygnałów kontrolnych]</p>
+<p>Typowe tanie konwertery USB-RS232 wystawiają tylko <code>TXD</code></p>
+<p>i <code>RXD</code>.</p>
+<p>Ta płytka udostępnia pełny zestaw na złączu IDC:</p></div></div>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <p>Artur Flamandzki · <a href="../../index.html">Portfolio R&amp;D</a></p>
+    <nav class="proj-nav-btns">
+      <a href="../p11/" class="lang-btn">← #11</a>
+      <a href="../p13/" class="lang-btn">#13 →</a>
+    </nav>
+  </div>
+</footer>
+
+</body>
+</html>

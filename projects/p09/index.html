@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>#09 Algorytm dzielników — Artur Flamandzki</title>
+  <link rel="icon" type="image/svg+xml" href="../../favicon.svg" />
+  <link rel="stylesheet" href="../../css/style.css" />
+  <link rel="stylesheet" href="../../css/project.css" />
+</head>
+<body>
+
+<nav id="navbar" aria-label="Main navigation">
+  <div class="container nav-inner">
+    <a href="../../index.html" class="nav-brand">Artur Flamandzki <span>/ R&amp;D</span></a>
+    <div class="nav-right">
+      <a href="../../index.html#projekty" class="lang-btn" style="text-decoration:none">← Wszystkie projekty</a>
+    </div>
+  </div>
+</nav>
+
+<header class="proj-hero">
+  <div class="container">
+    <div class="proj-hero-tag">PORTFOLIO R&amp;D — PROJEKT #09</div>
+    <h1 class="proj-hero-title">Algorytm dzielników</h1>
+    <p class="proj-hero-sub">od zadania algorytmicznego do samodzielnego wyprowadzenia wzoru matematycznego —\\</p>
+    <p class="proj-hero-date">2013</p>
+  </div>
+</header>
+
+<section class="proj-summary"><div class="container"><p>Zadanie: znale\'z\'c</strong> liczbę posiadającą dokładnie 500 dzielników.
+    Platforma: ATmega8, 1 MHz, BASCOM BASIC.
+    W trakcie rozwiązywania problemu autor wyprowadził empirycznie
+    znany w teorii liczb wzor na minimalizację liczby z podaną
+    liczbą dzielników oraz opracował czterosciezkówy algorytm
+    zliczania dzielników znacznie szybszy od konwencjonalnego.
+    Projekt stał się bezpośrednią przyczyną podjęcia
+    studiów — finansowanych przez właściciela Laskomex.</p></div></section>
+
+<main class="proj-main">
+  <div class="container proj-content">
+    <p>Rok 2013. Artur uczestniczy jako wolny słuchacz w zajęciach z programowania</p>
+<p>(jego dziewczyna, dziś \.zona, była studentką).</p>
+<p>Wykładowca rzuca algorytmiczne zadanie:</p>
+<p><strong>znale\'zć liczbę, która ma dokładnie 500 dzielników.</strong></p>
+<p>Nie kalkulator, nie Python — <strong>ATmega8 z 1 MHz zegarem i 2 KB RAM</strong>,</p>
+<p>język BASCOM BASIC.</p>
+<p>Wymaganie samo w sobie zmusza do optymalizacji:</p>
+<p>brute-force musi sko\'nczyć się w rozsadnym czasie</p>
+<p>na 8-bitowym mikrokontrolerem.</p>
+<p>To co nastąpiło nie było jednak tylko zaimplementowaniem algorytmu —</p>
+<p>było <strong>samodzielnym odkryciem matematyki</strong> która ta dekompozycja</p>
+<p>ukrywa.</p>
+<div class="proj-box proj-box--innovation"><div class="proj-box-title">01  Czteroście\.zkowy algorytm zliczania dzielników: $O(N)  O(N</div><div class="proj-box-body"><p>title=01   Czteroście\.zkowy algorytm zliczania dzielników: &lt;em class='math'&gt;O(N) to O(sqrtN)</em>]</p>
+<p>Konwencjonalna metoda sprawdza wszystkie liczby od 1 do &lt;em class='math'&gt;N</em>.</p>
+<p>Dla &lt;em class='math'&gt;N=240</em> to 240 dziela\'n modulo.</p>
+<p>Autor odkrył, \.ze dzielniki zawsze występują w parach</p>
+<p>&lt;em class='math'&gt;(d,; N/d)</em> i wystarczy szukać do &lt;em class='math'&gt;sqrtN</em>:</p>
+<p>dla &lt;em class='math'&gt;N=240</em> tylko pierwsze <strong>16 liczb zamiast 240</strong></p>
+<p>(oszczędność: &lt;em class='math'&gt;93,3%</em> operacji).</p>
+<p>Ale algorytm ma cztery osobne ście\.zki:</p>
+<p><strong>Liczby z parzystą liczbą dzielników</strong> (ogólny przypadek):</p>
+<p>ka\.zdy dzielnik &lt;em class='math'&gt;d &lt; sqrtN</em> wyznacza parę &lt;em class='math'&gt;(d,;N/d)</em>;</p>
+<p>licznik rośnie po dwa.</p>
+<p><strong>Kwadraty idealne</strong> (nieparzysta liczba dzielników, np. &lt;em class='math'&gt;N=16</em>):</p>
+<p>środkowy dzielnik &lt;em class='math'&gt;sqrtN</em> liczy się raz;</p>
+<p>algorytm musi wykryć moment kiedy &lt;em class='math'&gt;d^2 = N</em> i dodać tylko jeden.</p>
+<p><strong>Iloczyn dwóch liczb pierwszych</strong> (dokładnie 4 dzielniki,</p>
+<p>np. &lt;em class='math'&gt;N=1527=3times509</em>):</p>
+<p>po wyznaczeniu pierwszego dzielnika 3, nie sprawdzamy</p>
+<p>wszystkich do 1527 — program weryfikuje czy &lt;em class='math'&gt;509</em> jest piersze</p>
+<p>(sprawdza do &lt;em class='math'&gt;sqrt509approx23</em>), ko\'ncząc po przebadaniu</p>
+<p><strong>63 liczb zamiast 1527</strong>.</p>
+<p><strong>Liczby pierwsze:</strong> sprawdzenie do &lt;em class='math'&gt;sqrtN</em>;</p>
+<p>jeśli liczba dzielników wynosi 2 — koniec.</p></div></div>
+<div class="proj-box proj-box--innovation"><div class="proj-box-title">02  Samodzielne wyprowadzenie wzoru: minimalna liczba z $D$ dzielnikami</div><div class="proj-box-body"><p>title=02   Samodzielne wyprowadzenie wzoru: minimalna liczba z &lt;em class='math'&gt;D</em> dzielnikami]</p>
+<p>Wzór w teorii liczb: liczba dzielników &lt;em class='math'&gt;tau(n) = prod_i (a_i+1)</em></p>
+<p>dla &lt;em class='math'&gt;n = prod_i p_i^a_i</em>.</p>
+<p>Znając &lt;em class='math'&gt;D</em>, mo\.zna skonstruować <strong>najmniejszą</strong> liczbę</p>
+<p>posiadającą dokładnie &lt;em class='math'&gt;D</em> dzielników bez brute-force.</p>
+<p>Algorytm:</p>
+<ol class="proj-list">
+</ul>
+<p>1pt</p>
+<ul class="proj-list">
+<li>Rozłó\.z &lt;em class='math'&gt;D</em> na czynniki pierwsze (w malejącej kolejności).</li>
+<li>Ka\.zdy czynnik &lt;em class='math'&gt;f_i</em> odpowiada wykładnikowi &lt;em class='math'&gt;a_i = f_i - 1</em>.</li>
+<li>Przypisz wykładniki (malejaco) do kolejnych liczb pierwszych (rosnąco).</li>
+</ol>
+<p>Przykład dla &lt;em class='math'&gt;D = 500</em>:</p>
+<p>&lt;em class='math'&gt;500 = 5 times 5 times 5 times 2 times 2</em>,</p>
+<p>wykładniki &lt;em class='math'&gt;[4,4,4,1,1]</em>, przypisane do &lt;em class='math'&gt;[2,3,5,7,11]</em>:</p>
+<p>W = 2^4  3^4  5^4  7^1  11^1</p>
+<p>= 16  81  625  7  11</p>
+<p>= 62 370 000</p>
+<p>(W) = 55522 = 500</p>
+<p>Autor wyprowadził ten wzor <strong>empirycznie, bez dostępu do literatury</strong>,</p>
+<p>implementując go jako podprogram <code>Wyznacz</code> w BASCOM BASIC</p>
+<p>z tablicą liczb pierwszych <code>[2,3,5,7,11,13,17,19,23,29,31,37]</code>.</p>
+<p>To klasyczny wynik teorii liczb, tu odkryty od nowa przez eksperyment</p>
+<p>obliczeniowy.</p></div></div>
+<div class="proj-box proj-box--innovation"><div class="proj-box-title">03  Implementacja na ATmega8: precyzja pomiaru jako dowód poprawności</div><div class="proj-box-body"><p>title=03   Implementacja na ATmega8: precyzja pomiaru jako dowód poprawności]</p>
+<p>Ograniczenia sprzętowe wymusiły konkretne decyzje in\.zynierskie:</p>
+<p><strong>Zegar precyzji 10 ms</strong> (Timer1, prescaler 8):</p>
+<p>dwa niezale\.zne liczniki czasu — jeden dla głównego szukania</p>
+<p>(&lt;em class='math'&gt;mathttPomiar1</em>), drugi dla podprogramu <code>Wyznacz</code> (&lt;em class='math'&gt;mathttPomiar2</em>).</p>
+<p>Wynik na wyświetlaczu LCD: <code>HH:MM:SS,100ms 10ms</code>.</p>
+<p><strong>Porównanie z konwencjonalną zasadą:</strong></p>
+<p>osobny plik <code>konwencjonalna zasada.bas</code> — brute-force &lt;em class='math'&gt;O(N)</em></p>
+<p>jako punkt odniesienia. Wyniki czasu na tej samej platformie</p>
+<p>stanowią empiryczny dowód przyspieszenia.</p>
+<p><strong>Limit 32-bit:</strong> liczba z 860 dzielnikami wynosi</p>
+<p>&lt;em class='math'&gt;4,156,153,952,993,280</em> — poza zakresem <code>DWORD</code> na AVR.</p>
+<p>Odkrycie granicy sprzętowej stało się naturalnym zakresem projektu.</p>
+<p><strong>Historia wersji:</strong> V1.0  V1.34  V2.0</p>
+<p>— ka\.zda iteracja to nowa optymalizacja algorytmu</p>
+<p>potwierdzona pomiarami czasu na sprzęcie.</p></div></div>
+<div class="proj-box proj-box--innovation"><div class="proj-box-title">04  Narze</div><div class="proj-box-body"><p>title=04   Narzędzie PC: <code>calcLiczbaDzielnikow</code> —</p>
+<p>C\# weryfikator algorytmu z tablicą liczb pierwszych]</p>
+<p>Po odkryciu granicy 32-bitowej na ATmega autor przeniósł algorytm</p>
+<p>na PC jako aplikację C\#.</p>
+<p>Cel: weryfikacja wyników poza zasiegiem <code>DWORD</code> oraz porównanie</p>
+<p>z wynikami mikrokontrolera.</p>
+<p><strong>Tablica liczb pierwszych (do &lt;em class='math'&gt;approx 3797</em>)</strong> wbudowana</p>
+<p>bezpośrednio w kod (identyczne podejście jak w BASCOM) —</p>
+<p>nie obliczana w locie, co eliminuje koszt Sieve of Eratosthenes.</p>
+<p><strong>Metoda <code>BascomWyznacz()</code></strong> — wierne odwzorowanie</p>
+<p>podprogramu <code>Wyznacz</code> z wersji BASCOM:</p>
+<p>ten sam algorytm dekompozycji &lt;em class='math'&gt;D</em> na czynniki, ta sama kolejność</p>
+<p>przypisania wykładników do liczb pierwszych.</p>
+<p>U\.zywa <code>ulong</code> (64 bity), co 4-krotnie rozszerza zakres względem AVR.</p>
+<p><strong>Rekurencyjne <code>WyznaczLiczbe()</code> i <code>WyznaczDzielniki()</code></strong> —</p>
+<p>rozkład &lt;em class='math'&gt;W</em> na czynniki pierwsze jako weryfikacja odwrotna:</p>
+<p>dla wyznaczonej liczby &lt;em class='math'&gt;W</em> program sprawdza czy &lt;em class='math'&gt;tau(W) = D</em>.</p>
+<p>Zastosowanie: potwierdzenie poprawności wyników AVR</p>
+<p>oraz obliczenie &lt;em class='math'&gt;W</em> dla &lt;em class='math'&gt;D &gt; 860</em>, gdzie &lt;em class='math'&gt;W gg 2^32</em>.</p></div></div>
+<div class="proj-box proj-box--innovation"><div class="proj-box-title">05  Narze</div><div class="proj-box-body"><p>title=05   Narzędzie PC: <code>BigInteger</code>/<code>makeclass</code> —</p>
+<p>arytmetyka wieloprecyzyjna dla &lt;em class='math'&gt;W &gt; 2^32</em>]</p>
+<p>Liczby z du\.zą liczbą dzielników szybko przekraczają</p>
+<p>32-bitowy zakres — np. dla &lt;em class='math'&gt;D=860</em> wynik wynosi</p>
+<p>&lt;em class='math'&gt;4,156,153,952,993,280 approx 4,2 times 10^15</em>, poza <code>DWORD</code>.</p>
+<p>Autor zaimplementował własną bibliotekę arytmetyki</p>
+<p>wieloprecyzyjnej w C\#.</p>
+<p><strong>Mno\.zenie chunkowe (<code>Extract.BuildALU()</code>):</strong></p>
+<p>liczba dzielona na bloki po <code>up</code> cyfr;</p>
+<p>iloczyn wyznaczany przez sumowanie ilocz\'ynów częściowych</p>
+<p>z przesunięciem pozycyjnym — identyczna zasada jak mno\.zenie</p>
+<p>pisemne, zaimplementowana na <code>ulong</code>.</p>
+<p><strong>Metody <code>Digit()</code> / <code>DigitNewMethod()</code></strong> —</p>
+<p>składanie wyniku z chunków z obsługą przeniesienia;</p>
+<p>wynik porównywany z <code>System.Numerics.BigInteger</code> (.NET)</p>
+<p>jako \'zródło prawdy.</p>
+<p><strong>Projekt <code>makeclass</code></strong> u\.zywa tej biblioteki</p>
+<p>jako silnika oblicze\'n: dana jest liczba &lt;em class='math'&gt;D</em>,</p>
+<p>wynik &lt;em class='math'&gt;W</em> jest obliczany z pełną precyzją</p>
+<p>niezale\.znie od zakresu 32- lub 64-bitowego.</p>
+<p>Motywacja: zrozumieć <em>dlaczego</em> ATmega8 ko\'nczy obliczenia</p>
+<p>na granicy 32-bitowej — i zmierzyć jak głęboko sięga</p>
+<p>ta granica w przestrzeni interesujących &lt;em class='math'&gt;D</em>.</p></div></div>
+<div class="proj-table-wrap"><table class="proj-table">
+<tbody>
+<tr>
+<th><strong>Liczba dzielników &lt;em class='math'&gt;D</em></strong></th>
+<th><strong>Minimalna liczba &lt;em class='math'&gt;W</em></strong></th>
+<th><strong>Rozkład</strong></th>
+</tr>
+<tr>
+<td>500</td>
+<td>62 370 000</td>
+<td>&lt;em class='math'&gt;2^4 cdot 3^4 cdot 5^4 cdot 7 cdot 11</em></td>
+</tr>
+<tr>
+<td>500</td>
+<td>171 143 280</td>
+<td>(kolejna)</td>
+</tr>
+<tr>
+<td>500</td>
+<td>1 726 700 976</td>
+<td>(kolejna)</td>
+</tr>
+<tr>
+<td>900</td>
+<td>227 026 800</td>
+<td>&lt;em class='math'&gt;2^4 cdot 3^4 cdot 5^2 cdot 7^2 cdot 11 cdot 13</em></td>
+</tr>
+<tr>
+<td>860</td>
+<td>&lt;em class='math'&gt;&gt;2^32</em></td>
+<td><em>poza zakresem DWORD na ATmega</em></td>
+</tr>
+</tbody></table></div>
+<div class="proj-table-wrap"><table class="proj-table">
+<tbody>
+<tr>
+<th>ATmega8, 1 MHz, 2 KB SRAM, BASCOM BASIC</th>
+</tr>
+<tr>
+<td>LCD 16×2, UART (debug), Timer1 jako precyzyjny stoper</td>
+</tr>
+<tr>
+<td>+ wzor na minimalizację &lt;em class='math'&gt;W</em> dla zadanego &lt;em class='math'&gt;D</em></td>
+</tr>
+<tr>
+<td>jako baseline; pomiar czasu na sprzęcie</td>
+</tr>
+<tr>
+<td>V2.0 (iteracyjna optymalizacja)</td>
+</tr>
+<tr>
+<td>podczas eksperymentu</td>
+</tr>
+</tbody></table></div>
+<div class="proj-box proj-box--result"><div class="proj-box-body"><p><strong>Wynik i wpływ:</strong></p>
+<p>Zadanie algorytmiczne z zajęć, na których autor był</p>
+<p>wolnym słuchaczem, przerodziło się w samodzielne badanie</p>
+<p>matematyczne.</p>
+<p>Projekt stał się średnią przyczyną podjęcia</p>
+<p>studiów wy\.zszych —</p>
+<p>autor przekonał właściciela Laskomex do finansowania studiów</p>
+<p>in\.zynierskich i magisterskich, które uko\'nczył.</p>
+<p>Dowód, \.ze podejście eksperymentalne do problemu (implementacja</p>
+<p>na MCU jako środowisko badawcze) mo\.ze prowadzić</p>
+<p>do odkrycia twierdze\'n matematycznych niezale\.znie</p>
+<p>od formalnej ście\.zki akademickiej.</p></div></div>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <p>Artur Flamandzki · <a href="../../index.html">Portfolio R&amp;D</a></p>
+    <nav class="proj-nav-btns">
+      <a href="../p08/" class="lang-btn">← #08</a>
+      <a href="../p10/" class="lang-btn">#10 →</a>
+    </nav>
+  </div>
+</footer>
+
+</body>
+</html>

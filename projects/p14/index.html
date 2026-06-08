@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>#14 RGB LED Fun — Artur Flamandzki</title>
+  <link rel="icon" type="image/svg+xml" href="../../favicon.svg" />
+  <link rel="stylesheet" href="../../css/style.css" />
+  <link rel="stylesheet" href="../../css/project.css" />
+</head>
+<body>
+
+<nav id="navbar" aria-label="Main navigation">
+  <div class="container nav-inner">
+    <a href="../../index.html" class="nav-brand">Artur Flamandzki <span>/ R&amp;D</span></a>
+    <div class="nav-right">
+      <a href="../../index.html#projekty" class="lang-btn" style="text-decoration:none">← Wszystkie projekty</a>
+    </div>
+  </div>
+</nav>
+
+<header class="proj-hero">
+  <div class="container">
+    <div class="proj-hero-tag">PORTFOLIO R&amp;D — PROJEKT #14</div>
+    <h1 class="proj-hero-title">RGB LED Fun</h1>
+    <p class="proj-hero-sub">projekt hobbystyczny przy pracy w~banku —\\</p>
+    
+  </div>
+</header>
+
+<section class="proj-summary"><div class="container"><p>Zabawka dydaktyczna dla dzieci: trzy potencjometry R/G/B,
+    dioda LED RGB, wyświetlanie wybranego koloru w czasie rzeczywistym.
+    Serce urza</strong>dzenia to <strong>ATtiny13A — 8 wyprowadze\'n,
+    1 KB flash, 64 B RAM.
+    Kluczowe zało\.zenie:
+    <strong>pełna obsługa RGB + 3 potencjometry
+    na zaledwie 4 pinach MCU.
+    Układ zaprojektowany i zasymulowany w <strong>falstad.com/circuitjs,
+    następnie zrealizowany na PCB w DipTrace —
+    i <strong>działa dokładnie w tej ekstremalnej konfiguracji.
+    Obudowa wycięta na własnym laserze CO2
+    (Cut2D Desktop, Vectric).</p></div></section>
+
+<main class="proj-main">
+  <div class="container proj-content">
+    <p>Projekt powstał około 2021–2022 jako <strong>projekt hobbystyczny</strong></p>
+<p>przy pracy w banku, na własnym sprzęcie i oprogramowaniu.</p>
+<p>Koncepcja: urządzenie, które dziecko trzyma w rękach</p>
+<p>i obserwuje jak trzy potencjometry składają dowolny kolor</p>
+<p>ze składowych R, G, B.</p>
+<p>Główne zało\.zenie sprzętowe:</p>
+<p><strong>maksymalne wykorzystanie ka\.zdego pinu</strong> ATtiny13A —</p>
+<p>ka\.zdy port pełni więcej ni\.z jedną funkcję.</p>
+<div class="proj-box proj-box--innovation"><div class="proj-box-title">01  4 piny na cał</div><div class="proj-box-body"><p>title=01   4 piny na całość: port który pełni dwie funkcje jednocześnie]</p>
+<p>Układ zrealizowany w działającej płytce:</p>
+<div class="proj-table-wrap"><table class="proj-table">
+<tbody>
+<tr>
+<th>Pin MCU</th>
+<th>Rola \#1</th>
+<th>Rola \#2</th>
+</tr>
+<tr>
+<td>pin RESET przerobiony na I/O (<code>RSTDISBL</code>)</td>
+</tr>
+<tr>
+<td>jeden pin obsługuje dwa kanały</td>
+</tr>
+<tr>
+<td>wspólny enable dla wszystkich 3 LED</td>
+</tr>
+<tr>
+<td><strong>odczyt wszystkich 3 potencjometrów</strong></td>
+</tr>
+</tbody></table></div>
+<p><strong>Kluczowy trick ADC:</strong></p>
+<p>tranzystory sterujące LED pełnią równocześnie</p>
+<p>rolę <strong>multipleksera ADC</strong>.</p>
+<p>Ka\.zdy potencjometr podłączony jest do wspólnej szyny ADC</p>
+<p>przez diodę.</p>
+<p>Gdy tranzystor kanału Red się włącza</p>
+<p>(świeci LED Red), jednocześnie przyłącza</p>
+<p>rezystor referencyjny potencjometru Red do GND —</p>
+<p>tylko wówczas napięcie potencjometru Red</p>
+<p>pojawia się na szynie ADC.</p>
+<p>Dwa pozostałe potencjometry są zablokowane</p>
+<p>przez swoje diody w stanie odcięcia.</p>
+<p>Wynik:  fizyczny pin ADC odczytuje</p>
+<p>kolejno R, G, B w synchronizacji z multipleksem LED.</p>
+<p>Etykieta z symulacji CircuitJS (falstad.com):</p>
+<p>,,Dwa porty uP sterują trzema diodami LED.</p>
+<p>Jeden port ADC rejestruje wartości napięć</p>
+<p>na potencjometrach.</p>
+<p>Jeden port PWM uP steruje napięciem</p>
+<p>jakim zasilane są diody LED.''</p></div></div>
+<div class="proj-box proj-box--innovation"><div class="proj-box-title">02  Dekoder 2-bitowy: 2 piny wybieraja</div><div class="proj-box-body"><p>title=02   Dekoder 2-bitowy: 2 piny wybierają 3 kanały LED]</p>
+<p>Dwa piny wyjściowe kodują trójstanową</p>
+<p>selekcję kanału:</p>
+<div class="proj-table-wrap"><table class="proj-table">
+<tbody>
+<tr>
+<th><code>RED\_en</code> (PB5)</th>
+<th><code>G/B\_en</code> (PB1)</th>
+<th>Aktywny kanał</th>
+</tr>
+<tr>
+<td>LOW</td>
+<td>—</td>
+<td><strong>Red</strong> LED świeci</td>
+</tr>
+<tr>
+<td>HIGH</td>
+<td>LOW</td>
+<td><strong>Green</strong> LED świeci</td>
+</tr>
+<tr>
+<td>HIGH</td>
+<td>HIGH</td>
+<td><strong>Blue</strong> LED świeci</td>
+</tr>
+</tbody></table></div>
+<p>Realizacja sprzętowa: układ tranzystorowy</p>
+<p>z inwerterami logicznymi i bramką AND</p>
+<p>(widoczne w symulacji CircuitJS)</p>
+<p>tłumaczy te stany na</p>
+<p>trzy wzajemnie wykluczające się sygnały</p>
+<p>baz tranzystorów LED.</p>
+<p>Czwarty pin (<code>PWM\_en</code>) moduluje prąd</p>
+<p>aktualnie wybranego LED.</p>
+<p><strong>Zasilanie:</strong></p>
+<p>LED zasilane napięciem <strong>12 V</strong></p>
+<p>(POWERSupply) przez tranzystory mocy.</p>
+<p>Logika MCU zasilana <strong>5 V</strong> z regulatora U1</p>
+<p>na płytce (12 V IN → 5 V).</p>
+<p>Ka\.zdy kanał ma fizyczny przełącznik</p>
+<p>(<code>sw\_RED</code>, <code>sw\_GREEN</code>, <code>sw\_BLUE</code>)</p>
+<p>odcinający LED niezale\.znie od firmware.</p></div></div>
+<div class="proj-box proj-box--innovation"><div class="proj-box-title">03  Software PWM w ISR: multipleks RGB + odczyt ADC w jednej pe</div><div class="proj-box-body"><p>title=03   Software PWM w ISR: multipleks RGB + odczyt ADC w jednej pętli]</p>
+<p>Timer0 — jedyny timer ATtiny13A —</p>
+<p>u\.zywany jako <strong>podstawa czasu ISR co ≈20\, s</strong></p>
+<p>(przeladowanie 253, prescaler 64, kwarc 9,6 MHz).</p>
+<p>W ka\.zdym przerwaniu wywoływana procedura <code>Pwm</code>:</p>
+<p>100 kroków per kanał × 20\, s = 2 ms.</p>
+<p>Po 100 krokach: <code>Gosub Multipleks</code></p>
+<p>— zmiana pinu selektora LED, odczyt ADC</p>
+<p>(który dzięki trickowi tranzystorowemu</p>
+<p>zwraca wartość właściwego potencjometru),</p>
+<p>przeliczenie na nowe <code>Led\_value</code>.</p>
+<p>Trzy kanały × 2 ms = <strong>ok. 167 Hz</strong> odch. ramki.</p></div></div>
+<div class="proj-box proj-box--innovation"><div class="proj-box-title">04  Kwantyzacja logarytmiczna: percepcyjnie liniowy potencjometr</div><div class="proj-box-body"><p>title=04   Kwantyzacja logarytmiczna: percepcyjnie liniowy potencjometr]</p>
+<p>ADC zwraca 0–1023. Liniowe przeliczenie na PWM</p>
+<p>dałoby percepcyjnie nierownomierną skalę</p>
+<p>(prawo Webera–Fechnera). Ręcznie skrojona</p>
+<p><strong>tabela 10 progów PWM:</strong></p></div></div>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <p>Artur Flamandzki · <a href="../../index.html">Portfolio R&amp;D</a></p>
+    <nav class="proj-nav-btns">
+      <a href="../p13/" class="lang-btn">← #13</a>
+      <a href="../p15/" class="lang-btn">#15 →</a>
+    </nav>
+  </div>
+</footer>
+
+</body>
+</html>
