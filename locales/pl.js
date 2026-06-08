@@ -146,6 +146,7 @@
       title: 'Wszystkie projekty',
       sub:   '22 projekty, 2004–2026. Kolor lewej krawędzi oznacza domenę.',
       leg: {
+        all:        'Wszystkie',
         embedded:   'Hardware / Embedded',
         commercial: 'Komercja / Zlecenia',
         own:        'Własne systemy',

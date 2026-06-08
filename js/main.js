@@ -188,6 +188,24 @@ const i18n = (function () {
 })();
 
 
+/* ── Project filter ──────────────────────────────────────────── */
+(function initProjectFilter() {
+  const filterGroup = document.getElementById('projectFilter');
+  if (!filterGroup) return;
+  const rows = document.querySelectorAll('tbody tr[data-cat]');
+  filterGroup.addEventListener('click', e => {
+    const btn = e.target.closest('.filter-btn');
+    if (!btn) return;
+    filterGroup.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    const filter = btn.dataset.filter;
+    rows.forEach(row => {
+      row.classList.toggle('filter-hidden', filter !== 'all' && row.dataset.cat !== filter);
+    });
+  });
+})();
+
+
 /* ── Boot ────────────────────────────────────────────────────── */
 document.addEventListener('DOMContentLoaded', () => {
   i18n.init();

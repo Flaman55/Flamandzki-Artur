@@ -149,6 +149,7 @@
       title: 'All Projects',
       sub:   '22 projects, 2004–2026. Left-edge colour indicates domain.',
       leg: {
+        all:        'All',
         embedded:   'Hardware / Embedded',
         commercial: 'Commercial / Client work',
         own:        'Own systems',
