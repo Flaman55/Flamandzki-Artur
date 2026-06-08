@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Artur Flamandzki — R&amp;D Portfolio</title>
+  <meta name="description" content="22 projects — embedded electronics, AVR firmware, Relational Mathematics, FochBot AI." />
+  <link rel="stylesheet" href="css/style.css" />
+
+  <!--
+    ╔══════════════════════════════════════════════════════════════╗
+    ║  ADDING A NEW LANGUAGE                                       ║
+    ║  1. Create  locales/XX.js  (copy en.js, translate values)   ║
+    ║  2. Add the line below:                                      ║
+    ║     <script src="locales/XX.js"></script>                   ║
+    ║  That's it — the language switcher builds itself.            ║
+    ╚══════════════════════════════════════════════════════════════╝
+  -->
+  <script src="locales/en.js"></script>
+  <script src="locales/pl.js"></script>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════════════════════
+     NAVIGATION
+     ══════════════════════════════════════════════════════════ -->
+<nav id="navbar" aria-label="Main navigation">
+  <div class="container nav-inner">
+    <span class="nav-brand">Artur Flamandzki <span>/ R&amp;D</span></span>
+
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#filozofia"    data-i18n="nav.filozofia">Philosophy</a></li>
+      <li><a href="#ewolucja"     data-i18n="nav.ewolucja">Evolution</a></li>
+      <li><a href="#mr-teoria"    data-i18n="nav.mr">MR / Theory</a></li>
+      <li><a href="#projekty"     data-i18n="nav.projekty">Projects</a></li>
+      <li><a href="#case-studies" data-i18n="nav.casestudies">Case Studies</a></li>
+      <li><a href="#podsumowanie" data-i18n="nav.podsumowanie">Summary</a></li>
+    </ul>
+
+    <div class="nav-right">
+      <!-- Language switcher — populated by main.js from window.i18nData -->
+      <div class="lang-switcher" id="langSwitcher" aria-label="Language"></div>
+
+      <button class="nav-toggle" id="navToggle" aria-label="Menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+
+<!-- ══════════════════════════════════════════════════════════
+     HERO
+     ══════════════════════════════════════════════════════════ -->
+<section id="hero">
+  <div class="container">
+    <h1 class="hero-name">Artur Flamandzki</h1>
+    <p class="hero-title" data-i18n="hero.title">Electronics &amp; Embedded Software Engineer</p>
+    <blockquote class="hero-quote" data-i18n="hero.quote">"I build my own tools. Before I check whether something ready-made exists."</blockquote>
+    <div class="hero-badges">
+      <span class="badge" data-i18n="hero.b1">22 projects</span>
+      <span class="badge" data-i18n="hero.b2">2004 – present</span>
+      <span class="badge" data-i18n="hero.b3">Firmware AVR · C# · VB.NET</span>
+      <span class="badge" data-i18n="hero.b4">Relational Mathematics</span>
+      <span class="badge" data-i18n="hero.b5">AI / Embedded</span>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════════
+     1. PHILOSOPHY
+     ══════════════════════════════════════════════════════════ -->
+<section id="filozofia">
+  <div class="container">
+    <h2 class="section-title" data-i18n="s1.title">Design Philosophy</h2>
+    <hr class="section-divider" />
+    <p class="section-subtitle" data-i18n="s1.sub">An observation in retrospect: every self-built tool forces a complete understanding of the problem it is meant to solve.</p>
+
+    <div class="tools-grid">
+      <div class="tool-card">
+        <h4 data-i18n="s1.c1.title">⚙️ Build your own tool</h4>
+        <p  data-i18n="s1.c1.text">A COM terminal for debugging the boiler controller? Written from scratch, because available terminals lacked simultaneous multi-format data display and a one-click bootloader trigger.</p>
+      </div>
+      <div class="tool-card">
+        <h4 data-i18n="s1.c2.title">🔢 Precision requires measurement</h4>
+        <p  data-i18n="s1.c2.text">A voltage divider calculator with ADC mode? Built because there was a need to select R1/R2 and immediately see single-bit resolution — no online calculator showed that.</p>
+      </div>
+      <div class="tool-card">
+        <h4 data-i18n="s1.c3.title">🧩 From concept to finished product</h4>
+        <p  data-i18n="s1.c3.text">Hardware, firmware, PC applications, production tools, serial-number management. Described here are both products sold in hundreds and one-off projects — each with its own engineering lesson.</p>
+      </div>
+      <div class="tool-card">
+        <h4 data-i18n="s1.c4.title">🧬 Theory emerges from practice</h4>
+        <p  data-i18n="s1.c4.text">Relational Mathematics did not originate in academia — the 2016 boiler controller turned out to be an empirical proof of ARR a decade before the theory was formalised.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════════
+     2. EVOLUTION
+     ══════════════════════════════════════════════════════════ -->
+<section id="ewolucja">
+  <div class="container">
+    <h2 class="section-title" data-i18n="s2.title">Evolution — from prototype to theory</h2>
+    <hr class="section-divider" />
+    <p class="section-subtitle" data-i18n="s2.sub">A chronology of key breakthroughs. Both tracks converge in 2022–2026.</p>
+
+    <div class="timeline">
+
+      <div class="timeline-item">
+        <div class="timeline-period" data-i18n="s2.t1.period">2004 – 2006</div>
+        <h4 data-i18n="s2.t1.title">High school — first projects born of necessity</h4>
+        <p  data-i18n="s2.t1.text">Portable battery speaker (#02) and a prime divisor search algorithm on ATmega8 (#09). Starting point — electronics as a hobby, not a profession.</p>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-period" data-i18n="s2.t2.period">2009 – 2011</div>
+        <h4 data-i18n="s2.t2.title">APH Elektra — technical consulting</h4>
+        <p  data-i18n="s2.t2.text">Electronic component market analysis, substitute selection — foundation for BOM cost optimisation in future production projects.</p>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-period" data-i18n="s2.t3.period">2011 – 2013</div>
+        <h4 data-i18n="s2.t3.title">First commercial products and measurement systems</h4>
+        <p  data-i18n="s2.t3.text">Automotive voltmeter WST/WSTK (150 units, #04), AutoMobilClub timing system (#11), LPG calibrator (#03), boiler thermometer (#10).</p>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-period" data-i18n="s2.t4.period">2012 – 2017</div>
+        <h4 data-i18n="s2.t4.title">DELFI Racing — motorsport instrument family</h4>
+        <p  data-i18n="s2.t4.text">Christmas Tree RT1/RT2, DN03 instrumentation — complete electronic racing infrastructure (#05). CO₂ laser line commissioned (#15).</p>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-period" data-i18n="s2.t5.period">2013 – 2019</div>
+        <h4 data-i18n="s2.t5.title">Laskomex — intercom R&amp;D, technical and management role</h4>
+        <p  data-i18n="s2.t5.text">LX-DK series (500 units, 7 years, #06), LX-GT01 (#07), LX-EMI01 (#08). Promoted twice within 6 months; ~50,000 PLN/year service savings.</p>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-period" data-i18n="s2.t6.period">2016 – 2022</div>
+        <h4 data-i18n="s2.t6.title">Boiler controller — 5.5 years in a production environment</h4>
+        <p  data-i18n="s2.t6.text">Custom PCB, ATmega328P, triac phase-angle at 230 V, delta-T (#01). ~11 M records, 79+ firmware versions, foundation for 3 theses.</p>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-period" data-i18n="s2.t7.period">2019 – present</div>
+        <h4 data-i18n="s2.t7.title">Commerzbank — corporate FinTech environment</h4>
+        <p  data-i18n="s2.t7.text">Corporate FinTech (Java / React / C#, COREP/FINREP). In parallel: first observations of rhythmic structures in prime numbers — the seed of Relational Mathematics.</p>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-period" data-i18n="s2.t8.period">2024 – present</div>
+        <h4 data-i18n="s2.t8.title">Smart Home, MR, TrueSynth, FochBot — convergence of both tracks</h4>
+        <p  data-i18n="s2.t8.text">Smart home (#22), Resona (#18), MR theory (#17), MR-AI (#20), FochBot (#19), TrueSynth (#16), HPC Shor simulation (#21).</p>
+      </div>
+
+    </div>
+
+    <div class="timeline-note" data-i18n-html="s2.note"><strong>Two tracks:</strong> embedded hardware (#01–#15) and relational mathematics (#16–#21) converge in 2022–2026: MR-AI, TrueSynth and Resona are where microcontroller physics meets number theory.</div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════════
+     3. MR / THEORY
+     ══════════════════════════════════════════════════════════ -->
+<section id="mr-teoria">
+  <div class="container">
+    <h2 class="section-title" data-i18n="s3.title">Relational Mathematics (MR)</h2>
+    <hr class="section-divider" />
+    <p class="section-subtitle" data-i18n="s3.sub">Hierarchy: MR as foundational theory (#17) → five analytical frameworks → MR-AI (#20) combining them all for AI.</p>
+
+    <div class="mr-header">
+      <h3 data-i18n="s3.theory.title">MR — Foundational Theory (project #17)</h3>
+      <p  data-i18n="s3.theory.text">Original mathematical theory describing the structure of prime numbers through rhythmic relations, partitions and rotational models. 6 scientific preprints on Zenodo.</p>
+    </div>
+
+    <div class="frameworks-grid">
+
+      <div class="framework-card">
+        <span class="framework-tag" data-i18n="s3.arr.tag">ARR</span>
+        <h4 data-i18n="s3.arr.title">Rhythmic and Resonance Analysis</h4>
+        <p  data-i18n="s3.arr.text">Rhythm-control framework — identifies periodic patterns and measures their resonance. Decisions based on direction of change (↑/→/↓) instead of absolute values.</p>
+        <p class="framework-manifest" data-i18n="s3.arr.mandate">Mandate: measurement and control of sequence rhythm.</p>
+      </div>
+
+      <div class="framework-card">
+        <span class="framework-tag" data-i18n="s3.cl.tag">MR-CL</span>
+        <h4 data-i18n="s3.cl.title">Rhythmic Clustering</h4>
+        <p  data-i18n="s3.cl.text">Detects and segments clusters with similar rhythmic properties. Used for local density analysis and anomaly detection.</p>
+        <p class="framework-manifest" data-i18n="s3.cl.mandate">Mandate: segmentation and grouping of rhythmic structures.</p>
+      </div>
+
+      <div class="framework-card">
+        <span class="framework-tag" data-i18n="s3.kl.tag">MR-KL</span>
+        <h4 data-i18n="s3.kl.title">Rhythmic Classification</h4>
+        <p  data-i18n="s3.kl.text">Classifies elements by rhythmic categories defined in MR. Builds a pattern taxonomy and enables categorical membership prediction.</p>
+        <p class="framework-manifest" data-i18n="s3.kl.mandate">Mandate: typology and classification of MR patterns.</p>
+      </div>
+
+      <div class="framework-card">
+        <span class="framework-tag" data-i18n="s3.rg.tag">MR-RG</span>
+        <h4 data-i18n="s3.rg.title">Rhythmic Regression</h4>
+        <p  data-i18n="s3.rg.text">Models quantitative relationships between rhythmic parameters. Enables extrapolation and numerical prediction — classical regression extended with a rhythmic dimension.</p>
+        <p class="framework-manifest" data-i18n="s3.rg.mandate">Mandate: prediction and quantitative modelling.</p>
+      </div>
+
+      <div class="framework-card">
+        <span class="framework-tag" data-i18n="s3.rpp.tag">RPP</span>
+        <h4 data-i18n="s3.rpp.title">Relational Displacement Space</h4>
+        <p  data-i18n="s3.rpp.text">Defines a multidimensional space where each element occupies a position determined by its displacement relations. Formalises the geometry of the MR structure.</p>
+        <p class="framework-manifest" data-i18n="s3.rpp.mandate">Mandate: geometry and relational space of MR.</p>
+      </div>
+
+    </div>
+
+    <div class="mr-ai-box">
+      <div class="label" data-i18n="s3.ai.label">AI application framework — project #20</div>
+      <h3 data-i18n="s3.ai.title">MR-AI — Rhythmic Framework for Artificial Intelligence</h3>
+      <p  data-i18n-html="s3.ai.text">MR-AI combines all five frameworks into a decision architecture for AI — <strong>control without absolute values</strong>. Realised as <strong>FochBot V3</strong> (#19).</p>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════════
+     4. PROJECTS
+     ══════════════════════════════════════════════════════════ -->
+<section id="projekty">
+  <div class="container">
+    <h2 class="section-title" data-i18n="s4.title">All Projects</h2>
+    <hr class="section-divider" />
+    <p class="section-subtitle" data-i18n="s4.sub">22 projects, 2004–2026. Left-edge colour indicates domain.</p>
+
+    <div class="legend">
+      <span class="legend-item"><span class="legend-dot" style="background:#2d7dd2"></span><span data-i18n="s4.leg.embedded">Hardware / Embedded</span></span>
+      <span class="legend-item"><span class="legend-dot" style="background:#c0392b"></span><span data-i18n="s4.leg.commercial">Commercial / Client work</span></span>
+      <span class="legend-item"><span class="legend-dot" style="background:#c47c00"></span><span data-i18n="s4.leg.own">Own systems</span></span>
+      <span class="legend-item"><span class="legend-dot" style="background:#7b2d9b"></span><span data-i18n="s4.leg.math">Mathematics R&amp;D</span></span>
+      <span class="legend-item"><span class="legend-dot" style="background:#1b8a50"></span><span data-i18n="s4.leg.ai">AI / Software</span></span>
+    </div>
+
+    <div class="table-wrapper">
+      <table>
+        <thead>
+          <tr>
+            <th data-i18n="s4.col.num">#</th>
+            <th data-i18n="s4.col.project">Project</th>
+            <th data-i18n="s4.col.tech">Context / Technology</th>
+            <th data-i18n="s4.col.result">Result / Reach</th>
+          </tr>
+        </thead>
+        <tbody>
+
+          <tr data-cat="own">
+            <td>01</td>
+            <td>
+              <span class="proj-name" data-i18n="s4.p01.name">Autonomous Central Heating Boiler Controller</span>
+              <span class="tag-domain" data-i18n="s4.p01.tag">Own system · power regulation and remote monitoring</span>
+            </td>
+            <td class="proj-tech" data-i18n="s4.p01.tech">AVR Assembly, Phase-Angle Control (triac 230 V), ATmega328P, BASCOM-AVR, DS18B20, UART→USB, MS Access (.mdb), OneDrive</td>
+            <td class="proj-result" data-i18n="s4.p01.result">5.5 years in production (Nov 2016 – Jul 2022). ~11 M records, 79+ firmware versions, 3 theses graded 5/5.</td>
+          </tr>
+
+          <tr data-cat="embedded">
+            <td>02</td>
+            <td>
+              <span class="proj-name" data-i18n="s4.p02.name">Portable Battery Speaker</span>
+              <span class="tag-domain" data-i18n="s4.p02.tag">Historical project · high-school electronics, 2004–2006</span>
+            </td>
+            <td class="proj-tech" data-i18n="s4.p02.tech">Analogue audio electronics, batteries, amplifier</td>
+            <td class="proj-result" data-i18n="s4.p02.result">Starting point — first project built out of necessity during high school.</td>
+          </tr>
+
+          <tr data-cat="commercial">
+            <td>03</td>
+            <td>
+              <span class="proj-name" data-i18n="s4.p03.name">Automatic LPG Injector Calibrator</span>
+              <span class="tag-domain" data-i18n="s4.p03.tag">Commercial order · calibration precision</span>
+            </td>
+            <td class="proj-tech" data-i18n="s4.p03.tech">ATmega32, stepper motors, coil-open event timing</td>
+            <td class="proj-result" data-i18n="s4.p03.result">Calibration scatter reduced from &gt;0.3 mm to &lt;0.01 mm.</td>
+          </tr>
+
+          <tr data-cat="embedded">
+            <td>04</td>
+            <td>
+              <span class="proj-name" data-i18n="s4.p04.name">Automotive Voltmeter WST / WSTK</span>
+              <span class="tag-domain" data-i18n="s4.p04.tag">Commercial product · engine-state FSM</span>
+            </td>
+            <td class="proj-tech" data-i18n="s4.p04.tech">ATmega, HD44780, DS18B20 (×2), lead-acid FSM, RGB backlight (8 colours)</td>
+            <td class="proj-result" data-i18n-html="s4.p04.result"><strong>WST</strong> (car): 150 units. <strong>WSTK</strong> (motorcycle): ~15 units. <a href="https://www.youtube.com/watch?v=LHdiPH1gRtQ" target="_blank" rel="noopener">▶ YouTube</a></td>
+          </tr>
+
+          <tr data-cat="own">
+            <td>05</td>
+            <td>
+              <span class="proj-name" data-i18n="s4.p05.name">DELFI Racing System — Timing and Motorsport Instrumentation</span>
+              <span class="tag-domain" data-i18n="s4.p05.tag">Own system · instrument family, 2012–2017</span>
+            </td>
+            <td class="proj-tech" data-i18n="s4.p05.tech">Christmas Tree RT1/RT2, DN03 instrumentation, ATtiny/ATmega, RS232, RS485, RTC, MMC, false-start detection</td>
+            <td class="proj-result" data-i18n="s4.p05.result">Complete electronic racing infrastructure. Two timers in one ISR (0.01 s lap + 0.001 s reaction). Predecessor: #11.</td>
+          </tr>
+
+          <tr data-cat="commercial">
+            <td>06</td>
+            <td>
+              <span class="proj-name" data-i18n="s4.p06.name">LX-DK Series — Laskomex Admin Password Reset Modules</span>
+              <span class="tag-domain" data-i18n="s4.p06.tag">Commercial · Laskomex · 7 years of sales</span>
+            </td>
+            <td class="proj-tech" data-i18n="s4.p06.tech">DK02 + DK03, ATtiny, proprietary UART protocol, reverse-engineering</td>
+            <td class="proj-result" data-i18n="s4.p06.result">~500 units over 7 years. Flash-shortage solution: hardware module one layer above instead of firmware modification.</td>
+          </tr>
+
+          <tr data-cat="commercial">
+            <td>07</td>
+            <td>
+              <span class="proj-name" data-i18n="s4.p07.name">LX-GT01 — Laskomex Code Table Generator Module</span>
+              <span class="tag-domain" data-i18n="s4.p07.tag">Commercial · Laskomex · production tool</span>
+            </td>
+            <td class="proj-tech" data-i18n="s4.p07.tech">CRC8, ELF binary patching, PC application (VB.NET)</td>
+            <td class="proj-result" data-i18n="s4.p07.result">Code table generator for serial production. ELF patching without firmware recompilation.</td>
+          </tr>
+
+          <tr data-cat="commercial">
+            <td>08</td>
+            <td>
+              <span class="proj-name" data-i18n="s4.p08.name">LX-EMI01 — Laskomex/Proel EEPROM Memory Editor Module</span>
+              <span class="tag-domain" data-i18n="s4.p08.tag">Commercial · Laskomex/Proel · reverse-engineering</span>
+            </td>
+            <td class="proj-tech" data-i18n="s4.p08.tech">EEPROM editor, communication protocol reverse-engineering, I²C/SPI</td>
+            <td class="proj-result" data-i18n="s4.p08.result">EEPROM read/write for undocumented devices — full protocol reverse-engineering from scratch.</td>
+          </tr>
+
+          <tr data-cat="embedded">
+            <td>09</td>
+            <td>
+              <span class="proj-name" data-i18n="s4.p09.name">Prime Divisor Search Algorithm on ATmega8</span>
+              <span class="tag-domain" data-i18n="s4.p09.tag">Embedded · bare-metal algorithmics</span>
+            </td>
+            <td class="proj-tech" data-i18n="s4.p09.tech">AVR, BASCOM, ATmega8, 8-bit MCU optimisation</td>
+            <td class="proj-result" data-i18n="s4.p09.result">Factorisation on an 8-bit MCU. Early precursor to MR research.</td>
+          </tr>
+
+          <tr data-cat="embedded">
+            <td>10</td>
+            <td>
+              <span class="proj-name" data-i18n="s4.p10.name">Boiler Thermometer — Remote Boiler Room Monitor</span>
+              <span class="tag-domain" data-i18n="s4.p10.tag">Embedded · IoT before IoT era, 2013</span>
+            </td>
+            <td class="proj-tech" data-i18n="s4.p10.tech">ATmega8, DS18B20, ambient display (visible across the boiler room), alarm, 2013</td>
+            <td class="proj-result" data-i18n="s4.p10.result">Remote boiler monitoring with ambient display. File-based IoT gateway via OneDrive — before MQTT became mainstream.</td>
+          </tr>
+
+          <tr data-cat="commercial">
+            <td>11</td>
+            <td>
+              <span class="proj-name" data-i18n="s4.p11.name">AutoMobilClub Łódź Timing System</span>
+              <span class="tag-domain" data-i18n="s4.p11.tag">Commercial · quarter-mile racing, 2011</span>
+            </td>
+            <td class="proj-tech" data-i18n="s4.p11.tech">ATtiny2313, RS232, RS485, USB, MMC, RTC, false-start detection, Watchdog reset as flash optimisation</td>
+            <td class="proj-result" data-i18n-html="s4.p11.result">Commercial distributed timing system. Direct predecessor of DELFI Racing RT1/RT2. <a href="https://dzienniklodzki.pl/wyscigi-na-14-mili-w-lodzi-wystartowalo-kilkudziesieciu-kierowcow-zdjecia-film/ar/6459502" target="_blank" rel="noopener">Dziennik Łódzki</a></td>
+          </tr>
+
+          <tr data-cat="embedded">
+            <td>12</td>
+            <td>
+              <span class="proj-name" data-i18n="s4.p12.name">USB-RS232 Converter with TTL Output — Custom PCB</span>
+              <span class="tag-domain" data-i18n="s4.p12.tag">Embedded · developer tool, 2015</span>
+            </td>
+            <td class="proj-tech" data-i18n="s4.p12.tech">FT232RL, MAX3243, Eagle PCB, Gerbers, 48×31 mm</td>
+            <td class="proj-result" data-i18n="s4.p12.result">Compact USB-UART/RS232 converter with TTL output. Custom PCB 48×31 mm.</td>
+          </tr>
+
+          <tr data-cat="commercial">
+            <td>13</td>
+            <td>
+              <span class="proj-name" data-i18n="s4.p13.name">BAGRAMET Spreader Controller</span>
+              <span class="tag-domain" data-i18n="s4.p13.tag">Commercial order · agriculture, Bytów</span>
+            </td>
+            <td class="proj-tech" data-i18n="s4.p13.tech">2 PCBs (controller + panel), AVR, Bytów, small series</td>
+            <td class="proj-result" data-i18n="s4.p13.result">Dedicated fertiliser spreader controller. Client project, small-series production.</td>
+          </tr>
+
+          <tr data-cat="own">
+            <td>14</td>
+            <td>
+              <span class="proj-name" data-i18n="s4.p14.name">RGB LED Fun — Educational Toy</span>
+              <span class="tag-domain" data-i18n="s4.p14.tag">Own project · CNC, education</span>
+            </td>
+            <td class="proj-tech" data-i18n="s4.p14.tech">ATtiny13A, 3 pins drive RGB, software PWM, CNC enclosure</td>
+            <td class="proj-result" data-i18n="s4.p14.result">Interactive educational toy — software PWM on ATtiny13A. Enclosure milled on own CNC.</td>
+          </tr>
+
+          <tr data-cat="own">
+            <td>15</td>
+            <td>
+              <span class="proj-name" data-i18n="s4.p15.name">CO₂ Laser — Infrastructure and Air-Assist System</span>
+              <span class="tag-domain" data-i18n="s4.p15.tag">Own system · active to this day</span>
+            </td>
+            <td class="proj-tech" data-i18n="s4.p15.tech">CO₂ 50 W, solenoid valves, Ruida DSP, relays, chiller, custom air-assist</td>
+            <td class="proj-result" data-i18n="s4.p15.result">Automated wood-processing production line. Custom air-assist, Ruida DSP calibration. &gt;1,000 finished products.</td>
+          </tr>
+
+          <tr data-cat="math">
+            <td>16</td>
+            <td>
+              <span class="proj-name" data-i18n="s4.p16.name">TrueSynth — Trigonometric Library for Embedded</span>
+              <span class="tag-domain" data-i18n="s4.p16.tag">Mathematics R&amp;D · Prime Engine, 2025–2026</span>
+            </td>
+            <td class="proj-tech" data-i18n="s4.p16.tech">Prime Engine, Q31 Fixed-Point, Cortex-M0/M4F, FOC/DDS, ARM Assembly</td>
+            <td class="proj-result" data-i18n-html="s4.p16.result">Angle as prime-based fraction (Δ = k/p) — error ppb = 0. <strong>4.7× faster</strong> than CMSIS-DSP Q31 without FPU. Zero drift after 10⁹ steps.</td>
+          </tr>
+
+          <tr data-cat="math">
+            <td>17</td>
+            <td>
+              <span class="proj-name" data-i18n="s4.p17.name">Relational Mathematics — Number Theory</span>
+              <span class="tag-domain" data-i18n="s4.p17.tag">Mathematics R&amp;D · foundational theory</span>
+            </td>
+            <td class="proj-tech" data-i18n="s4.p17.tech">Bertrand–Chebyshev (hyperbolic proof), CRT, Q (semigroups), partitions, rotational model, Zenodo (6 preprints)</td>
+            <td class="proj-result" data-i18n="s4.p17.result">Original theory on rhythmic structure of prime numbers. 6 preprints on Zenodo. Foundation for all MR frameworks.</td>
+          </tr>
+
+          <tr data-cat="math">
+            <td>18</td>
+            <td>
+              <span class="proj-name" data-i18n="s4.p18.name">Resona — Trajectory Computational Model</span>
+              <span class="tag-domain" data-i18n="s4.p18.tag">Mathematics R&amp;D · trajectory model</span>
+            </td>
+            <td class="proj-tech" data-i18n="s4.p18.tech">Resonance function, custom Resona language, functional graphics, Python</td>
+            <td class="proj-result" data-i18n="s4.p18.result">Computational model based on resonance functions — trajectory analysis in MR space. Custom Resona DSL.</td>
+          </tr>
+
+          <tr data-cat="ai">
+            <td>19</td>
+            <td>
+              <span class="proj-name" data-i18n="s4.p19.name">FochBot — Autonomous AI Assistant</span>
+              <span class="tag-domain" data-i18n="s4.p19.tag">AI / Software · 2024–2026</span>
+            </td>
+            <td class="proj-tech" data-i18n="s4.p19.tech">FastAPI, microservices, BCRYPT, ChromaDB, LangChain, multi-LLM routing (Claude/GPT/Gemini), ARR context-selection</td>
+            <td class="proj-result" data-i18n="s4.p19.result">Two-layer cognitive architecture: Layer A (ChromaDB + ARR) + Layer B (multi-model controller). Token cost = 0 for local tasks.</td>
+          </tr>
+
+          <tr data-cat="ai">
+            <td>20</td>
+            <td>
+              <span class="proj-name" data-i18n="s4.p20.name">MR-AI — Rhythmic Framework</span>
+              <span class="tag-domain" data-i18n="s4.p20.tag">AI / Software · decision framework</span>
+            </td>
+            <td class="proj-tech" data-i18n="s4.p20.tech">ARR + MR-KL + MR-CL + MR-RG + RPP, value-free control, Python</td>
+            <td class="proj-result" data-i18n="s4.p20.result">Combines all 5 MR modules into a decision architecture for AI. Control without absolute values.</td>
+          </tr>
+
+          <tr data-cat="math">
+            <td>21</td>
+            <td>
+              <span class="proj-name" data-i18n="s4.p21.name">HPC Factorisation — Classical Simulation of Shor's Algorithm</span>
+              <span class="tag-domain" data-i18n="s4.p21.tag">Mathematics R&amp;D · HPC, 2025–2026</span>
+            </td>
+            <td class="proj-tech" data-i18n="s4.p21.tech">Python, NumPy, Numba JIT, phase mechanism (classical quantum simulation)</td>
+            <td class="proj-result" data-i18n="s4.p21.result">Classical simulation of Shor's algorithm using the MR phase mechanism. Factorisation boundary research with Numba JIT.</td>
+          </tr>
+
+          <tr data-cat="own">
+            <td>22</td>
+            <td>
+              <span class="proj-name" data-i18n="s4.p22.name">Smart Home — Security and Automation Architecture</span>
+              <span class="tag-domain" data-i18n="s4.p22.tag">Own system · IoT, 2024–present</span>
+            </td>
+            <td class="proj-tech" data-i18n="s4.p22.tech">Home Assistant, YAML, REST API, mechanical interlocking (Power Isolation / Night Lockdown), hardware-integrated</td>
+            <td class="proj-result" data-i18n="s4.p22.result">Local-First, physically secure home automation. Hardware mechanical locks — security through hardware.</td>
+          </tr>
+
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════════
+     5. CASE STUDIES
+     ══════════════════════════════════════════════════════════ -->
+<section id="case-studies">
+  <div class="container">
+    <h2 class="section-title" data-i18n="s5.title">Case Studies</h2>
+    <hr class="section-divider" />
+    <p class="section-subtitle" data-i18n="s5.sub">Three projects described in depth — problem genesis, key innovations, outcome.</p>
+
+    <div class="accordion" id="accordion">
+
+      <!-- Case Study 1: Boiler Controller -->
+      <div class="accordion-item" id="cs-piec">
+        <button class="accordion-header" aria-expanded="false">
+          <span class="accordion-num">01</span>
+          <span class="accordion-title" data-i18n="s5.cs1.title">Boiler Controller — 5.5 years, 11 M records, foundation for 3 engineering theses</span>
+          <span class="accordion-icon">+</span>
+        </button>
+        <div class="accordion-body">
+          <div class="innovation-block">
+            <h4 data-i18n="s5.cs1.b0.title">Problem genesis</h4>
+            <p  data-i18n="s5.cs1.b0.text">A feed-type coal boiler with no automation — maintaining temperature requires manually adjusting the blower fan. Available thermostats work in ON/OFF mode, leading to large oscillations and inefficient combustion.</p>
+          </div>
+          <div class="innovation-block">
+            <h4 data-i18n="s5.cs1.b1.title">Innovation #1 — triac phase-angle control instead of a VFD inverter</h4>
+            <p  data-i18n="s5.cs1.b1.text">The blower is driven by an induction motor. Standard solution: VFD inverter. Applied: phase-angle firing delay of the triac relative to the zero-voltage crossing. Fan torque scales as M ∝ n² — motor stabilises naturally at lower speed. Implementation cost: zero.</p>
+          </div>
+          <div class="innovation-block">
+            <h4 data-i18n="s5.cs1.b2.title">Innovation #2 — temperature delta instead of hysteresis thresholds</h4>
+            <p  data-i18n-html="s5.cs1.b2.text">Every 15 seconds the firmware computes the discrete temperature derivative (trend) and decides based on the <em>direction of change</em>, before the threshold is crossed. Three symbolic states: T↑ (reduce airflow), T→ (hold), T↓ (increase). The D-term of a PID controller — implemented without libraries on an 8-bit MCU.</p>
+          </div>
+          <div class="results-box">
+            <h4 data-i18n="s5.cs1.res.title">Results (5.5 years of operation)</h4>
+            <ul data-i18n-html="s5.cs1.res.html">
+              <li>~11 M measurement records, 61 MDB databases (1.65 GB)</li>
+              <li>79+ firmware versions without interrupting operation (USB bootloader)</li>
+              <li>Zero hardware failures throughout the production period</li>
+              <li>Foundation for 3 engineering theses, all graded 5/5</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Case Study 2: Voltmeter -->
+      <div class="accordion-item" id="cs-woltomierz">
+        <button class="accordion-header" aria-expanded="false">
+          <span class="accordion-num">04</span>
+          <span class="accordion-title" data-i18n="s5.cs2.title">Voltmeter WST/WSTK — 150 units, engine-state FSM, 8 backlight colours</span>
+          <span class="accordion-icon">+</span>
+        </button>
+        <div class="accordion-body">
+          <div class="innovation-block">
+            <h4 data-i18n="s5.cs2.b0.title">Problem and innovation</h4>
+            <p  data-i18n="s5.cs2.b0.text">Autonomous vehicle electrical monitor — classifies installation state via FSM: charging / parked / engine running. Bar graph calibrated to lead-acid chemistry. Automatic backlight brightness on engine start. Two DS18B20 channels. 8 backlight colour options.</p>
+          </div>
+          <div class="results-box">
+            <h4 data-i18n="s5.cs2.res.title">Results</h4>
+            <ul data-i18n-html="s5.cs2.res.html">
+              <li>WST (car): 150 units sold nationwide</li>
+              <li>WSTK (motorcycle): ~15 units, including the author's own bike</li>
+              <li>Sales without a distribution channel — referrals only</li>
+              <li>Independent customer demo video on YouTube</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Case Study 3: AutoMobilClub -->
+      <div class="accordion-item" id="cs-rt">
+        <button class="accordion-header" aria-expanded="false">
+          <span class="accordion-num">11</span>
+          <span class="accordion-title" data-i18n="s5.cs3.title">AutoMobilClub Łódź Timing System — two timers in one ISR, Watchdog as flash optimisation</span>
+          <span class="accordion-icon">+</span>
+        </button>
+        <div class="accordion-body">
+          <div class="innovation-block">
+            <h4 data-i18n="s5.cs3.b0.title">Engineering problem</h4>
+            <p  data-i18n="s5.cs3.b0.text">Commercial timing system for quarter-mile racing on ATtiny2313 (2 KB flash). Requirements: two independent timers (0.01 s lap + 0.001 s reaction), false-start detection, RS232/RS485/USB, MMC, RTC — all within 2 KB.</p>
+          </div>
+          <div class="innovation-block">
+            <h4 data-i18n="s5.cs3.b1.title">Key technical decisions</h4>
+            <p  data-i18n-html="s5.cs3.b1.text"><strong>Timer multiplexing in one ISR</strong> — two independent measurements without interrupt conflict. <strong>Watchdog reset as flash optimisation</strong> — WDT reset saves tens of bytes of code. Technique used commercially in production devices.</p>
+          </div>
+          <div class="results-box">
+            <h4 data-i18n="s5.cs3.res.title">Results and continuation</h4>
+            <ul data-i18n-html="s5.cs3.res.html">
+              <li>Deployed at AutoMobilClub Łódź events (quarter-mile racing)</li>
+              <li>Press coverage: Dziennik Łódzki</li>
+              <li>Architecture evolved into DELFI Racing RT1/RT2/Christmas Tree/DN03 (#05)</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /accordion -->
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════════
+     6. SUMMARY
+     ══════════════════════════════════════════════════════════ -->
+<section id="podsumowanie">
+  <div class="container">
+    <h2 class="section-title" data-i18n="s6.title">Competence Summary</h2>
+    <hr class="section-divider" />
+    <p class="section-subtitle" data-i18n="s6.sub">Technical profile for project collaboration and R&amp;D partnership.</p>
+
+    <div class="skills-enterprise">
+      <div class="skill-card">
+        <h4 data-i18n="s6.sk1.title">Embedded Systems / Firmware</h4>
+        <p  data-i18n="s6.sk1.text">AVR (ATmega/ATtiny), ARM Cortex-M, BASCOM-AVR, AVR ASM, C. Custom PCB, 230 V mains control, UART/RS232/RS485/SPI/I²C/USB. Commercial products in serial production.</p>
+      </div>
+      <div class="skill-card">
+        <h4 data-i18n="s6.sk2.title">Measurement &amp; Real-Time Systems</h4>
+        <p  data-i18n="s6.sk2.text">Timer multiplexing in ISR, 0.001 s precision, MMC/SD logging, RTC, DS18B20. Systems running uninterrupted for years (11 M records).</p>
+      </div>
+      <div class="skill-card">
+        <h4 data-i18n="s6.sk3.title">Relational Mathematics (R&amp;D)</h4>
+        <p  data-i18n="s6.sk3.text">Author of MR theory and all five frameworks. 6 preprints on Zenodo. TrueSynth: ppb=0 error, 4.7× faster than CMSIS-DSP. HPC: NumPy/Numba JIT.</p>
+      </div>
+      <div class="skill-card">
+        <h4 data-i18n="s6.sk4.title">AI / Software</h4>
+        <p  data-i18n="s6.sk4.text">FochBot V3: FastAPI, ChromaDB, multi-LLM routing. MR-AI value-free decision framework. Java, C# (.NET), React/TypeScript, VB.NET, Python.</p>
+      </div>
+      <div class="skill-card">
+        <h4 data-i18n="s6.sk5.title">Own Systems &amp; Production Tools</h4>
+        <p  data-i18n="s6.sk5.text">ELF binary patching, protocol reverse-engineering, USB bootloader without disassembly, serial number generator, CO₂ laser line (1,000+ products). Smart Home: hardware interlocking.</p>
+      </div>
+      <div class="skill-card">
+        <h4 data-i18n="s6.sk6.title">Technical R&amp;D Management</h4>
+        <p  data-i18n="s6.sk6.text">Promoted to Engineering Office Coordinator within 6 months. R&D team leadership, Service Book, ~50,000 PLN/year savings. Corporate environment (Commerzbank, COREP/FINREP).</p>
+      </div>
+    </div>
+
+    <div class="cta-block">
+      <h3 data-i18n="s6.cta.title">Contact &amp; Collaboration</h3>
+      <p  data-i18n="s6.cta.text">Open to R&amp;D projects, embedded consulting, and MR/AI research partnerships.</p>
+      <div class="cta-links">
+        <a class="cta-btn" href="mailto:flamandzki.artur@gmail.com"           data-i18n="s6.cta.email">✉ flamandzki.artur@gmail.com</a>
+        <a class="cta-btn" href="https://zenodo.org/search?q=Flamandzki"
+           target="_blank" rel="noopener"                                      data-i18n="s6.cta.zenodo">🔬 Zenodo</a>
+        <a class="cta-btn" href="cv_artur_flamandzki_en.pdf" target="_blank"  data-i18n="s6.cta.cv_en">📄 CV (EN)</a>
+        <a class="cta-btn" href="cv_artur_flamandzki.pdf"    target="_blank"  data-i18n="s6.cta.cv_pl">📄 CV (PL)</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════════
+     FOOTER
+     ══════════════════════════════════════════════════════════ -->
+<footer>
+  <p data-i18n-html="footer.text">© 2026 Artur Flamandzki — R&amp;D Portfolio.
+     Relational Mathematics is an original theory and remains the intellectual property of the author.
+     Contact before citing: <a href="mailto:flamandzki.artur@gmail.com">flamandzki.artur@gmail.com</a>
+  </p>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>
