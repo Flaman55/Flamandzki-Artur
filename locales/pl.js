@@ -26,7 +26,7 @@
       quote: '„Buduję własne narzędzia. Zanim sprawdzę, czy coś gotowego istnieje."',
       b1: '22 projekty',
       b2: '2004 – obecnie',
-      b3: 'Firmware AVR · C# · VB.NET',
+      b3: 'Firmware AVR · C# · Java · Python',
       b4: 'Matematyka Relacyjna',
       b5: 'AI / Embedded'
     },
@@ -83,7 +83,7 @@
       t6: {
         period: '2016 – 2022',
         title:  'Sterownik pieca CO — 5,5 roku w środowisku produkcyjnym',
-        text:   'Własne PCB, ATmega328P, sterowanie fazowe triakiem na 230 V, delta T zamiast progów histerezowych (#01). ~11 mln rekordów pomiarowych, 79+ wersji firmware, baza dla jednej pracy inżynierskiej i dwóch magisterskich.'
+        text:   'Własne PCB, ATmega328P, sterowanie fazowe, delta T zamiast progów histerezowych (#01). ~11 mln rekordów pomiarowych, 79+ wersji firmware, baza dla jednej pracy inżynierskiej i dwóch magisterskich.'
       },
       t7: {
         period: '2019 – obecnie',
@@ -138,7 +138,7 @@
       ai: {
         label: 'Framework aplikacyjny AI — projekt #20',
         title: 'MR-AI — Framework Rytmiczny dla sztucznej inteligencji',
-        text:  'MR-AI łączy wszystkie pięć frameworków (ARR, MR-CL, MR-KL, MR-RG, RPP) w spójną architekturę decyzyjną dla systemów AI — <strong>sterowanie bez wartości bezwzględnych</strong>. Zamiast porównywać liczby, system operuje na rytmie zmian i relacjach przestrzennych. Konkretyzmacją MR-AI jest <strong>FochBot V3</strong> (#19): autonomiczny asystent AI z dwuwarstwową architekturą kognitywną (mapa pamięci ChromaDB + kontroler wielomodelowy), eliminujący rekomputację znanych wniosków — token cost = 0 dla lokalnych zadań.'
+        text:  'MR-AI łączy wszystkie pięć frameworków (ARR, MR-CL, MR-KL, MR-RG, RPP) w spójną architekturę decyzyjną dla systemów AI — <strong>sterowanie bez wartości bezwzględnych</strong>. Zamiast porównywać liczby, system operuje na rytmie zmian i relacjach przestrzennych. Konkretyzmacją MR-AI jest <strong>FochBot</strong> (#19): autonomiczny asystent AI z dwuwarstwową architekturą kognitywną (mapa pamięci ChromaDB + kontroler wielomodelowy), eliminujący rekomputację znanych wniosków — token cost = 0 dla lokalnych zadań.'
       }
     },
 
@@ -161,31 +161,31 @@
       },
       p01: {
         name:   'Automatyczny Sterownik Pieca Centralnego Ogrzewania',
-        tag:    'Własny system · z regulacją mocy i zdalnym monitoringiem',
+        tag:    'Własny system · 2016–2022',
         tech:   'AVR Assembly, Phase-Angle Control (triak 230 V), ATmega328P, DS18B20, UART→USB, MS Access (.mdb), OneDrive',
         result: '5,5 roku w środowisku produkcyjnym (XI 2016 – VII 2022). ~11 mln rekordów pomiarowych, 61 baz danych MDB (1,65 GB), 79+ wersji firmware. Baza jednej pracy inżynierskiej i dwóch magisterskich, ocena 5/5.'
       },
       p02: {
         name:   'Przenośny Głośnik Bateryjny',
-        tag:    'Projekt historyczny · liceum elektroniczne, 2004–2006',
+        tag:    'Projekt historyczny · liceum elektroniczne, 2004',
         tech:   'Analogowa elektronika audio, akumulatory, wzmacniacz',
         result: 'Punkt startowy — pierwszy projekt z potrzeby za czasów liceum. Ciekawostka historyczna dokumentująca początek ścieżki technicznej.'
       },
       p03: {
         name:   'Automatyczny Kalibrator Wtryskiwaczy LPG',
-        tag:    'Zlecenie komercyjne · precyzja kalibracji',
+        tag:    'Zlecenie komercyjne · 2010–2011',
         tech:   'ATmega32, silniki krokowe, pomiar czasu otwarcia cewki',
         result: 'Rozrzut kalibracji: z >0,3 mm do <0,01 mm przez zamknięcie pętli sprzężenia na fizycznym zdarzeniu otwarcia cewki zamiast geometrii suwmiarki.'
       },
       p04: {
         name:   'Woltomierz Samochodowy WST / WSTK',
-        tag:    'Produkt komercyjny · FSM stanu silnika',
+        tag:    'Produkt komercyjny · 2011–2013',
         tech:   'ATmega, HD44780, DS18B20 (×2), FSM ładowania akumulatora, podświetlenie RGB (8 kolorów)',
         result: '<strong>WST</strong> (auto): 150 szt. sprzedanych. <strong>WSTK</strong> (motocykl): ~15 szt. Demo klienta: <a href="https://www.youtube.com/watch?v=LHdiPH1gRtQ" target="_blank" rel="noopener">▶ YouTube</a>'
       },
       p05: {
         name:   'System DELFI Racing — Pomiar Czasu i Aparatura Motorsportowa',
-        tag:    'Własny system · rodzina instrumentów, 2012–2017',
+        tag:    'Własny system · 2015–2022',
         tech:   'Choinka RT1/RT2, Aparatura DN03, ATtiny/ATmega, RS232, RS485, RTC, MMC, detekcja fałszywego startu',
         result: 'Kompletna infrastruktura elektroniczna dla wyścigów. Dwa niezależne timery w jednym ISR (czas okrążenia 0,01 s + czas reakcji kierowcy 0,001 s). Poprzednik: system dla AutoMobilClub Łódź (#11).'
       },
@@ -197,19 +197,19 @@
       },
       p07: {
         name:   'LX-GT01 — Moduł Generatora Tabel Kodów Laskomex',
-        tag:    'Komercja · Laskomex · narzędzie produkcyjne',
+        tag:    'Komercja · Laskomex · 2019–2020',
         tech:   'CRC8, ELF binary patching, aplikacja PC (VB.NET)',
         result: 'Generator tabel kodów do produkcji seryjnej. ELF patching — modyfikacja binarnych tabel danych bez rekompilacji firmware.'
       },
       p08: {
         name:   'LX-EMI01 — Moduł Edytora Pamięci EEPROM Laskomex / Proel',
-        tag:    'Komercja · Laskomex / Proel · reverse-engineering',
+        tag:    'Komercja · Laskomex/Proel · 2018–2020',
         tech:   'Edytor EEPROM, reverse-engineering protokołu komunikacyjnego, I²C/SPI',
         result: 'Narzędzie do odczytu i zapisu pamięci EEPROM urządzeń bez dostępu do dokumentacji — reverse-engineering protokołu od zera.'
       },
       p09: {
         name:   'Algorytm Szukania Dzielników Liczb na ATmega8',
-        tag:    'Embedded · algorytmika bare-metal',
+        tag:    'Embedded · algorytmika bare-metal, 2013',
         tech:   'AVR, ATmega8, optymalizacja dla 8-bit MCU',
         result: 'Implementacja faktoryzacji na mikrokontrolerze 8-bit. Wczesny zalążek zainteresowań teorią liczb — bezpośredni poprzednik badań MR.'
       },
@@ -233,19 +233,19 @@
       },
       p13: {
         name:   'Sterownik Rozsiewacza BAGRAMET',
-        tag:    'Zlecenie komercyjne · rolnictwo, Bytów',
+        tag:    'Zlecenie komercyjne · rolnictwo, 2012',
         tech:   '2 PCB (sterownik + panel), AVR, Bytów, kilkanaście szt.',
         result: 'Dedykowany sterownik rozsiewacza nawozów. Projekt zlecony, produkcja mała seria (kilkanaście szt.).'
       },
       p14: {
         name:   'RGB LED Fun — Zabawka Dydaktyczna',
-        tag:    'Własny projekt · CNC, dydaktyka',
+        tag:    'Własny projekt · CNC, 2021–2022',
         tech:   'ATtiny13A, 3 piny sterują RGB, software PWM, obudowa CNC',
         result: 'Interaktywna zabawka edukacyjna — 3 przyciski RGB, software PWM na ATtiny13A (brak sprzętowego PWM). Obudowa wyfrezowana na własnym CNC.'
       },
       p15: {
         name:   'Laser CO₂ — Infrastruktura i Układ Nadmuchu',
-        tag:    'Własny system · aktywny do dziś',
+        tag:    'Własny system · 2020–obecnie',
         tech:   'CO₂ 50 W, elektrozawory, Ruida DSP, przekaźniki, chiller, własny air-assist',
         result: 'Zautomatyzowana linia produkcyjna do obróbki drewna. Własny air-assist, kalibracja kontrolera Ruida DSP. Produkcja i komercjalizacja >1000 wyrobów gotowych.'
       },
@@ -257,31 +257,31 @@
       },
       p17: {
         name:   'Matematyka Relacyjna — Teoria Liczb',
-        tag:    'Matematyka R&D · teoria fundamentalna',
+        tag:    'Matematyka R&D · 2025–obecnie',
         tech:   'Bertrand–Czebyszew (dowód hiperboliczny), CRT, Q (semigrupy), partycje, model rotacyjny, Zenodo (6 preprintów)',
         result: 'Autorska teoria opisująca strukturę rytmiczną liczb pierwszych. 6 preprintów naukowych na Zenodo. Fundament dla frameworków ARR, MR-CL, MR-KL, MR-RG, RPP i projektu MR-AI (#20).'
       },
       p18: {
         name:   'Resona — Trajektorowy Model Obliczeniowy',
-        tag:    'Matematyka R&D · model trajektorii',
+        tag:    'Matematyka R&D · 2025–obecnie',
         tech:   'Funkcja rezonansowa, własny język Resona, grafika funkcyjna, Python',
         result: 'Model obliczeniowy oparty na funkcjach rezonansowych — analiza trajektorii w przestrzeni MR. Własny język opisu modeli (Resona DSL).'
       },
       p19: {
         name:   'FochBot — Autonomiczny Asystent AI',
-        tag:    'AI / Software · 2024–2026',
+        tag:    'AI / Software · 2026',
         tech:   'FastAPI, mikrousługi, BCRYPT, ChromaDB, LangChain, multi-LLM routing (Claude/GPT/Gemini), ARR context-selection',
         result: 'Dwuwarstwowa architektura kognitywna: Warstwa A (mapa pamięci ChromaDB + ARR) + Warstwa B (kontroler wielomodelowy). Eliminacja rekomputacji → token cost = 0 dla lokalnych zadań.'
       },
       p20: {
         name:   'MR-AI — Framework Rytmiczny',
-        tag:    'AI / Software · framework decyzyjny',
+        tag:    'AI / Software · 2025–obecnie',
         tech:   'ARR + MR-KL + MR-CL + MR-RG + RPP, sterowanie bez wartości bezwzględnych, Python',
         result: 'Framework łączący wszystkie 5 modułów MR w architekturę decyzyjną dla AI. „Sterowanie bez wartości" — decyzje oparte wyłącznie na rytmie zmian i relacjach przestrzennych.'
       },
       p21: {
         name:   'HPC Faktoryzacja — Klasyczna Symulacja Algorytmu Shora',
-        tag:    'Matematyka R&D · HPC, 2025–2026',
+        tag:    'Matematyka R&D · HPC, 2025–obecnie',
         tech:   'Python, NumPy, Numba JIT, mechanizm fazowy (klasyczna symulacja kwantowa)',
         result: 'Klasyczna (nie kwantowa) symulacja algorytmu Shora z użyciem mechanizmu fazowego MR. Badania granicy faktoryzacji na CPU z Numba JIT.'
       },

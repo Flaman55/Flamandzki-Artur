@@ -29,7 +29,7 @@
       quote: '"I build my own tools. Before I check whether something ready-made exists."',
       b1: '22 projects',
       b2: '2004 – present',
-      b3: 'Firmware AVR · C# · VB.NET',
+      b3: 'Firmware AVR · C# · Java · Python',
       b4: 'Relational Mathematics',
       b5: 'AI / Embedded'
     },
@@ -86,7 +86,7 @@
       t6: {
         period: '2016 – 2022',
         title:  'Boiler controller — 5.5 years in a production environment',
-        text:   'Custom PCB, ATmega328P, triac phase-angle control at 230 V, delta-T instead of hysteresis thresholds (#01). ~11 M measurement records, 79+ firmware versions, foundation for one engineering and two master\'s theses.'
+        text:   'Custom PCB, ATmega328P, phase-angle control, delta-T instead of hysteresis thresholds (#01). ~11 M measurement records, 79+ firmware versions, foundation for one engineering and two master\'s theses.'
       },
       t7: {
         period: '2019 – present',
@@ -141,7 +141,7 @@
       ai: {
         label: 'AI application framework — project #20',
         title: 'MR-AI — Rhythmic Framework for Artificial Intelligence',
-        text:  'MR-AI combines all five frameworks (ARR, MR-CL, MR-KL, MR-RG, RPP) into a coherent decision architecture for AI systems — <strong>control without absolute values</strong>. Instead of comparing numbers, the system operates on the rhythm of change and spatial relations. The concrete realisation of MR-AI is <strong>FochBot V3</strong> (#19): an autonomous AI assistant with a two-layer cognitive architecture (ChromaDB memory map + multi-model controller), eliminating recomputation of known conclusions — token cost = 0 for local tasks.'
+        text:  'MR-AI combines all five frameworks (ARR, MR-CL, MR-KL, MR-RG, RPP) into a coherent decision architecture for AI systems — <strong>control without absolute values</strong>. Instead of comparing numbers, the system operates on the rhythm of change and spatial relations. The concrete realisation of MR-AI is <strong>FochBot</strong> (#19): an autonomous AI assistant with a two-layer cognitive architecture (ChromaDB memory map + multi-model controller), eliminating recomputation of known conclusions — token cost = 0 for local tasks.'
       }
     },
 
@@ -164,31 +164,31 @@
       },
       p01: {
         name:   'Autonomous Central Heating Boiler Controller',
-        tag:    'Own system · power regulation and remote monitoring',
+        tag:    'Own system · 2016–2022',
         tech:   'AVR Assembly, Phase-Angle Control (triac 230 V), ATmega328P, DS18B20, UART→USB, MS Access (.mdb), OneDrive',
         result: '5.5 years in production (Nov 2016 – Jul 2022). ~11 M measurement records, 61 MDB databases (1.65 GB), 79+ firmware versions. Foundation for one engineering and two master\'s theses, all graded 5/5.'
       },
       p02: {
         name:   'Portable Battery Speaker',
-        tag:    'Historical project · high-school electronics, 2004–2006',
+        tag:    'Historical project · high-school electronics, 2004',
         tech:   'Analogue audio electronics, batteries, amplifier',
         result: 'Starting point — first project built out of necessity during high school. Historical reference documenting the beginning of the technical journey.'
       },
       p03: {
         name:   'Automatic LPG Injector Calibrator',
-        tag:    'Commercial order · calibration precision',
+        tag:    'Commercial order · 2010–2011',
         tech:   'ATmega32, stepper motors, coil-open event timing',
         result: 'Calibration scatter reduced from >0.3 mm to <0.01 mm by closing the feedback loop on the physical coil-open event instead of caliper geometry.'
       },
       p04: {
         name:   'Automotive Voltmeter WST / WSTK',
-        tag:    'Commercial product · engine-state FSM',
+        tag:    'Commercial product · 2011–2013',
         tech:   'ATmega, HD44780, DS18B20 (×2), lead-acid FSM, RGB backlight (8 colours)',
         result: '<strong>WST</strong> (car): 150 units sold nationwide. <strong>WSTK</strong> (motorcycle): ~15 units. Customer demo: <a href="https://www.youtube.com/watch?v=LHdiPH1gRtQ" target="_blank" rel="noopener">▶ YouTube</a>'
       },
       p05: {
         name:   'DELFI Racing System — Timing and Motorsport Instrumentation',
-        tag:    'Own system · instrument family, 2012–2017',
+        tag:    'Own system · 2015–2022',
         tech:   'Christmas Tree RT1/RT2, DN03 instrumentation, ATtiny/ATmega, RS232, RS485, RTC, MMC, false-start detection',
         result: 'Complete electronic infrastructure for racing events. Two independent timers multiplexed in one ISR (lap time 0.01 s + driver reaction time 0.001 s). Predecessor: AutoMobilClub Łódź system (#11).'
       },
@@ -200,19 +200,19 @@
       },
       p07: {
         name:   'LX-GT01 — Laskomex Code Table Generator Module',
-        tag:    'Commercial · Laskomex · production tool',
+        tag:    'Commercial · Laskomex · 2019–2020',
         tech:   'CRC8, ELF binary patching, PC application (VB.NET)',
         result: 'Code table generator for serial production. ELF patching — modifying binary data tables without recompiling firmware.'
       },
       p08: {
         name:   'LX-EMI01 — Laskomex/Proel EEPROM Memory Editor Module',
-        tag:    'Commercial · Laskomex/Proel · reverse-engineering',
+        tag:    'Commercial · Laskomex/Proel · 2018–2020',
         tech:   'EEPROM editor, communication protocol reverse-engineering, I²C/SPI',
         result: 'Tool for reading and writing EEPROM of devices without documentation — full protocol reverse-engineering from scratch.'
       },
       p09: {
         name:   'Prime Divisor Search Algorithm on ATmega8',
-        tag:    'Embedded · bare-metal algorithmics',
+        tag:    'Embedded · bare-metal algorithmics, 2013',
         tech:   'AVR, ATmega8, 8-bit MCU optimisation',
         result: 'Factorisation implementation on an 8-bit microcontroller. Early precursor to interest in number theory — direct predecessor of MR research.'
       },
@@ -236,19 +236,19 @@
       },
       p13: {
         name:   'BAGRAMET Spreader Controller',
-        tag:    'Commercial order · agriculture, Bytów',
+        tag:    'Commercial order · agriculture, 2012',
         tech:   '2 PCBs (controller + panel), AVR, Bytów, small series',
         result: 'Dedicated fertiliser spreader controller. Client project, small-series production.'
       },
       p14: {
         name:   'RGB LED Fun — Educational Toy',
-        tag:    'Own project · CNC, education',
+        tag:    'Own project · CNC, 2021–2022',
         tech:   'ATtiny13A, 3 pins drive RGB, software PWM, CNC enclosure',
         result: 'Interactive educational toy — 3 RGB buttons, software PWM on ATtiny13A (no hardware PWM). Enclosure milled on own CNC machine.'
       },
       p15: {
         name:   'CO₂ Laser — Infrastructure and Air-Assist System',
-        tag:    'Own system · active to this day',
+        tag:    'Own system · 2020–present',
         tech:   'CO₂ 50 W, solenoid valves, Ruida DSP, relays, chiller, custom air-assist',
         result: 'Automated wood-processing production line. Custom air-assist, Ruida DSP calibration. Production and commercialisation of >1,000 finished products.'
       },
@@ -260,31 +260,31 @@
       },
       p17: {
         name:   'Relational Mathematics — Number Theory',
-        tag:    'Mathematics R&D · foundational theory',
+        tag:    'Mathematics R&D · 2025–present',
         tech:   'Bertrand–Chebyshev (hyperbolic proof), CRT, Q (semigroups), partitions, rotational model, Zenodo (6 preprints)',
         result: 'Original theory describing the rhythmic structure of prime numbers. 6 scientific preprints on Zenodo. Foundation for ARR, MR-CL, MR-KL, MR-RG, RPP frameworks and MR-AI project (#20).'
       },
       p18: {
         name:   'Resona — Trajectory Computational Model',
-        tag:    'Mathematics R&D · trajectory model',
+        tag:    'Mathematics R&D · 2025–present',
         tech:   'Resonance function, custom Resona language, functional graphics, Python',
         result: 'Computational model based on resonance functions — trajectory analysis in MR space. Custom model description language (Resona DSL).'
       },
       p19: {
         name:   'FochBot — Autonomous AI Assistant',
-        tag:    'AI / Software · 2024–2026',
+        tag:    'AI / Software · 2026',
         tech:   'FastAPI, microservices, BCRYPT, ChromaDB, LangChain, multi-LLM routing (Claude/GPT/Gemini), ARR context-selection',
         result: 'Two-layer cognitive architecture: Layer A (ChromaDB memory map + ARR) + Layer B (multi-model controller). Eliminates recomputation → token cost = 0 for local tasks.'
       },
       p20: {
         name:   'MR-AI — Rhythmic Framework',
-        tag:    'AI / Software · decision framework',
+        tag:    'AI / Software · 2025–present',
         tech:   'ARR + MR-KL + MR-CL + MR-RG + RPP, value-free control, Python',
         result: 'Framework combining all 5 MR modules into a decision architecture for AI. "Control without absolute values" — decisions based solely on the rhythm of change and spatial relations.'
       },
       p21: {
         name:   'HPC Factorisation — Classical Simulation of Shor\'s Algorithm',
-        tag:    'Mathematics R&D · HPC, 2025–2026',
+        tag:    'Mathematics R&D · HPC, 2025–present',
         tech:   'Python, NumPy, Numba JIT, phase mechanism (classical quantum simulation)',
         result: 'Classical (non-quantum) simulation of Shor\'s algorithm using the MR phase mechanism. Research into factorisation boundaries on CPU with Numba JIT.'
       },
