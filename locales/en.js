@@ -190,7 +190,7 @@
         name:   'DELFI Racing System — Timing and Motorsport Instrumentation',
         tag:    'Own system · 2015–2022',
         tech:   'Christmas Tree RT1/RT2, DN03 instrumentation, ATtiny/ATmega, RS232, RS485, RTC, MMC, false-start detection',
-        result: 'Complete electronic infrastructure for racing events. Two independent timers multiplexed in one ISR (lap time 0.01 s + driver reaction time 0.001 s). Predecessor: AutoMobilClub Łódź system (#11).'
+        result: 'Complete electronic infrastructure for racing events. Two independent timers multiplexed in one ISR (lap time 0.01 s + driver reaction time 0.001 s). Predecessor: #11. <a href="https://dzienniklodzki.pl/wyscigi-na-14-mili-w-lodzi-wystartowalo-kilkudziesieciu-kierowcow-zdjecia-film/ar/6459502" target="_blank" rel="noopener">Dziennik Łódzki article</a>'
       },
       p06: {
         name:   'LX-DK Series — Laskomex Admin Password Reset Modules',
@@ -225,8 +225,8 @@
       p11: {
         name:   'AutoMobilClub Łódź Timing System',
         tag:    'Commercial · quarter-mile racing, 2011',
-        tech:   'ATtiny2313, RS232, RS485, USB, MMC, RTC, false-start detection, Watchdog reset as flash optimisation',
-        result: 'Commercial distributed timing system for motorsport events. Direct predecessor of DELFI Racing RT1/RT2. <a href="https://dzienniklodzki.pl/wyscigi-na-14-mili-w-lodzi-wystartowalo-kilkudziesieciu-kierowcow-zdjecia-film/ar/6459502" target="_blank" rel="noopener">Dziennik Łódzki article</a>'
+        tech:   'ATtiny2313, BASCOM, RS232, Timer1, software UART, false-start detection, Watchdog reset',
+        result: 'Timing system delivered and used by AutoMobilClub Łódź. Two independent timers in one ISR, run time 0.01 s + reaction time 0.001 s. Direct predecessor of DELFI Racing (#05).'
       },
       p12: {
         name:   'USB-RS232 Converter with TTL Output — Custom PCB',

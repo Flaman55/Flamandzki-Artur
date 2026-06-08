@@ -187,7 +187,7 @@
         name:   'System DELFI Racing — Pomiar Czasu i Aparatura Motorsportowa',
         tag:    'Własny system · 2015–2022',
         tech:   'Choinka RT1/RT2, Aparatura DN03, ATtiny/ATmega, RS232, RS485, RTC, MMC, detekcja fałszywego startu',
-        result: 'Kompletna infrastruktura elektroniczna dla wyścigów. Dwa niezależne timery w jednym ISR (czas okrążenia 0,01 s + czas reakcji kierowcy 0,001 s). Poprzednik: system dla AutoMobilClub Łódź (#11).'
+        result: 'Kompletna infrastruktura elektroniczna dla wyścigów. Dwa niezależne timery w jednym ISR (czas okrążenia 0,01 s + czas reakcji kierowcy 0,001 s). Poprzednik: #11. <a href="https://dzienniklodzki.pl/wyscigi-na-14-mili-w-lodzi-wystartowalo-kilkudziesieciu-kierowcow-zdjecia-film/ar/6459502" target="_blank" rel="noopener">Artykuł Dziennik Łódzki</a>'
       },
       p06: {
         name:   'Seria LX-DK — Moduły Resetowania Haseł Administratora Laskomex',
@@ -222,8 +222,8 @@
       p11: {
         name:   'System Pomiaru Czasu AutoMobilClub Łódź',
         tag:    'Komercja · wyścigi 1/4 mili, 2011',
-        tech:   'ATtiny2313, RS232, RS485, USB, MMC, RTC, detekcja fałszywego startu, Watchdog reset jako optymalizacja flash',
-        result: 'Komercyjny rozproszony system pomiaru czasu dla imprez motorsportowych. Bezpośredni poprzednik DELFI Racing RT1/RT2. <a href="https://dzienniklodzki.pl/wyscigi-na-14-mili-w-lodzi-wystartowalo-kilkudziesieciu-kierowcow-zdjecia-film/ar/6459502" target="_blank" rel="noopener">Artykuł Dziennik Łódzki</a>'
+        tech:   'ATtiny2313, BASCOM, RS232, Timer1, software UART, detekcja falstartu, Watchdog reset',
+        result: 'System pomiaru czasu dostarczony i użyty przez AutoMobilClub Łódź. Dwa niezależne timery w jednym ISR, czas przejazdu 0,01 s + czas reakcji 0,001 s. Bezpośredni poprzednik projektu #05 (DELFI Racing RT1/RT2).'
       },
       p12: {
         name:   'Konwerter USB-RS232 z wyjściem TTL — własna płytka PCB',
