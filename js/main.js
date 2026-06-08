@@ -189,7 +189,7 @@ const i18n = (function () {
 
 
 /* ── Project filter ──────────────────────────────────────────── */
-(function initProjectFilter() {
+function initProjectFilter() {
   const filterGroup = document.getElementById('projectFilter');
   if (!filterGroup) return;
   const rows = document.querySelectorAll('tbody tr[data-cat]');
@@ -203,10 +203,11 @@ const i18n = (function () {
       row.classList.toggle('filter-hidden', filter !== 'all' && row.dataset.cat !== filter);
     });
   });
-})();
+}
 
 
 /* ── Boot ────────────────────────────────────────────────────── */
 document.addEventListener('DOMContentLoaded', () => {
   i18n.init();
+  initProjectFilter();
 });
