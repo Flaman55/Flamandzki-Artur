@@ -191,7 +191,7 @@
       },
       p06: {
         name:   'Seria LX-DK — Moduły Resetowania Haseł Administratora Laskomex',
-        tag:    'Komercja · Laskomex · 7 lat sprzedaży',
+        tag:    'Komercja · Laskomex · 2015–2022',
         tech:   'DK02 + DK03, ATtiny, protokół UART własnościowy, reverse-engineering',
         result: '~500 szt. sprzedanych przez 7 lat (w tym 3 lata po odejściu z firmy). Rozwiązanie flash-shortage: moduł sprzętowy warstwę wyżej zamiast modyfikacji firmware.'
       },

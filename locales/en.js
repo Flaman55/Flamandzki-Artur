@@ -194,7 +194,7 @@
       },
       p06: {
         name:   'LX-DK Series — Laskomex Admin Password Reset Modules',
-        tag:    'Commercial · Laskomex · 7 years of sales',
+        tag:    'Commercial · Laskomex · 2015–2022',
         tech:   'DK02 + DK03, ATtiny, proprietary UART protocol, reverse-engineering',
         result: '~500 units sold over 7 years (including 3 years after leaving the company). Flash-shortage solution: hardware module one architectural layer above instead of modifying the firmware.'
       },
