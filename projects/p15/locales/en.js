@@ -3,14 +3,14 @@
   window.i18nData['en'] = window.i18nData['en'] || {};
   const existing = window.i18nData['en'].page || {};
   window.i18nData['en'].page = Object.assign({}, existing, {
-    title:      '#15 — TODO — Artur Flamandzki',
-    hero_tag:   'PORTFOLIO R&D — PROJEKT #15',
-    hero_title: 'TODO',
-    hero_sub:   'TODO',
-    date:       'TODO',
-    summary:    '<p>TODO</p>',
-    nav_prev:   '← #14',
-    nav_next:   '#16 →',
-    body:       '<p>TODO</p>'
+    title: '#15 CO₂ Laser: Technology Mastery and Knowledge Transfer — Artur Flamandzki',
+    hero_tag: 'PORTFOLIO R&amp;D — PROJECT #15 — OWN INFRASTRUCTURE',
+    hero_title: 'CO₂ Laser: Technology Mastery and Knowledge Transfer',
+    hero_sub: 'CO₂ 50 W / 40×40 cm · kerf compensation · material profiles · knowledge transfer: 1000+ products · ca. 2020–2024',
+    date: 'ca. 2020–2024 · own infrastructure · Cut2D Desktop, LightBurn, Ruida DSP · plywood, acrylic, leather, glass',
+    summary: '<p>Own 50 W CO₂ laser as production infrastructure and engineering project. Key contribution: <strong>understanding the discrepancy between CAD design and physical result</strong> (kerf, joint tolerances, thermal deformation) and its systematic elimination. Outcome: wife took over machine operation and built a portfolio of <strong>over 1,000 products</strong>.</p>',
+    nav_prev: '← #14',
+    nav_next: '#16 →',
+    body: '<div class="proj-box proj-box--innovation">\n  <div class="proj-box-title">01 — CAD vs. physical result — what is on screen does not equal what is in the material</div>\n  <div class="proj-box-body">\n    <p>A designer draws a line on screen. The laser cuts with a <strong>beam of finite width</strong> — the cut slot is wider than the design line (<em>kerf</em>). For press-fit joints (puzzles, slots, lock joints without glue) this is the difference between a part that fits and one that falls out or won\'t go in.</p>\n    <p><strong>Variables mastered:</strong></p>\n    <ul class="proj-list">\n      <li><strong>Kerf compensation</strong> — correction to the nearest eighth of a millimetre depending on material and beam power</li>\n      <li><strong>Joint tolerances</strong> — different for plywood, acrylic, leather, and mirror acrylic</li>\n      <li><strong>Engraving depth</strong> — power/speed calibrated to engrave without burning through (different per material and thickness)</li>\n      <li><strong>Thermal deformation</strong> — warping after cutting long pieces; compensated by cut sequencing</li>\n    </ul>\n  </div>\n</div>\n\n<div class="proj-box proj-box--innovation">\n  <div class="proj-box-title">02 — Materials and scope of mastered technology</div>\n  <div class="proj-box-body">\n    <p>The CO₂ laser works on a <strong>wide class of materials</strong> — each requiring its own power, speed, and air-assist profile:</p>\n    <table class="proj-table"><thead><tr><th>Material</th><th>Technical notes</th></tr></thead>\n    <tbody>\n      <tr><td>Plywood 3–6 mm</td><td>Cutting and engraving; kerf compensation critical</td></tr>\n      <tr><td>Acrylic (PMMA)</td><td>Cutting; edge polished by beam</td></tr>\n      <tr><td>Mirror acrylic</td><td>Engraving from reverse; different parameters than clear</td></tr>\n      <tr><td>Natural leather</td><td>Engraving, pattern burning</td></tr>\n      <tr><td>Glass</td><td>Engraving only; parameters critical (cracking)</td></tr>\n    </tbody></table>\n    <p>Every combination of material + thickness + operation (cut / engrave) requires its own profile — mastering this takes several months of trials.</p>\n  </div>\n</div>\n\n<div class="proj-box proj-box--result">\n  <div class="proj-box-title">Result — knowledge transfer, over 1,000 products</div>\n  <div class="proj-box-body">\n    <ul class="proj-list">\n      <li>Full mastery of CO₂ laser technology: maintenance, calibration, material profiles</li>\n      <li>Understanding and elimination of CAD–physical result discrepancy (kerf, tolerances, thermal deformation)</li>\n      <li>Knowledge transfer: wife as a graphic designer took over machine operation and built an independent portfolio of <strong>over 1,000 products</strong></li>\n      <li>Own infrastructure: CO₂ 50 W, 40×40 cm, plywood up to 6 mm — enclosures for own electronics projects without dependence on an external contractor</li>\n      <li>Machine upgrade: dual solenoid valve system controlled from Ruida DSP outputs — automatic air-assist switching for cut/engrave/standby</li>\n    </ul>\n  </div>\n</div>',
   });
 })();
