@@ -198,6 +198,14 @@ section:nth-child(even) {
   letter-spacing: .02em;
   margin-bottom: .5rem;
 }
+.hero-degree {
+  font-size: .52em;
+  font-weight: 400;
+  color: #a8c8e8;
+  letter-spacing: .06em;
+  vertical-align: .18em;
+  margin-right: .25em;
+}
 .hero-title {
   color: #a8c8e8;
   font-size: clamp(.9rem, 2vw, 1.15rem);

@@ -25,6 +25,7 @@
     },
 
     hero: {
+      degree: 'M.Eng.',
       title: 'Systems & Core Algorithms Architect',
       quote: 'I design the architecture of technical systems at the intersection of hardware, software, and advanced algorithmics.',
       b1: '16 years of R&D practice',

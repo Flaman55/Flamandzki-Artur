@@ -22,6 +22,7 @@
     },
 
     hero: {
+      degree: 'mgr inż.',
       title: 'Systems & Core Algorithms Architect',
       quote: 'Projektuję architekturę systemów technicznych na styku sprzętu, oprogramowania i zaawansowanej algorytmiki.',
       b1: '16 lat praktyki w R&D',
