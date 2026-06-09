@@ -636,3 +636,81 @@ footer a { color: #8aaed0; }
   h2          { font-size: 1.4rem; }
   .frameworks-grid { grid-template-columns: 1fr; }
 }
+
+/* ── Hero tagline (replaces hero-quote blockquote) ── */
+.hero-tagline {
+  max-width: 680px;
+  margin: 0 auto 2.5rem;
+  color: #d0e4f4;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  font-weight: 400;
+  letter-spacing: .01em;
+}
+
+/* ── Three-phase evolution grid ── */
+.fazy-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0 1.5rem;
+}
+
+.faza-card {
+  background: var(--surface, #f8fafc);
+  border: 1px solid var(--border, #e2e8f0);
+  border-radius: 10px;
+  padding: 1.5rem 1.75rem;
+  position: relative;
+  border-top: 3px solid var(--accent, #2563eb);
+  transition: box-shadow .2s;
+}
+
+.faza-card:hover {
+  box-shadow: 0 4px 18px rgba(0,0,0,.08);
+}
+
+.faza-nr {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: var(--accent, #2563eb);
+  opacity: .18;
+  line-height: 1;
+  margin-bottom: .25rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.faza-label {
+  font-size: .85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  color: var(--accent, #2563eb);
+  margin: 0 0 .4rem;
+}
+
+.faza-subtitle {
+  font-size: .9rem;
+  font-weight: 600;
+  color: var(--text, #1e293b);
+  margin: 0 0 .6rem;
+}
+
+.faza-card p:last-child {
+  font-size: .9rem;
+  color: var(--text-muted, #64748b);
+  line-height: 1.55;
+  margin: 0;
+}
+
+.faza-punchline {
+  text-align: center;
+  font-size: 1rem;
+  font-style: italic;
+  color: var(--text-muted, #64748b);
+  margin: 0 auto 3rem;
+  max-width: 680px;
+  padding: 1rem 0;
+  border-top: 1px solid var(--border, #e2e8f0);
+  border-bottom: 1px solid var(--border, #e2e8f0);
+}

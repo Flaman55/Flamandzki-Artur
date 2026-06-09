@@ -22,11 +22,11 @@
     },
 
     hero: {
-      title: 'Inżynier elektroniki i oprogramowania embedded',
-      quote: '„Buduję własne narzędzia. Zanim sprawdzę, czy coś gotowego istnieje."',
-      b1: '22 projekty',
-      b2: '2004 – obecnie',
-      b3: 'Firmware AVR · C# · Java · Python',
+      title: 'Systems & Core Algorithms Architect',
+      quote: 'Projektuję architekturę systemów technicznych na styku sprzętu, oprogramowania i zaawansowanej algorytmiki.',
+      b1: '16 lat praktyki w R&D',
+      b2: 'Produkty zwalidowane rynkowo',
+      b3: 'Autorskie frameworki optymalizacyjne',
       b4: 'Matematyka Relacyjna',
       b5: 'AI / Embedded'
     },
@@ -95,6 +95,22 @@
         title:  'Smart Home, MR, TrueSynth, FochBot — konwergencja obu ścieżek',
         text:   'Inteligentny dom (Home Assistant, #22), Resona trajektorowy model (#18), Matematyka Relacyjna teoria (#17), MR-AI framework (#20), FochBot asystent AI (#19), TrueSynth trygonometria embedded (#16), HPC symulacja algorytmu Shora (#21).'
       },
+      fase1: {
+        label: 'Faza 1 — Hardware jako język',
+        title: 'Embedded · bare-metal · produkty w terenie',
+        text:  'System to nie kod — to ograniczenia zasobów, czas rzeczywisty, fizyczna rzeczywistość. Nauka, że każdy bajt i każdy cykl jest zasobem, który można zmarnować albo wykorzystać.'
+      },
+      fase2: {
+        label: 'Faza 2 — Skala jako nowy wymiar',
+        title: '7 lat w bankowości · 11 mln rekordów · FINREP',
+        text:  'Te same zasady projektowania systemów — tylko „RAM” to teraz baza danych, a „ISR” to okno transakcyjne. Integralność danych pod presją regulacyjną uczy myśleć w wolumenach.'
+      },
+      fase3: {
+        label: 'Faza 3 — Algorytm jako produkt',
+        title: 'TrueSynth · Resona · MR-AI · teoria liczb',
+        text:  'Jeżeli rozumiesz ograniczenia sprzętowe i skalę enterprise i matematyczny fundament — możesz projektować systemy, które inni uznają za niemożliwe.'
+      },
+      fazepunchline: 'Hardware nauczył mnie myśleć w cyklach. Bank nauczył myśleć w wolumenach. Matematyka nauczyła myśleć w strukturach. Projektuję na przecięciu wszystkich trzech.',
       note: '<strong>Dwie ścieżki:</strong> hardware embedded (projekty #01–#15) i matematyka relacyjna (#16–#21) rozwijały się równolegle przez lata. W 2022–2026 <strong>zbiegają się w jedną</strong>: MR-AI, TrueSynth i Resona to miejsca, gdzie fizyka mikrokontrolerów spotyka teorię liczb.'
     },
 

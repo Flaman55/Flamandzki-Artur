@@ -25,10 +25,10 @@
     },
 
     hero: {
-      title: 'Electronics & Embedded Software Engineer',
-      quote: '"I build my own tools. Before I check whether something ready-made exists."',
-      b1: '22 projects',
-      b2: '2004 – present',
+      title: 'Systems & Core Algorithms Architect',
+      quote: 'I design the architecture of technical systems at the intersection of hardware, software, and advanced algorithmics.',
+      b1: '16 years of R&D practice',
+      b2: 'Market-validated products',
       b3: 'Firmware AVR · C# · Java · Python',
       b4: 'Relational Mathematics',
       b5: 'AI / Embedded'
@@ -98,6 +98,22 @@
         title:  'Smart Home, MR, TrueSynth, FochBot — convergence of both tracks',
         text:   'Smart home (Home Assistant, #22), Resona trajectory model (#18), Relational Mathematics theory (#17), MR-AI framework (#20), FochBot AI assistant (#19), TrueSynth embedded trigonometry (#16), HPC Shor simulation (#21).'
       },
+      fase1: {
+        label: 'Phase 1 — Hardware as language',
+        title: 'Embedded · bare-metal · field-proven products',
+        text:  'A system is not code — it is resource constraints, real time, and physical reality. Learning that every byte and every cycle is a resource to waste or leverage.'
+      },
+      fase2: {
+        label: 'Phase 2 — Scale as a new dimension',
+        title: '7 years in banking · 11 M records · FINREP',
+        text:  'The same system-design principles — only “RAM” is now a database and “ISR” is a transaction window. Data integrity under regulatory pressure teaches thinking in volumes.'
+      },
+      fase3: {
+        label: 'Phase 3 — Algorithm as product',
+        title: 'TrueSynth · Resona · MR-AI · number theory',
+        text:  'If you understand hardware constraints and enterprise scale and mathematical foundations — you can design systems others consider impossible.'
+      },
+      fazepunchline: 'Hardware taught me to think in cycles. Banking taught me to think in volumes. Mathematics taught me to think in structures. I design at the intersection of all three.',
       note: '<strong>Two tracks:</strong> embedded hardware (projects #01–#15) and relational mathematics (#16–#21) developed in parallel for years. In 2022–2026 they <strong>converge into one</strong>: MR-AI, TrueSynth and Resona are where microcontroller physics meets number theory.'
     },
 
