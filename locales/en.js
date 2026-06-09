@@ -316,56 +316,60 @@
       title: 'Case Studies — three branches',
       sub:   'Three projects from different R&D domains — electronics, software, mathematics.',
       cs1: {
-        title: 'Boiler Controller — 5.5 years, 11 M records, foundation for one engineering and two master\'s theses',
+        title: 'Boiler Controller — PAC triac vs VFD · temperature delta · ±1°C · 11M records',
         b0: {
           title: 'Problem genesis',
-          text:  'A feed-type coal boiler with no automation — maintaining temperature requires manually adjusting the blower fan. Available thermostats work in ON/OFF mode, leading to large oscillations and inefficient combustion.'
+          text:  'A feed-type coal boiler needs a blower — single-phase induction motor, synchronous speed 1500 RPM at 50 Hz. Standard speed control: VFD inverter (200–500 PLN). Available thermostats operate ON/OFF — large temperature oscillations, inefficient combustion, no anticipation of change.'
         },
         b1: {
           title: 'Innovation #1 — triac phase-angle control instead of a VFD inverter',
-          text:  'The blower is driven by an induction motor. Standard solution: VFD inverter (200–500 PLN). Applied solution: phase-angle firing delay of the triac relative to the zero-voltage crossing. The torque of a centrifugal fan blower scales as M ∝ n² — the motor naturally stabilises at a lower speed. Implementation cost: zero.'
+          text:  'Instead of a VFD: delay triac firing relative to the AC zero crossing (phase-angle control). For a centrifugal fan: torque M ∝ n² — reduced RMS voltage = natural stabilisation at lower speed, without an inverter. Three independent triac channels: blower / pump / boiler. Timer0 ISR measures phase delay every 10 ms (50 Hz network). Additional hardware cost: zero.'
         },
         b2: {
-          title: 'Innovation #2 — temperature delta instead of hysteresis thresholds',
-          text:  'Every 15 seconds the firmware computes the discrete temperature derivative (trend) and makes decisions based on the <em>direction of change</em>, before the temperature crosses the threshold. Three symbolic states: T↑ (reduce airflow), T→ (hold), T↓ (increase airflow). The equivalent of the D-term of a PID controller — implemented without libraries on an 8-bit MCU.'
+          title: 'Innovation #2 — temperature delta · EMC window · seed of ARR',
+          text:  'Discrete temperature derivative computed every 15 s: <strong>T↑ → reduce airflow · T→ → hold · T↓ → increase</strong>. Anticipatory control before the temperature crosses the threshold — equivalent of the D-term of a PID controller, on an 8-bit MCU without libraries. Software EMC window: before each 1-Wire measurement, disable all triacs and both interrupts → zero electromagnetic interference → zero additional hardware. <em>Tendencja_sub is the first known implementation of ARR (Relational Rhythm Analyser) — running in production a decade before the MR-AI framework was formalised (#20).</em>'
         },
         res: {
           title: 'Results (5.5 years of operation)',
-          html:  '<li>~11 million measurement records, 61 MDB databases (1.65 GB)</li><li>79+ firmware versions without interrupting system operation (USB bootloader)</li><li>Zero hardware failures throughout the entire production period</li><li>Foundation for one engineering and two master\'s theses, all graded 5/5</li>'
+          html:  '<li>~11 million measurement records across 61 MDB databases (1.65 GB) — continuous logging for 5.5 years</li><li>79+ firmware versions without system downtime (own USB bootloader)</li><li>Precision: ±1°C CO circuit · average deviation −0.1°C from setpoint over a full heating season on a coal boiler with high thermal inertia</li><li>Foundation for 2 master\'s and 1 engineering theses — all defended with 5/5</li>'
         }
       },
       cs2: {
-        title: 'FochBot V3 — autonomous LLM middleware, dual-layer AI brain',
+        title: 'Autonomous LLM middleware — dual-layer AI memory · FochBot',
         b0: {
           title: 'Problem: LLM is a stateless neuron',
-          text:  'Every LLM call starts from scratch — no memory between sessions, no context continuity. The naive approach sends the full conversation history in every prompt: token cost grows linearly, usefulness declines.'
+          text:  'An LLM (GPT, Claude) is a one-shot computational unit — receives input, generates output, goes dark. It holds no state between calls. Naive solution: send the full conversation history in every prompt → token cost grows linearly, usefulness declines. FochBot answers: how to build a brain with memory around a stateless neuron?'
         },
         b1: {
-          title: 'Innovation: dual-layer brain (Layer A + B)',
-          text:  '<strong>Layer A — Memory Map:</strong> three-level on-disk archive (raw sessions, index, knowledge fragments) — LLM receives only the context it needs, without full history. <strong>Layer B — Autonomous Controller:</strong> makes local decisions without LLM (routing, completeness check), calls the model as a tool only when genuinely needed. Continuity logic on FochBot\'s side, not the model\'s.'
+          title: 'Innovation: dual-layer brain (Layer A + Layer B)',
+          text:  '<strong>Layer A — Memory Map:</strong> three-level on-disk archive — raw sessions (session_*.json), compact index as a catalogue for the LLM, knowledge fragments loaded selectively per query. The LLM always receives exactly the context it needs — no full history. <strong>Layer B — Autonomous Controller:</strong> routing, request completeness check, and context package assembly — locally, without LLM. Then calls the model as a tool, evaluates the result, initiates re-call or escalation if needed. Continuity logic lives in FochBot, not in the model.'
         },
         b2: {
           title: 'Evolution V1→V2→V3',
-          text:  'V1: offline intent classifier (NLP, intents.json). V2: FastAPI microservices — API:8000 + Auth:8001, BCRYPT, atomic JSON writes, role system (admin/user/device), delivered in 3 phases. V3: LLM middleware with full technical documentation (PDF/DOCX/LaTeX).'
+          text:  'V1 (2024): offline intent classifier — intents.json, NLP (tokenisation, text cleaning), ML classifier, CLI + web interface. V2 (2025): full rebuild as FastAPI microservices — API:8000 (business logic + chat) separated from Auth:8001 (sessions, roles, device tokens). Every /chat request: require_auth() → POST /check_access → in-RAM session check → allowed: true/false + user data. BCRYPT hashes, atomic JSON writes (data_manager.py as sole write-access module), admin/user/device roles. Delivered in 3 phases. V3 (2025–2026): LLM middleware layer with full technical documentation (PDF/DOCX/LaTeX).'
         },
         res: {
           title: 'Results',
-          html:  '<li>Token cost = 0 for local tasks — LLM called only when needed</li><li>Context continuity across sessions without sending full history</li><li>Full V3 technical documentation (PDF/DOCX/LaTeX)</li><li>Open project — ARR from MR-AI (#20) planned as Layer B engine</li>'
+          html:  '<li>Token cost = 0 for local tasks — LLM called only when genuinely needed</li><li>Context continuity across sessions without sending full history to the model</li><li>Auth/API separation: security policy changes without touching business logic</li><li>Full V3 technical documentation (FochBot_V3_Dokumentacja.pdf / .docx / .tex)</li>'
         }
       },
       cs3: {
-        title: 'TrueSynth Prime Engine — ppb=0, 4.7× faster than CMSIS-DSP, 10⁹ steps zero drift',
+        title: 'TrueSynth Prime Engine — zero interpolation, zero jitter, 4.7× faster than CMSIS-DSP Q31',
         b0: {
-          title: 'Problem: π baked into the definition',
-          text:  'Classical trigonometry defines angle in radians — the π approximation is an error baked in at the definition level. CMSIS-DSP Q31: 18,825 ppb error, 14 cycles/pair on M4F.'
+          title: 'Problem: jitter and approximation error baked into the definition',
+          text:  'Classical LUT trigonometry interpolates between grid points — any decimal angle rarely lands exactly on a grid point. Interpolation: double cost — computational overhead and approximation error. Core problem: jitter — one angle costs 70 cycles, another 700. CMSIS-DSP Q31 on M4F: nominal 14 cycles/pair but non-deterministic — up to 530 cycles! Error: 18,825 ppb. FOC, DDS, and absolute encoders require identical execution time for every angle.'
         },
         b1: {
-          title: 'Innovation: angle as fraction k/p, LUT from 19 primes',
-          text:  'Angle represented as k/p (p prime) — exact point on the unit circle without approximating π. LUT: 19 primes, 275 entries, 2.2 kB Flash, 0 B RAM. <strong>Mode MI:</strong> 3 cycles/pair on M4F 170 MHz, 0.0 ppb — algebraically exact result.'
+          title: 'Innovation: angle as k/p · LUT from primes · 6 engine modes',
+          text:  'Angle redefined: instead of radians, proportion <strong>k/p</strong> (p — prime number). Every k/p angle lands EXACTLY on a LUT point — no interpolation needed, identical cost for every angle, jitter = 0. <strong>Prime Engine LUT</strong> (p ≤ 67): 19 primes, 275 entries, <strong>2.2 kB Flash, 0 B RAM</strong>. Six modes: Mode 0 (Chebyshev iterator) · Mode 1 Direct LUT (482 cycles M0, 0 ppb) · Mode 2 Reduce · Mode 3 Nearest · Mode 4 Repeated Squaring · <strong>Mode MI (3 cycles/pair M4F, 0.0 ppb, deterministic)</strong> — dedicated to FOC/DDS/encoders.'
+        },
+        b2: {
+          title: 'Benchmark — hard numbers on hardware',
+          text:  '<strong>M4F platform (STM32G474RE, 170 MHz):</strong> Mode MI → <strong>3 cycles/pair · 0.0 ppb · YES deterministic</strong>. CMSIS-DSP Q31 → 14 cycles/pair · 18,825 ppb · NO (up to 530 cycles!). CMSIS-DSP F32 → 178 cycles/pair · 18,978 ppb. <strong>M0 platform (STM32F030R8, 48 MHz):</strong> Prime Direct LUT → 482 cycles · 0 ppb. Classic CORDIC → 271 cycles · 0.9 ppb. LUT 7500 Flash → 798 cycles · 5.6 ppb. Taylor → 888 cycles · 98,000 ppb. <strong>Drift test:</strong> 1,024,000,000 steps — final error 2.22×10⁻¹⁶ (IEEE 754 machine epsilon). Drift: 0.'
         },
         res: {
           title: 'Results',
-          html:  '<li>4.7× faster than CMSIS-DSP Q31 (14→3 cycles/pair, 18,825→0.0 ppb)</li><li>Zero drift after 1,024,000,000 steps (final error = IEEE 754 epsilon = 2.22×10⁻¹⁶)</li><li>Target applications: FOC motor control, DDS, absolute encoders</li>'
+          html:  '<li>4.7× faster than CMSIS-DSP Q31 (14→3 cycles/pair) · jitter eliminated (0 vs up to 530 cycles!)</li><li>Approximation error: 18,825 ppb → 0.0 ppb — algebraically exact result</li><li>Zero drift after 1,024,000,000 steps (final error = IEEE 754 epsilon = 2.22×10⁻¹⁶)</li><li>Working demo on STM32G474 + C library (.a) + Docker REST API + commercial brochure</li>'
         }
       }
     },

@@ -313,56 +313,60 @@
       title: 'Case Studies — trzy gałęzie',
       sub:   'Trzy projekty z różnych obszarów R&D — elektronika, informatyka, matematyka.',
       cs1: {
-        title: 'Sterownik pieca CO — 5,5 roku, 11 mln rekordów, baza jednej pracy inżynierskiej i dwóch magisterskich',
+        title: 'Sterownik pieca CO — PAC triak zamiast VFD · delta temperatury · ±1°C · 11 mln rekordów',
         b0: {
           title: 'Geneza problemu',
-          text:  'Piec zasypowy (węglowy) bez żadnej automatyki — utrzymanie temperatury wymaga ręcznego regulowania nadmuchu dmuchawy. Dostępne termostaty sterują w trybie ON/OFF, co prowadzi do dużych oscylacji i nieefektywnego spalania.'
+          text:  'Piec zasypowy (węglowy) napędza dmuchawę silnikiem indukcyjnym jednofazowym — prędkość synchroniczna 1500 obr/min przy 50 Hz. Standardowa regulacja prędkości: falownik VFD (200–500 zł). Dostępne termostaty rynkowe: tryb ON/OFF → duże oscylacje temperatury, nieefektywne spalanie, zero antycypacji zmiany.'
         },
         b1: {
           title: 'Innowacja #1 — fazowe sterowanie mocą triaka zamiast falownika VFD',
-          text:  'Dmuchawa napędzana silnikiem indukcyjnym. Standardowe rozwiązanie: falownik VFD (200–500 zł). Zastosowane: sterowanie fazowe opóźnieniem wyzwolenia triaka względem przejścia napięcia przez zero. Moment napędowy dmuchawy odśrodkowej rośnie proporcjonalnie do prędkości² (M ∝ n²) — silnik naturalnie stabilizuje się przy niższej prędkości. Koszt implementacji: zero.'
+          text:  'Zamiast VFD: opóźnienie wyzwolenia triaka względem przejścia napięcia przez zero (phase-angle control). Dla wentylatora odśrodkowego moment M ∝ n² — obniżone napięcie RMS = naturalna stabilizacja przy niższej prędkości, bez falownika. Trzy niezależne kanały triakowe: dmuchawa / pompa / bojler. ISR Timer0 odmierza opóźnienie co 10 ms (sieć 50 Hz). Koszt dodatkowego hardware: zero.'
         },
         b2: {
-          title: 'Innowacja #2 — delta temperatury zamiast progów histerezowych',
-          text:  'Co 15 sekund firmware oblicza dyskretną pochodną temperatury (tendencję) i podejmuje decyzje na podstawie <em>kierunku zmian</em>, zanim temperatura przekroczy próg. Trzy stany symboliczne: T↑ (ogranicz nadmuch), T→ (utrzymaj), T↓ (wzmocnij). Odpowiednik członu D regulatora PID — zaimplementowany bez bibliotek na 8-bit MCU.'
+          title: 'Innowacja #2 — delta temperatury · okno EMC · zalążek ARR',
+          text:  'Co 15 sekund firmware oblicza dyskretną pochodną temperatury: <strong>T↑ → ogranicz nadmuch · T→ → utrzymaj · T↓ → wzmocnij</strong>. Regulacja antycypacyjna zanim temperatura przekroczy próg — odpowiednik członu D regulatora PID, zaimplementowany bez bibliotek na 8-bit MCU. Programowe okno EMC: przed każdym pomiarem 1-Wire wyłącz wszystkie triaki i oba przerwania → zero zakłóceń → zero dodatkowego hardware. <em>Podprogram Tendencja_sub to pierwsza znana implementacja ARR (Analizatora Rytmu Relacyjnego) — działająca w produkcji dekadę przed sformułowaniem frameworku MR-AI (#20).</em>'
         },
         res: {
           title: 'Wyniki (5,5 roku eksploatacji)',
-          html:  '<li>~11 milionów rekordów pomiarowych, 61 baz danych MDB (1,65 GB)</li><li>79+ wersji firmware bez przerwy w pracy systemu (USB bootloader)</li><li>Zero awarii sprzętowych przez cały okres produkcyjny</li><li>Baza dla jednej pracy inżynierskiej i dwóch magisterskich, ocena 5/5</li>'
+          html:  '<li>~11 milionów rekordów pomiarowych w 61 bazach MDB (1,65 GB) — zapis ciągły przez 5,5 roku</li><li>79+ wersji firmware bez przerwy w pracy systemu (własny bootloader USB)</li><li>Precyzja: ±1°C obwód CO · średnie odchylenie −0,1°C od zadanej przez pełny sezon grzewczy na piecu węglowym z dużą bezwładnością termiczną</li><li>Podstawa 2 prac magisterskich i 1 inżynierskiej — wszystkie obronione na 5/5</li>'
         }
       },
       cs2: {
-        title: 'FochBot V3 — autonomiczna warstwa pośrednia LLM, dwuwarstwowy mózg AI',
+        title: 'Autonomiczna warstwa pośrednia LLM — dwuwarstwowa pamięć AI · FochBot',
         b0: {
           title: 'Problem: LLM to neuron bezstanowy',
-          text:  'Każde wywołanie LLM zaczyna od zera — brak pamięci między sesjami, brak ciągłości kontekstu. Przy naiwnym podejściu pełna historia rozmowy trafia do każdego promptu: koszt tokenów rośnie liniowo, użyteczność maleje.'
+          text:  'Model LLM (GPT, Claude) to jednorazowa jednostka obliczeniowa — otrzymuje impuls, generuje wyjście, gaśnie. Nie utrzymuje stanu między wywołaniami. Naiwne rozwiązanie: pełna historia rozmów w każdym prompcie → koszt tokenów rośnie liniowo, użyteczność maleje. FochBot odpowiada na pytanie: jak zbudować mózg z pamięcią wokół bezstanowego neuronu?'
         },
         b1: {
-          title: 'Innowacja: dwuwarstwowy mózg (Warstwa A + B)',
-          text:  '<strong>Warstwa A — Mapa Pamięci:</strong> trójpoziomowe archiwum na dysku (surowe sesje, indeks, fragmenty wiedzy) — LLM dostaje tylko tyle kontekstu, ile potrzebuje, bez pełnej historii. <strong>Warstwa B — Kontroler Autonomiczny:</strong> podejmuje decyzje lokalne bez LLM (routing, ocena kompletności), wywołuje model jako narzędzie wyłącznie gdy potrzeba. Logika ciągłości po stronie FochBota, nie modelu.'
+          title: 'Innowacja: dwuwarstwowy mózg (Warstwa A + Warstwa B)',
+          text:  '<strong>Warstwa A — Mapa Pamięci:</strong> trójpoziomowe archiwum na dysku — surowe sesje (session_*.json), kompaktowy indeks jako katalog dla LLM, fragmenty wiedzy wczytywane selektywnie per zapytanie. LLM dostaje tylko tyle kontekstu, ile potrzebuje — bez pełnej historii. <strong>Warstwa B — Kontroler Autonomiczny:</strong> routing, ocena kompletności zapytania i budowanie pakietu kontekstu — lokalnie, bez LLM. Następnie wywołuje model jako narzędzie, ocenia wynik, ewentualnie inicjuje ponowne wywołanie lub eskalację. Logika ciągłości leży po stronie FochBota, nie modelu.'
         },
         b2: {
           title: 'Ewolucja V1→V2→V3',
-          text:  'V1: klasyfikator intencji offline (NLP, intents.json). V2: mikrousługi FastAPI — API:8000 + Auth:8001, BCRYPT, atomowy zapis JSON, role admin/user/device, dostarczony w 3 fazach. V3: warstwa pośrednia LLM z pełną dokumentacją techniczną (PDF/DOCX/LaTeX).'
+          text:  'V1 (2024): klasyfikator intencji offline — intents.json, NLP (tokenizacja, czyszczenie tekstu), ML classifier, interfejs CLI + web. V2 (2025): pełna przebudowa na mikrousługi FastAPI — API:8000 (logika biznesowa + chat) oddzielony od Auth:8001 (sesje, role, tokeny urządzeń). Każde żądanie /chat → require_auth() → POST /check_access → weryfikacja sesji w RAM. Hasze BCRYPT, atomowy zapis JSON (data_manager.py jedyny moduł z prawem zapisu), role admin/user/device. Dostarczono w 3 fazach. V3 (2025–2026): warstwa pośrednia LLM z pełną dokumentacją techniczną (PDF/DOCX/LaTeX).'
         },
         res: {
           title: 'Wyniki',
-          html:  '<li>Koszt tokenów = 0 dla lokalnych zadań — LLM wywoływany tylko gdy potrzeba</li><li>Ciągłość kontekstu między sesjami bez wysyłania pełnej historii</li><li>Pełna dokumentacja techniczna V3 (PDF/DOCX/LaTeX)</li><li>Projekt otwarty — ARR z MR-AI (#20) planowo jako silnik Warstwy B</li>'
+          html:  '<li>Koszt tokenów = 0 dla lokalnych zadań — LLM wywoływany wyłącznie gdy potrzeba</li><li>Ciągłość kontekstu między sesjami bez wysyłania pełnej historii do modelu</li><li>Separacja Auth od API: zmiana polityki bezpieczeństwa bez dotykania logiki biznesowej</li><li>Pełna dokumentacja techniczna V3 (FochBot_V3_Dokumentacja.pdf / .docx / .tex)</li>'
         }
       },
       cs3: {
-        title: 'TrueSynth Prime Engine — ppb=0, 4,7× szybszy niż CMSIS-DSP, 10⁹ kroków bez dryfu',
+        title: 'TrueSynth Prime Engine — zero interpolacji, zero jittera, 4,7× szybszy niż CMSIS-DSP Q31',
         b0: {
-          title: 'Problem: π wbudowane w definicję',
-          text:  'Klasyczna trygonometria definiuje kąt w radianach — aproksymacja π jest błędem wbudowanym na poziomie definicji. CMSIS-DSP Q31: błąd 18 825 ppb, 14 cykli/parę na M4F.'
+          title: 'Problem: jitter i błąd aproksymacji wbudowany w definicję',
+          text:  'Klasyczne LUT trygonometryczne interpolują między punktami siatki — dowolny kąt dziesiętny rzadko trafia dokładnie na punkt siatki. Interpolacja to podwójny koszt: narzut obliczeniowy i błąd aproksymacji. Ale główny problem to jitter: jeden kąt kosztuje 70 cykli, inny 700. CMSIS-DSP Q31 na M4F: nominalne 14 cykli/parę, ale niedeterministyczny — do 530 cykli! Błąd: 18 825 ppb. Aplikacje FOC, DDS i enkodery absolutne wymagają identycznego czasu wykonania dla każdego kąta.'
         },
         b1: {
-          title: 'Innowacja: kąt jako ułamek k/p, LUT z 19 liczb pierwszych',
-          text:  'Kąt reprezentowany jako k/p (p pierwsza) — dokładny punkt na okręgu jednostkowym bez przybliżania π. LUT: 19 liczb pierwszych, 275 wpisów, 2,2 kB Flash, 0 B RAM. <strong>Tryb MI:</strong> 3 cykle/parę na M4F 170 MHz, błąd 0,0 ppb — wynik algebraicznie dokładny.'
+          title: 'Innowacja: kąt jako k/p · LUT z liczb pierwszych · 6 trybów silnika',
+          text:  'Redefinicja kąta: zamiast radianów, proporcja <strong>k/p</strong> (p — liczba pierwsza). Każdy kąt k/p trafia DOKŁADNIE na punkt LUT — interpolacja zbędna, koszt identyczny dla każdego kąta, jitter = 0. <strong>LUT Prime Engine</strong> (p ≤ 67): 19 liczb pierwszych, 275 wpisów, <strong>2,2 kB Flash, 0 B RAM</strong>. Sześć trybów: Mode 0 (Chebyshev iterator) · Mode 1 Direct LUT (482 cykli M0, 0 ppb) · Mode 2 Reduce · Mode 3 Nearest · Mode 4 Repeated Squaring · <strong>Mode MI (3 cykli/parę M4F, 0,0 ppb, deterministyczny)</strong> — dedykowany FOC/DDS/enkoderom.'
+        },
+        b2: {
+          title: 'Benchmark — twarde liczby na sprzęcie',
+          text:  '<strong>Platforma M4F (STM32G474RE, 170 MHz):</strong> Mode MI → <strong>3 cykli/parę · 0,0 ppb · TAK deterministyczny</strong>. CMSIS-DSP Q31 → 14 cykli/parę · 18 825 ppb · NIE (do 530 cykli!). CMSIS-DSP F32 → 178 cykli/parę · 18 978 ppb. <strong>Platforma M0 (STM32F030R8, 48 MHz):</strong> Prime Direct LUT → 482 cykli · 0 ppb. CORDIC klasyczny → 271 cykli · 0,9 ppb. LUT 7500 Flash → 798 cykli · 5,6 ppb. Taylor → 888 cykli · 98 000 ppb. <strong>Test dryftu:</strong> 1 024 000 000 kroków — błąd końcowy 2,22·10⁻¹⁶ (epsilon maszynowy IEEE 754). Dryft: 0.'
         },
         res: {
           title: 'Wyniki',
-          html:  '<li>4,7× szybszy niż CMSIS-DSP Q31 (14→3 cykle/parę, 18 825→0,0 ppb)</li><li>Zerowy dryf po 1 024 000 000 krokach (błąd końcowy = epsilon IEEE 754 = 2,22·10⁻¹⁶)</li><li>Docelowe zastosowania: sterowanie FOC, DDS, enkodery absolutne</li>'
+          html:  '<li>4,7× szybszy niż CMSIS-DSP Q31 (14→3 cykli/parę) · jitter wyeliminowany (0 vs do 530 cykli!)</li><li>Błąd aproksymacji: 18 825 ppb → 0,0 ppb — wynik algebraicznie dokładny</li><li>Zerowy dryft po 1 024 000 000 krokach (błąd końcowy = epsilon IEEE 754 = 2,22·10⁻¹⁶)</li><li>Działające demo na STM32G474 + biblioteka C (.a) + Docker REST API + broszura komercyjna</li>'
         }
       }
     },
