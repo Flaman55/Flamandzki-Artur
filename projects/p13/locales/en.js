@@ -3,14 +3,14 @@
   window.i18nData['en'] = window.i18nData['en'] || {};
   const existing = window.i18nData['en'].page || {};
   window.i18nData['en'].page = Object.assign({}, existing, {
-    title:      '#13 — TODO — Artur Flamandzki',
-    hero_tag:   'PORTFOLIO R&D — PROJEKT #13',
-    hero_title: 'TODO',
-    hero_sub:   'TODO',
-    date:       'TODO',
-    summary:    '<p>TODO</p>',
-    nav_prev:   '← #12',
-    nav_next:   '#14 →',
-    body:       '<p>TODO</p>'
+    title: '#13 BAGRAMET Spreader Controller — Artur Flamandzki',
+    hero_tag: 'PORTFOLIO R&amp;D — PROJECT #13 — COMMERCIAL CONTRACT',
+    hero_title: 'BAGRAMET Spreader Controller — Dual-Board System',
+    hero_sub: 'Commercial contract for company from Bytów · two PCBs · BAZECO Gerbers · a dozen units produced',
+    date: 'DELFI Electronics · commercial contract · Eagle PCB, BAZECO · main board + display board, agricultural application',
+    summary: '<p>Commercial contract from BAGRAMET, Bytów: electronic controller for a trailed spreader. Dual-board architecture — <strong>main board</strong> (motor control logic) and <strong>display board</strong> (operator panel in the tractor cab). A dozen complete devices manufactured and sold.</p>',
+    nav_prev: '← #12',
+    nav_next: '#14 →',
+    body: '<div class="proj-box proj-box--innovation">\n  <div class="proj-box-title">01 — Dual-board architecture: separation of logic and interface</div>\n  <div class="proj-box-body">\n    <p>Instead of one board with everything, the system is split into two independent units:</p>\n    <ul class="proj-list">\n      <li><strong>Main board</strong> — motor control logic, sensor inputs, communication with the display board. Mounted at the spreader mechanism. Complete Gerber set (Top, Bottom, solder masks, silkscreen, drill files).</li>\n      <li><strong>Display board</strong> — operator panel in the tractor cab. Display, buttons, status indicators. Separate layout, separate Gerbers.</li>\n    </ul>\n    <p>Advantages of separation: the main board can be replaced without changing the operator panel and vice versa. Cables between boards carry only logic signals — no high voltages in the cab.</p>\n  </div>\n</div>\n\n<div class="proj-box proj-box--innovation">\n  <div class="proj-box-title">02 — Full production cycle: from schematic to finished device</div>\n  <div class="proj-box-body">\n    <p>Project executed in full by DELFI Electronics:</p>\n    <ol class="proj-list">\n      <li>Schematic for both boards in Eagle.</li>\n      <li>PCB layout — two separate boards with DELFI logo.</li>\n      <li>Gerber file preparation (BAZECO format).</li>\n      <li>Board ordering from BAZECO manufacturer.</li>\n      <li>Component assembly, programming, testing.</li>\n      <li>Delivery of finished devices to client.</li>\n    </ol>\n    <p>Every stage executed independently — BAGRAMET received a complete, ready-to-use device, not modules to assemble.</p>\n  </div>\n</div>\n\n<div class="proj-box proj-box--result">\n  <div class="proj-box-title">Result — a dozen units delivered, full production cycle</div>\n  <div class="proj-box-body">\n    <p>A dozen units manufactured and delivered to the client. Project confirms the ability to execute a full electronics production cycle on contract — from concept through PCB to finished product in the field.</p>\n    <p>Agricultural application implies durability requirements: operation in a tractor cab, vibration, dust, variable 12 V supply voltage.</p>\n  </div>\n</div>',
   });
 })();

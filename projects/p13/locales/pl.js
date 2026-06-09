@@ -3,14 +3,14 @@
   window.i18nData['pl'] = window.i18nData['pl'] || {};
   const existing = window.i18nData['pl'].page || {};
   window.i18nData['pl'].page = Object.assign({}, existing, {
-    title:      '#13 — TODO — Artur Flamandzki',
-    hero_tag:   'PORTFOLIO R&D — PROJEKT #13',
-    hero_title: 'TODO',
-    hero_sub:   'TODO',
-    date:       'TODO',
-    summary:    '<p>TODO</p>',
-    nav_prev:   '← #12',
-    nav_next:   '#14 →',
-    body:       '<p>TODO</p>'
+    title: '#13 Sterownik Rozsiewacza BAGRAMET — Artur Flamandzki',
+    hero_tag: 'PORTFOLIO R&amp;D — PROJEKT #13 — ZLECENIE KOMERCYJNE',
+    hero_title: 'Sterownik Rozsiewacza BAGRAMET — System Dwupłytkowy',
+    hero_sub: 'Zlecenie komercyjne dla firmy z Bytowa · dwie płytki PCB · Gerbery BAZECO · kilkanaście urządzeń',
+    date: 'DELFI Electronics · zlecenie komercyjne · Eagle PCB, BAZECO · płyta główna + płyta wyświetlacza, zastosowanie rolnicze',
+    summary: '<p>Zlecenie komercyjne od firmy BAGRAMET z Bytowa: elektroniczny sterownik do rozsiewacza przyczepowego. Architektura dwupłytkowa — <strong>płyta główna</strong> (logika sterowania) i <strong>płyta wyświetlacza</strong> (panel operatora w kabinie). Wyprodukowano i sprzedano kilkanaście gotowych urządzeń.</p>',
+    nav_prev: '← #12',
+    nav_next: '#14 →',
+    body: '<div class="proj-box proj-box--innovation">\n  <div class="proj-box-title">01 — Architektura dwupłytkowa: separacja logiki i interfejsu</div>\n  <div class="proj-box-body">\n    <p>Zamiast jednej płytki z wszystkim, system podzielony na dwie niezależne jednostki:</p>\n    <ul class="proj-list">\n      <li><strong>Płyta główna</strong> — logika sterowania silnikiem, wejścia czujników, komunikacja z płytą wyświetlacza. Montowana przy mechanizmie rozsiewacza. Pełny komplet Gerberów (Top, Bottom, maski, opisy, otwory).</li>\n      <li><strong>Płyta wyświetlacza</strong> — panel operatora w kabinie ciągnika. Wyświetlacz, przyciski, wskaźniki stanu. Osobny layout, osobne Gerbery.</li>\n    </ul>\n    <p>Zalety separacji: płyta główna może być wymieniona bez zmiany panelu operatora i odwrotnie. Kable między płytkami przenoszą tylko sygnały logiczne — brak wysokich napięć w kabinie.</p>\n  </div>\n</div>\n\n<div class="proj-box proj-box--innovation">\n  <div class="proj-box-title">02 — Pełny cykl produkcyjny: od schematu do gotowego urządzenia</div>\n  <div class="proj-box-body">\n    <p>Projekt realizowany w całości przez DELFI Electronics:</p>\n    <ol class="proj-list">\n      <li>Schemat ideowy obu płytek w Eagle.</li>\n      <li>Layout PCB — dwie osobne płytki z logo DELFI.</li>\n      <li>Przygotowanie kompletów Gerberów (format BAZECO).</li>\n      <li>Zamówienie płytek u producenta BAZECO.</li>\n      <li>Montaż elementów, programowanie, testy.</li>\n      <li>Dostawa gotowych urządzeń do klienta.</li>\n    </ol>\n    <p>Każdy etap realizowany samodzielnie — BAGRAMET otrzymywał kompletne, gotowe do pracy urządzenie, nie moduły do składania.</p>\n  </div>\n</div>\n\n<div class="proj-box proj-box--result">\n  <div class="proj-box-title">Wynik — kilkanaście urządzeń, pełny cykl produkcji</div>\n  <div class="proj-box-body">\n    <p>Kilkanaście urządzeń wyprodukowanych i dostarczonych do klienta. Projekt potwierdza zdolność do realizacji pełnego cyklu produkcji elektroniki na zlecenie — od koncepcji przez PCB do gotowego produktu w terenie.</p>\n    <p>Zastosowanie rolnicze oznacza wymagania dotyczące wytrzymałości: praca w kabinie ciągnika, wibracje, kurz, zmienne napięcie instalacji 12 V.</p>\n  </div>\n</div>',
   });
 })();
