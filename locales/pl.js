@@ -201,7 +201,7 @@
       },
       p05: {
         name:   'System DELFI Racing — Pomiar Czasu i Aparatura Motorsportowa',
-        tag:    'Własny system · 2015–2022',
+        tag:    'Własny system · 2012–2017',
         tech:   'Choinka RT1/RT2, Aparatura DN03, ATtiny/ATmega, RS232, RS485, RTC, MMC, detekcja fałszywego startu',
         result: 'Kompletna infrastruktura elektroniczna dla wyścigów. Dwa niezależne timery w jednym ISR (czas okrążenia 0,01 s + czas reakcji kierowcy 0,001 s). Poprzednik: #11. <a href="https://dzienniklodzki.pl/wyscigi-na-14-mili-w-lodzi-wystartowalo-kilkudziesieciu-kierowcow-zdjecia-film/ar/6459502" target="_blank" rel="noopener">Artykuł Dziennik Łódzki</a>'
       },

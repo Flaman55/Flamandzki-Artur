@@ -204,7 +204,7 @@
       },
       p05: {
         name:   'DELFI Racing System — Timing and Motorsport Instrumentation',
-        tag:    'Own system · 2015–2022',
+        tag:    'Own system · 2012–2017',
         tech:   'Christmas Tree RT1/RT2, DN03 instrumentation, ATtiny/ATmega, RS232, RS485, RTC, MMC, false-start detection',
         result: 'Complete electronic infrastructure for racing events. Two independent timers multiplexed in one ISR (lap time 0.01 s + driver reaction time 0.001 s). Predecessor: #11. <a href="https://dzienniklodzki.pl/wyscigi-na-14-mili-w-lodzi-wystartowalo-kilkudziesieciu-kierowcow-zdjecia-film/ar/6459502" target="_blank" rel="noopener">Dziennik Łódzki article</a>'
       },
