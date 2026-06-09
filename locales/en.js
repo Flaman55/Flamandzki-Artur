@@ -313,8 +313,8 @@
     },
 
     s5: {
-      title: 'Case Studies',
-      sub:   'Three projects described in depth — problem genesis, key innovations, outcome.',
+      title: 'Case Studies — three branches',
+      sub:   'Three projects from different R&D domains — electronics, software, mathematics.',
       cs1: {
         title: 'Boiler Controller — 5.5 years, 11 M records, foundation for one engineering and two master\'s theses',
         b0: {
@@ -335,29 +335,37 @@
         }
       },
       cs2: {
-        title: 'Voltmeter WST/WSTK — 150 units, engine-state FSM, 8 backlight colours',
+        title: 'FochBot V3 — autonomous LLM middleware, dual-layer AI brain',
         b0: {
-          title: 'Problem and innovation',
-          text:  'Autonomous vehicle electrical monitor — not just voltage measurement, but installation state classified by FSM: charging / parked / engine running. Bar graph calibrated to lead-acid battery chemistry. Automatic backlight brightness adjustment on engine start. Two DS18B20 temperature channels (engine + ambient). 8 backlight colour options.'
+          title: 'Problem: LLM is a stateless neuron',
+          text:  'Every LLM call starts from scratch — no memory between sessions, no context continuity. The naive approach sends the full conversation history in every prompt: token cost grows linearly, usefulness declines.'
+        },
+        b1: {
+          title: 'Innovation: dual-layer brain (Layer A + B)',
+          text:  '<strong>Layer A — Memory Map:</strong> three-level on-disk archive (raw sessions, index, knowledge fragments) — LLM receives only the context it needs, without full history. <strong>Layer B — Autonomous Controller:</strong> makes local decisions without LLM (routing, completeness check), calls the model as a tool only when genuinely needed. Continuity logic on FochBot\'s side, not the model\'s.'
+        },
+        b2: {
+          title: 'Evolution V1→V2→V3',
+          text:  'V1: offline intent classifier (NLP, intents.json). V2: FastAPI microservices — API:8000 + Auth:8001, BCRYPT, atomic JSON writes, role system (admin/user/device), delivered in 3 phases. V3: LLM middleware with full technical documentation (PDF/DOCX/LaTeX).'
         },
         res: {
           title: 'Results',
-          html:  '<li>WST (car): 150 units sold nationwide</li><li>WSTK (motorcycle): ~15 units, including the author\'s own bike</li><li>Sales without a distribution channel — referrals only</li><li>Independent customer demo video on YouTube</li>'
+          html:  '<li>Token cost = 0 for local tasks — LLM called only when needed</li><li>Context continuity across sessions without sending full history</li><li>Full V3 technical documentation (PDF/DOCX/LaTeX)</li><li>Open project — ARR from MR-AI (#20) planned as Layer B engine</li>'
         }
       },
       cs3: {
-        title: 'AutoMobilClub Łódź Timing System — two timers in one ISR, Watchdog as flash optimisation',
+        title: 'TrueSynth Prime Engine — ppb=0, 4.7× faster than CMSIS-DSP, 10⁹ steps zero drift',
         b0: {
-          title: 'Engineering problem',
-          text:  'Commercial timing system for quarter-mile racing on AVR (2 KB flash). Requirements: two independent timers (lap time 0.01 s + driver reaction time 0.001 s), false-start detection, RS232/RS485/USB communication, MMC recording, RTC — all within 2 KB of flash.'
+          title: 'Problem: π baked into the definition',
+          text:  'Classical trigonometry defines angle in radians — the π approximation is an error baked in at the definition level. CMSIS-DSP Q31: 18,825 ppb error, 14 cycles/pair on M4F.'
         },
         b1: {
-          title: 'Key technical decisions',
-          text:  '<strong>Timer multiplexing in one ISR</strong> — two independent timing measurements without interrupt conflict. <strong>Watchdog reset as flash optimisation</strong> — instead of a separate reset procedure, WDT reset saves tens of bytes of code. Technique used commercially in production devices.'
+          title: 'Innovation: angle as fraction k/p, LUT from 19 primes',
+          text:  'Angle represented as k/p (p prime) — exact point on the unit circle without approximating π. LUT: 19 primes, 275 entries, 2.2 kB Flash, 0 B RAM. <strong>Mode MI:</strong> 3 cycles/pair on M4F 170 MHz, 0.0 ppb — algebraically exact result.'
         },
         res: {
-          title: 'Results and continuation',
-          html:  '<li>Deployed at AutoMobilClub Łódź events (quarter-mile racing)</li><li>Press coverage: Dziennik Łódzki</li><li>Architecture evolved into DELFI Racing RT1/RT2/Christmas Tree/DN03 (#05)</li>'
+          title: 'Results',
+          html:  '<li>4.7× faster than CMSIS-DSP Q31 (14→3 cycles/pair, 18,825→0.0 ppb)</li><li>Zero drift after 1,024,000,000 steps (final error = IEEE 754 epsilon = 2.22×10⁻¹⁶)</li><li>Target applications: FOC motor control, DDS, absolute encoders</li>'
         }
       }
     },

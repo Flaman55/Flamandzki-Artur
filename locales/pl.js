@@ -310,8 +310,8 @@
     },
 
     s5: {
-      title: 'Case Studies',
-      sub:   'Trzy projekty opisane w głąb — geneza problemu, kluczowe innowacje, wynik.',
+      title: 'Case Studies — trzy gałęzie',
+      sub:   'Trzy projekty z różnych obszarów R&D — elektronika, informatyka, matematyka.',
       cs1: {
         title: 'Sterownik pieca CO — 5,5 roku, 11 mln rekordów, baza jednej pracy inżynierskiej i dwóch magisterskich',
         b0: {
@@ -332,29 +332,37 @@
         }
       },
       cs2: {
-        title: 'Woltomierz WST/WSTK — 150 szt., FSM stanu silnika, 8 kolorów podświetlenia',
+        title: 'FochBot V3 — autonomiczna warstwa pośrednia LLM, dwuwarstwowy mózg AI',
         b0: {
-          title: 'Problem i innowacja',
-          text:  'Autonomiczny monitor elektryczny pojazdu — nie tylko mierzy napięcie, ale klasyfikuje stan instalacji przez FSM: ładowanie / odstawiony / silnik pracuje. Wykres słupkowy skalibrowany do chemii akumulatora ołowiowego. Automatyczna regulacja jasności podświetlenia przy uruchamianiu silnika. Dwa kanały temperatury DS18B20 (silnik + otoczenie). 8 opcji koloru podświetlenia.'
+          title: 'Problem: LLM to neuron bezstanowy',
+          text:  'Każde wywołanie LLM zaczyna od zera — brak pamięci między sesjami, brak ciągłości kontekstu. Przy naiwnym podejściu pełna historia rozmowy trafia do każdego promptu: koszt tokenów rośnie liniowo, użyteczność maleje.'
+        },
+        b1: {
+          title: 'Innowacja: dwuwarstwowy mózg (Warstwa A + B)',
+          text:  '<strong>Warstwa A — Mapa Pamięci:</strong> trójpoziomowe archiwum na dysku (surowe sesje, indeks, fragmenty wiedzy) — LLM dostaje tylko tyle kontekstu, ile potrzebuje, bez pełnej historii. <strong>Warstwa B — Kontroler Autonomiczny:</strong> podejmuje decyzje lokalne bez LLM (routing, ocena kompletności), wywołuje model jako narzędzie wyłącznie gdy potrzeba. Logika ciągłości po stronie FochBota, nie modelu.'
+        },
+        b2: {
+          title: 'Ewolucja V1→V2→V3',
+          text:  'V1: klasyfikator intencji offline (NLP, intents.json). V2: mikrousługi FastAPI — API:8000 + Auth:8001, BCRYPT, atomowy zapis JSON, role admin/user/device, dostarczony w 3 fazach. V3: warstwa pośrednia LLM z pełną dokumentacją techniczną (PDF/DOCX/LaTeX).'
         },
         res: {
           title: 'Wyniki',
-          html:  '<li>WST (samochód): 150 szt. sprzedanych ogólnopolsko</li><li>WSTK (motocykl): ~15 szt., w tym egzemplarz własny autora</li><li>Sprzedaż bez kanału dystrybucji — wyłącznie przez polecenia</li><li>Film demonstracyjny niezależnego klienta na YouTube</li>'
+          html:  '<li>Koszt tokenów = 0 dla lokalnych zadań — LLM wywoływany tylko gdy potrzeba</li><li>Ciągłość kontekstu między sesjami bez wysyłania pełnej historii</li><li>Pełna dokumentacja techniczna V3 (PDF/DOCX/LaTeX)</li><li>Projekt otwarty — ARR z MR-AI (#20) planowo jako silnik Warstwy B</li>'
         }
       },
       cs3: {
-        title: 'System pomiaru czasu AutoMobilClub Łódź — dwa timery w jednym ISR, Watchdog jako optymalizacja flash',
+        title: 'TrueSynth Prime Engine — ppb=0, 4,7× szybszy niż CMSIS-DSP, 10⁹ kroków bez dryfu',
         b0: {
-          title: 'Problem inżynierski',
-          text:  'Komercyjny system pomiaru czasu dla wyścigów 1/4 mili na AVR (2 KB flash). Wymagania: dwa niezależne timery (czas okrążenia 0,01 s + czas reakcji kierowcy 0,001 s), detekcja fałszywego startu, komunikacja RS232/RS485/USB, zapis MMC, RTC — w 2 KB pamięci.'
+          title: 'Problem: π wbudowane w definicję',
+          text:  'Klasyczna trygonometria definiuje kąt w radianach — aproksymacja π jest błędem wbudowanym na poziomie definicji. CMSIS-DSP Q31: błąd 18 825 ppb, 14 cykli/parę na M4F.'
         },
         b1: {
-          title: 'Kluczowe decyzje techniczne',
-          text:  '<strong>Multipleksowanie timerów w jednym ISR</strong> — dwa niezależne pomiary czasu bez konfliktu przerwań. <strong>Watchdog reset jako optymalizacja flash</strong> — zamiast osobnej procedury resetu, reset WDT zwalnia kilkadziesiąt bajtów kodu. Technika stosowana komercyjnie w urządzeniach produkcyjnych.'
+          title: 'Innowacja: kąt jako ułamek k/p, LUT z 19 liczb pierwszych',
+          text:  'Kąt reprezentowany jako k/p (p pierwsza) — dokładny punkt na okręgu jednostkowym bez przybliżania π. LUT: 19 liczb pierwszych, 275 wpisów, 2,2 kB Flash, 0 B RAM. <strong>Tryb MI:</strong> 3 cykle/parę na M4F 170 MHz, błąd 0,0 ppb — wynik algebraicznie dokładny.'
         },
         res: {
-          title: 'Wyniki i kontynuacja',
-          html:  '<li>Wdrożony na imprezach AutoMobilClub Łódź (wyścigi 1/4 mili)</li><li>Relacja prasowa: Dziennik Łódzki</li><li>Architektura rozwinięta w DELFI Racing RT1/RT2/Choinka/DN03 (#05)</li>'
+          title: 'Wyniki',
+          html:  '<li>4,7× szybszy niż CMSIS-DSP Q31 (14→3 cykle/parę, 18 825→0,0 ppb)</li><li>Zerowy dryf po 1 024 000 000 krokach (błąd końcowy = epsilon IEEE 754 = 2,22·10⁻¹⁶)</li><li>Docelowe zastosowania: sterowanie FOC, DDS, enkodery absolutne</li>'
         }
       }
     },

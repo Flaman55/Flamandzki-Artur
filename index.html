@@ -514,9 +514,9 @@
      ══════════════════════════════════════════════════════════ -->
 <section id="case-studies">
   <div class="container">
-    <h2 class="section-title" data-i18n="s5.title">Case Studies</h2>
+    <h2 class="section-title" data-i18n="s5.title">Case Studies — three branches</h2>
     <hr class="section-divider" />
-    <p class="section-subtitle" data-i18n="s5.sub">Three projects described in depth — problem genesis, key innovations, outcome.</p>
+    <p class="section-subtitle" data-i18n="s5.sub">Three projects from different R&amp;D domains — electronics, software, mathematics.</p>
 
     <div class="accordion" id="accordion">
 
@@ -552,52 +552,60 @@
         </div>
       </div>
 
-      <!-- Case Study 2: Voltmeter -->
-      <div class="accordion-item" id="cs-woltomierz">
+      <!-- Case Study 2: FochBot V3 — IT/Software/AI -->
+      <div class="accordion-item" id="cs-fochbot">
         <button class="accordion-header" aria-expanded="false">
-          <span class="accordion-num">04</span>
-          <span class="accordion-title" data-i18n="s5.cs2.title">Voltmeter WST/WSTK — 150 units, engine-state FSM, 8 backlight colours</span>
+          <span class="accordion-num">19</span>
+          <span class="accordion-title" data-i18n="s5.cs2.title">FochBot V3 — autonomous LLM middleware, dual-layer AI brain</span>
           <span class="accordion-icon">+</span>
         </button>
         <div class="accordion-body">
           <div class="innovation-block">
-            <h4 data-i18n="s5.cs2.b0.title">Problem and innovation</h4>
-            <p  data-i18n="s5.cs2.b0.text">Autonomous vehicle electrical monitor — classifies installation state via FSM: charging / parked / engine running. Bar graph calibrated to lead-acid chemistry. Automatic backlight brightness on engine start. Two DS18B20 channels. 8 backlight colour options.</p>
+            <h4 data-i18n="s5.cs2.b0.title">Problem: LLM is a stateless neuron</h4>
+            <p  data-i18n="s5.cs2.b0.text">Every LLM call starts from scratch — no memory between sessions, no context continuity. The naive approach sends the full conversation history in every prompt: token cost grows linearly, usefulness declines.</p>
+          </div>
+          <div class="innovation-block">
+            <h4 data-i18n="s5.cs2.b1.title">Innovation: dual-layer brain (Layer A + B)</h4>
+            <p  data-i18n-html="s5.cs2.b1.text"><strong>Layer A — Memory Map:</strong> three-level on-disk archive (raw sessions, index, knowledge fragments) — LLM receives only the context it needs, without full history. <strong>Layer B — Autonomous Controller:</strong> makes local decisions without LLM (routing, completeness check), calls the model as a tool only when genuinely needed.</p>
+          </div>
+          <div class="innovation-block">
+            <h4 data-i18n="s5.cs2.b2.title">Evolution V1→V2→V3</h4>
+            <p  data-i18n="s5.cs2.b2.text">V1: offline intent classifier. V2: FastAPI microservices — API:8000 + Auth:8001, BCRYPT, atomic JSON, role system. V3: LLM middleware with full technical documentation (PDF/DOCX/LaTeX).</p>
           </div>
           <div class="results-box">
             <h4 data-i18n="s5.cs2.res.title">Results</h4>
             <ul data-i18n-html="s5.cs2.res.html">
-              <li>WST (car): 150 units sold nationwide</li>
-              <li>WSTK (motorcycle): ~15 units, including the author's own bike</li>
-              <li>Sales without a distribution channel — referrals only</li>
-              <li>Independent customer demo video on YouTube</li>
+              <li>Token cost = 0 for local tasks — LLM called only when needed</li>
+              <li>Context continuity across sessions without sending full history</li>
+              <li>Full V3 technical documentation (PDF/DOCX/LaTeX)</li>
+              <li>Open project — ARR from MR-AI (#20) planned as Layer B engine</li>
             </ul>
           </div>
         </div>
       </div>
 
-      <!-- Case Study 3: AutoMobilClub -->
-      <div class="accordion-item" id="cs-rt">
+      <!-- Case Study 3: TrueSynth — Mathematics/Algorithms -->
+      <div class="accordion-item" id="cs-truesynth">
         <button class="accordion-header" aria-expanded="false">
-          <span class="accordion-num">11</span>
-          <span class="accordion-title" data-i18n="s5.cs3.title">AutoMobilClub Łódź Timing System — two timers in one ISR, Watchdog as flash optimisation</span>
+          <span class="accordion-num">16</span>
+          <span class="accordion-title" data-i18n="s5.cs3.title">TrueSynth Prime Engine — ppb=0, 4.7× faster than CMSIS-DSP, 10⁹ steps zero drift</span>
           <span class="accordion-icon">+</span>
         </button>
         <div class="accordion-body">
           <div class="innovation-block">
-            <h4 data-i18n="s5.cs3.b0.title">Engineering problem</h4>
-            <p  data-i18n="s5.cs3.b0.text">Commercial timing system for quarter-mile racing on ATtiny2313 (2 KB flash). Requirements: two independent timers (0.01 s lap + 0.001 s reaction), false-start detection, RS232/RS485/USB, MMC, RTC — all within 2 KB.</p>
+            <h4 data-i18n="s5.cs3.b0.title">Problem: π baked into the definition</h4>
+            <p  data-i18n="s5.cs3.b0.text">Classical trigonometry defines angle in radians — the π approximation is an error baked in at the definition level. CMSIS-DSP Q31: 18,825 ppb error, 14 cycles/pair on M4F.</p>
           </div>
           <div class="innovation-block">
-            <h4 data-i18n="s5.cs3.b1.title">Key technical decisions</h4>
-            <p  data-i18n-html="s5.cs3.b1.text"><strong>Timer multiplexing in one ISR</strong> — two independent measurements without interrupt conflict. <strong>Watchdog reset as flash optimisation</strong> — WDT reset saves tens of bytes of code. Technique used commercially in production devices.</p>
+            <h4 data-i18n="s5.cs3.b1.title">Innovation: angle as fraction k/p, LUT from 19 primes</h4>
+            <p  data-i18n-html="s5.cs3.b1.text">Angle represented as k/p (p prime) — exact point on the unit circle without approximating π. LUT: 19 primes, 275 entries, 2.2 kB Flash, 0 B RAM. <strong>Mode MI:</strong> 3 cycles/pair on M4F 170 MHz, 0.0 ppb — algebraically exact result.</p>
           </div>
           <div class="results-box">
-            <h4 data-i18n="s5.cs3.res.title">Results and continuation</h4>
+            <h4 data-i18n="s5.cs3.res.title">Results</h4>
             <ul data-i18n-html="s5.cs3.res.html">
-              <li>Deployed at AutoMobilClub Łódź events (quarter-mile racing)</li>
-              <li>Press coverage: Dziennik Łódzki</li>
-              <li>Architecture evolved into DELFI Racing RT1/RT2/Christmas Tree/DN03 (#05)</li>
+              <li>4.7× faster than CMSIS-DSP Q31 (14→3 cycles/pair, 18,825→0.0 ppb)</li>
+              <li>Zero drift after 1,024,000,000 steps (final error = IEEE 754 epsilon = 2.22×10⁻¹⁶)</li>
+              <li>Target applications: FOC motor control, DDS, absolute encoders</li>
             </ul>
           </div>
         </div>
@@ -651,24 +659,4 @@
         <a class="cta-btn" href="mailto:flamandzki.artur@gmail.com"           data-i18n="s6.cta.email">✉ flamandzki.artur@gmail.com</a>
         <a class="cta-btn" href="https://zenodo.org/search?q=Flamandzki"
            target="_blank" rel="noopener"                                      data-i18n="s6.cta.zenodo">🔬 Zenodo</a>
-        <a class="cta-btn" href="cv_artur_flamandzki_en.pdf" target="_blank"  data-i18n="s6.cta.cv_en">📄 CV (EN)</a>
-        <a class="cta-btn" href="cv_artur_flamandzki.pdf"    target="_blank"  data-i18n="s6.cta.cv_pl">📄 CV (PL)</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-<!-- ══════════════════════════════════════════════════════════
-     FOOTER
-     ══════════════════════════════════════════════════════════ -->
-<footer>
-  <p data-i18n-html="footer.text">© 2026 Artur Flamandzki — R&amp;D Portfolio.
-     Relational Mathematics is an original theory and remains the intellectual property of the author.
-     Contact before citing: <a href="mailto:flamandzki.artur@gmail.com">flamandzki.artur@gmail.com</a>
-  </p>
-</footer>
-
-<script src="js/main.js"></script>
-</body>
-</html>
+        <a class="cta-btn
