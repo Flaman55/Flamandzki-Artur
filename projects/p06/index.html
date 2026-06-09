@@ -3,19 +3,21 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>#06 Seria LX-DK — Artur Flamandzki</title>
+  <title data-i18n="page.title">#06 — Artur Flamandzki</title>
   <link rel="icon" type="image/svg+xml" href="../../favicon.svg" />
   <link rel="stylesheet" href="../../css/style.css" />
   <link rel="stylesheet" href="../../css/project.css" />
+  <!-- i18n: global locales first, then page-specific -->
   <script src="../../locales/en.js"></script>
   <script src="../../locales/pl.js"></script>
+  <script src="locales/pl.js"></script>
+  <script src="locales/en.js"></script>
 </head>
 <body>
 
 <nav id="navbar" aria-label="Main navigation">
   <div class="container nav-inner">
     <a href="../../" class="nav-brand">Artur Flamandzki <span>/ R&amp;D</span></a>
-
     <ul class="nav-links" id="navLinks">
       <li><a href="../../#filozofia"    data-i18n="nav.filozofia">Philosophy</a></li>
       <li><a href="../../#ewolucja"     data-i18n="nav.ewolucja">Evolution</a></li>
@@ -24,7 +26,6 @@
       <li><a href="../../#case-studies" data-i18n="nav.casestudies">Case Studies</a></li>
       <li><a href="../../#podsumowanie" data-i18n="nav.podsumowanie">Summary</a></li>
     </ul>
-
     <div class="nav-right">
       <div class="lang-switcher" id="langSwitcher" aria-label="Language"></div>
       <button class="nav-toggle" id="navToggle" aria-label="Menu" aria-expanded="false">
@@ -36,134 +37,31 @@
 
 <header class="proj-hero">
   <div class="container">
-    <div class="proj-hero-tag">PORTFOLIO R&amp;D — PROJEKT #06</div>
-    <h1 class="proj-hero-title" data-i18n="s4.p06.name">Seria LX-DK</h1>
-    <p class="proj-hero-sub">LX-DK02 (hasł{</p>
-    
+    <div class="proj-hero-tag" data-i18n="page.hero_tag"></div>
+    <h1 class="proj-hero-title" data-i18n="page.hero_title"></h1>
+    <p class="proj-hero-sub" data-i18n="page.hero_sub"></p>
+    <p class="proj-hero-date" data-i18n="page.date"></p>
   </div>
 </header>
 
-<section class="proj-summary"><div class="container"><p>Dwa warianty moduł</strong>u do obsługi zapomnianych haseł administratora
-    central domofonowych Laskomex — zbudowane na <strong>identycznej płytce PCB,
-    ró\.zniące się wyłącznie firmware.
-    Produkt zaprojektowany i wytworzony przez autora jako właściciela firmy DELFI Electronics
-    i <strong>sprzedawany producentowi (Laskomex Sp. z o.o.) przez 7 lat (2015–2022),
-    w tym 3 lata po odejściu autora z firmy.
-    Zidentyfikowanie edge case'u LX-DK02 doprowadziło bezpośrednio do
-    powstania LX-DK03 — głównej linii produktowej (<strong>500 sztuk).</p></div></section>
+<section class="proj-summary">
+  <div class="container">
+    <div data-i18n-html="page.summary"></div>
+  </div>
+</section>
 
 <main class="proj-main">
   <div class="container proj-content">
-    <p class="proj-lang-notice">Technical documentation below is in Polish. The project summary above reflects the selected language.</p>
-    <p>Jako <strong>szef serwisu Laskomex Sp. z o.o.</strong> autor regularnie słyszał skargi instalatorów:</p>
-<p>przy przejęciu obiektu od innego wykonawcy nie znali hasła administratora centrali.</p>
-<p>Jedynym wyjściem był <strong>pełny reset fabryczny</strong> — kasujący całą konfigurację.</p>
-<p>Kilka godzin pracy od nowa.</p>
-<p>Prośba do głównego konstruktora została odrzucona: <em>,,nie ma miejsca w kodzie''</em>.</p>
-<p>Autor zbudował prototyp własnym kosztem, potwierdził działanie,</p>
-<p>zaprezen\-tował mened\.zerowi — i otrzymał zlecenie na pełny produkt od swojej firmy.</p>
-<div class="proj-box proj-box--innovation"><div class="proj-box-title">01  Chirurgiczny reset: wył</div><div class="proj-box-body"><p>title=01   Chirurgiczny reset: wyłącznie hasło — konfiguracja nienaruszona]</p>
-<p>Centrala domofonowa posiada jedno gniazdo konfiguracyjne (RS232).</p>
-<p>Dostępna operacja: pełny reset fabryczny.</p>
-<p><strong>Brak udokumentowanej procedury resetu samego hasła.</strong></p>
-<p>Analiza protokołu RS232 ujawniła mo\.zliwość zapisu nowej wartości hasła</p>
-<p>bez naruszania pozostałych obszarów pamięci.</p>
-<p>Oba warianty LX-DK realizują tę samą zasadę — ró\.znią się <strong>co</strong> wpisują:</p>
-<div class="proj-table-wrap"><table class="proj-table">
-<tbody>
-<tr>
-<th><strong>Wariant</strong></th>
-<th><strong>Hasło po resecie</strong></th>
-<th><strong>Warunek u\.zycia</strong></th>
-</tr>
-<tr>
-<td>LX-DK02</td>
-<td>Hasło fabryczne (z naklejki na centrali)</td>
-<td>Naklejka czytelna</td>
-</tr>
-<tr>
-<td>LX-DK03</td>
-<td>Stała wartość z instrukcji (np. 0000)</td>
-<td>Zawsze — niezale\.znie od naklejki</td>
-</tr>
-</tbody></table></div>
-<p>Konfiguracja centrali <strong>pozostaje w całości niezmieniona</strong>: przypisania wejść,</p>
-<p>kody lokatorów, czasy, uprawnienia.</p>
-<p>Czas operacji: kilkanaście sekund zamiast kilku godzin rekonfiguracji.</p>
-<p><strong>Paradoks:</strong> główny konstruktor stwierdził brak mo\.zliwości —</p>
-<p>tymczasem mo\.zliwość istniała, dostępna z zewnątrz przez istniejące gniazdo.</p>
-<p>Ograniczenie było <em>organizacyjne, nie techniczne</em>.</p></div></div>
-<div class="proj-box proj-box--innovation"><div class="proj-box-title">02  9 rewizji: peł</div><div class="proj-box-body"><p>title=02   9 rewizji: pełna ście\.zka audytowa od prototypu do produkcji]</p>
-<p>Folder <em>Starsze wersje</em> zawiera kompletną historię iteracji:</p>
-<p><strong>v1.0</strong> — pierwszy prototyp, płytka dwustronna, odrębny schemat</p>
-<p><strong>v1.1–v1.4b</strong> — kolejne iteracje PCB z korektami układu i routingu</p>
-<p><strong>v2.0–v2.0b</strong> — pełny redesign: płytka jednostronna, uproszczenie monta\.zu, <strong>wersja produkcyjna</strong></p>
-<p>Ka\.zda rewizja zachowana z pełnym zestawem plików: schemat (<code>.sch</code>), płytka (<code>.brd</code>),</p>
-<p>pliki Gerber, kod \'zródłowy BASCOM (<code>.bas</code>), skompilowany HEX.</p>
-<p>Ta sama płytka PCB v2.0b obsługuje <strong>oba warianty</strong> — DK02 i DK03.</p></div></div>
-<div class="proj-box proj-box--innovation"><div class="proj-box-title">03  Jedna platforma PCB — dwa produkty przez wariant firmware</div><div class="proj-box-body"><p>title=03   Jedna platforma PCB — dwa produkty przez wariant firmware]</p>
-<p><strong>Decyzja przy przejściu DK02 → DK03:</strong> nie nowy hardware — nowy firmware.</p>
-<p><strong>Zero kosztu płytek:</strong> DK03 korzysta z istniejących Gerberów i tych samych dostawców.</p>
-<p><strong>Zero czasu certyfikacji:</strong> walidacja elektryczna wykonana raz dla platformy.</p>
-<p><strong>Wspólna linia monta\.zu:</strong> te same podzespoły, ta sama BOM — ró\.znicowanie</p>
-<p>dopiero na etapie programowania MCU.</p>
-<p>Klasyczna strategia <em>hardware platform + firmware variants</em></p>
-<p>stosowana w seryjnej produkcji embedded —</p>
-<p>wdro\.zona samodzielnie w jednoosobowej firmie.</p></div></div>
-<div class="proj-box proj-box--innovation"><div class="proj-box-title">04  Identyfikacja edge case wł</div><div class="proj-box-body"><p>title=04   Identyfikacja edge case własnego produktu jako \'zródło nowego produktu]</p>
-<p>LX-DK02 działał poprawnie w większości przypadków.</p>
-<p><strong>Edge case:</strong> centrala z brakującą/nieczytelna naklejką hasła fabrycznego —</p>
-<p>LX-DK02 nie mo\.ze przywrócić hasła, bo go nie zna.</p>
-<p><strong>Reakcja:</strong> identyfikacja edge case'u jako osobnego scenariusza wymagającego</p>
-<p>osobnego rozwiązania — nie ogłoszenie produktu jako niekompletnego.</p>
-<p>Wynik: <strong>LX-DK03</strong> nie zastępuje DK02, lecz go uzupełnia.</p>
-<p>Instalator wybiera wariant zale\.znie od sytuacji na obiekcie.</p>
-<p>DK03 stał się główną linią sprzeda\.zową: <strong>500 sztuk, 7 lat</strong>.</p></div></div>
-<div class="proj-box proj-box--innovation"><div class="proj-box-title">05  Wersja serwisowa: hardware credential vault — analogia do PAM</div><div class="proj-box-body"><p>title=05   Wersja serwisowa: hardware credential vault — analogia do PAM]</p>
-<p><strong>Problem operacyjny:</strong> serwisant wchodzi na hasło robocze (0000),</p>
-<p>wykonuje pracę i musi pamiętać o przywróceniu oryginalnego hasła.</p>
-<p>Ryzyko: zapomnienie → klient zablokowany we własnej centrali.</p>
-<p><strong>Rozwiązanie — wersja serwisowa (2 egzemplarze):</strong></p>
-<p><strong>Pierwsze wło\.zenie:</strong> odczyt aktualnego hasła i numeru seryjnego centrali przez RS232</p>
-<p>→ zapis do EEPROM modułu → nadpisanie hasła na wartość roboczą.</p>
-<p>Serwisant pracuje na hasłe roboczym — <strong>oryginalnego nigdy nie widzi</strong>.</p>
-<p><strong>Kolejne wło\.zenie:</strong> MCU porównuje numer seryjny z EEPROM —</p>
-<p>zgodność → <strong>automatyczne przywrócenie oryginalnego hasła</strong>.</p>
-<p><strong>Własności bezpieczeństwa:</strong> serwisant nigdy nie poznaje hasła klienta;</p>
-<p>hasło oryginalne nigdy nie opuszcza pary centrala&lt;em class='math'&gt;łeftrightarrow</em>moduł;</p>
-<p>po pracy klient ma swoje hasło — nie hasło serwisowe.</p>
-<p><strong>Analogia:</strong> ten wzorzec to <em>Just-In-Time Privileged Access</em></p>
-<p>stosowany w korporacyjnych systemach PAM (Privileged Access Management) —</p>
-<p>tymczasowe nadanie uprawnień z automatycznym cofnięciem.</p>
-<p>Tu zrealizowany sprzętowo na ATtiny + EEPROM <strong>w 2015 roku</strong>.</p></div></div>
-<div class="proj-box proj-box--innovation"><div class="proj-box-title">06  Peł</div><div class="proj-box-body"><p>title=06   Pełny produkt solo: PCB + obudowa + opakowanie + instrukcja + etykieta]</p>
-<p>Zakres projektu wykraczał poza elektronikę — cała jednostka handlowa:</p>
-<p>Produkt dostarczany do Laskomex jako <strong>kompletna jednostka handlowa</strong> —</p>
-<p>nie moduł elektroniczny, lecz gotowy towar z kodem produktu.</p></div></div>
-<div class="proj-box proj-box--result"><div class="proj-box-title">Wynik: jeden problem, dwa produkty, 7 lat sprzeda\.zy</div><div class="proj-box-body"><p>title=<strong>Wynik: jeden problem, dwa produkty, 7 lat sprzeda\.zy</strong>]</p>
-<p><strong>500 sztuk</strong> LX-DK03 sprzedanych producentowi (Laskomex Sp. z o.o.)</p>
-<p>przez firmę DELFI Electronics.</p>
-<p><strong>7 lat sprzeda\.zy (2015–2022):</strong></p>
-<p>autor pracował w Laskomex do 2019 r. —</p>
-<p>firma kontynuowała zakupy przez kolejne <strong>3 lata po jego odejściu</strong>.</p>
-<p>Zale\.zność handlowa przetrwała zmianę stosunku pracy.</p>
-<p><strong>Model biznesowy:</strong> pracownik identyfikuje problem klientów</p>
-<p>→ wewnętrzna odmowa realizacji → samodzielne opracowanie produktu</p>
-<p>jako zewnętrzny dostawca → sprzeda\.z temu samemu pracodawcy.</p>
-<p>łarge<strong></strong>%</p>
-<p>⇒</p>
-<p>,,Nie ma miejsca w kodzie'' &lt;em class='math'&gt;łongrightarrow</em> 500 szt., 7 lat, zewnętrzny dostawca</p>
-<p>&lt;em class='math'&gt;Łeftarrow</em>%</p>
-<p></p></div></div>
+    <div data-i18n-html="page.body"></div>
   </div>
 </main>
 
 <footer class="site-footer">
   <div class="container footer-inner">
-    <p>Artur Flamandzki · <a href="../../index.html">Portfolio R&amp;D</a></p>
+    <p>Artur Flamandzki &nbsp;·&nbsp; <a href="../../index.html">Portfolio R&amp;D</a></p>
     <nav class="proj-nav-btns">
-      <a href="../p05/" class="lang-btn">← #05</a>
-      <a href="../p07/" class="lang-btn">#07 →</a>
+      <a href="../p05/" class="lang-btn" data-i18n="page.nav_prev">← #05</a>
+      <a href="../p07/" class="lang-btn" data-i18n="page.nav_next">#07 →</a>
     </nav>
   </div>
 </footer>

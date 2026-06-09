@@ -3,19 +3,21 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>#04 Projekt #04 — Artur Flamandzki</title>
+  <title data-i18n="page.title">#04 — Artur Flamandzki</title>
   <link rel="icon" type="image/svg+xml" href="../../favicon.svg" />
   <link rel="stylesheet" href="../../css/style.css" />
   <link rel="stylesheet" href="../../css/project.css" />
+  <!-- i18n: global locales first, then page-specific -->
   <script src="../../locales/en.js"></script>
   <script src="../../locales/pl.js"></script>
+  <script src="locales/pl.js"></script>
+  <script src="locales/en.js"></script>
 </head>
 <body>
 
 <nav id="navbar" aria-label="Main navigation">
   <div class="container nav-inner">
     <a href="../../" class="nav-brand">Artur Flamandzki <span>/ R&amp;D</span></a>
-
     <ul class="nav-links" id="navLinks">
       <li><a href="../../#filozofia"    data-i18n="nav.filozofia">Philosophy</a></li>
       <li><a href="../../#ewolucja"     data-i18n="nav.ewolucja">Evolution</a></li>
@@ -24,7 +26,6 @@
       <li><a href="../../#case-studies" data-i18n="nav.casestudies">Case Studies</a></li>
       <li><a href="../../#podsumowanie" data-i18n="nav.podsumowanie">Summary</a></li>
     </ul>
-
     <div class="nav-right">
       <div class="lang-switcher" id="langSwitcher" aria-label="Language"></div>
       <button class="nav-toggle" id="navToggle" aria-label="Menu" aria-expanded="false">
@@ -36,231 +37,31 @@
 
 <header class="proj-hero">
   <div class="container">
-    <div class="proj-hero-tag">PORTFOLIO R&amp;D — PROJEKT #04</div>
-    <h1 class="proj-hero-title" data-i18n="s4.p04.name">Projekt #04</h1>
-    
-    
+    <div class="proj-hero-tag" data-i18n="page.hero_tag"></div>
+    <h1 class="proj-hero-title" data-i18n="page.hero_title"></h1>
+    <p class="proj-hero-sub" data-i18n="page.hero_sub"></p>
+    <p class="proj-hero-date" data-i18n="page.date"></p>
   </div>
 </header>
 
-
+<section class="proj-summary">
+  <div class="container">
+    <div data-i18n-html="page.summary"></div>
+  </div>
+</section>
 
 <main class="proj-main">
   <div class="container proj-content">
-    <p class="proj-lang-notice">Technical documentation below is in Polish. The project summary above reflects the selected language.</p>
-    <p>newpage</p>
-<p>[C] \#04 — Woltomierz Samochodowy WST / WSTK</p>
-<div class="proj-box proj-box--innovation"><div class="proj-box-body"><p>colback=Navy, colframe=Navy, arc=4pt,</p>
-<p>left=14pt, right=14pt, top=10pt, bottom=10pt</p>
-<p>]</p>
-<p>Łarge</p>
-<p>Projekt \#04  |</p>
-<p>Woltomierz Samochodowy WST / WSTK\\[6pt]</p>
-<p></p>
-<p>ok. 2011–2012  |</p>
-<p>150 sztuk sprzedanych (WST)  |</p>
-<p>ATmega + HD44780 + 2× DS18B20  |</p>
-<p><em>przed rozpoczęciem studiów</em></p></div></div>
-<p>Autonomiczny monitor układu elektrycznego pojazdu z</p>
-<p><strong>interpretacją stanu pracy silnika na podstawie napięcia:</strong></p>
-<p>pomiar napięcia akumulatora, dwa kanały temperatury (DS18B20, 1-Wire),</p>
-<p>skala słupkowa odzwierciedlająca stopień naładowania</p>
-<p>oraz komunikaty statusowe reagujące na stan układu ładowania.</p>
-<p>Projekt powstał w dwóch wariantach: <strong>WST</strong> — do samochodu</p>
-<p>(150 sztuk sprzedanych na terenie Polski) oraz <strong>WSTK</strong> —</p>
-<p>do motocykla (kilkanaście sztuk, w tym egzemplarz u\.zytkowany przez</p>
-<p>autora na własnym motocyklu).</p>
-<p>Sprzeda\.z zakończyła się po wyczerpaniu płytek PCB, a produkcja</p>
-<p>nowej partii została oceniona jako nierentowna — typowy \'cykl life</p>
-<p>cycle niskonakładowego produktu elektronicznego.</p>
-<h2 class="proj-section">Geneza i motywacja</h2>
-<p>Urządzenie powstało z bardzo konkretnej potrzeby:</p>
-<p>podczas grilli ze znajomymi muzyka grała z samochodu przez kilka godzin.</p>
-<p>Bez \.zadnego wska\.znika nie było mo\.zliwości oceny, czy akumulator</p>
-<p>wymaga doładowania — silnik był uruchamiany ``na wszelki wypadek''.</p>
-<p>Dodatkową motywacją był brak termometru w samochodzie.</p>
-<p>Instalacja w popielniczce (dla osób niepalących — wolny slot),</p>
-<p>zasilanie ze stałego podłączenia do gniazda zapalniczki,</p>
-<p>pobrór prądu ≈25 mA przy wygaszonym tle — nieodczuwalny</p>
-<p>przez kilka tygodni postóju bez u\.zytkowania auta</p>
-<p>(weryfikacja empiryczna: 2 tygodnie postoju, brak widocznego</p>
-<p>spadku napięcia).</p>
-<h2 class="proj-section">Kł{</h2>
-<div class="proj-box proj-box--innovation"><div class="proj-box-title">01  Maszyna stanów na napie</div><div class="proj-box-body"><p>title=01   Maszyna stanów na napięciu: nie ADC, lecz interpretacja stanu silnika]</p>
-<p><strong>Problem:</strong> surowa wartość ADC nic nie mówi u\.zytkownikowi.</p>
-<p>Napięcie 13,5 V mo\.ze oznaczać prawidłowe ładowanie lub</p>
-<p>ładowanie zbyt słabe — zale\.znie od kontekstu.</p>
-<p><strong>Rozwiązanie — trzy stany z histerez:</strong> </p>
-<p><strong><code>charge</code></strong> (&lt;em class='math'&gt;&lt; 12,0</em> V): akumulator rozładowany,</p>
-<p>silnik nie pracuje lub rozruch.</p>
-<p><strong><code>check out</code></strong> (&lt;em class='math'&gt;13,4</em>–&lt;em class='math'&gt;13,9</em> V): silnik pracuje,</p>
-<p>ale napięcie ładowania poni\.zej normy — ostrze\.zenie o stanie</p>
-<p>alternatora lub instalacji.</p>
-<p><strong><code>engine on</code></strong> (&lt;em class='math'&gt;&gt; 13,9</em> V): prawidłowe ładowanie,</p>
-<p>alternator w normie.</p>
-<p><strong>Wartość in\.zynierska:</strong> progi odpowiadają rzeczywistym</p>
-<p>charakterystykom akumulatorów kwasowo-ołowiowych i alternatorów</p>
-<p>samochodowych. Urządzenie nie wyświetla napięcia —</p>
-<p><em>diagnozuje stan instalacji</em>.</p></div></div>
-<div class="proj-box proj-box--innovation"><div class="proj-box-title">02  Detekcja uruchomienia silnika przez sygnature</div><div class="proj-box-body"><p>title=02   Detekcja uruchomienia silnika przez sygnaturę napięciową — automatyczne rozjaśnienie]</p>
-<p><strong>Obserwacja:</strong> skok napięcia powy\.zej progu ≈13,9 V</p>
-<p>jest jednoznacznym sygnałem uruchomienia silnika i pracy alternatora.</p>
-<p><strong>Zastosowanie:</strong> podejście <em>podwajane</em> —</p>
-<p>ten sam sygnał napięciowy, który przełącza komunikat statusowy</p>
-<p>na <code>engine on</code>, jednocześnie</p>
-<p><strong>automatycznie rozjaśnia podświetlenie wyświetlacza</strong>.</p>
-<p>W trybie nocnym (silnik wyłączony): jasność ustawiana</p>
-<p>ręcznie potencjometrem na wartość czytelną w nocy</p>
-<p>bez oślepiania.</p>
-<p>Po uruchomieniu silnika (przejście przez próg 13,9 V):</p>
-<p>automatyczne rozjaśnienie do poziomu czytelnego w dzień.</p>
-<p><strong>Bez dodatkowego czujnika:</strong> detekcja silnika przez sygnał</p>
-<p>ju\.z obecny w systemie — zero kosztów sprzętowych.</p></div></div>
-<div class="proj-box proj-box--innovation"><div class="proj-box-title">03  Skala sł</div><div class="proj-box-body"><p>title=03   Skala słupkowa skalibrowana pod chemię akumulatorów ołowiowo-kwasowych]</p>
-<p><strong>Zamyśl:</strong> zamiast surowego woltomierza — wskazanie stopnia</p>
-<p>naładowania jako skala słupkowa z wyra\.zną semantyką.</p>
-<p><strong>Zakres:</strong> &lt;em class='math'&gt;12,0</em> V (rozrządka: ``rozładowany'') do</p>
-<p>&lt;em class='math'&gt;12,8</em> V (pełne naładowanie).</p>
-<p><strong>Rozdzielczoś\'c:</strong> &lt;em class='math'&gt;0,08</em> V na podziałkę — dopasowana</p>
-<p>do zakresu i liczby segmentów wyświetlacza HD44780.</p>
-<p><strong>Prawa kolumna:</strong> jednocześnie wyświetlana wartość</p>
-<p>napięcia w woltach — skala wizualna + liczba w tym samym widoku.</p>
-<p>Zakres &lt;em class='math'&gt;12,0</em>–&lt;em class='math'&gt;12,8</em> V odpowiada rzeczywistej charakterystyce</p>
-<p>napięcia obwodowego akumulatora kwasowo-ołowiowego w temperaturze</p>
-<p>pokojowej. Progi nie są arbitralne — są wzięte z właściwości</p>
-<p>chemii ogniwa.</p></div></div>
-<div class="proj-box proj-box--innovation"><div class="proj-box-title">04  Narze</div><div class="proj-box-body"><p>title=04   Narzędzie projektowe: kalkulator dzielnika napięcia z obsługą części cyfrowej]</p>
-<p><strong>Problem:</strong> projektowanie dzielników napięcia na wejście ADC wymaga</p>
-<p>równoczesnego dobrania R1, R2, napięcia referencyjnego i oceny</p>
-<p>rozdzielczości — iteracyjne obliczenia ręczne są podatne na błędy</p>
-<p>i czasochłonne przy wielu wariantach.</p>
-<p><strong>Rozwiązanie:</strong> własna aplikacja WinForms <strong>DzielnikNapięcia</strong> —</p>
-<p>solver dwukierunkowy: u\.zytkownik zaznacza, którą wielkość obliczyć</p>
-<p>(Uwe, Uwy, R1, R2, potencjometr),</p>
-<p>a aplikacja rozwiązuje odpowiednie równanie.</p>
-<p><strong>Mno\.zniki SI:</strong> pełna skala n\,/\,\,/ m\,/ k\,/ M\,/ G —</p>
-<p>wartości od nanoamper do gigaom w jednym polu bez ręcznego przeliczania.</p>
-<p><strong>Tryb cyfrowy:</strong> obliczanie Aref lub wartości ADC dla rozdzielczości</p>
-<p>8\,/ 10\,/ 11\,/ 12\,/ 16 bit; wyświetlanie rozdzielczości jednego bitu</p>
-<p>osobno dla Uwe i Uwy — pozwala ocenić,</p>
-<p>czy układ w ogóle ma sens przy zadanej precyzji pomiaru.</p>
-<p><strong>Parametry dodatkowe:</strong> współczynnik dzielnika, prąd dzielnika,</p>
-<p>moc rozpraszana na R1 i R2 — pełny obraz termiczny i energetyczny</p>
-<p>bez osobnego arkusza.</p>
-<p><strong>Zastosowanie:</strong> WST\,/ WSTK oraz wszystkie kolejne projekty z pomiarem ADC.</p>
-<p>Narzędzie powstało jako odpowied\.z na realną potrzebę —</p>
-<p>przykład in\.zynierów budujących własny warsztat zamiast połegać</p>
-<p>na kalkulatorach online.</p></div></div>
-<div class="proj-box proj-box--innovation"><div class="proj-box-body"><p>title=05   Wzory ratiometryczne pomiaru rezystancji przez ADC —</p>
-<p>opublikowane na Elektroda.pl]</p>
-<p><strong>Problem:</strong> typowe podejście do pomiaru rezystancji przez ADC</p>
-<p>zakłada stałe napięcie zasilania (&lt;em class='math'&gt;U_ref = 5,00,</em>V) wbite na</p>
-<p>stałe w kod.</p>
-<p>Gdy napięcie zasilania spada (załączenie przeka\'znika, pompy,</p>
-<p>wahania sieci), wynik pomiaru rozje\.zd\.za się proporcjonalnie —</p>
-<p>błąd którego typowy programista szuka w kodzie, nie w zało\.zeniach.</p>
-<p><strong>Wariant 1 — pomiar z jednej próbki:</strong></p>
-<p>R_2 = R_1  Ac_1 U_wej2^AdcU_ref - Ac_1</p>
-<p>Gdy &lt;em class='math'&gt;U_wej = U_ref</em> (napięcie zasilania dzielnika = napięcie</p>
-<p>odniesienia ADC — typowa sytuacja w embedded), obie wartości</p>
-<p><strong>skracają się algebraicznie</strong>.</p>
-<p>Wynik zale\.zy wyłącznie od &lt;em class='math'&gt;R_1</em>, rozdzielczości &lt;em class='math'&gt;2^Adc</em></p>
-<p>i surowej wartości cyfrowej &lt;em class='math'&gt;Ac_1</em> —</p>
-<p>pomiar staje się ratiometryczny: odporny na wahania zasilania</p>
-<p>bez zewnętrznego \'zródła &lt;em class='math'&gt;V_REF</em>.</p>
-<p><strong>Wariant 2 — oversampling wbudowany w strukturę wzoru:</strong></p>
-<p>R_2 = R_1  (Ac_1 + Ac_2)</p>
-<p>U_wej2^Adc+1U_ref - (Ac_1 + Ac_2)</p>
-<p>Zamiast klasycznego uśredniania (zebranie próbek →</p>
-<p>suma → dzielenie przez &lt;em class='math'&gt;N</em> → błądy</p>
-<p>zaokrągleń zmiennoprzecinkowych), suma dwóch próbek</p>
-<p>&lt;em class='math'&gt;(Ac_1 + Ac_2)</em> zostaje <strong>nienaruszona</strong> w liczniku i mianowniku,</p>
-<p>a preskaler w mianowniku rośnie o jeden bit: &lt;em class='math'&gt;2^Adc rightarrow 2^Adc+1</em>.</p>
-<p>To jest podręcznikowa realizacja oversamplingu i decimacji</p>
-<p>na poziomie algebry:</p>
-<ul class="proj-list">
-<li>rozdzielczość ADC rośnie o 1 bit (np. 10-bitowy AVR</li>
-</ul>
-<p>daje wirtualny 11-bitowy przetwornik),</p>
-<ul class="proj-list">
-<li>próg szumu kwantyzacji spada o &lt;em class='math'&gt;3,</em>dB,</li>
-<li>cały proces obliczeń do ostatniego kroku pozostaje</li>
-</ul>
-<p>w arytmetyce <strong>całkowitoliczbowej</strong> —</p>
-<p>zaokrąglenie następuje dopiero przy jednym, finalnym</p>
-<p>dzieleniu wyniku.</p>
-<p>Wzory opublikowane na forum <strong>Elektroda.pl</strong> jako</p>
-<p>odpowied\'z na pytanie społeczności o pomiar rezystancji przez ADC</p>
-<p>— przykład dzielenia się podejściem metrologicznym</p>
-<p>z szerszym gronem in\.zysnierów embedded.</p></div></div>
-<h2 class="proj-section">Stack techniczny</h2>
-<p>tabularxłinewidth&gt;p3.2cm X X</p>
-<p>Komponent &amp; Wariant WST (samochodowy) &amp; Wariant WSTK (motocyklowy) \\</p>
-<p>Mikrokontroler &amp;</p>
-<p>ATmega (większa pamięć) — pełny zestaw funkcji &amp;</p>
-<p>ATmega8 — ograniczona pamięć Flash, uproszczony zestaw funkcji \\</p>
-<p>Wyświetlacz &amp;</p>
-<p>HD44780 — skala + napięcie + temperatury + statusy &amp;</p>
-<p>HD44780 — du\.zy zegar (2 wiersze = 1 wielki znak), okrojone funkcje \\</p>
-<p>Czujniki temp. &amp;</p>
-<p>2l2× DS18B20 (1-Wire) — wewnętrzny (``in'') + zewnętrzny \\</p>
-<p>Konfiguracja &amp;</p>
-<p>Dowolna konfiguracja ka\.zdego elementu wyświetlacza przez u\.zytkownika \\</p>
-<p>Kolory LCD &amp;</p>
-<p>2l8 wariantów podświetlenia — dobór do koloru deski rozdzielczej \\</p>
-<p>Zasilanie &amp;</p>
-<p>2lGniazdo zapalniczki 12 V; pomiar napięcia ze \'zródła zasilania układu \\</p>
-<p>Pobrór prądu &amp;</p>
-<p>2l≈25 mA (wygaszone tło) — po 2 tyg. postoju brak mierzalnego spadku \\</p>
-<p>Monta\.z &amp;</p>
-<p>Popielniczka samochodowa &amp;</p>
-<p>Kokpit motocykla \\</p>
-<p>tabularx</p>
-<div class="proj-box proj-box--innovation"><div class="proj-box-title">05  DS18B20 ROM ID jako sprze</div><div class="proj-box-body"><p>title=05   DS18B20 ROM ID jako sprzętowy klucz licencyjny — i dlaczego został porzucony]</p>
-<p>Ka\.zdy czujnik DS18B20 ma unikalny 64-bitowy ROM ID zapisany fabrycznie przez producenta.</p>
-<p>W pierwszych partiach woltomierza WST autor wykorzystał tę właściwość</p>
-<p>jako <strong>sprzętowy DRM</strong>: przy pierwszym uruchomieniu ROM ID</p>
-<p>był zapisywany do EEPROM mikrokontrolera.</p>
-<p>Przy ka\.zdym starcie firmware porównywał aktualne ID z zapisanym —</p>
-<p>niezgodność blokowała działanie.</p>
-<p>Kto skopiował skompilowany firmware na inne urządzenie,</p>
-<p>nie uruchomił go bez czujnika z dokładnie tym samym ID.</p>
-<p>Eleganckie zabezpieczenie bez dodatkowych układów.</p>
-<p><strong>Problem operacyjny:</strong></p>
-<p>klient uszkodził czujnik lub go stracił.</p>
-<p>Urządzenie było wmontowane na stałe — w kokpicie,</p>
-<p>za deską rozdzielczą, pod obło\.zeniem.</p>
-<p>Zmiana czujnika wymagała odło\.zenia urządzenia do autora,</p>
-<p>by zaktualizować ID w EEPROM —</p>
-<p>co w praktyce było niewykonalne.</p>
-<p>Klient tracił sprawny miernik z powodu jednego uszkodzonego czujnika</p>
-<p>wartego kilka złotych.</p>
-<p><strong>Decyzja:</strong> DRM usunięty w kolejnych partiach.</p>
-<p>Czujnik DS18B20 pozostał — jako termometr.</p>
-<p>Lekcja: zabezpieczenie techniczne mądre od strony in\.zynierskiej</p>
-<p>mo\.ze być katastrofalne od strony u\.zytkowej.</p></div></div>
-<div class="proj-box proj-box--result"><div class="proj-box-body"><p><strong>WST — wersja samochodowa:</strong> <strong>150 sztuk</strong> sprzedanych na terenie Polski</p>
-<p>(forum elektroda.pl + sprzeda\.z bezpośrednia).</p>
-<p>Cena 3×+ wy\.zsza ni\.z chi\'nski import — popytu nie zahamowało.</p>
-<p>Sprzeda\.z zamknięta po wyczerpaniu partii PCB;</p>
-<p>produkcja nowej serii oceniona jako nierentowna.</p>
-<p><strong>WSTK — wersja motocyklowa:</strong> kilkanaście sztuk.</p>
-<p>Autor u\.zytkował egzemplarz na własnym motocyklu —</p>
-<p>weryfikacja terenowa projektu w warunkach rzeczywistych.</p>
-<p><strong>Retencja klientów:</strong> część klientów kupowała nowe urządzenie</p>
-<p>po zmianie pojazdu — miernik jakości produktu niezale\.zny od ceny.</p>
-<p><strong>Walidacja techniczna:</strong> po 2 tygodniach postoju bez u\.zytkowania</p>
-<p>brak mierzalnego spadku napięcia akumulatora —</p>
-<p>pobrór 25 mA jako nieistotny dla standardowego akumulatora 45–60 Ah.</p></div></div>
+    <div data-i18n-html="page.body"></div>
   </div>
 </main>
 
 <footer class="site-footer">
   <div class="container footer-inner">
-    <p>Artur Flamandzki · <a href="../../index.html">Portfolio R&amp;D</a></p>
+    <p>Artur Flamandzki &nbsp;·&nbsp; <a href="../../index.html">Portfolio R&amp;D</a></p>
     <nav class="proj-nav-btns">
-      <a href="../p03/" class="lang-btn">← #03</a>
-      <a href="../p05/" class="lang-btn">#05 →</a>
+      <a href="../p03/" class="lang-btn" data-i18n="page.nav_prev">← #03</a>
+      <a href="../p05/" class="lang-btn" data-i18n="page.nav_next">#05 →</a>
     </nav>
   </div>
 </footer>

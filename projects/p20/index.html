@@ -3,19 +3,21 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>#20 MR-AI — Artur Flamandzki</title>
+  <title data-i18n="page.title">#20 — Artur Flamandzki</title>
   <link rel="icon" type="image/svg+xml" href="../../favicon.svg" />
   <link rel="stylesheet" href="../../css/style.css" />
   <link rel="stylesheet" href="../../css/project.css" />
+  <!-- i18n: global locales first, then page-specific -->
   <script src="../../locales/en.js"></script>
   <script src="../../locales/pl.js"></script>
+  <script src="locales/pl.js"></script>
+  <script src="locales/en.js"></script>
 </head>
 <body>
 
 <nav id="navbar" aria-label="Main navigation">
   <div class="container nav-inner">
     <a href="../../" class="nav-brand">Artur Flamandzki <span>/ R&amp;D</span></a>
-
     <ul class="nav-links" id="navLinks">
       <li><a href="../../#filozofia"    data-i18n="nav.filozofia">Philosophy</a></li>
       <li><a href="../../#ewolucja"     data-i18n="nav.ewolucja">Evolution</a></li>
@@ -24,7 +26,6 @@
       <li><a href="../../#case-studies" data-i18n="nav.casestudies">Case Studies</a></li>
       <li><a href="../../#podsumowanie" data-i18n="nav.podsumowanie">Summary</a></li>
     </ul>
-
     <div class="nav-right">
       <div class="lang-switcher" id="langSwitcher" aria-label="Language"></div>
       <button class="nav-toggle" id="navToggle" aria-label="Menu" aria-expanded="false">
@@ -36,120 +37,31 @@
 
 <header class="proj-hero">
   <div class="container">
-    <div class="proj-hero-tag">PORTFOLIO R&amp;D — PROJEKT #20</div>
-    <h1 class="proj-hero-title" data-i18n="s4.p20.name">MR-AI</h1>
-    <p class="proj-hero-sub">ARR</p>
-    
+    <div class="proj-hero-tag" data-i18n="page.hero_tag"></div>
+    <h1 class="proj-hero-title" data-i18n="page.hero_title"></h1>
+    <p class="proj-hero-sub" data-i18n="page.hero_sub"></p>
+    <p class="proj-hero-date" data-i18n="page.date"></p>
   </div>
 </header>
 
-<section class="proj-summary"><div class="container"><p>MR-AI to framework ML oparty na <strong>rytmie relacyjnym</strong> zamiast wartościach liczbowych. ARR (Analizator Rytmu Relacyjnego) podejmuje decyzje na podstawie symboli kierunków (\(\)/\(\)/\(\)) — bez znajomości bezwzględnych liczb. MR-KL, MR-CL, MR-RG to rytmiczne alternatywy dla klasycznych algorytmów ML. RPP (Relacyjna Przestrzeń Przekształceń) operuje bez układu współrzędnych. Sterownik pieca z projektu \#01 (2008) to empiryczny dowód działania ARR.</p></div></section>
+<section class="proj-summary">
+  <div class="container">
+    <div data-i18n-html="page.summary"></div>
+  </div>
+</section>
 
 <main class="proj-main">
   <div class="container proj-content">
-    <p class="proj-lang-notice">Technical documentation below is in Polish. The project summary above reflects the selected language.</p>
-    <div class="proj-box proj-box--innovation"><div class="proj-box-body"><p>colback=Navy, colframe=Navy, arc=4pt,</p>
-<p>left=14pt, right=14pt, top=10pt, bottom=10pt]</p>
-<p>łarge \#20   MR-AI — Framework Rytmiczny\\[4pt]</p>
-<p>Matematyka Relacyjna · ARR ·</p>
-<p>Sterowanie bez wartości · ML bez danych liczbowych · 2025–2026</p></div></div>
-<p>Sterownik pieca CO z <strong>projektu \#01</strong> (2008–2019) zawierał logikę sterowania</p>
-<p>opartą na <strong>kierunkach zmiany temperatury</strong>, nie na jej wartości bezwzględnej.</p>
-<p>Nie sprawdzał ,,czy temperatura wynosi 65°C'' —</p>
-<p>sprawdzał ,,czy rośnie szybciej, wolniej czy zatrzymała się''.</p>
-<p>Reakcja na rytm zmiany, nie na dane liczbowe.</p>
-<p>Ponad dekadę później, patrząc na modele AI,</p>
-<p>Artur rozpoznał ten sam wzorzec:</p>
-<p><strong>klasyczne ML uczy się wartości, kiedy wystarczyms wartością jest rytm</strong>.</p>
-<p>Framework <strong>MR-AI</strong> (Matematyka Relacyjna zastosowana do AI)</p>
-<p>to pięć niezale\.znych modułów proponujących rytmiczne odpowiedniki</p>
-<p>klasycznych operacji uczenia maszynowego — bez liczb, bez progów,</p>
-<p>bez macierzy wag.</p>
-<div class="proj-box proj-box--innovation"><div class="proj-box-title">ARR — Analizator Rytmu Relacyjnego (rdze\'n</div><div class="proj-box-body"><p>ARR to mechanizm reakcji na zmiany operujący wyłącznie na</p>
-<p><strong>symbolicznych kierunkach zmiany:</strong> &lt;em class='math'&gt;uparrow</em> (wzrost), &lt;em class='math'&gt;downarrow</em> (spadek),</p>
-<p>→ (stabilność).</p>
-<p><strong>Mechanizm:</strong></p>
-<p>Przesuwane okno długości &lt;em class='math'&gt;n</em> klasyfikuje rytm sekwencji:</p>
-<p>[,,]  narastający</p>
-<p>[,,]  zanikający</p>
-<p>[,,,]  fluktuacja</p>
-<p>Metryka niestabilności: liczba zmian kierunku w oknie.</p>
-<p>Hierarchia reakcji: <strong>aktywuj</strong> → <strong>utrzymaj</strong> → <strong>osłab</strong> →</p>
-<p><strong>przetrzymaj</strong> → <strong>ignoruj</strong> → <strong>resetuj</strong>.</p>
-<p><strong>Istotna obserwacja:</strong></p>
-<p>Dokładnie ten mechanizm był wbudowany w sterownik pieca CO (\#01) lata przed</p>
-<p>sformułowaniem MR-AI.</p>
-<p>Pieco-firmware nie wiedział ,,ile stopni'' — wiedział ,,jaki jest rytm zmiany</p>
-<p>i co z tym zrobić''.</p>
-<p>ARR jest formalizacją tej intuicji jako ogólne narzędzie decyzyjne.</p>
-<p><strong>Zastosowania:</strong> sterowniki adaptacyjne, systemy monitoringu,</p>
-<p>ogranicznik sygnałów szumowych, reakcja na zdarzenia bez kalibracji liczbowej.</p></div></div>
-<div class="proj-box proj-box--innovation"><div class="proj-box-title">Rytmiczne odpowiedniki ML: MR-KL, MR-CL, MR-RG</div><div class="proj-box-body"><p>Trzy moduły proponują alternatywne podejście do klasycznych operacji ML —</p>
-<p>zamiast wartości liczbowych: <strong>struktura rytmu</strong>.</p>
-<p><strong>MR-KL — Klasyfikacja Rytmiczna</strong></p>
-<p>(odpowiednik: klasyfikator SVM\,/ drzewo decyzyjne):</p>
-<p>Wejście = sekwencja symboliczna; klasyfikacja = dopasowanie do wzorca rytmu.</p>
-<p>Brak cech liczbowych, brak uczenia nadzorowanego, brak macierzy separacyjnych.</p>
-<p>Klasa = nazwa rytmu, nie etykieta wyliczona z danych.</p>
-<p><strong>MR-CL — Klasteryzacja Rytmiczna</strong></p>
-<p>(odpowiednik: k-means\,/ DBSCAN):</p>
-<p>Grupowanie sekwencji symbolicznych według <strong>zgodności struktury</strong>,</p>
-<p>nie odległości w przestrzeni cech.</p>
-<p>Klaster = zbiór rytmów o identycznym lub relacyjnie zgodnym układzie kierunków</p>
-<p>(z dopuszczalnymi rotacjami i symetriami).</p>
-<p>Brak centroidów, brak metryk odległości.</p>
-<p><strong>MR-RG — Regresja Rytmiczna</strong></p>
-<p>(odpowiednik: regresja liniowa\,/ predykcja):</p>
-<p>Nie przewiduje wartości — przewiduje <strong>wektor rytmu</strong>: czy wzorzec się utrzyma,</p>
-<p>osłabnie, odwróci czy zatrzyma.</p>
-<p>Regresja &lt;em class='math'&gt;=</em> ocena trwania rytmu, nie estymacja funkcji ciągłej.</p>
-<p>[,,]  utrzymaj</p>
-<p>[,,]  obserwuj (słabnięcie)</p>
-<p>[,,]  zatrzymaj</p></div></div>
-<div class="proj-box proj-box--innovation"><div class="proj-box-title">RPP — Relacyjna Przestrze\'n</div><div class="proj-box-body"><p><strong>RPP</strong> (Relacyjna Przestrzeń Przesunięć) rozszerza framework MR-AI</p>
-<p>na transformacje geometryczne — bez współrzędnych i bez pamięci punktów.</p>
-<p><strong>Klasyczne podejście:</strong> pozycja jako krotka &lt;em class='math'&gt;(x, y, z)</em>;</p>
-<p>transformacje przez macierze obrotu i translacji.</p>
-<p><strong>RPP: pozycja określona wyłącznie jako  względem punktu odniesienia:</strong></p>
-<p>R(P) := (,\,)</p>
-<p>(,,na prawo i w górę'' od odniesienia)</p>
-<p>Transformacja przesunięcia &lt;em class='math'&gt;D</em> działa <strong>relacyjnie</strong>:</p>
-<p>&lt;em class='math'&gt;R'(P) = R(P) oplus D</em>.</p>
-<p>Rotacja = cykliczne przekształcenie kierunków, nie mno\.zenie macierzowe.</p>
-<p>RPP ma charakter <strong>konceptualny</strong>: usuwa zale\.zność od bezwzględnych współrzędnych,</p>
-<p>co otwiera zastosowania w systemach bez globalnego układu odniesienia</p>
-<p>(np. drony, roboty swarmowe, obliczenia trajektorowe Resona).</p></div></div>
-<div class="proj-box proj-box--result"><div class="proj-box-body"><p><strong>Stan projektu (otwarty concept, 2025–2026):</strong></p>
-<ul class="proj-list">
-<li><strong>5 dokumentów</strong> opisujących moduły frameworku:</li>
-</ul>
-<p>ARR, MR-CL, MR-KL, MR-RG, RPP</p>
-<ul class="proj-list">
-<li>Brak implementacji produkcyjnej — projekt na poziomie formalnego opisu</li>
-</ul>
-<p>i weryfikacji koncepcji</p>
-<ul class="proj-list">
-<li><strong>ARR</strong> zweryfikowany empirycznie w projekcie \#01 (piec CO, 2008–2019):</li>
-</ul>
-<p>sterowanie rytmem zmiany temperatury jako rzeczywista implementacja</p>
-<p>przed sformułowaniem teorii</p>
-<ul class="proj-list">
-<li>Ścisła integracja z FochBot V3 (\#19): Kontroler Autonomiczny Warstwy B</li>
-</ul>
-<p>planowo oparty na ARR</p>
-<ul class="proj-list">
-<li>Framework pozycjonowany jako <strong>alternatywa dla ML</strong> dla zastosowań</li>
-</ul>
-<p>wymagających deterministycznych, interpretowalnych decyzji bez danych treningowych</p></div></div>
+    <div data-i18n-html="page.body"></div>
   </div>
 </main>
 
 <footer class="site-footer">
   <div class="container footer-inner">
-    <p>Artur Flamandzki · <a href="../../index.html">Portfolio R&amp;D</a></p>
+    <p>Artur Flamandzki &nbsp;·&nbsp; <a href="../../index.html">Portfolio R&amp;D</a></p>
     <nav class="proj-nav-btns">
-      <a href="../p19/" class="lang-btn">← #19</a>
-      <a href="../p21/" class="lang-btn">#21 →</a>
+      <a href="../p19/" class="lang-btn" data-i18n="page.nav_prev">← #19</a>
+      <a href="../p21/" class="lang-btn" data-i18n="page.nav_next">#21 →</a>
     </nav>
   </div>
 </footer>

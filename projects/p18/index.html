@@ -3,19 +3,21 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>#18 Resona — Artur Flamandzki</title>
+  <title data-i18n="page.title">#18 — Artur Flamandzki</title>
   <link rel="icon" type="image/svg+xml" href="../../favicon.svg" />
   <link rel="stylesheet" href="../../css/style.css" />
   <link rel="stylesheet" href="../../css/project.css" />
+  <!-- i18n: global locales first, then page-specific -->
   <script src="../../locales/en.js"></script>
   <script src="../../locales/pl.js"></script>
+  <script src="locales/pl.js"></script>
+  <script src="locales/en.js"></script>
 </head>
 <body>
 
 <nav id="navbar" aria-label="Main navigation">
   <div class="container nav-inner">
     <a href="../../" class="nav-brand">Artur Flamandzki <span>/ R&amp;D</span></a>
-
     <ul class="nav-links" id="navLinks">
       <li><a href="../../#filozofia"    data-i18n="nav.filozofia">Philosophy</a></li>
       <li><a href="../../#ewolucja"     data-i18n="nav.ewolucja">Evolution</a></li>
@@ -24,7 +26,6 @@
       <li><a href="../../#case-studies" data-i18n="nav.casestudies">Case Studies</a></li>
       <li><a href="../../#podsumowanie" data-i18n="nav.podsumowanie">Summary</a></li>
     </ul>
-
     <div class="nav-right">
       <div class="lang-switcher" id="langSwitcher" aria-label="Language"></div>
       <button class="nav-toggle" id="navToggle" aria-label="Menu" aria-expanded="false">
@@ -36,118 +37,31 @@
 
 <header class="proj-hero">
   <div class="container">
-    <div class="proj-hero-tag">PORTFOLIO R&amp;D — PROJEKT #18</div>
-    <h1 class="proj-hero-title" data-i18n="s4.p18.name">Resona</h1>
-    <p class="proj-hero-sub">Funkcja rezonansowa \(R_n\)</p>
-    
+    <div class="proj-hero-tag" data-i18n="page.hero_tag"></div>
+    <h1 class="proj-hero-title" data-i18n="page.hero_title"></h1>
+    <p class="proj-hero-sub" data-i18n="page.hero_sub"></p>
+    <p class="proj-hero-date" data-i18n="page.date"></p>
   </div>
 </header>
 
-<section class="proj-summary"><div class="container"><p>Czy mo\.zna oblicza\'c</strong> bez bitów — bez zer i jedynek? Resona to model obliczeniowy oparty na <strong>trajektoriach amplitudowych: funkcja \(R_n(x,y,n) = 2x^n yx^2n+y^2\) osiąga szczyt \(12\) dokładnie na trajektorii \(y = x^n\). FunctionalRegister przechowuje trajektorię zamiast wartości. Język Resona i środowisko graficzne pozwalają wizualizować obliczenia jako pola amplitudowe.</p></div></section>
+<section class="proj-summary">
+  <div class="container">
+    <div data-i18n-html="page.summary"></div>
+  </div>
+</section>
 
 <main class="proj-main">
   <div class="container proj-content">
-    <p class="proj-lang-notice">Technical documentation below is in Polish. The project summary above reflects the selected language.</p>
-    <div class="proj-box proj-box--innovation"><div class="proj-box-body"><p>colback=Navy, colframe=Navy, arc=4pt,</p>
-<p>left=14pt, right=14pt, top=10pt, bottom=10pt]</p>
-<p>łarge \#18   Resona — Trajektorowy Model Obliczeniowy\\[4pt]</p>
-<p>Matematyka Relacyjna · Model trajektorowy ·</p>
-<p>Rejestry amplitudowe · Grafika funkcyjna · 2023–2026</p></div></div>
-<p><strong>Pytanie:</strong> czy mo\.zliwe jest obliczanie bez bitów — bez zer i jedynek,</p>
-<p>bez operacji logicznych, bez pamięci binarnej?</p>
-<p><strong>Resona</strong> to model, w którym stan programu to ciągłe pole amplitud,</p>
-<p>a obliczenie to nawigacja po trajektoriach rezonansowych — nie manipulacja bitami.</p>
-<p>Projekt powstał jako proof-of-concept Matematyki Relacyjnej zastosowanej do obliczeń.</p>
-<p>Zamiast pytać <em>,,jaka wartość bitu?''</em> system pyta</p>
-<p><em>,,na jakiej trajektorii jesteśmy?''</em>.</p>
-<p>Stan wewnętrzny jest nielokalny: jednym parametrem &lt;em class='math'&gt;n</em> opisujemy całą</p>
-<p>klasę trajektorii i im odpowiadający kształt pola.</p>
-<div class="proj-box proj-box--innovation"><div class="proj-box-title">Funkcja rezonansowa i trajektoria</div><div class="proj-box-body"><p>Podstawowy element modelu to <strong>funkcja rezonansowa</strong>:</p>
-<p>R_n(x, y) = 2 x^n yx^2n + y^2</p>
-<p>Dla dowolnego &lt;em class='math'&gt;n &gt; 0</em> i &lt;em class='math'&gt;x, y &gt; 0</em> wartość &lt;em class='math'&gt;R_n in (0, 1)</em>.</p>
-<p><strong>Trajektoria rezonansowa</strong> to krzywa &lt;em class='math'&gt;y = x^n</em>, wzdłu\.z której &lt;em class='math'&gt;R_n = tfrac12</em></p>
-<p>dokładnie dla ka\.zdego &lt;em class='math'&gt;x</em> — funkcja osiąga szczyt w sposób przestrzennie</p>
-<p>ciągły, bez dyskretnych progów.</p>
-<p><strong>Rodzina rezonatorów</strong> pozwala na przestrajanie szczytu:</p>
-<p>R_a,b(x) = x^2nx^an + x^bn,</p>
-<p>szczyt = 1k  b = 2 + łog(k-1)n łog x</p>
-<p>Wartości graniczne &lt;em class='math'&gt;0</em> i &lt;em class='math'&gt;1</em> nie są osiągalne — pole nigdy nie jest</p>
-<p>w pełni ,,zerowe'' ani ,,nasycone''.</p>
-<p>Uzupełnienie amplitudowe: &lt;em class='math'&gt;R + barR = 1</em>,</p>
-<p>co domyka przestrzeń logiczną bez wartości binarnych.</p>
-<p><strong>Wspólny mianownik wszystkich wariantów:</strong> trajektoria &lt;em class='math'&gt;n</em> wyznacza kształt pola.</p>
-<p>Zmiana &lt;em class='math'&gt;n</em> to zmiana logiki — nie zmiana jednej komórki pamięci,</p>
-<p>lecz całej geometrii obliczeń.</p></div></div>
-<div class="proj-box proj-box--innovation"><div class="proj-box-title">Rejestr funkcyjny i je</div><div class="proj-box-body"><p><strong>FunctionalRegister</strong> — pamięć oparta na amplitudach:</p>
-<p>zamiast adresów i bitów, rejestr przechowuje parę &lt;em class='math'&gt;(n,,a)</em>:</p>
-<p>trajektorię &lt;em class='math'&gt;n</em> i amplitudę &lt;em class='math'&gt;a</em>.</p>
-<p>Odczyt przy wejściu &lt;em class='math'&gt;x</em>:</p>
-<p>read(x) = a  R_n\!(x,\; x^n) = a  12</p>
-<p><strong>Instrukcje języka Resona:</strong></p>
-<ul class="proj-list">
-<li>SET(n, a) — ustaw amplitudę rejestru trajektorii &lt;em class='math'&gt;n</em></li>
-<li>ADD(n, a) — dodaj amplitudę (superpozycja trajektorii)</li>
-<li>JMP(n) — przestaw aktywną trajektorię na &lt;em class='math'&gt;n</em></li>
-<li>IF(n, val, [blok]) — wykonaj blok, jeśli odczyt trajektorii &lt;em class='math'&gt;n</em></li>
-</ul>
-<p>jest równy val (z tolerancją &lt;em class='math'&gt;10^-6</em>)</p>
-<p>Program to lista instrukcji; stan końcowy to ciągła mapa amplitud</p>
-<p>&lt;em class='math'&gt;(n_1 to a_1,; n_2 to a_2, łdots)</em> — nie wektor bitów.</p>
-<p><strong>Parser</strong> — zaimplementowany w Pythonie.</p>
-<p>FunctionalRegister + execute\_instruction() + parse\_arguments() —</p>
-<p>pełny cykl: parsowanie tekstu → wykonanie → odczyt stanu amplitudowego.</p></div></div>
-<div class="proj-box proj-box--innovation"><div class="proj-box-title">Grafika funkcyjna — wykonanie jako obraz</div><div class="proj-box-body"><p>Ka\.zdy program Resona mo\.ze być <strong>zwizualizowany jako obraz 2D</strong>:</p>
-<p>piksel &lt;em class='math'&gt;(x, y)</em> odpowiada wartości &lt;em class='math'&gt;R_n(x cdot s,; y cdot s)</em> przy skali &lt;em class='math'&gt;s</em>.</p>
-<p><strong>Warianty implementacji:</strong></p>
-<ul class="proj-list">
-<li><strong>Monochromatyczny</strong> (resona\_interpreter\_to\_image.py):</li>
-</ul>
-<p>obraz w skali szarości — kształt jednej trajektorii &lt;em class='math'&gt;n</em></p>
-<ul class="proj-list">
-<li><strong>RGB</strong> (resona\_rgb\_generator.py):</li>
-</ul>
-<p>trzy niezale\.zne kanały z ró\.znymi &lt;em class='math'&gt;n_R, n_G, n_B</em> —</p>
-<p>trzy <strong>równoległe trajektorie</strong> widoczne jako kolor</p>
-<ul class="proj-list">
-<li><strong>Delta Engine</strong> (resona\_deltaengine.py):</li>
-</ul>
-<p>ka\.zda klatka pokazuje <strong>zmiany struktury</strong> względem poprzedniej</p>
-<p>(&lt;em class='math'&gt;Delta R &gt; 10^-5</em>) — biały piksel = aktywny obszar zmiany</p>
-<ul class="proj-list">
-<li><strong>Time Player</strong> (resona\_timeplayer.py):</li>
-</ul>
-<p>animacja pola w czasie — &lt;em class='math'&gt;n</em> i &lt;em class='math'&gt;y</em> zmieniają się z &lt;em class='math'&gt;t</em></p>
-<p>Grafika funkcyjna nie jest wizualizacją dodatkową —</p>
-<p><strong>obraz jest środowiskiem wykonawczym:</strong> program Resona działa</p>
-<p>w przestrzeni pikselowej i jego stan jest bezpośrednio widoczny</p>
-<p>jako pole ciągłych wartości.</p></div></div>
-<div class="proj-box proj-box--result"><div class="proj-box-body"><p><strong>Stan projektu (aktywny proof-of-concept, 2023–2026):</strong></p>
-<ul class="proj-list">
-<li>Zaimplementowany interpreter języka Resona w Pythonie</li>
-</ul>
-<p>(Parser.py, FunctionalRegister)</p>
-<ul class="proj-list">
-<li>4 warianty graficznego środowiska wykonawczego (mono, RGB, delta, animacja)</li>
-<li>Formalna analiza rodziny rezonatorów (rezonatory\_opracowanie.tex)</li>
-<li>Model trajektorowy: stan = amplituda, nie bit;</li>
-</ul>
-<p>obliczenie = nawigacja, nie przełącznik</p>
-<ul class="proj-list">
-<li><strong>Projekt otwarty</strong>: rozszerzenie na sprzzę\.zenie z modelem MR-AI</li>
-</ul>
-<p>(projekt \#20) i zastosowanie do certyfikacji obliczeń</p>
-<ul class="proj-list">
-<li>Implementacja docelowa: C lub FPGA (niskopoziomowy rezonator sprzzętowy)</li>
-</ul></div></div>
+    <div data-i18n-html="page.body"></div>
   </div>
 </main>
 
 <footer class="site-footer">
   <div class="container footer-inner">
-    <p>Artur Flamandzki · <a href="../../index.html">Portfolio R&amp;D</a></p>
+    <p>Artur Flamandzki &nbsp;·&nbsp; <a href="../../index.html">Portfolio R&amp;D</a></p>
     <nav class="proj-nav-btns">
-      <a href="../p17/" class="lang-btn">← #17</a>
-      <a href="../p19/" class="lang-btn">#19 →</a>
+      <a href="../p17/" class="lang-btn" data-i18n="page.nav_prev">← #17</a>
+      <a href="../p19/" class="lang-btn" data-i18n="page.nav_next">#19 →</a>
     </nav>
   </div>
 </footer>

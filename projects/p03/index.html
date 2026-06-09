@@ -3,19 +3,21 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>#03 Automatyczny Kalibrator — Artur Flamandzki</title>
+  <title data-i18n="page.title">#03 — Artur Flamandzki</title>
   <link rel="icon" type="image/svg+xml" href="../../favicon.svg" />
   <link rel="stylesheet" href="../../css/style.css" />
   <link rel="stylesheet" href="../../css/project.css" />
+  <!-- i18n: global locales first, then page-specific -->
   <script src="../../locales/en.js"></script>
   <script src="../../locales/pl.js"></script>
+  <script src="locales/pl.js"></script>
+  <script src="locales/en.js"></script>
 </head>
 <body>
 
 <nav id="navbar" aria-label="Main navigation">
   <div class="container nav-inner">
     <a href="../../" class="nav-brand">Artur Flamandzki <span>/ R&amp;D</span></a>
-
     <ul class="nav-links" id="navLinks">
       <li><a href="../../#filozofia"    data-i18n="nav.filozofia">Philosophy</a></li>
       <li><a href="../../#ewolucja"     data-i18n="nav.ewolucja">Evolution</a></li>
@@ -24,7 +26,6 @@
       <li><a href="../../#case-studies" data-i18n="nav.casestudies">Case Studies</a></li>
       <li><a href="../../#podsumowanie" data-i18n="nav.podsumowanie">Summary</a></li>
     </ul>
-
     <div class="nav-right">
       <div class="lang-switcher" id="langSwitcher" aria-label="Language"></div>
       <button class="nav-toggle" id="navToggle" aria-label="Menu" aria-expanded="false">
@@ -36,135 +37,31 @@
 
 <header class="proj-hero">
   <div class="container">
-    <div class="proj-hero-tag">PORTFOLIO R&amp;D — PROJEKT #03</div>
-    <h1 class="proj-hero-title" data-i18n="s4.p03.name">Automatyczny Kalibrator</h1>
-    <p class="proj-hero-sub">zamkni</p>
-    
+    <div class="proj-hero-tag" data-i18n="page.hero_tag"></div>
+    <h1 class="proj-hero-title" data-i18n="page.hero_title"></h1>
+    <p class="proj-hero-sub" data-i18n="page.hero_sub"></p>
+    <p class="proj-hero-date" data-i18n="page.date"></p>
   </div>
 </header>
 
-<section class="proj-summary"><div class="container"><p>R</strong>czna kalibracja wtryskiwaczy LPG: suwmiarka, sklejanie, weryfikacja na
-    rotametrze — pętla otwarta z niską powtarzalnością i oknem
-    czasowym zamkniętym przez klej. Zlecenie: urządzenie zastępujące
-    cały proces automatem z czujnikowym sprzę\.zeniem zwrotnym.
-    Wynik: kalibrator dwuosiowy (silnik stołu + silnik śruby regulacyjnej),
-    regulowane napięcie PWM symulujące warunki robocze, stop na zdarzeniu
-    fizycznym — bez rotametru, bez suwmiarki, bez wpływu ręki technika.</p></div></section>
+<section class="proj-summary">
+  <div class="container">
+    <div data-i18n-html="page.summary"></div>
+  </div>
+</section>
 
 <main class="proj-main">
   <div class="container proj-content">
-    <p class="proj-lang-notice">Technical documentation below is in Polish. The project summary above reflects the selected language.</p>
-    <h2 class="proj-section">Geneza i problem</h2>
-<p>Partner uruchamiający produkcję wtryskiwaczy LPG</p>
-<p>kalibrował skok igły ręcznie: \.zarówka sygnalizująca styk</p>
-<p>trzpienia z tłoczkiem, ręczne dokręcanie śruby,</p>
-<p>weryfikacja przepływu na rotametrze.</p>
-<p><strong>Rozrzut pomiędzy sztukami powy\.zej 0,3 mm.</strong></p>
-<p>Wtryskiwacze zgłoszone do homologacji otrzymały zastrze\.zenia</p>
-<p>dot. powtarzalności kalibracji. Zlecenie: urządzenie</p>
-<p>eliminujące ręczny etap i zale\.zność od operatora.</p>
-<div class="proj-box proj-box--innovation"><div class="proj-box-title">01  Zamknie</div><div class="proj-box-body"><p>title=01   Zamknięta pętla kalibracji: zdarzenie fizyczne zamiast miary geometrycznej]</p>
-<p><strong>Zmiana paradygmatu:</strong> proces ręczny mierzy wielkość</p>
-<p>geometryczną (suwmiarka) i weryfikuje po fakcie (rotametr).</p>
-<p>Kalibrator mierzy <strong>zdarzenie fizyczne</strong> —</p>
-<p>otwarcie wtryskiwacza przy zadanym napięciu roboczym.</p>
-<p><strong>Sekwencja automatyczna:</strong></p>
-<p>stół naje\.zd\.za na wtryskiwacz (silnik 1, stop na czujniku kontaktu)</p>
-<p>→ PWM zasila cewkę zadanym napięciem (0–7,5 V)</p>
-<p>→ silnik 2 dokręca śrubę regulacyjną krokowo</p>
-<p>→ <strong>stop w momencie otwarcia wtryskiwacza</strong></p>
-<p>(czujnik Punkt\_0) → dodatkowe kroki tłumienia drgań</p>
-<p>→ operator zatwierdza, stół cofa się.</p>
-<p>Skok igły jest dokładnie tym, przy którym dany egzemplarz otwiera</p>
-<p>się na zadanym napięciu — zmierzony na konkretnej sztuce</p>
-<p>w warunkach eksploatacyjnych. Eliminuje rotametr i rękę technika</p>
-<p>jako źródła błędu.</p></div></div>
-<div class="proj-box proj-box--innovation"><div class="proj-box-title">02  Integracja mechaniczna i wykrywanie bł</div><div class="proj-box-body"><p>title=02   Integracja mechaniczna i wykrywanie błędów niedostępnych zdalnie]</p>
-<p>Urządzenie rozbudowywane zdalnie: kod pisany za granicą,</p>
-<p>firmware wgrywany przez kolega-ślusarza bez doświadczenia</p>
-<p>elektronicznego, poprawki sprzętowe przez zdjęcia z adnotacjami,</p>
-<p>zasilacz zaprojektowany remotely i wykonany przez szefa sklepu</p>
-<p>elektronicznego. Do powrotu precyzja wynosiła <strong>0,1 mm</strong>.</p>
-<p>Po bezpośredniej obserwacji zidentyfikowano kilka błędów</p>
-<p>mo\.zliwych do wykrycia wyłącznie na \.zywym sprzęcie:</p>
-<p><strong>magnetyzm szczątkowy</strong> trzpienia stalowego przyklejającego</p>
-<p>się do tłoczka, błędna kolejność operacji</p>
-<p>kalibracyjnych, brak symetrycznego prowadzenia trzpienia.</p>
-<p>Kluczowa poprawka mechaniczna: dodanie <strong>hamulca hydraulicznego</strong></p>
-<p>blokującego silnik śruby regulacyjnej na czas dokręcania</p>
-<p>nakrętki kontrującej (szczegóły w Innowacji \#03).</p>
-<p>Wynik po poprawkach: <strong>0,01 mm</strong> — 10-krotna poprawa.</p>
-<p>Ograniczenie rezydualne: luz na gwincie nakrętki kontrującej;</p>
-<p>eliminacja wymagałaby klucza dynamometrycznego.</p></div></div>
-<div class="proj-box proj-box--innovation"><div class="proj-box-title">03  Bistabilny ukł</div><div class="proj-box-body"><p>title=03   Bistabilny układ blokowania: impuls załączający, zero prądu w stanie trzymania]</p>
-<p><strong>Problem:</strong> silniki krokowe bez enkodera nie generują</p>
-<p>wystarczającego momentu trzymającego — siła przy</p>
-<p>dokręcaniu nakrętki kontrującej przesuwała głowicę</p>
-<p>o nieokreśloną wartość. Standardowe rozwiązanie</p>
-<p>(trzymanie silnika pod prądem) generuje nagrzewanie, drgania i</p>
-<p>ryzyko awarii termicznej cewek.</p>
-<p><strong>Rozwiązanie — hamulec bistabilny:</strong></p>
-<p><strong>Element blokujący:</strong> hamulec rowerowy hydrauliczny —</p>
-<p>po załączeniu trzyma się mechanicznie bez zasilania.</p>
-<p><strong>Elektrozawór 1</strong> (siłownik od drzwi samochodowych):</p>
-<p>zaciska hamulec <em>impulsem</em>; stan utrzymany mechanicznie bez prądu.</p>
-<p><strong>Elektrozawór 2</strong> (zamek elektryczny):</p>
-<p>blokuje dźwignię na czas trzymania — eliminuje ciągłe</p>
-<p>zasilanie Elektrozaworu 1.</p>
-<p><strong>Zwolnienie:</strong> krótki impuls Elektrozaworu 2 →</p>
-<p>sprę\.zyna zwalnia hamulec automatycznie.</p>
-<p><strong>Wynik elektryczny:</strong> elektrozaczepy zasilane wyłącznie</p>
-<p>impulsem załączającym i wyłączającym —</p>
-<p><strong>zero poboru prądu w stanie zablokowanym</strong>.</p>
-<p>Stan mechaniczny utrzymywany bez energii elektrycznej.</p>
-<p>Wzorzec stosowany w przemysłowych elektrozaworach bezpieczeństwa</p>
-<p>i zaworach gazu (fail-safe).</p></div></div>
-<h2 class="proj-section">Stack techniczny</h2>
-<p>tabularx2.4cm p3.8cm X</p>
-<p>MCU &amp;</p>
-<p>ATmega32 @ 16 MHz &amp;</p>
-<p>Timer1 PWM 9-bit, I2C software, watchdog \\</p>
-<p>Napęd &amp;</p>
-<p>2× silnik krokowy 0,9/krok &amp;</p>
-<p>PCF8574 (I2C), 6 sekwencji uzwojeń, pełny i półkrok;</p>
-<p>hamulec hydrauliczny na silniku śruby \\</p>
-<p>Klawiatura &amp;</p>
-<p>16 klawiszy &amp;</p>
-<p>2× PCF8574 przez I2C; mostek do kupnego sterownika</p>
-<p>przez złącze KK2 6P \\</p>
-<p>Zasilanie &amp;</p>
-<p>Transformator 50 W wieloodczepowy &amp;</p>
-<p>6,5 V: PWM wtryskiwacza + logika;</p>
-<p>15 V: elektromagnesy;</p>
-<p>12 V/50 W: siłownik (4 A) \\</p>
-<p>Pamięć &amp;</p>
-<p>EEPROM zewnętrzny I2C &amp;</p>
-<p>21 parametrów; wymienny po przekroczeniu liczby zapisów \\</p>
-<p>Czujniki / blokady &amp;</p>
-<p>5 czujników &amp; Punkt\_0, hamulec, silnik skoku,</p>
-<p>2× krańcówka stołu \\</p>
-<p>tabularx</p>
-<div class="proj-box proj-box--result"><div class="proj-box-body"><p><strong>Przed kalibratorem:</strong> rozrzut &lt;em class='math'&gt;&gt;</em>0,3 mm;</p>
-<p>wtryskiwacze odeszły z badania homologacyjnego z zastrze\.zeniami</p>
-<p>dot. powtarzalności kalibracji.</p>
-<p><strong>Po kalibratorem:</strong> dokładność &lt;em class='math'&gt;&lt;</em>0,01 mm,</p>
-<p>rozrzut wydajności &lt;em class='math'&gt;pm</em>20 l/h.</p>
-<p>Przy ponownym zgłoszeniu <strong>brak zastrze\.zeń</strong> dotyczących</p>
-<p>kalibracji — komisja homologacyjna poprosiła wręcz</p>
-<p>o demonstrację kalibratora, zaskoczona uzyskaną dokładnością.</p>
-<p>łarge<strong></strong>%</p>
-<p>⇒  Wtryskiwacze uzyskały homologację</p>
-<p>i weszły na rynek. &lt;em class='math'&gt;Łeftarrow</em>%</p>
-<p></p></div></div>
+    <div data-i18n-html="page.body"></div>
   </div>
 </main>
 
 <footer class="site-footer">
   <div class="container footer-inner">
-    <p>Artur Flamandzki · <a href="../../index.html">Portfolio R&amp;D</a></p>
+    <p>Artur Flamandzki &nbsp;·&nbsp; <a href="../../index.html">Portfolio R&amp;D</a></p>
     <nav class="proj-nav-btns">
-      <a href="../p02/" class="lang-btn">← #02</a>
-      <a href="../p04/" class="lang-btn">#04 →</a>
+      <a href="../p02/" class="lang-btn" data-i18n="page.nav_prev">← #02</a>
+      <a href="../p04/" class="lang-btn" data-i18n="page.nav_next">#04 →</a>
     </nav>
   </div>
 </footer>

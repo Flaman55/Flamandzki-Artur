@@ -3,19 +3,21 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>#10 Termometr Pieca — Artur Flamandzki</title>
+  <title data-i18n="page.title">#10 — Artur Flamandzki</title>
   <link rel="icon" type="image/svg+xml" href="../../favicon.svg" />
   <link rel="stylesheet" href="../../css/style.css" />
   <link rel="stylesheet" href="../../css/project.css" />
+  <!-- i18n: global locales first, then page-specific -->
   <script src="../../locales/en.js"></script>
   <script src="../../locales/pl.js"></script>
+  <script src="locales/pl.js"></script>
+  <script src="locales/en.js"></script>
 </head>
 <body>
 
 <nav id="navbar" aria-label="Main navigation">
   <div class="container nav-inner">
     <a href="../../" class="nav-brand">Artur Flamandzki <span>/ R&amp;D</span></a>
-
     <ul class="nav-links" id="navLinks">
       <li><a href="../../#filozofia"    data-i18n="nav.filozofia">Philosophy</a></li>
       <li><a href="../../#ewolucja"     data-i18n="nav.ewolucja">Evolution</a></li>
@@ -24,7 +26,6 @@
       <li><a href="../../#case-studies" data-i18n="nav.casestudies">Case Studies</a></li>
       <li><a href="../../#podsumowanie" data-i18n="nav.podsumowanie">Summary</a></li>
     </ul>
-
     <div class="nav-right">
       <div class="lang-switcher" id="langSwitcher" aria-label="Language"></div>
       <button class="nav-toggle" id="navToggle" aria-label="Menu" aria-expanded="false">
@@ -36,52 +37,31 @@
 
 <header class="proj-hero">
   <div class="container">
-    <div class="proj-hero-tag">PORTFOLIO R&amp;D — PROJEKT #10</div>
-    <h1 class="proj-hero-title" data-i18n="s4.p10.name">Termometr Pieca</h1>
-    <p class="proj-hero-sub">projektowanie informacji zamiast interfejsu —\\</p>
-    <p class="proj-hero-date">2013</p>
+    <div class="proj-hero-tag" data-i18n="page.hero_tag"></div>
+    <h1 class="proj-hero-title" data-i18n="page.hero_title"></h1>
+    <p class="proj-hero-sub" data-i18n="page.hero_sub"></p>
+    <p class="proj-hero-date" data-i18n="page.date"></p>
   </div>
 </header>
 
-<section class="proj-summary"><div class="container"><p>Rodzice dziewczyny (dziś \.zony) ogrzewaj</strong> dom piecem węglowym.
-    Kotłownia jest od salonu — \.zeby sprawdzić temperaturę pieca,
-    trzeba wstać i pójść.
-    Rozwiązanie: DS18B20 na długim kablu 1-Wire
-    prowadzącym do kotłowni, wyświetlacz 4-cyfrowy
-    z buzzerem w salonie.
-    Teściowie siedzą na kanapie i bez wstawania widzą
-    temperaturę pieca — a jeśli piec gaśnie,
-    buzzer powiadomi ich z salonu.</p></div></section>
+<section class="proj-summary">
+  <div class="container">
+    <div data-i18n-html="page.summary"></div>
+  </div>
+</section>
 
 <main class="proj-main">
   <div class="container proj-content">
-    <p class="proj-lang-notice">Technical documentation below is in Polish. The project summary above reflects the selected language.</p>
-    <p>Rok 2013, ten sam co projekt \#09 (dzielniki liczb).</p>
-<p>Dwa projekty równolegle — jeden czysto algorytmiczny, drugi</p>
-<p>w pełni u\.zytkowy.</p>
-<p>Piec węglowy wymaga uwagi: jeśli w nocy przygaśnie,</p>
-<p>rano dom jest zimny.</p>
-<p>Ale chodzenie do kotłowni co godzinę \.zeby sprawdzić</p>
-<p>temperaturę — to nie jest rozwiązanie.</p>
-<p>Projekt miał jedno wymaganie projektowe, które było silniejsze</p>
-<p>ni\.z wszystkie techniczne:  działać dla osób,</p>
-<p>które nigdy nie miały do czynienia z elektroniką.</p>
-<p>Brak menu, brak przycisków, brak instrukcji obsługi.</p>
-<p>Urządzenie właączone raz — i ma działać.</p>
-<div class="proj-box proj-box--innovation"><div class="proj-box-title">01  Ambient display: stan pieca bez czytania liczb</div><div class="proj-box-body"><p>title=01   Ambient display: stan pieca bez czytania liczb]</p>
-<p>Kluczowa decyzja projektowa:  kropki dziesiętnej</p>
-<p>jako jednobitowy wskaźnik stanu.</p>
-<p>Bez dodatkowych diod, bez osobnego wyświetlacza statusu —</p>
-<p>jedna kropka na istniejącym wyświetlaczu, trzy stany:</p></div></div>
+    <div data-i18n-html="page.body"></div>
   </div>
 </main>
 
 <footer class="site-footer">
   <div class="container footer-inner">
-    <p>Artur Flamandzki · <a href="../../index.html">Portfolio R&amp;D</a></p>
+    <p>Artur Flamandzki &nbsp;·&nbsp; <a href="../../index.html">Portfolio R&amp;D</a></p>
     <nav class="proj-nav-btns">
-      <a href="../p09/" class="lang-btn">← #09</a>
-      <a href="../p11/" class="lang-btn">#11 →</a>
+      <a href="../p09/" class="lang-btn" data-i18n="page.nav_prev">← #09</a>
+      <a href="../p11/" class="lang-btn" data-i18n="page.nav_next">#11 →</a>
     </nav>
   </div>
 </footer>

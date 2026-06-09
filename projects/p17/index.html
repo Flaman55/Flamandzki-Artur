@@ -3,19 +3,21 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>#17 Matematyka Relacyjna — Artur Flamandzki</title>
+  <title data-i18n="page.title">#17 — Artur Flamandzki</title>
   <link rel="icon" type="image/svg+xml" href="../../favicon.svg" />
   <link rel="stylesheet" href="../../css/style.css" />
   <link rel="stylesheet" href="../../css/project.css" />
+  <!-- i18n: global locales first, then page-specific -->
   <script src="../../locales/en.js"></script>
   <script src="../../locales/pl.js"></script>
+  <script src="locales/pl.js"></script>
+  <script src="locales/en.js"></script>
 </head>
 <body>
 
 <nav id="navbar" aria-label="Main navigation">
   <div class="container nav-inner">
     <a href="../../" class="nav-brand">Artur Flamandzki <span>/ R&amp;D</span></a>
-
     <ul class="nav-links" id="navLinks">
       <li><a href="../../#filozofia"    data-i18n="nav.filozofia">Philosophy</a></li>
       <li><a href="../../#ewolucja"     data-i18n="nav.ewolucja">Evolution</a></li>
@@ -24,7 +26,6 @@
       <li><a href="../../#case-studies" data-i18n="nav.casestudies">Case Studies</a></li>
       <li><a href="../../#podsumowanie" data-i18n="nav.podsumowanie">Summary</a></li>
     </ul>
-
     <div class="nav-right">
       <div class="lang-switcher" id="langSwitcher" aria-label="Language"></div>
       <button class="nav-toggle" id="navToggle" aria-label="Menu" aria-expanded="false">
@@ -36,128 +37,31 @@
 
 <header class="proj-hero">
   <div class="container">
-    <div class="proj-hero-tag">PORTFOLIO R&amp;D — PROJEKT #17</div>
-    <h1 class="proj-hero-title" data-i18n="s4.p17.name">Matematyka Relacyjna</h1>
-    <p class="proj-hero-sub">Bertrand-Chebyshev</p>
-    
+    <div class="proj-hero-tag" data-i18n="page.hero_tag"></div>
+    <h1 class="proj-hero-title" data-i18n="page.hero_title"></h1>
+    <p class="proj-hero-sub" data-i18n="page.hero_sub"></p>
+    <p class="proj-hero-date" data-i18n="page.date"></p>
   </div>
 </header>
 
-<section class="proj-summary"><div class="container"><p>Pie</strong>ć nowych wyników w teorii liczb wyprowadzonych z relacyjnego modelu arytmetyki. Obejmuje: hiperbolicznie dokładny dowód Bertranda–Czebyszewa, cykliczny wariant CRT, algorytm Q sito pierwsze w O(N), twierdzenie partycyjne z metodą obrotową oraz <strong>model obrotowy liczb pierwszych jako semigrupy numeryczne. Wszystkie dowody sformalizowane, wiele zweryfikowanych komputerowo.</p></div></section>
+<section class="proj-summary">
+  <div class="container">
+    <div data-i18n-html="page.summary"></div>
+  </div>
+</section>
 
 <main class="proj-main">
   <div class="container proj-content">
-    <p class="proj-lang-notice">Technical documentation below is in Polish. The project summary above reflects the selected language.</p>
-    <div class="proj-box proj-box--innovation"><div class="proj-box-body"><p>colback=Navy, colframe=Navy, arc=4pt,</p>
-<p>left=14pt, right=14pt, top=10pt, bottom=10pt]</p>
-<p>łarge \#17   Matematyka Relacyjna — Teoria Liczb\\[4pt]</p>
-<p>Matematyka Relacyjna · Teoria liczb ·</p>
-<p>Sito bez arytmetyki · Semigrupy numeryczne · 2021–2026</p></div></div>
-<p>Od 2021 roku, równoległe do pracy nad TrueSynth, powstawała seria artykułów</p>
-<p>matematycznych zakorzeniona we frameworku <strong>Matematyki Relacyjnej (MR)</strong> —</p>
-<p>podejściu, w którym wyniki teorii liczb wynikają ze strukturalnych, geometrycznych</p>
-<p>i cyklicznych modeli, a nie wyłącznie z narzędzi analitycznych.</p>
-<p>Projekt obejmuje pięć niezale\.znych prac: dwa ujęcia twierdzenia</p>
-<p>Bertranda–Czebyszewa, reinterpretację CRT, algorytm liniowy dla semigrup numerycznych (Q),</p>
-<p>certyfikowane generowanie liczb pierwszych oraz rotacyjny model pierwoszści</p>
-<p>w systemie pierścieni cyklicznych.</p>
-<p>Wspólny mianownik: zamiast pytania <em>,,czy liczba jest pierwsza?''</em></p>
-<p>MR pyta <em>,,dlaczego struktura musi być właśnie taka?''</em> —</p>
-<p>i odpowiada geometrią, cyklicznością lub algebraiczną niezmiennicznością.</p>
-<p>Artykuły dostępne na platformie https://zenodo.orgZenodo</p>
-<p>oraz w ramach frameworku https://millenniumchecked.orgmillenniumchecked.org.</p>
-<div class="proj-box proj-box--innovation"><div class="proj-box-title">Tw.\ Bertranda–Czebyszewa: wyja\'s</div><div class="proj-box-body"><p><strong>Pytanie:</strong> skąd wynika granica &lt;em class='math'&gt;2P</em> w twierdzeniu Bertranda?</p>
-<p>Klasyczne dowody (Erdős, Czebyszew) potwierdzają istnienie tej granicy</p>
-<p>metodami analitycznymi, lecz nie wyjaśniają mechanizmu jej powstawania.</p>
-<p><strong>Ujęcie hiperboliczne</strong></p>
-<p>(<em>Hiperboliczne wyjaśnienie granicy typu Bertranda</em>):</p>
-<p>Analizując punkty kratowe &lt;em class='math'&gt;(p,m)</em> na hiperbolach &lt;em class='math'&gt;pm = P</em> oraz &lt;em class='math'&gt;pm = 2P</em>,</p>
-<p>wykazano, \.ze granica &lt;em class='math'&gt;2P</em> nie jest własnością analityczną funkcji arytmetycznych,</p>
-<p>lecz <strong>geometryczną</strong> — wynika z komplementarności minimalnego</p>
-<p>i maksymalnego czynnika pierwszego w rozkladzie.</p>
-<p>Pełne pokrycie przedziału &lt;em class='math'&gt;(P,,2P]</em> przez iloczyny pierwsze</p>
-<p>wymaga właśnie tej granicy; ka\.zda inna dawałaby luki kombinatoryczne.</p>
-<p><strong>Ujęcie sitowe</strong></p>
-<p>(<em>Wyprowadzenie granicy z dynamiki sitowej</em>):</p>
-<p>Dowód oparty na procesie sitowania, który rozró\.znia dwa etapy:</p>
-<p><em>(i)</em> pojawienie się liczby pierwszej jako eliminatora</p>
-<p>oraz <em>(ii)</em> pojawienie się jej wielokrotności w kolejnych krokach.</p>
-<p>Wzajemne poło\.zenie tych zjawisk wyznacza punkt, w którym sito</p>
-<p>nie mo\.ze pokryć całego przedziału — co <strong>wymusza istnienie liczby pierwszej</strong>.</p>
-<p>Pomocnicze narzędzie obu analiz: <strong>Arytmetyka Okienna</strong> —</p>
-<p>lematy o strukturze pasów między hiperbolami, stosowane jako osłona</p>
-<p>w kombinatorycznych oszacowaniach (<em>Window Arithmetic / Arytmetyka okienna</em>).</p></div></div>
-<div class="proj-box proj-box--innovation"><div class="proj-box-title">CRT: interpretacja cykliczna</div><div class="proj-box-body"><p><strong>CRT — cykliczna reinterpretacja</strong></p>
-<p>(<em>Cykliczna interpretacja chińskiego twierdzenia o resztach</em>):</p>
-<p>Standardowe ujęcie przez pierścienie ilorazowe ukrywa prostą obserwację:</p>
-<p>ka\.zdy moduł to <strong>niezale\.zny cykl</strong>, a globalny okres układu to &lt;em class='math'&gt;mathrmNWW</em> moduli.</p>
-<p>Przestrzeń reszt o okresie &lt;em class='math'&gt;prod m_i</em> zawiera <em>wszystkie</em> mo\.zliwe kombinacje</p>
-<p>kongruencji — wynika to z kombinatoryki cykliczności, nie z algebry abstrakcyjnej.</p>
-<p>Podejście upraszcza dowód i umo\.zliwia bezpośrednią implementację obliczeniową</p>
-<p>z widoczną interpretacją graficzną.</p>
-<p><strong>Q — algorytm liniowy na posecie luk</strong></p>
-<p>(<em>A Linear-Time Algorithm for the Quadratic Form on the Gap Poset of a Numerical Semigroup</em>):</p>
-<p>Huang (2026) wprowadził formę kwadratową:</p>
-<p>Q(n) = _i,j  G K(g_j - g_i)\, n_i\, n_j</p>
-<p>na posecie luk semigrupy &lt;em class='math'&gt;łangle a,brangle</em> (&lt;em class='math'&gt;N = tfrac(a-1)(b-1)2</em> luk),</p>
-<p>której obliczenie wymaga &lt;em class='math'&gt;O(N^2)</em> operacji.</p>
-<p>Artur wykazał, \.ze jądro &lt;em class='math'&gt;K(d)</em> jest <strong>stałe na czterech przedziałach arytmetycznych</strong></p>
-<p>i zeruje się poza &lt;em class='math'&gt;[0,,a+b)</em> — co pozwala zredukować podwójną sumę</p>
-<p>do <strong>dwóch sum przesuwanych okien</strong> i uzyskać algorytm &lt;em class='math'&gt;O(N)</em>.</p>
-<p>Zło\.zoność całkowita spada z &lt;em class='math'&gt;O(a^2 b^2)</em> do &lt;em class='math'&gt;O(ab)</em>.</p>
-<p>Wynik uogólniony na &lt;em class='math'&gt;n</em> generatorów (jądro &lt;em class='math'&gt;K^(n)</em> przez inkluzję–ekskluzję).</p></div></div>
-<div class="proj-box proj-box--innovation"><div class="proj-box-title">Certyfikowane generowanie liczb pierwszych</div><div class="proj-box-body"><p><strong>Partition-Theoretic Prime</strong></p>
-<p>(<em>From Partition-Theoretic Prime Detection to Certified Prime Generation</em>):</p>
-<p>Craig, VanIttersum i Ono (2024) wykazali, \.ze pewne <strong>wyra\.zenia teoriopartycyjne</strong></p>
-<p>są nieujemne dla ka\.zdego &lt;em class='math'&gt;n ge 2</em> i <strong>zerują się dokładnie na liczbach pierwszych</strong>.</p>
-<p>Artur zaproponował podniesienie tej detekcji do poziomu <em>certyfikowanego generowania</em>:</p>
-<p>te same wyra\.zenia, których zerowanie wskazuje pierwszość,</p>
-<p>słu\.zą jako warstwa certyfikacji dla dynamiki generatywnej —</p>
-<p>bez modyfikacji kryteriów zerowania.</p>
-<p>Wykrycie i generowanie przestają być oddzielnymi problemami.</p>
-<p><strong>Rotacyjny Model Pierwoszści</strong></p>
-<p>(<em>A Rotational Model of Primality</em> — Pierścienie):</p>
-<p>Liczby pierwsze reinterpretowane jako <strong>konfiguracje nieredukowalne</strong></p>
-<p>w systemie współbie\.znie obracających się pierścieni cyklicznych.</p>
-<p>Ka\.zda liczba pierwsza &lt;em class='math'&gt;p</em> odpowiada pierścieniowi o wbudowanym okresie &lt;em class='math'&gt;p</em>.</p>
-<ul class="proj-list">
-<li><strong>Pierwoszść</strong> &lt;em class='math'&gt;=</em> brak jakiejkolwiek synchronizacji pierścieni</li>
-<li><strong>Zło\.zoność</strong> &lt;em class='math'&gt;=</em> synchronizacja co najmniej dwóch pierścieni w jednym momencie</li>
-</ul>
-<p>Sito bez arytmetyki: \.zadnych działań dzielenia, porównań numerycznych</p>
-<p>ani operacji modulo — wyłącznie obrót.</p>
-<p>Model jest niezale\.zny od nośnika: ka\.zda fizyczna lub abstrakcyjna realizacja</p>
-<p>cyklicznego obrotu daje identyczny wynik.</p></div></div>
-<div class="proj-box proj-box--result"><div class="proj-box-body"><p><strong>Stan projektu (aktywny, 2021–2026):</strong></p>
-<ul class="proj-list">
-<li><strong>5 artykułów</strong>: granica Bertranda (2 ujęcia), CRT, Q (semigrupy), partycje, model rotacyjny</li>
-<li>Prace opublikowane / dostępne na platformie</li>
-</ul>
-<p><strong>Zenodo</strong> (https://zenodo.org/search?q=Flamandzkizenodo.org/Flamandzki)</p>
-<ul class="proj-list">
-<li>Framework MR: https://millenniumchecked.orgmillenniumchecked.org —</li>
-</ul>
-<p>jedno spójne podejście do problemów teorii liczb przez geometrię i strukturę cykliczną</p>
-<ul class="proj-list">
-<li>Dowód Bertranda sformalizowany częściowo w systemie <strong>Lean 4</strong></li>
-</ul>
-<p>(katalog BertrandLean)</p>
-<ul class="proj-list">
-<li>Wyniki zweryfikowane obliczeniowo (Python): testy numeryczne dla &lt;em class='math'&gt;N łe 10^7</em>,</li>
-</ul>
-<p>zgodne z przewidywaniami teoretycznymi</p>
-<ul class="proj-list">
-<li>Wszystkie prace napisane samodzielnie w językach polskim i angielskim</li>
-</ul></div></div>
+    <div data-i18n-html="page.body"></div>
   </div>
 </main>
 
 <footer class="site-footer">
   <div class="container footer-inner">
-    <p>Artur Flamandzki · <a href="../../index.html">Portfolio R&amp;D</a></p>
+    <p>Artur Flamandzki &nbsp;·&nbsp; <a href="../../index.html">Portfolio R&amp;D</a></p>
     <nav class="proj-nav-btns">
-      <a href="../p16/" class="lang-btn">← #16</a>
-      <a href="../p18/" class="lang-btn">#18 →</a>
+      <a href="../p16/" class="lang-btn" data-i18n="page.nav_prev">← #16</a>
+      <a href="../p18/" class="lang-btn" data-i18n="page.nav_next">#18 →</a>
     </nav>
   </div>
 </footer>

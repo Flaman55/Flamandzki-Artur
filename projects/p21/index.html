@@ -3,19 +3,21 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>#21 HPC Faktoryzacja — Artur Flamandzki</title>
+  <title data-i18n="page.title">#21 — Artur Flamandzki</title>
   <link rel="icon" type="image/svg+xml" href="../../favicon.svg" />
   <link rel="stylesheet" href="../../css/style.css" />
   <link rel="stylesheet" href="../../css/project.css" />
+  <!-- i18n: global locales first, then page-specific -->
   <script src="../../locales/en.js"></script>
   <script src="../../locales/pl.js"></script>
+  <script src="locales/pl.js"></script>
+  <script src="locales/en.js"></script>
 </head>
 <body>
 
 <nav id="navbar" aria-label="Main navigation">
   <div class="container nav-inner">
     <a href="../../" class="nav-brand">Artur Flamandzki <span>/ R&amp;D</span></a>
-
     <ul class="nav-links" id="navLinks">
       <li><a href="../../#filozofia"    data-i18n="nav.filozofia">Philosophy</a></li>
       <li><a href="../../#ewolucja"     data-i18n="nav.ewolucja">Evolution</a></li>
@@ -24,7 +26,6 @@
       <li><a href="../../#case-studies" data-i18n="nav.casestudies">Case Studies</a></li>
       <li><a href="../../#podsumowanie" data-i18n="nav.podsumowanie">Summary</a></li>
     </ul>
-
     <div class="nav-right">
       <div class="lang-switcher" id="langSwitcher" aria-label="Language"></div>
       <button class="nav-toggle" id="navToggle" aria-label="Menu" aria-expanded="false">
@@ -36,183 +37,31 @@
 
 <header class="proj-hero">
   <div class="container">
-    <div class="proj-hero-tag">PORTFOLIO R&amp;D — PROJEKT #21</div>
-    <h1 class="proj-hero-title" data-i18n="s4.p21.name">HPC Faktoryzacja</h1>
-    <p class="proj-hero-sub">Adaptacyjny finder okresu</p>
-    
+    <div class="proj-hero-tag" data-i18n="page.hero_tag"></div>
+    <h1 class="proj-hero-title" data-i18n="page.hero_title"></h1>
+    <p class="proj-hero-sub" data-i18n="page.hero_sub"></p>
+    <p class="proj-hero-date" data-i18n="page.date"></p>
   </div>
 </header>
 
-<section class="proj-summary"><div class="container"><p>Klasyczna implementacja rdzenia algorytmu Shora — <strong>bez komputera kwantowego</strong>.
-    Kluczowa obserwacja: gdy okres &lt;em class='math'&gt;r</em> zostanie prawidłowo wyznaczony,
-    faktoryzacja &lt;em class='math'&gt;N = gcd(a^r/2 pm 1,; N)</em> jest <strong>natychmiastowa.
-    Cały problem sprowadza się do efektywnego wyznaczenia &lt;em class='math'&gt;r</em>.
-    System adaptacyjnie analizuje strukturę &lt;em class='math'&gt;N</em> i deterministycznie
-    zawęża przestrzeń kandydatów &lt;em class='math'&gt;a</em> zamiast próba losowego.
-    Mechanizm fazowy (niezale\.zna architektura) analizuje wzorce faz
-    arytmetyki modularnej na liczbach 60–100+ cyfrowych.</p></div></section>
+<section class="proj-summary">
+  <div class="container">
+    <div data-i18n-html="page.summary"></div>
+  </div>
+</section>
 
 <main class="proj-main">
   <div class="container proj-content">
-    <p class="proj-lang-notice">Technical documentation below is in Polish. The project summary above reflects the selected language.</p>
-    <p>Algorytm Shora (<em>Shor, 1994</em>) jest kwantowy — ale jego rdzeń matematyczny jest klasyczny:</p>
-<p>znajdź &lt;em class='math'&gt;r</em> takie, \.ze &lt;em class='math'&gt;a^r equiv 1 pmodN</em>, a następnie oblicz &lt;em class='math'&gt;gcd(a^r/2pm 1, N)</em>.</p>
-<p><strong>Je\.zeli &lt;em class='math'&gt;r</em> jest parzyste i &lt;em class='math'&gt;a^r/2 notequiv -1</em>, faktoryzacja jest gwarantowana.</strong></p>
-<p>Komputer kwantowy jest potrzebny wyłącznie do wyznaczenia &lt;em class='math'&gt;r</em> w czasie wielomianowym.</p>
-<p>Ten projekt bada, jak daleko mo\.zna dojść <strong>klasycznie</strong> — przez adaptacyjną analizę</p>
-<p>struktury &lt;em class='math'&gt;N</em> i wielowątkowe przeszukiwanie przestrzeni kandydatów.</p>
-<div class="proj-box proj-box--innovation"><div class="proj-box-title">01  Architektura Functional Shor — adaptacyjna przestrze\'n</div><div class="proj-box-body"><p>title=01   Architektura Functional Shor — adaptacyjna przestrzeń &lt;em class='math'&gt;a</em>]</p>
-<p>Kluczowy wgląd wynikający z analizy empirycznej &lt;em class='math'&gt;N = 2łdots100</em>:</p>
-<p><strong>optymalny parametr &lt;em class='math'&gt;a</em> wynika ze struktury czynnikowej &lt;em class='math'&gt;N</em></strong>,</p>
-<p>nie z jego wielkości.</p>
-<p><strong>Funkcja \_przestrzen\_a(N):</strong> </p>
-<ol class="proj-list">
-<li>Szybka dywizyja próbna dla małych pierwszych (&lt;em class='math'&gt;2, 3, 5, łdots, 47</em>) — identyfikuje składniki &lt;em class='math'&gt;N</em></li>
-<li><strong>Poziom 1</strong>: wszyscy &lt;em class='math'&gt;a &lt; 100</em> wzajemnie pierwsi z &lt;em class='math'&gt;N</em> — kanoniczne rezonatory</li>
-<li><strong>Poziom 2</strong>: &lt;em class='math'&gt;k cdot 10000 + delta</em> dla &lt;em class='math'&gt;k = 1łdots100</em>, &lt;em class='math'&gt;delta in 3,5,6,7,9,11,łdots</em></li>
-<li><strong>Poziom 3</strong>: otoczenie &lt;em class='math'&gt;sqrtN</em> (równowa\.zone &lt;em class='math'&gt;p approx q</em> — wariant RSA)</li>
-<li><strong>Poziom 4</strong>: &lt;em class='math'&gt;sqrtk cdot N</em> dla &lt;em class='math'&gt;k in 2,3,5,6,7</em> — niezrównowa\.zone &lt;em class='math'&gt;N = p cdot q</em></li>
-</ol>
-<p>Wynik: posortowana lista kandydatów — <strong>deterministyczna, nie losowa</strong>.</p>
-<p>Klasa <code>ShorFactorizer</code> przeszukuje bloki &lt;em class='math'&gt;a</em> wielowątkowo (domyslnie 8 wątków),</p>
-<p>testując ka\.zdą parę &lt;em class='math'&gt;(r, a)</em> przez <code>pow(a, r, N)</code> i <code>gcd</code>.</p>
-<p>Wynik pośrednio implementuje równanie Shora w całości klasycznie.</p></div></div>
-<div class="proj-box proj-box--innovation"><div class="proj-box-title">02  Mechanizm Fazowy — analiza wzorzców fazy arytmetyki modularnej</div><div class="proj-box-body"><p>title=02   Mechanizm Fazowy — analiza wzorzców fazy arytmetyki modularnej]</p>
-<p>Niezale\.zna architektura: zamiast szukać &lt;em class='math'&gt;r</em> przez potęgowanie,</p>
-<p><strong>mechanizm fazowy</strong> analizuje, jak ka\.zda wartość &lt;em class='math'&gt;a^r bmod N</em></p>
-<p>wpisuje się w jeden z trzech wzorzców fazowych:</p>
-<div class="proj-table-wrap"><table class="proj-table">
-<tbody>
-<tr>
-<th><strong>Faza</strong></th>
-<th><strong>Warunek</strong></th>
-<th><strong>Konsekwencja</strong></th>
-</tr>
-<tr>
-<td><code>gcd</code></td>
-<td>&lt;em class='math'&gt;gcd(a^r/2pm1, N) &gt; 1</em></td>
-<td><strong>natychmiastowy rozkład</strong></td>
-</tr>
-<tr>
-<td><code>antyfaza</code></td>
-<td>&lt;em class='math'&gt;a^r/2 equiv -1 pmodN</em></td>
-<td>tryb alternatywny</td>
-</tr>
-<tr>
-<td><code>=k</code></td>
-<td>&lt;em class='math'&gt;a^r/2 equiv k pmodN</em>, &lt;em class='math'&gt;k</em> małe</td>
-<td>informacja strukturalna</td>
-</tr>
-</tbody></table></div>
-<p>Mechanizm działa na liczbach 60–100+ cyfrowych (wyniki w <code>wyniki\_faktoryzacji/</code>).</p>
-<p>Plik wyjściowy dla &lt;em class='math'&gt;N approx 10^65</em>: czas faktoryzacji &lt;em class='math'&gt;&lt; 0.01</em> s gdy wzorzec <code>gcd</code> jest trafiony.</p>
-<p>Wzorce faz gromadzone są statystycznie — budują bazę wiedzy strukturalnej.</p></div></div>
-<div class="proj-box proj-box--innovation"><div class="proj-box-title">03  Adaptive Period Finder z Rn i FFT — symulacja QFT</div><div class="proj-box-body"><p>title=03   Adaptive Period Finder z Rn i FFT — symulacja QFT]</p>
-<p>Osobna linia rozwoju: <strong>Adaptive Period Finder</strong> u\.zywa funkcji rezonansowej</p>
-<p>&lt;em class='math'&gt;R_n(x, y, n)</em> z projektu \#18 (Resona) jako funkcji amplitudowej imitującej</p>
-<p>superpozycję kwantową:</p>
-<p>R_n(x, y, n) = 2x^n yx^2n + y^2</p>
-<p>Wektory amplitud są następnie transformowane przez <strong>FFT</strong> (symulacja QFT)</p>
-<p>i poszukiwane są dominujące częstotliwości odpowiadające krotnościom &lt;em class='math'&gt;1/r</em>.</p>
-<p>Detekcja okresu: je\.zeli &lt;em class='math'&gt;|textFFT[k]|</em> osiąga max dla &lt;em class='math'&gt;k_0 neq 0</em>,</p>
-<p>to &lt;em class='math'&gt;r approx N_textpróbek / k_0</em>.</p>
-<p>Kompilacja JIT (Numba) przyspiesza obliczenia amplitud o rząd wielkości.</p>
-<p>Wariant GPU (CUDA) był rozwijany równolegle.</p>
-<p>Projekt generuje wykresy trajektorii &lt;em class='math'&gt;a^x bmod N</em>, map amplitud i widm FFT.</p></div></div>
-<div class="proj-box proj-box--innovation"><div class="proj-box-title">04  Wyniki i architektura wielowa</div><div class="proj-box-body"><p>title=04   Wyniki i architektura wielowątkowa]</p>
-<p><strong>Potwierdzone faktoryzacje:</strong></p>
-<div class="proj-table-wrap"><table class="proj-table">
-<tbody>
-<tr>
-<th><strong>Liczba N</strong></th>
-<th><strong>Cyfry</strong></th>
-<th><strong>Czas</strong></th>
-<th><strong>Wynik</strong></th>
-</tr>
-<tr>
-<td>8 620 359 915 803</td>
-<td>13</td>
-<td>&lt;em class='math'&gt;&lt; 1</em> s</td>
-<td>&lt;em class='math'&gt;467 times 18,459,014,809</em></td>
-</tr>
-<tr>
-<td>965 205 648 543 107 003</td>
-<td>18</td>
-<td>kilka s</td>
-<td>&lt;em class='math'&gt;982,451,653 times 982,445,951</em></td>
-</tr>
-<tr>
-<td>&lt;em class='math'&gt;10^65 approx p cdot q</em></td>
-<td>65</td>
-<td>&lt;em class='math'&gt;&lt; 0.01</em> s</td>
-<td>mechanizm fazowy, wzorzec <code>gcd</code></td>
-</tr>
-<tr>
-<td>&lt;em class='math'&gt;10^100 approx p cdot q</em></td>
-<td>100</td>
-<td>ms</td>
-<td>mechanizm fazowy</td>
-</tr>
-</tbody></table></div>
-<p><strong>Architektura:</strong> klasa <code>ShorFactorizer</code> z <code>multiprocessing.Pool</code></p>
-<p>(8 wątków), <code>imap\_unordered</code> + <code>chunksize=500</code> dla maksymalnej</p>
-<p>przepustowości. Benchmarki porównują z SymPy i Pollard Rho.</p>
-<p><code>tracemalloc</code> do profilowania pamięci przy du\.zych &lt;em class='math'&gt;N</em>.</p>
-<p><strong>Status:</strong> projekt otwarty. Rozwijane kierunki: rozszerzenie mechanizmu fazowego,</p>
-<p>integracja z bazami liczb pierwszych (magazyn <code>H:</code>Liczby pierwsze).</p>
-<p>Nie jest to atak na RSA — <strong>jest to badanie granic klasycznej symulacji QFT</strong>.</p></div></div>
-<div class="proj-box proj-box--innovation"><div class="proj-box-title">05  pow2gmp — ekstrakcja \(2^17\,443\,819\,648\!\!</div><div class="proj-box-body"><p>title=05   pow2gmp — ekstrakcja \(2^17 443 819 648\!\!\) (\(5,25\) mld cyfr)]</p>
-<p>Osobny projekt HPC z konkretnym impulsem technicznym:</p>
-<p><strong>wywołanie <code>str(mpz)</code> na liczbie 5-miliardocyfrowej rzuca <code>OverflowError</code></strong>.</p>
-<p>Wewnętrzna implementacja GMP/Python używa <code>ulong</code> do reprezentacji rozmiaru bufora —</p>
-<p>co dla ponad 5 mld cyfr przekracza zakres typu.</p>
-<p>Naiwne podejście jest fundamentalnie niemożliwe; potrzebne jest inne rozwiązanie.</p>
-<p><strong>Wynik:</strong> &lt;em class='math'&gt;2^17,443,819,648</em> — liczba o <strong>5 251 112 954 cyfrach</strong> —</p>
-<p>obliczona i wyekstrahowana poprawnie w <strong>32 minuty i 53 sekundy</strong>.</p>
-<p><strong>Rozwiązanie: divide-and-conquer na mniejszych fragmentach</strong></p>
-<p>Każdy fragment jest na tyle mały, że <code>str(mpz)</code> działa bez błędu —</p>
-<p>narzut kwadratowania i podziału jest pomijalny wobec zysku z poprawności:</p>
-<ol class="proj-list">
-<li><strong>Bit-shift</strong>: <code>mpz(1) &lt;&lt; 17 443 819 648</code> — wynik binarny w 1,6 s</li>
-<li><strong>Tablica potęg dziesiętnych</strong> przez kwadratowanie:</li>
-</ul>
-<p>&lt;em class='math'&gt;10^50M to 10^100M to łdots to 10^3,2,textmld</em></p>
-<p>(7 wpisów w 44,9 s) — każde kwadratowanie daje następną potęgę</p>
-<p>bez od\-nowa obliczania od zera</p>
-<ul class="proj-list">
-<li><strong>Podział rekurencyjny</strong>: liczba dzielona przez prekomputowane</li>
-</ul>
-<p>potęgi 10 na 24 kawałki po &lt;em class='math'&gt;sim150</em>–&lt;em class='math'&gt;350</em> M cyfr każdy —</p>
-<p>każdy fragment mieści się w zakresie <code>ulong</code> (7,5 min)</p>
-<ul class="proj-list">
-<li><strong>Ekstrakcja równoległa</strong>: 24 wątki, 106 chunków,</li>
-</ul>
-<p><code>str(mpz)</code> działa poprawnie na każdym fragmencie (16,9 min)</p>
-<ul class="proj-list">
-<li><strong>Zapis</strong>: 106 plików wynikowych (24,9 s)</li>
-</ol>
-<p>Infrastruktura ta jest niezbędna dla całego projektu HPC:</p>
-<p>faktoryzator Shora, mechanizm fazowy i bazy liczb pierwszych</p>
-<p>operują na liczbach, których żadna standardowa funkcja biblioteczna</p>
-<p>nie potrafi wypisać bez obejścia.</p></div></div>
-<div class="proj-box proj-box--result"><div class="proj-box-title">Poł</div><div class="proj-box-body"><p>title=<strong>Połączenie z Matematyką Relacyjną i Resona</strong>]</p>
-<p>Projekt \#21 łączy trzy wątki R\&amp;D:</p>
-<p><strong>(1)</strong> Matematykę Relacyjną (\#17) — teoria struktury &lt;em class='math'&gt;N</em> przez semigrupy numeryczne,</p>
-<p><strong>(2)</strong> Resona (\#18) — funkcja &lt;em class='math'&gt;R_n</em> jako amplituda kwantowa,</p>
-<p><strong>(3)</strong> Matematykę Relacyjną Teoria Liczb — wzorce &lt;em class='math'&gt;a</em> wynikające ze struktury czynnikowej.</p>
-<p>Algorytm Shora staje się <strong>aplikacją</strong> całego aparatu matematycznego</p>
-<p>opracowanego w projektach \#17–\#20.</p>
-<p>Luka bankowa 2019–2021 zakończyła się budową własnego języka matematycznego —</p>
-<p>a ten projekt jest pierwszą jego realną aplikacją obliczeniową.</p></div></div>
+    <div data-i18n-html="page.body"></div>
   </div>
 </main>
 
 <footer class="site-footer">
   <div class="container footer-inner">
-    <p>Artur Flamandzki · <a href="../../index.html">Portfolio R&amp;D</a></p>
+    <p>Artur Flamandzki &nbsp;·&nbsp; <a href="../../index.html">Portfolio R&amp;D</a></p>
     <nav class="proj-nav-btns">
-      <a href="../p20/" class="lang-btn">← #20</a>
-      <a href="../p22/" class="lang-btn">#22 →</a>
+      <a href="../p20/" class="lang-btn" data-i18n="page.nav_prev">← #20</a>
+      <a href="../p22/" class="lang-btn" data-i18n="page.nav_next">#22 →</a>
     </nav>
   </div>
 </footer>

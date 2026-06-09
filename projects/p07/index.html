@@ -3,19 +3,21 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>#07 LX-GT01 — Artur Flamandzki</title>
+  <title data-i18n="page.title">#07 — Artur Flamandzki</title>
   <link rel="icon" type="image/svg+xml" href="../../favicon.svg" />
   <link rel="stylesheet" href="../../css/style.css" />
   <link rel="stylesheet" href="../../css/project.css" />
+  <!-- i18n: global locales first, then page-specific -->
   <script src="../../locales/en.js"></script>
   <script src="../../locales/pl.js"></script>
+  <script src="locales/pl.js"></script>
+  <script src="locales/en.js"></script>
 </head>
 <body>
 
 <nav id="navbar" aria-label="Main navigation">
   <div class="container nav-inner">
     <a href="../../" class="nav-brand">Artur Flamandzki <span>/ R&amp;D</span></a>
-
     <ul class="nav-links" id="navLinks">
       <li><a href="../../#filozofia"    data-i18n="nav.filozofia">Philosophy</a></li>
       <li><a href="../../#ewolucja"     data-i18n="nav.ewolucja">Evolution</a></li>
@@ -24,7 +26,6 @@
       <li><a href="../../#case-studies" data-i18n="nav.casestudies">Case Studies</a></li>
       <li><a href="../../#podsumowanie" data-i18n="nav.podsumowanie">Summary</a></li>
     </ul>
-
     <div class="nav-right">
       <div class="lang-switcher" id="langSwitcher" aria-label="Language"></div>
       <button class="nav-toggle" id="navToggle" aria-label="Menu" aria-expanded="false">
@@ -36,195 +37,31 @@
 
 <header class="proj-hero">
   <div class="container">
-    <div class="proj-hero-tag">PORTFOLIO R&amp;D — PROJEKT #07</div>
-    <h1 class="proj-hero-title" data-i18n="s4.p07.name">LX-GT01</h1>
-    <p class="proj-hero-sub">eliminacja serwera i~bazy danych przez algorytm deterministyczny —</p>
-    <p class="proj-hero-date">2018–2019</p>
+    <div class="proj-hero-tag" data-i18n="page.hero_tag"></div>
+    <h1 class="proj-hero-title" data-i18n="page.hero_title"></h1>
+    <p class="proj-hero-sub" data-i18n="page.hero_sub"></p>
+    <p class="proj-hero-date" data-i18n="page.date"></p>
   </div>
 </header>
 
-<section class="proj-summary"><div class="container"><p>Moduł</strong> sprzętowy i aplikacja PC do generowania tabel kodów
-    lokatorskich dla central Laskomex.
-    Kluczowa innowacja: <strong>zastąpienie serwera i bazy danych
-    algorytmem deterministycznym — numer seryjny modułu jednoznacznie
-    wyznacza tabelę kodów, bez potrzeby połączenia z internetem,
-    bez składowania danych osobowych, bez kosztów infrastruktury.
-    Problem nierozwiązany w firmie od wielu lat;
-    projekt zrealizowany w latach 2018–2019, gdy autor pełnił funkcję
-    in\.zyniera i konstruktora w Laskomex — tu\.z przed obroną
-    pracy magisterskiej i odejściem z firmy.</p></div></section>
+<section class="proj-summary">
+  <div class="container">
+    <div data-i18n-html="page.summary"></div>
+  </div>
+</section>
 
 <main class="proj-main">
   <div class="container proj-content">
-    <p class="proj-lang-notice">Technical documentation below is in Polish. The project summary above reflects the selected language.</p>
-    <h2 class="proj-section">Geneza: problem lat, propozycja zbyt kosztowna, rozwi</h2>
-<p>Instalatorzy przejmujący obiekty od innych wykonawców nie mają</p>
-<p>dostępu do <strong>tabeli kodów lokali</strong> — jeden wydruk</p>
-<p>dołączany do centrali przy instalacji, z czasem gubiony lub</p>
-<p>pozostający u poprzedniego wykonawcy.</p>
-<p>Kontakt z serwisem Laskomex mailowo, odpowied\'z z nieokreślonym</p>
-<p>czasem oczekiwania, instalator stoi bezczynnie na obiekcie.</p>
-<p><strong>Poprzednie podejście firmy (nieukończone):</strong></p>
-<p>serwis www gdzie instalatorzy się rejestrują i pobierają tabele.</p>
-<p>Projekt zamro\.zony po analizie kosztów:</p>
-<p>hosting + baza danych + administracja RODO + bie\.ząca obsługa.</p>
-<p>Temat zawieszony na wiele lat.</p>
-<p><strong>Rozwiązanie LX-GT01:</strong></p>
-<p>zamiast serwera z bazą danych —</p>
-<p>algorytm generujący tabelę</p>
-<p>z numeru seryjnego modułu.</p>
-<p>Numer seryjny to jedyne co instalator musi przechowywać.</p>
-<p>Aplikacja PC rekonstruuje pełną tabelę w dowolnym momencie,</p>
-<p>na dowolnym komputerze, bez internetu.</p>
-<h2 class="proj-section">Kł{</h2>
-<div class="proj-box proj-box--innovation"><div class="proj-box-title">01  Numer seryjny jako deterministyczny klucz tabeli — eliminacja bazy danych</div><div class="proj-box-body"><p>title=01   Numer seryjny jako deterministyczny klucz tabeli — eliminacja bazy danych]</p>
-<p><strong>Problem klasyczny:</strong> tabela kodów to dane — trzeba je gdzieś</p>
-<p>przechować. Baza danych na serwerze to infrastruktura,</p>
-<p>koszty, RODO, admin, dostępność. Bez serwera —</p>
-<p>instalator nie ma tabeli.</p>
-<p><strong>Kluczowe przeformułowanie problemu:</strong></p>
-<p>zamiast <em>przechowywać tabelę</em> — ć tabelę</p>
-<p>na \.ządanie ze stałego klucza.</p>
-<p>Numer seryjny modułu (1-Wire, 256 unikalnych ID na partię)</p>
-<p>jest seedem deterministycznego algorytmu —</p>
-<p>ta sama wartość na wejściu zawsze daje tę samą tabelę.</p>
-<p><strong>Zero serwera:</strong> algorytm \.zyje w aplikacji PC instalatora.</p>
-<p><strong>Zero danych osobowych:</strong> numer seryjny nie identyfikuje</p>
-<p><strong>Zero infrastruktury:</strong> aplikacja działa offline,</p>
-<p>na Windows XP przez Windows 10.</p>
-<p><strong>Trwałoś\'c:</strong> instalator archiwizuje tylko listę</p>
-<p>numerów seryjnych (13 znaków hex ka\.zdy) —</p>
-<p>cała biblioteka obiektów mieści się w pliku tekstowym.</p>
-<p><strong>Analogia:</strong> ten sam wzorzec co BIP39 w portfelach kryptowalutowych —</p>
-<p>fraza mnemoniczna (seed) deterministycznie odtwarza cały portfel.</p>
-<p>Tu: numer seryjny deterministycznie odtwarza cała tabelę kodów.</p></div></div>
-<div class="proj-box proj-box--innovation"><div class="proj-box-title">02  Dwa warianty zgodności: tabela Laskomex lub tabela moduł</div><div class="proj-box-body"><p>title=02   Dwa warianty zgodności: tabela Laskomex lub tabela modułu]</p>
-<p><strong>Problem kompatybilności:</strong></p>
-<p>centrala Laskomex ma własny format tabeli kodów.</p>
-<p>Moduł LX-GT01 generuje tabele niezale\.znie.</p>
-<p>Oba formaty muszą być obsługiwane.</p>
-<p><strong>Tryb Laskomex:</strong> generowana tabela zgodna</p>
-<p>z oryginalnym formatem central Laskomex —</p>
-<p>instalator mo\.ze porównać z tabelą fabryczną.</p>
-<p><strong>Tryb modułu:</strong> tabela generowana na podstawie</p>
-<p>unikalnego numeru seryjnego modułu —</p>
-<p>ka\.zdy instalator ma własną, indywidualną tabelę.</p>
-<p>Dwa instalatorzy z ró\.znymi modułami generują</p>
-<p>ró\.zne tabele — brak kolizji między wykonawcami.</p>
-<p>Wybor trybu w aplikacji pozwala obsłu\.zyć</p>
-<p>oba scenariusze terenowe z jednego narzędzia.</p></div></div>
-<div class="proj-box proj-box--innovation"><div class="proj-box-title">03  Kompletne narze</div><div class="proj-box-body"><p>title=03   Kompletne narzędzie instalatora: PDF z adresem, logika hotelu, biblioteka obiektów]</p>
-<p><strong>Zakres aplikacji LX-GT01PC (.NET, PdfSharp):</strong></p>
-<p><strong>Generowanie tabel</strong> ze znacznikiem numeru seryjnego —</p>
-<p>tabela sformatowana gotowa do wklejenia w centralkę.</p>
-<p><strong>Eksport PDF z danymi obiektu:</strong></p>
-<p>wygenerowana tabela zawiera adres budynku i klatki —</p>
-<p>gotowy dokument do archiwum instalatora.</p>
-<p><strong>Logika numeracji lokali:</strong> konfiguracja</p>
-<p>trybu hotelowego i niestandardowych układów numeracji</p>
-<p>(tabele połączone / niepołączone).</p>
-<p><strong>Biblioteka numerów seryjnych:</strong></p>
-<p>instalator przechowuje w aplikacji całą historię</p>
-<p>obsługiwanych obiektów — zero kontaktu z serwisem</p>
-<p>producenta.</p>
-<p><strong>Skok technologiczny:</strong> LX-GT01 to pierwszy projekt</p>
-<p>autora w środowisku .NET / C\#, z bibliotekami zewnętrznymi</p>
-<p>(PdfSharp), obsługą Windows Forms i systemem</p>
-<p>dystrybucji ClickOnce. Przejście od BASCOM AVR</p>
-<p>do pełnego ekosystemu Windows.</p></div></div>
-<div class="proj-box proj-box--innovation"><div class="proj-box-title">04  Skalowalny system produkcji: 5 partii $$ 256 unikalnych numerów seryjnych</div><div class="proj-box-body"><p>title=04   Skalowalny system produkcji: 5 partii × 256 unikalnych numerów seryjnych]</p>
-<p>Ka\.zda partia produkcyjna zawierała <strong>256 modułów</strong></p>
-<p>z fabrycznie zaprogramowanymi, gwarantowanie unikalnymi</p>
-<p>numerami seryjnymi (1-Wire silicon serial).</p>
-<p>Numery pre-generowane dla ka\.zdej partii</p>
-<p>(pliki <code>.txt</code> i <code>.pdf</code> z listą ID).</p>
-<p><strong>5 partii</strong> oznaczonych rokiem i numerem (2019.1–2019.5)</p>
-<p>— śledzenie historii produkcji, identyfikacja</p>
-<p>ewentualnych problemów per partia.</p>
-<p>Etykiety z numerami seryjnymi drukowane</p>
-<p>i dołączane do ka\.zdego modułu —</p>
-<p>instalator ma numer seryjny fizycznie na urządzeniu.</p>
-<p>Powy\.zszy system zapewnia pełną <strong>traceability</strong>:</p>
-<p>ka\.zdy sprzedany moduł mo\.ze być przypisany</p>
-<p>do konkretnej partii produkcyjnej.</p></div></div>
-<div class="proj-box proj-box--innovation"><div class="proj-box-title">05  Aplikacja produkcyjna: automatyczne programowanie 100+ MCU bez rekompilacji</div><div class="proj-box-body"><p>title=05   Aplikacja produkcyjna: automatyczne programowanie 100+ MCU bez rekompilacji]</p>
-<p><strong>Problem wytwórcy:</strong> ka\.zdy moduł LX-GT01 musi mieć inny numer seryjny</p>
-<p>wgrany do MCU, a centrala Laskomex weryfikuje go przez własny algorytm.</p>
-<p>Klasyczne podejście: ręczna edycja \'Zródła i rekompilacja per egzemplarz —</p>
-<p>niewykonalne przy 256 sztukach na partię.</p>
-<p><strong>Rozwiązanie — <code>KonwerterSystemuLiczbowego</code> (C\#/.NET, WinForms):</strong></p>
-<p><strong>Jeden skompilowany ELF jako szablon.</strong></p>
-<p>Aplikacja otwiera plik <code>.elf</code>, wstrzykuje 4-bajtową wartość algorytmu</p>
-<p>na stały offset <code>0x2BA</code> — bez rekompilacji,</p>
-<p>bez ingerencji w \'zródło.</p>
-<p><strong>Kodowanie algorytmu z nibble-interleaving.</strong></p>
-<p>Wartość 16-bitowa jest rozbijana na nibble i przeplatana maską</p>
-<p><code>4xExEx5x</code> — format zgodny z interpretacją firmware Laskomex.</p>
-<p>Formuła: &lt;em class='math'&gt;mathttalgo = mathttcodeProd oplus mathttpartNum + [(mathttrok + (mathttrok-19)cdot 12 - (mathttrok-19) + mathttmies.)łl 8]</em></p>
-<p><strong>Podwójny CRC8</strong> (wielomian <code>0xD5</code>, standard Dallas/Maxim 1-Wire):</p>
-<p>suma częściowa (rok, miesiąc, partia) + suma pełna (XOR z kodem producenta).</p>
-<p>Aplikacja LX-GT01PC odrzuca numer z błędną sumą kontrolną — ochrona przed literowąniem pomyłkowego numeru i pr'obą u\.zycia cudzego modułu.</p>
-<p><strong>Automatyczne generowanie partii.</strong></p>
-<p>Zakres 0–255: jeden przycisk generuje 256 kompletnych numerów seryjnych i 256 odpowiadających wpisów algorytmu.</p>
-<p>Eksport do <code>.txt</code> (etykiety) i bezpośredni patch ELF (flash).</p>
-<p><strong>Cztery tryby pracy:</strong></p>
-<p>generuj numer seryjny /</p>
-<p>sprawd\'z numer bez sumy /</p>
-<p>sprawd\'z po algorytmie /</p>
-<p>tryb Laskomex (stały algorytm <code>0x4321</code>).</p>
-<p><strong>Efekt produkcyjny:</strong> zaprogramowanie 100 sztuk = wybierz numer</p>
-<p>z listy → wgraj ELF → następny.</p>
-<p>Zero ręcznej edycji, zero błędów, pełna traceability partii.</p></div></div>
-<h2 class="proj-section">Stack techniczny</h2>
-<p>tabularxłinewidth&gt;p3.2cm X X</p>
-<p>Komponent &amp; Szczegóły &amp; Rola \\</p>
-<p>Moduł HW &amp;</p>
-<p>ATtiny (ta sama platforma PCB co LX-DK) &amp;</p>
-<p>Przechowywanie numeru seryjnego 1-Wire \\</p>
-<p>Aplikacja PC &amp;</p>
-<p>.NET Windows Forms (C\#), ClickOnce &amp;</p>
-<p>Generator tabel, biblioteka, eksport PDF \\</p>
-<p>PDF &amp;</p>
-<p>PdfSharp (biblioteka .NET) &amp;</p>
-<p>Tabele z adresem obiektu \\</p>
-<p>Numery seryjne &amp;</p>
-<p>1-Wire silicon serial, 256/partię, 5 partii &amp;</p>
-<p>Unikalny seed algorytmu generatora \\</p>
-<p>Systemy &amp;</p>
-<p>Windows XP / 7 / 10 (.NET 4.0 / 4.5) &amp;</p>
-<p>Szeroka kompatybilność z komputerami serwisów \\</p>
-<p>Dokumentacja &amp;</p>
-<p>Instrukcja v1.0–v2.0 (4 rewizje), opakowanie CDR &amp;</p>
-<p>Pełny pakiet handlowy \\</p>
-<p>tabularx</p>
-<div class="proj-box proj-box--result"><div class="proj-box-body"><p><strong>50–75 sztuk</strong> sprzedanych bezpośrednio do dystrybutorów Laskomex —</p>
-<p>z pominięciem producenta, który odrzucił produkt</p>
-<p>z powodów wewnętrznych (sprzeciw jednego z wieloletnich pracowników).</p>
-<p><strong>Problem istniał w firmie od wielu lat.</strong></p>
-<p>Poprzednia próba rozwiązania (serwis www + baza danych)</p>
-<p>zamro\.zona z powodu kosztów utrzymania i wymagań RODO.</p>
-<p>LX-GT01 rozwiązał ten problem bez serwera, bez bazy danych,</p>
-<p>bez danych osobowych — jednorazowy koszt algorytmu</p>
-<p>zamiast ciągłych kosztów infrastruktury.</p>
-<p><strong>Projekt ukończony w pełni</strong> (moduł + aplikacja + dokumentacja</p>
-<p>+ opakowanie) tu\.z przed odejściem autora z Laskomex w 2019 r.</p>
-<p>Po odejściu temat domofonowy przestał autora interesować</p>
-<p>— projekt pozostawiony w stanie gotowym, niepotrzebnie porzucony.</p>
-<p>łarge<strong></strong>%</p>
-<p>⇒</p>
-<p>Problem lat → rozwiązanie bez serwera →</p>
-<p>50–75 szt. u dystrybutorów mimo zablokowania przez producenta</p>
-<p>&lt;em class='math'&gt;Łeftarrow</em>%</p>
-<p></p></div></div>
+    <div data-i18n-html="page.body"></div>
   </div>
 </main>
 
 <footer class="site-footer">
   <div class="container footer-inner">
-    <p>Artur Flamandzki · <a href="../../index.html">Portfolio R&amp;D</a></p>
+    <p>Artur Flamandzki &nbsp;·&nbsp; <a href="../../index.html">Portfolio R&amp;D</a></p>
     <nav class="proj-nav-btns">
-      <a href="../p06/" class="lang-btn">← #06</a>
-      <a href="../p08/" class="lang-btn">#08 →</a>
+      <a href="../p06/" class="lang-btn" data-i18n="page.nav_prev">← #06</a>
+      <a href="../p08/" class="lang-btn" data-i18n="page.nav_next">#08 →</a>
     </nav>
   </div>
 </footer>

@@ -3,19 +3,21 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>#13 Sterownik Rozsiewacza — Artur Flamandzki</title>
+  <title data-i18n="page.title">#13 — Artur Flamandzki</title>
   <link rel="icon" type="image/svg+xml" href="../../favicon.svg" />
   <link rel="stylesheet" href="../../css/style.css" />
   <link rel="stylesheet" href="../../css/project.css" />
+  <!-- i18n: global locales first, then page-specific -->
   <script src="../../locales/en.js"></script>
   <script src="../../locales/pl.js"></script>
+  <script src="locales/pl.js"></script>
+  <script src="locales/en.js"></script>
 </head>
 <body>
 
 <nav id="navbar" aria-label="Main navigation">
   <div class="container nav-inner">
     <a href="../../" class="nav-brand">Artur Flamandzki <span>/ R&amp;D</span></a>
-
     <ul class="nav-links" id="navLinks">
       <li><a href="../../#filozofia"    data-i18n="nav.filozofia">Philosophy</a></li>
       <li><a href="../../#ewolucja"     data-i18n="nav.ewolucja">Evolution</a></li>
@@ -24,7 +26,6 @@
       <li><a href="../../#case-studies" data-i18n="nav.casestudies">Case Studies</a></li>
       <li><a href="../../#podsumowanie" data-i18n="nav.podsumowanie">Summary</a></li>
     </ul>
-
     <div class="nav-right">
       <div class="lang-switcher" id="langSwitcher" aria-label="Language"></div>
       <button class="nav-toggle" id="navToggle" aria-label="Menu" aria-expanded="false">
@@ -36,109 +37,31 @@
 
 <header class="proj-hero">
   <div class="container">
-    <div class="proj-hero-tag">PORTFOLIO R&amp;D — PROJEKT #13</div>
-    <h1 class="proj-hero-title" data-i18n="s4.p13.name">Sterownik Rozsiewacza</h1>
-    <p class="proj-hero-sub">zlecenie komercyjne dla firmy z~Bytowa —\\</p>
-    
+    <div class="proj-hero-tag" data-i18n="page.hero_tag"></div>
+    <h1 class="proj-hero-title" data-i18n="page.hero_title"></h1>
+    <p class="proj-hero-sub" data-i18n="page.hero_sub"></p>
+    <p class="proj-hero-date" data-i18n="page.date"></p>
   </div>
 </header>
 
-<section class="proj-summary"><div class="container"><p>Zlecenie komercyjne od firmy BAGRAMET z Bytowa:
-    elektroniczny sterownik do rozsiewacza przyczepowego.
-    Urz</strong>dzenie kontroluje napęd otwierający
-    przelotnię rozsiewacza.
-    Architektura: dwie osobne płytki PCB —
-    płyta główna (logika sterowania)
-    i płyta wyświetlacza (panel operatora).
-    Gerbery zamawiane u producenta BAZECO.
-    Wyprodukowano i sprzedano kilkanaście gotowych urządze\'n.</p></div></section>
+<section class="proj-summary">
+  <div class="container">
+    <div data-i18n-html="page.summary"></div>
+  </div>
+</section>
 
 <main class="proj-main">
   <div class="container proj-content">
-    <p class="proj-lang-notice">Technical documentation below is in Polish. The project summary above reflects the selected language.</p>
-    <p>Rozsiewacz przyczepowy to maszyna rolnicza rozrzucająca</p>
-<p>nawozy lub inne materiały sypkie.</p>
-<p>Firma BAGRAMET zleciła zaprojektowanie sterownika</p>
-<p>kontrolującego silnik odpowiedzialny za otwieranie</p>
-<p>przelotnię (pokrywy dawkującej) rozsiewacza.</p>
-<p>Projekt obejmował pełny cykl: schemat ideowy,</p>
-<p>layout dwóch płytek PCB w Eagle,</p>
-<p>przygotowanie Gerberów, zamówienie produkcji</p>
-<p>płytek w firmie BAZECO, monta\.z i dostawę</p>
-<p>gotowych urządze\'n.</p>
-<div class="proj-box proj-box--innovation"><div class="proj-box-title">01  Architektura dwupł</div><div class="proj-box-body"><p>title=01   Architektura dwupłytkowa: separacja logiki i interfejsu]</p>
-<p>Zamiast jednej płytki z wszystkim,</p>
-<p>system podzielony na dwie niezale\.zne jednostki:</p>
-<p><strong>Płyta główna</strong> —</p>
-<p>logika sterowania silnikiem, wejścia czujników,</p>
-<p>komunikacja z płytą wyświetlacza.</p>
-<p>Montowana przy mechanizmie rozsiewacza.</p>
-<p>Pełny komplet Gerberów (Top, Bottom, maski,</p>
-<p>opisy, otwory).</p>
-<p><strong>Płyta wyświetlacza</strong> —</p>
-<p>panel operatora w kabinie ciągnika.</p>
-<p>Wyświetlacz, przyciski, wska\'zniki stanu.</p>
-<p>Osobny layout, osobne Gerbery.</p>
-<p>Zalety separacji: płyta główna mo\.ze być</p>
-<p>wymieniona bez zmiany panelu operatora i odwrotnie.</p>
-<p>Kable między płytkami przenoszą tylko</p>
-<p>sygnały logiczne — brak wysokich napięć</p>
-<p>w kabinie.</p></div></div>
-<div class="proj-box proj-box--innovation"><div class="proj-box-title">02  Peł</div><div class="proj-box-body"><p>title=02   Pełny cykl produkcyjny: od schematu do gotowego urządzenia]</p>
-<p>Projekt realizowany w całości przez DELFI Electronics:</p>
-<ol class="proj-list">
-</ul>
-<p>2pt</p>
-<ul class="proj-list">
-<li>Schemat ideowy obu płytek w Eagle.</li>
-<li>Layout PCB — dwie osobne płytki z logo DELFI.</li>
-<li>Przygotowanie kompletów Gerberów</li>
-</ul>
-<p>(format BAZECO).</p>
-<ul class="proj-list">
-<li>Zamówienie płytek u producenta BAZECO.</li>
-<li>Monta\.z elementów, programowanie, testy.</li>
-<li>Dostawa gotowych urządze\'n do klienta.</li>
-</ol>
-<p>Ka\.zdy etap realizowany samodzielnie —</p>
-<p>BAGRAMET otrzymywał kompletne, gotowe do pracy</p>
-<p>urządzenie, nie moduły do składania.</p></div></div>
-<div class="proj-table-wrap"><table class="proj-table">
-<tbody>
-<tr>
-<th>BAGRAMET, Bytów</th>
-</tr>
-<tr>
-<td>wyświetlacza; Gerbery BAZECO</td>
-</tr>
-<tr>
-<td>przyczepowego</td>
-</tr>
-<tr>
-<td>Kilkanaście kompletnych urządze\'n</td>
-</tr>
-<tr>
-<td>płytek → monta\.z → dostawa</td>
-</tr>
-</tbody></table></div>
-<div class="proj-box proj-box--result"><div class="proj-box-body"><p><strong>Wynik:</strong></p>
-<p>Kilkanaście urządze\'n wyprodukowanych i dostarczonych</p>
-<p>do klienta.</p>
-<p>Projekt potwierdza zdolność do realizacji</p>
-<p>pełnego cyklu produkcji elektroniki na zlecenie —</p>
-<p>od koncepcji przez PCB do gotowego produktu w terenie.</p>
-<p>Zastosowanie rolnicze oznacza wymagania dotyczące</p>
-<p>wytrzymałości (praca w kabinie ciągnika,</p>
-<p>wibracje, kurz, zmienne napięcie instalacji 12 V).</p></div></div>
+    <div data-i18n-html="page.body"></div>
   </div>
 </main>
 
 <footer class="site-footer">
   <div class="container footer-inner">
-    <p>Artur Flamandzki · <a href="../../index.html">Portfolio R&amp;D</a></p>
+    <p>Artur Flamandzki &nbsp;·&nbsp; <a href="../../index.html">Portfolio R&amp;D</a></p>
     <nav class="proj-nav-btns">
-      <a href="../p12/" class="lang-btn">← #12</a>
-      <a href="../p14/" class="lang-btn">#14 →</a>
+      <a href="../p12/" class="lang-btn" data-i18n="page.nav_prev">← #12</a>
+      <a href="../p14/" class="lang-btn" data-i18n="page.nav_next">#14 →</a>
     </nav>
   </div>
 </footer>

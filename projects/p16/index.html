@@ -3,19 +3,21 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>#16 TrueSynth — Artur Flamandzki</title>
+  <title data-i18n="page.title">#16 — Artur Flamandzki</title>
   <link rel="icon" type="image/svg+xml" href="../../favicon.svg" />
   <link rel="stylesheet" href="../../css/style.css" />
   <link rel="stylesheet" href="../../css/project.css" />
+  <!-- i18n: global locales first, then page-specific -->
   <script src="../../locales/en.js"></script>
   <script src="../../locales/pl.js"></script>
+  <script src="locales/pl.js"></script>
+  <script src="locales/en.js"></script>
 </head>
 <body>
 
 <nav id="navbar" aria-label="Main navigation">
   <div class="container nav-inner">
     <a href="../../" class="nav-brand">Artur Flamandzki <span>/ R&amp;D</span></a>
-
     <ul class="nav-links" id="navLinks">
       <li><a href="../../#filozofia"    data-i18n="nav.filozofia">Philosophy</a></li>
       <li><a href="../../#ewolucja"     data-i18n="nav.ewolucja">Evolution</a></li>
@@ -24,7 +26,6 @@
       <li><a href="../../#case-studies" data-i18n="nav.casestudies">Case Studies</a></li>
       <li><a href="../../#podsumowanie" data-i18n="nav.podsumowanie">Summary</a></li>
     </ul>
-
     <div class="nav-right">
       <div class="lang-switcher" id="langSwitcher" aria-label="Language"></div>
       <button class="nav-toggle" id="navToggle" aria-label="Menu" aria-expanded="false">
@@ -36,205 +37,31 @@
 
 <header class="proj-hero">
   <div class="container">
-    <div class="proj-hero-tag">PORTFOLIO R&amp;D — PROJEKT #16</div>
-    <h1 class="proj-hero-title" data-i18n="s4.p16.name">TrueSynth</h1>
-    <p class="proj-hero-sub">Relacyjna Trygonometria</p>
-    
+    <div class="proj-hero-tag" data-i18n="page.hero_tag"></div>
+    <h1 class="proj-hero-title" data-i18n="page.hero_title"></h1>
+    <p class="proj-hero-sub" data-i18n="page.hero_sub"></p>
+    <p class="proj-hero-date" data-i18n="page.date"></p>
   </div>
 </header>
 
-<section class="proj-summary"><div class="container"><p>Cel: wyeliminowa\'c</strong> błąd aproksymacji trygonometrycznej w obliczeniach embedded algebraicznie — bez utraty prędkości. Metoda <strong>Prime Engine: kąt \(k/p\) (p pierwsze) gwarantuje, \.ze ka\.zdy punkt LUT le\.zy dokładnie na okręgu jednostkowym. Zero błędu, zero interpolacji, zero jittera — dowiedzione algebraicznie i zweryfikowane na Cortex-M0\,/ M4F.</p></div></section>
+<section class="proj-summary">
+  <div class="container">
+    <div data-i18n-html="page.summary"></div>
+  </div>
+</section>
 
 <main class="proj-main">
   <div class="container proj-content">
-    <p class="proj-lang-notice">Technical documentation below is in Polish. The project summary above reflects the selected language.</p>
-    <div class="proj-box proj-box--innovation"><div class="proj-box-body"><p>colback=Navy, colframe=Navy, arc=4pt,</p>
-<p>left=14pt, right=14pt, top=10pt, bottom=10pt]</p>
-<p>łarge \#16   TrueSynth — Biblioteka Trygonometryczna dla Embedded\\[4pt]</p>
-<p>Relacyjna Trygonometria · Prime Engine ·</p>
-<p>Q31 fixed-point · Cortex-M0\,/ M4F · 2025–2026</p></div></div>
-<p><strong>Cel projektu:</strong> wyeliminować błąd aproksymacji funkcji trygonometrycznych</p>
-<p>w obliczeniach embedded — bez utraty prędkości.</p>
-<p>Wszystkie istniejące metody (CORDIC, Taylor, klasyczne LUT) wprowadzają niezerowy</p>
-<p>błąd wynikający z przybli\.zenia &lt;em class='math'&gt;pi</em> lub z ograniczeń arytmetyki zmiennoprzecinkowej.</p>
-<p><strong>TrueSynth eliminuje ten błąd algebraicznie</strong> — punkt le\.zy dokładnie</p>
-<p>na okręgu jednostkowym, nie w jego pobli\.zu.</p>
-<p>Diagnoza była konkretna: standardowe implementacje LUT <strong>interpolują</strong> między</p>
-<p>punktami tablicy (uśrednianie, interpolacja liniowa) — bo dowolny kąt dziesiętny</p>
-<p>rzadko trafia dokładnie na punkt siatki.</p>
-<p>Interpolacja to podwójny koszt: narzut obliczeniowy i błąd aproksymacji.</p>
-<p>Ale główny problem, który chciałem wyeliminować, był <strong>jitter</strong> —</p>
-<p>niejednorodny czas wykonania, gdzie jeden kąt kosztuje 70 cykli, a inny 700.</p>
-<p>Rozwiązanie: zredefiniować kąt jako proporcję &lt;em class='math'&gt;k/p</em> pełnego obrotu,</p>
-<p>gdzie &lt;em class='math'&gt;p</em> jest liczbą pierwszą — wtedy \.zdy kąt trafia dokładnie</p>
-<p>na punkt LUT, interpolacja nie jest potrzebna, a koszt obliczeniowy jest</p>
-<p><strong>identyczny dla ka\.zdego kąta</strong>.</p>
-<p>Zero ppb i zero jitter nie są kompromisem — wynikają z tej samej decyzji</p>
-<p>o usunięciu uśredniania.</p>
-<div class="proj-box proj-box--innovation"><div class="proj-box-title">Relacyjna definicja ka</div><div class="proj-box-body"><p>Klasyczna trygonometria definiuje kąt w radianach (&lt;em class='math'&gt;theta in [0, 2pi)</em>),</p>
-<p>co wprowadza błąd aproksymacji &lt;em class='math'&gt;pi</em> ju\.z na etapie definicji.</p>
-<p><strong>Relacyjna Trygonometria</strong> redefiniuje kąt jako proporcję pełnego obrotu:</p>
-<p>[0, 1),</p>
-<p>= 1  łeftrightarrow\; 360^  łeftrightarrow\; 2\,rad</p>
-<p>Punkt &lt;em class='math'&gt;(cosDelta,,sinDelta)</em> le\.zy dokładnie na okręgu jednostkowym</p>
-<p>bez \.zadnego zaokrąglenia — pod warunkiem, \.ze dobierzemy LUT oparty</p>
-<p>na liczbach pierwszych &lt;em class='math'&gt;p</em>, gdzie &lt;em class='math'&gt;k/p</em> są dokładnymi ułamkami.</p>
-<p><strong>Struktura LUT (p &lt;em class='math'&gt;łeq</em> 67):</strong> 19 liczb pierwszych, 275 wpi-sów,</p>
-<p><strong>2,2 KB Flash, 0 B RAM</strong>.</p>
-<p>Dla dokładniejszych zastosowań: LUT p &lt;em class='math'&gt;łeq</em> 269 (≈10 KB).</p>
-<p>Tryb MI u\.zywa wyspecjalizowanej LUT 2053\,/ 7753\,/ 38 431 punktów</p>
-<p>(16—304 KB Flash) z rozdzielczością do &lt;em class='math'&gt;0,0094^circ</em>.</p>
-<p><strong>Pięć trybów silnika (Modes 0–4) + tryb MI:</strong></p>
-<ul class="proj-list">
-<li><strong>Mode 0 — Czebyszew Iterator:</strong></li>
-</ul>
-<p>ciągła rotacja przez mno\.zenie zespolone Q31.</p>
-<p>Koszt  533 cykli/krok (M0, 48 MHz).</p>
-<ul class="proj-list">
-<li><strong>Mode 1 — Direct LUT:</strong></li>
-</ul>
-<p>dokładne &lt;em class='math'&gt;cos(2pi k/p)</em> i &lt;em class='math'&gt;sin(2pi k/p)</em> wprost z LUT.</p>
-<p><strong>482 cykli, ppb\,= 0</strong> (algebraicznie dokładny).</p>
-<ul class="proj-list">
-<li><strong>Mode 2 — Reduce:</strong></li>
-</ul>
-<p>automatyczna redukcja GCD + Direct LUT. 955 cykli, ppb\,= 0.</p>
-<ul class="proj-list">
-<li><strong>Mode 3 — Nearest:</strong></li>
-</ul>
-<p>najbli\.zszy punkt siatki dla dowolnego kąta dziesiętnego.</p>
-<p>531 cykli, ppb\,= 0.</p>
-<ul class="proj-list">
-<li><strong>Mode 4 — Repeated Squaring:</strong></li>
-</ul>
-<p>potęgowanie stałoprzecinkowe &lt;em class='math'&gt;O(łog k)</em>.</p>
-<p>555 cykli avg, skalowalna precyzja.</p>
-<ul class="proj-list">
-<li><strong>Mode MI — Modular Iterator (flagship):</strong></li>
-</ul>
-<p><strong>3 cykli/para (M4F, 170 MHz), 0,0 ppb, deterministyczny.</strong></p>
-<p>Przeznaczenie: FOC silników, DDS, enkodery.</p></div></div>
-<div class="proj-box proj-box--innovation"><div class="proj-box-title">Benchmark na sprze</div><div class="proj-box-body"><p><strong>Platforma A: STM32F030R8, Cortex-M0, 48 MHz, bez FPU.</strong></p>
-<p>Pomiar cykli sprzętowym timerem TIM3 (rozdzielczość: 1 cykl = 20,83 ns).</p>
-<p>Protokół UART kontrolowany przez Python na PC.</p>
-<div class="proj-table-wrap"><table class="proj-table">
-<tbody>
-<tr>
-<th><strong>Metoda</strong></th>
-<th><strong>Cykli avg</strong></th>
-<th><strong>us avg</strong></th>
-<th><strong>ppb (norma)</strong></th>
-<th><strong>Uwagi</strong></th>
-</tr>
-<tr>
-<td><strong>Prime Direct LUT</strong></td>
-<td><strong>482</strong></td>
-<td><strong>10,0</strong></td>
-<td><strong>0</strong></td>
-<td>dokładność algebraiczna</td>
-</tr>
-<tr>
-<td>CORDIC (klasyczny)</td>
-<td>271</td>
-<td>5,6</td>
-<td>0,9</td>
-<td>najszybszy klasyczny</td>
-</tr>
-<tr>
-<td>LUT 1024 RAM</td>
-<td>635</td>
-<td>13,2</td>
-<td>0,5</td>
-<td>4 KB RAM</td>
-</tr>
-<tr>
-<td>LUT 7500 Flash</td>
-<td>798</td>
-<td>16,6</td>
-<td>5,6</td>
-<td>30 KB Flash</td>
-</tr>
-<tr>
-<td>Taylor</td>
-<td>888</td>
-<td>18,5</td>
-<td>98 000</td>
-<td>najgorsza dokładność</td>
-</tr>
-</tbody></table></div>
-<p><strong>Platforma B: STM32G474RE, Cortex-M4F, 170 MHz, FPU.</strong></p>
-<div class="proj-table-wrap"><table class="proj-table">
-<tbody>
-<tr>
-<th><strong>Metoda</strong></th>
-<th><strong>Cykli/para</strong></th>
-<th><strong>ppb</strong></th>
-<th><strong>Deterministyczny?</strong></th>
-</tr>
-<tr>
-<td><strong>TrueSynth Mode MI</strong></td>
-<td><strong>3</strong></td>
-<td><strong>0,0</strong></td>
-<td><strong>TAK</strong></td>
-</tr>
-<tr>
-<td>CMSIS-DSP Q31</td>
-<td>14</td>
-<td>18 825</td>
-<td>NIE (do 530 cykli)</td>
-</tr>
-<tr>
-<td>CMSIS-DSP F32</td>
-<td>178</td>
-<td>18 978</td>
-<td>tak</td>
-</tr>
-</tbody></table></div>
-<p><strong>Test dryftu:</strong> 1 024 000 000 kroków (1 mln obrotów przy 1024 krokach/obrót).</p>
-<p>Błąd końcowy: &lt;em class='math'&gt;2,22times10^-16</em> (epsilon maszynowy IEEE 754 — <em>zero praktyczne</em>).</p>
-<p>Dryftu: <strong>0</strong>. Algorytm pozostaje na okręgu algebraicznie bez kumulacji błędu.</p></div></div>
-<div class="proj-box proj-box--innovation"><div class="proj-box-title">Struktura projektu i zakres prac</div><div class="proj-box-body"><p><strong>Matematyka (Trygonometry.tex, 2025):</strong></p>
-<p>Dowód formalny relacyjnej definicji kąta, porównania makro i mikro</p>
-<p>z klasyczną trygonometrią, wizualizacje Python (sinus, cosinus, tangens, cotangens).</p>
-<p>Autorzy: Artur Flamandzki i Elai.</p>
-<p><strong>Implementacja C (TrueSynth v1.0, 2026):</strong></p>
-<p>Pliki: ts\_engine.c/h, truesynth.h, ts\_mi\_source.h,</p>
-<p>LUT: ts\_lut\_p67.h, ts\_mi\_lut\_\2053,7753,38431\.h.</p>
-<p>Build: Makefile, docelowy Cortex-M4F i M0 (dwie pre-kompilowane biblioteki .a).</p>
-<p>STM32G474 demo projekt z integracją Mode MI.</p>
-<p><strong>Python — prototypowanie i benchmarking:</strong></p>
-<p>prime\_circle\_engine.py, circle\_engine.py,</p>
-<p>cordic\_q60.py, compare\_q60.py, dyn\_bench.py.</p>
-<p>Dane benchmarków: pliki CSV (256–4096 próbek, CORDIC, stdlib, Prime Engine).</p>
-<p>Wolfram Cloud: weryfikacja niezale\.zna wyników.</p>
-<p><strong>Usługa sieciowa:</strong></p>
-<p>prime-engine-service — Docker, REST API udostępniający silnik</p>
-<p>jako serwis obliczeniowy.</p></div></div>
-<div class="proj-box proj-box--result"><div class="proj-box-body"><p><strong>Stan projektu (aktywny R\&amp;D, 2025–2026):</strong></p>
-<ul class="proj-list">
-<li><strong>Błąd aproksymacji wyeliminowany:</strong> Direct LUT ppb\,= 0 algebraicznie —</li>
-</ul>
-<p>punkt le\.zy dokładnie na okręgu jednostkowym</p>
-<ul class="proj-list">
-<li>Mode MI: <strong>zerowy błąd i &lt;em class='math'&gt;4,7times</em> szybszy od CMSIS-DSP Q31</strong></li>
-</ul>
-<p>(18 825 ppb → 0,0 ppb, 14 cykli → 3 cykle/para)</p>
-<ul class="proj-list">
-<li><strong>1 miliard kroków</strong> bez dryfu (test potwierdzony)</li>
-<li>Działający demo na STM32G474 + biblioteka z API</li>
-<li>Formalna dokumentacja matematyczna + broszura komercyjna PL</li>
-<li>Przeznaczenie: FOC silników, DDS, enkodery absolutne, robotyka</li>
-<li>Brak FPU — dowolny Cortex-M (M0 przez M33)</li>
-</ul></div></div>
+    <div data-i18n-html="page.body"></div>
   </div>
 </main>
 
 <footer class="site-footer">
   <div class="container footer-inner">
-    <p>Artur Flamandzki · <a href="../../index.html">Portfolio R&amp;D</a></p>
+    <p>Artur Flamandzki &nbsp;·&nbsp; <a href="../../index.html">Portfolio R&amp;D</a></p>
     <nav class="proj-nav-btns">
-      <a href="../p15/" class="lang-btn">← #15</a>
-      <a href="../p17/" class="lang-btn">#17 →</a>
+      <a href="../p15/" class="lang-btn" data-i18n="page.nav_prev">← #15</a>
+      <a href="../p17/" class="lang-btn" data-i18n="page.nav_next">#17 →</a>
     </nav>
   </div>
 </footer>

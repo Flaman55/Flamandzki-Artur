@@ -3,19 +3,21 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>#19 FochBot — Artur Flamandzki</title>
+  <title data-i18n="page.title">#19 — Artur Flamandzki</title>
   <link rel="icon" type="image/svg+xml" href="../../favicon.svg" />
   <link rel="stylesheet" href="../../css/style.css" />
   <link rel="stylesheet" href="../../css/project.css" />
+  <!-- i18n: global locales first, then page-specific -->
   <script src="../../locales/en.js"></script>
   <script src="../../locales/pl.js"></script>
+  <script src="locales/pl.js"></script>
+  <script src="locales/en.js"></script>
 </head>
 <body>
 
 <nav id="navbar" aria-label="Main navigation">
   <div class="container nav-inner">
     <a href="../../" class="nav-brand">Artur Flamandzki <span>/ R&amp;D</span></a>
-
     <ul class="nav-links" id="navLinks">
       <li><a href="../../#filozofia"    data-i18n="nav.filozofia">Philosophy</a></li>
       <li><a href="../../#ewolucja"     data-i18n="nav.ewolucja">Evolution</a></li>
@@ -24,7 +26,6 @@
       <li><a href="../../#case-studies" data-i18n="nav.casestudies">Case Studies</a></li>
       <li><a href="../../#podsumowanie" data-i18n="nav.podsumowanie">Summary</a></li>
     </ul>
-
     <div class="nav-right">
       <div class="lang-switcher" id="langSwitcher" aria-label="Language"></div>
       <button class="nav-toggle" id="navToggle" aria-label="Menu" aria-expanded="false">
@@ -36,129 +37,31 @@
 
 <header class="proj-hero">
   <div class="container">
-    <div class="proj-hero-tag">PORTFOLIO R&amp;D — PROJEKT #19</div>
-    <h1 class="proj-hero-title" data-i18n="s4.p19.name">FochBot</h1>
-    <p class="proj-hero-sub">FastAPI</p>
-    
+    <div class="proj-hero-tag" data-i18n="page.hero_tag"></div>
+    <h1 class="proj-hero-title" data-i18n="page.hero_title"></h1>
+    <p class="proj-hero-sub" data-i18n="page.hero_sub"></p>
+    <p class="proj-hero-date" data-i18n="page.date"></p>
   </div>
 </header>
 
-<section class="proj-summary"><div class="container"><p>FochBot to system AI rozwijany przez trzy generacje: V1 (klasyfikator intencji), V2 (mikrousł</strong>ugi, BCRYPT, role u\.zytkowników), V3 (<strong>dwuwarstwowa architektura mózgu — Warstwa A: trwała mapa pamięci, Warstwa B: autonomiczny kontroler). Kluczowa teza: LLM to neuron bezstanowy, FochBot to mózg z pamięcią. Projekt otwarty — ciągle rozwijany.</p></div></section>
+<section class="proj-summary">
+  <div class="container">
+    <div data-i18n-html="page.summary"></div>
+  </div>
+</section>
 
 <main class="proj-main">
   <div class="container proj-content">
-    <p class="proj-lang-notice">Technical documentation below is in Polish. The project summary above reflects the selected language.</p>
-    <div class="proj-box proj-box--innovation"><div class="proj-box-body"><p>colback=Navy, colframe=Navy, arc=4pt,</p>
-<p>left=14pt, right=14pt, top=10pt, bottom=10pt]</p>
-<p>łarge \#19   FochBot — Autonomiczny Asystent AI\\[4pt]</p>
-<p>FastAPI · Mikrousługi · BCRYPT ·</p>
-<p>Warstwa pośrednia LLM · Python · 2024–2026</p></div></div>
-<p>FochBot to projekt rozwijany przez trzy generacje architektoniczne —</p>
-<p>od prostego klasyfikatora intencji do pełnoprawnej  pośredniej</p>
-<p>między u\.zytkownikiem a modelem językowym.</p>
-<p>Dziś FochBot nie jest klientem API ani frontendem do LLM:</p>
-<p>jest mózgiem systemu, który <strong>utrzymuje ciągłość</strong>, pamięć</p>
-<p>i decyzyjność niezale\.znie od stanu modelu językowego.</p>
-<div class="proj-box proj-box--innovation"><div class="proj-box-title">V1 — Klasyfikator intencji i NLP</div><div class="proj-box-body"><p>Pierwsza wersja: lokalny asystent oparty na <strong>klasyfikacji intencji</strong>.</p>
-<p><strong>Architektura V1:</strong></p>
-<ul class="proj-list">
-<li>intents.json — baza intencji z przykładowymi zdaniami</li>
-<li>core/nlp.py — tokenizacja i czyszczenie tekstu</li>
-<li>core/classifier.py — klasyfikator intencji (logika ML),</li>
-</ul>
-<p>training\_data.pkl</p>
-<ul class="proj-list">
-<li>core/responder.py — generowanie odpowiedzi na podstawie</li>
-</ul>
-<p>sklasyfikowanej intencji</p>
-<ul class="proj-list">
-<li>interface/cli.py — interfejs tekstowy;</li>
-</ul>
-<p>interface/web.py — opcjonalny front webowy (Flask\,/ Gradio)</p>
-<ul class="proj-list">
-<li>core/arr.py — zarezerwowany pod integrację z analizą</li>
-</ul>
-<p>rytmu MR (slot na dalszy rozwój)</p>
-<p>Logi rozmów i debug zapisywane lokalnie; model działa w pełni offline.</p></div></div>
-<div class="proj-box proj-box--innovation"><div class="proj-box-title">V2 — Mikrousł</div><div class="proj-box-body"><p>Pełna przebudowa na architekturę <strong>mikrousług</strong>.</p>
-<p>Dwie niezale\.zne usługi komunikujące się po sieci wewnętrznej:</p>
-<div class="proj-table-wrap"><table class="proj-table">
-<tbody>
-<tr>
-<th><strong>Usługa</strong></th>
-<th><strong>Odpowiedzialność</strong></th>
-</tr>
-<tr>
-<td>API :8000</td>
-<td>Logika biznesowa: chat, odpowiedzi bota, endpointy dla klientów</td>
-</tr>
-<tr>
-<td>tokeny urządzeń, role</td>
-</tr>
-</tbody></table></div>
-<p><strong>Przepływ autoryzacji:</strong></p>
-<p>Ka\.zde \.ządanie do :8000/chat przechodzi przez require\_auth() —</p>
-<p>mostek access\_control.py wysyła POST /check\_access do :8001,</p>
-<p>który sprawdza sesję w RAM i zwraca allowed: true/false</p>
-<p>wraz z danymi u\.zytkownika.</p>
-<p><strong>Baza danych JSON (pliki lokalne):</strong></p>
-<ul class="proj-list">
-<li>users.json — u\.zytkownicy, hasze <strong>BCRYPT</strong>, role</li>
-</ul>
-<p>(admin / user / device)</p>
-<ul class="proj-list">
-<li>devices.json — autoryzowane urządzenia, whitelist IP, tokeny</li>
-<li>data\_manager.py — jedyny moduł z prawem zapisu;</li>
-</ul>
-<p><strong>atomowy zapis</strong> odporny na awarię w trakcie operacji</p>
-<p>Zarządzanie przez CLI (user\_tool.py):</p>
-<p>dodawanie u\.zytkowników, nadawanie uprawnień, dezaktywacja kont.</p>
-<p>Frontend: fochbot-frontend-v2. Dostarczono w trzech fazach (phase1–3).</p></div></div>
-<div class="proj-box proj-box--innovation"><div class="proj-box-title">V3 — Warstwa po\'s</div><div class="proj-box-body"><p><strong>Zasada fundamentalna V3:</strong></p>
-<p>Model LLM (GPT, Claude itp.) to <em>neuron</em> — jednorazowa jednostka obliczeniowa.</p>
-<p>Otrzymuje impuls, generuje wyjście i gaśnie.</p>
-<p>Nie utrzymuje stanu, nie zna swojego poprzedniego wywołania.</p>
-<p><strong>FochBot jest mózgiem:</strong> utrzymuje ciągłość,</p>
-<p>pamięć i decyduje, kiedy i jak wywołać LLM.</p>
-<p>Architektura V3 składa się z dwóch niezale\.znych warstw:</p>
-<p><strong>Warstwa A — Mapa Pamięci (kontekst):</strong></p>
-<p>Trzypoziomowe archiwum na dysku —</p>
-<p>surowe sesje (session\_*.json),</p>
-<p>indeks (kompaktowy katalog dla LLM)</p>
-<p>i fragmenty wiedzy (bloki wczytywane selektywnie per zapytanie).</p>
-<p>LLM zawsze dostaje tylko tyle kontekstu, ile potrzebuje — bez pełnej historii.</p>
-<p><strong>Warstwa B — Kontroler Autonomiczny (decyzyjność):</strong></p>
-<p>Podejmuje decyzje <strong>lokalne bez LLM</strong> (routing, ocena kompletności,</p>
-<p>budowanie pakietu zapytania), następnie wywołuje LLM jako narzędzie.</p>
-<p>Ocenia wynik, ewentualnie inicjuje ponowne wywołanie lub eskalację.</p>
-<p>Logika ciągłości po stronie FochBota, nie po stronie modelu językowego.</p>
-<p><strong>Stos techniczny V3:</strong></p>
-<p>FastAPI backend (app/backend/), frontend (app/frontend/),</p>
-<p>zarządzanie stanem (state/), pełna dokumentacja techniczna</p>
-<p>(FochBot\_V3\_Dokumentacja.tex\,/\,.pdf\,/\,.docx).</p></div></div>
-<div class="proj-box proj-box--result"><div class="proj-box-body"><p><strong>Stan projektu (aktywny R\&amp;D, 2024–2026):</strong></p>
-<ul class="proj-list">
-<li><strong>V1</strong> — klasyfikator intencji, NLP offline, logowanie rozmów</li>
-<li><strong>V2</strong> — mikrousługi (FastAPI), BCRYPT, sesje, role,</li>
-</ul>
-<p>frontend, dostarczony w 3 fazach</p>
-<ul class="proj-list">
-<li><strong>V3</strong> — warstwa pośrednia LLM: Mapa Pamięci + Kontroler Autonomiczny;</li>
-</ul>
-<p>dokumentacja techniczna V3 (PDF\,/ DOCX\,/ LaTeX)</p>
-<ul class="proj-list">
-<li>Projekt otwarty: integracja z analizą MR-AI (projekt \#20),</li>
-</ul>
-<p>rozwój warstwy B w kierunku pełnej autonomii</p></div></div>
+    <div data-i18n-html="page.body"></div>
   </div>
 </main>
 
 <footer class="site-footer">
   <div class="container footer-inner">
-    <p>Artur Flamandzki · <a href="../../index.html">Portfolio R&amp;D</a></p>
+    <p>Artur Flamandzki &nbsp;·&nbsp; <a href="../../index.html">Portfolio R&amp;D</a></p>
     <nav class="proj-nav-btns">
-      <a href="../p18/" class="lang-btn">← #18</a>
-      <a href="../p20/" class="lang-btn">#20 →</a>
+      <a href="../p18/" class="lang-btn" data-i18n="page.nav_prev">← #18</a>
+      <a href="../p20/" class="lang-btn" data-i18n="page.nav_next">#20 →</a>
     </nav>
   </div>
 </footer>
