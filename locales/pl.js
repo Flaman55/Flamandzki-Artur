@@ -239,7 +239,7 @@
       p11: {
         name:   'System Pomiaru Czasu AutoMobilClub Łódź',
         tag:    'Komercja · wyścigi 1/4 mili, 2011',
-        tech:   'ATtiny2313, BASCOM, RS232, Timer1, software UART, detekcja falstartu, Watchdog reset',
+        tech:   'ATtiny2313, RS232, Timer1, software UART, detekcja falstartu, Watchdog reset',
         result: 'System pomiaru czasu dostarczony i użyty przez AutoMobilClub Łódź. Dwa niezależne timery w jednym ISR, czas przejazdu 0,01 s + czas reakcji 0,001 s. Bezpośredni poprzednik projektu #05 (DELFI Racing RT1/RT2).'
       },
       p12: {

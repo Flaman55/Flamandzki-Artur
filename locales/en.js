@@ -242,7 +242,7 @@
       p11: {
         name:   'AutoMobilClub Łódź Timing System',
         tag:    'Commercial · quarter-mile racing, 2011',
-        tech:   'ATtiny2313, BASCOM, RS232, Timer1, software UART, false-start detection, Watchdog reset',
+        tech:   'ATtiny2313, RS232, Timer1, software UART, false-start detection, Watchdog reset',
         result: 'Timing system delivered and used by AutoMobilClub Łódź. Two independent timers in one ISR, run time 0.01 s + reaction time 0.001 s. Direct predecessor of DELFI Racing (#05).'
       },
       p12: {
