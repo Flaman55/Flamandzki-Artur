@@ -21,7 +21,8 @@
       mr:          'MR / Theory',
       projekty:    'Projects',
       casestudies: 'Case Studies',
-      podsumowanie:'Summary'
+      podsumowanie:'Summary',
+      kontakt:     'Contact'
     },
 
     hero: {
@@ -413,6 +414,10 @@
     },
 
     footer: {
+      cv_pl:        '📄 CV (PL)',
+      cv_en:        '📄 CV (EN)',
+      portfolio_pl: '📁 Portfolio (PL)',
+      portfolio_en: '📁 Portfolio (EN)',
       text: '© 2026 Artur Flamandzki — R&D Portfolio. Relational Mathematics is an original theory and remains the intellectual property of the author. Contact before citing: <a href="mailto:flamandzki.artur@gmail.com">flamandzki.artur@gmail.com</a>'
     }
   };

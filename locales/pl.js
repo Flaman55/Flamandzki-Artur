@@ -18,7 +18,8 @@
       mr:          'MR / Teoria',
       projekty:    'Projekty',
       casestudies: 'Case Studies',
-      podsumowanie:'Podsumowanie'
+      podsumowanie:'Podsumowanie',
+      kontakt:     'Kontakt'
     },
 
     hero: {
@@ -410,6 +411,10 @@
     },
 
     footer: {
+      cv_pl:        '📄 CV (PL)',
+      cv_en:        '📄 CV (EN)',
+      portfolio_pl: '📁 Portfolio (PL)',
+      portfolio_en: '📁 Portfolio (EN)',
       text: '© 2026 Artur Flamandzki — Portfolio R&D. Matematyka Relacyjna jest autorską teorią i pozostaje własnością intelektualną autora. Skontaktuj się przed cytowaniem: <a href="mailto:flamandzki.artur@gmail.com">flamandzki.artur@gmail.com</a>'
     }
   };
