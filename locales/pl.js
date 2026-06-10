@@ -329,7 +329,7 @@
         },
         res: {
           title: 'Wyniki (5,5 roku eksploatacji)',
-          html:  '<li>~11 milionów rekordów pomiarowych w 61 bazach MDB (1,65 GB) — zapis ciągły przez 5,5 roku</li><li>79+ wersji firmware bez przerwy w pracy systemu (własny bootloader USB)</li><li>Precyzja: ±1°C obwód CO · średnie odchylenie −0,1°C od zadanej przez pełny sezon grzewczy na piecu węglowym z dużą bezwładnością termiczną</li><li>Podstawa 2 prac magisterskich i 1 inżynierskiej — wszystkie obronione na 5/5</li>'
+          html:  '<li>~11 milionów rekordów pomiarowych w 61 bazach MDB (1,65 GB) — zapis ciągły przez 5,5 roku</li><li>79+ wersji firmware bez przerwy w pracy systemu (własny bootloader USB)</li><li>Precyzja: ±1°C obwód CO · średnie odchylenie −0,1°C od zadanej przez pełny sezon grzewczy na piecu węglowym z dużą bezwładnością termiczną</li><li>Podstawa 2 prac magisterskich i 1 inżynierskiej — wszystkie obronione na 5/5</li><li>OneDrive jako bramka IoT — zdalny monitoring i sterowanie przez internet (2017); niestandardowe rozwiązanie dla systemów embedded klasy DIY w tamtym czasie</li>'
         }
       },
       cs2: {
@@ -348,7 +348,7 @@
         },
         res: {
           title: 'Wyniki',
-          html:  '<li>Koszt tokenów = 0 dla lokalnych zadań — LLM wywoływany wyłącznie gdy potrzeba</li><li>Ciągłość kontekstu między sesjami bez wysyłania pełnej historii do modelu</li><li>Separacja Auth od API: zmiana polityki bezpieczeństwa bez dotykania logiki biznesowej</li><li>Pełna dokumentacja techniczna V3 (FochBot_V3_Dokumentacja.pdf / .docx / .tex)</li>'
+          html:  '<li>Koszt tokenów = 0 dla lokalnych zadań — LLM wywoływany wyłącznie gdy potrzeba</li><li>Ciągłość kontekstu między sesjami bez wysyłania pełnej historii do modelu</li><li>Separacja Auth od API: zmiana polityki bezpieczeństwa bez dotykania logiki biznesowej</li><li>Zdalny dostęp: przeglądanie kodu, pobieranie i modyfikowanie, zatrzymywanie i restart serwisów, uruchamianie builda frontendu z podglądem postępu w czasie rzeczywistym</li>'
         }
       },
       cs3: {
@@ -367,7 +367,7 @@
         },
         res: {
           title: 'Wyniki',
-          html:  '<li>4,7× szybszy niż CMSIS-DSP Q31 (14→3 cykli/parę) · jitter wyeliminowany (0 vs do 530 cykli!)</li><li>Błąd aproksymacji: 18 825 ppb → 0,0 ppb — wynik algebraicznie dokładny</li><li>Zerowy dryft po 10<sup>9</sup> krokach (błąd końcowy = epsilon IEEE 754 = 2,22·10⁻¹⁶)</li><li>Działające demo na STM32G474 + biblioteka C (.a) + Docker REST API + broszura komercyjna</li>'
+          html:  '<li>4,7× szybszy niż CMSIS-DSP Q31 (14→3 cykli/parę) · jitter wyeliminowany (0 vs do 530 cykli!)</li><li>Błąd aproksymacji: 18 825 ppb → 0,0 ppb — wynik algebraicznie dokładny</li><li>Zerowy dryft po 10<sup>9</sup> krokach (błąd końcowy = epsilon IEEE 754 = 2,22·10⁻¹⁶)</li>'
         }
       }
     },

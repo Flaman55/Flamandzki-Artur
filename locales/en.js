@@ -332,7 +332,7 @@
         },
         res: {
           title: 'Results (5.5 years of operation)',
-          html:  '<li>~11 million measurement records across 61 MDB databases (1.65 GB) — continuous logging for 5.5 years</li><li>79+ firmware versions without system downtime (own USB bootloader)</li><li>Precision: ±1°C CO circuit · average deviation −0.1°C from setpoint over a full heating season on a coal boiler with high thermal inertia</li><li>Foundation for 2 master\'s and 1 engineering theses — all defended with 5/5</li>'
+          html:  '<li>~11 million measurement records across 61 MDB databases (1.65 GB) — continuous logging for 5.5 years</li><li>79+ firmware versions without system downtime (own USB bootloader)</li><li>Precision: ±1°C CO circuit · average deviation −0.1°C from setpoint over a full heating season on a coal boiler with high thermal inertia</li><li>Foundation for 2 master\'s and 1 engineering theses — all defended with 5/5</li><li>OneDrive as IoT gateway — remote monitoring and control over the internet (2017); an unconventional approach for DIY-class embedded systems at that time</li>'
         }
       },
       cs2: {
@@ -351,7 +351,7 @@
         },
         res: {
           title: 'Results',
-          html:  '<li>Token cost = 0 for local tasks — LLM called only when genuinely needed</li><li>Context continuity across sessions without sending full history to the model</li><li>Auth/API separation: security policy changes without touching business logic</li><li>Full V3 technical documentation (FochBot_V3_Dokumentacja.pdf / .docx / .tex)</li>'
+          html:  '<li>Token cost = 0 for local tasks — LLM called only when genuinely needed</li><li>Context continuity across sessions without sending full history to the model</li><li>Auth/API separation: security policy changes without touching business logic</li><li>Remote access: code browsing, downloading and editing, service stop/restart, frontend build execution with real-time progress monitoring</li>'
         }
       },
       cs3: {
@@ -370,7 +370,7 @@
         },
         res: {
           title: 'Results',
-          html:  '<li>4.7× faster than CMSIS-DSP Q31 (14→3 cycles/pair) · jitter eliminated (0 vs up to 530 cycles!)</li><li>Approximation error: 18,825 ppb → 0.0 ppb — algebraically exact result</li><li>Zero drift after 10<sup>9</sup> steps (final error = IEEE 754 epsilon = 2.22×10⁻¹⁶)</li><li>Working demo on STM32G474 + C library (.a) + Docker REST API + commercial brochure</li>'
+          html:  '<li>4.7× faster than CMSIS-DSP Q31 (14→3 cycles/pair) · jitter eliminated (0 vs up to 530 cycles!)</li><li>Approximation error: 18,825 ppb → 0.0 ppb — algebraically exact result</li><li>Zero drift after 10<sup>9</sup> steps (final error = IEEE 754 epsilon = 2.22×10⁻¹⁶)</li>'
         }
       }
     },
