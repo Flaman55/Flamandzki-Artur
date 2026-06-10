@@ -206,8 +206,30 @@ function initProjectFilter() {
 }
 
 
+/* ── Image lightbox ──────────────────────────────────────────── */
+function initLightbox() {
+  const overlay = document.createElement('div');
+  overlay.id = 'lightbox';
+  overlay.innerHTML = '<img id="lightbox-img" />';
+  document.body.appendChild(overlay);
+
+  overlay.addEventListener('click', () => overlay.classList.remove('open'));
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') overlay.classList.remove('open');
+  });
+
+  document.addEventListener('click', e => {
+    const img = e.target.closest('.proj-figure img, .proj-figure-row img');
+    if (!img) return;
+    e.preventDefault();
+    document.getElementById('lightbox-img').src = img.src;
+    overlay.classList.add('open');
+  });
+}
+
 /* ── Boot ────────────────────────────────────────────────────── */
 document.addEventListener('DOMContentLoaded', () => {
   i18n.init();
   initProjectFilter();
+  initLightbox();
 });

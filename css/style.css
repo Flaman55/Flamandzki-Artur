@@ -708,29 +708,30 @@ footer a { color: #8aaed0; }
 /* ── Three-phase evolution grid ── */
 .fazy-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 1.5rem;
-  margin: 2rem 0 1.5rem;
-}
+  grid-template-columns: repeat(auto-fit, minmax(260
+/* ── Lightbox ── */
+.proj-figure img,
+.proj-figure-row img { cursor: zoom-in; }
 
-.faza-card {
-  background: var(--surface, #f8fafc);
-  border: 1px solid var(--border, #e2e8f0);
-  border-radius: 10px;
-  padding: 1.5rem 1.75rem;
-  position: relative;
-  border-top: 3px solid var(--accent, #2563eb);
-  transition: box-shadow .2s;
+#lightbox {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.85);
+  z-index: 9999;
+  align-items: center;
+  justify-content: center;
+  cursor: zoom-out;
 }
-
-.faza-card:hover {
-  box-shadow: 0 4px 18px rgba(0,0,0,.08);
+#lightbox.open { display: flex; }
+#lightbox-img {
+  max-width: 92vw;
+  max-height: 92vh;
+  object-fit: contain;
+  border-radius: 4px;
+  box-shadow: 0 8px 40px rgba(0,0,0,.6);
 }
-
-.faza-nr {
-  font-size: 2.5rem;
-  font-weight: 800;
-  color: var(--accent, #2563eb);
+b);
   opacity: .18;
   line-height: 1;
   margin-bottom: .25rem;
