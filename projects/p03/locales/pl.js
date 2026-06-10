@@ -4,7 +4,7 @@
   const existing = window.i18nData['pl'].page || {};
   window.i18nData['pl'].page = Object.assign({}, existing, {
     title: '#03 Automatyczny Kalibrator Wtryskiwaczy LPG — Artur Flamandzki',
-    hero_tag:'PORTFOLIO R&amp;D — PROJEKT #03 — ZLECENIE KOMERCYJNE',
+    hero_tag:'PORTFOLIO R&D — PROJEKT #03 — ZLECENIE KOMERCYJNE',
     hero_title:'Automatyczny Kalibrator Wtryskiwaczy LPG',
     hero_sub:'zamknięta pętla sterowania zamiast ręcznej kalibracji suwmiarką',
     date:  'ok. 2010–2011 · zlecenie komercyjne · ATmega32 + 2× silnik krokowy · 2 lata przed studiami',

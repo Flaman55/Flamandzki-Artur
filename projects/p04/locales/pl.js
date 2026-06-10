@@ -4,7 +4,7 @@
   const existing = window.i18nData['pl'].page || {};
   window.i18nData['pl'].page = Object.assign({}, existing, {
     title: '#04 Woltomierz Samochodowy WST / WSTK — Artur Flamandzki',
-    hero_tag:'PORTFOLIO R&amp;D — PROJEKT #04',
+    hero_tag:'PORTFOLIO R&D — PROJEKT #04',
     hero_title:'Woltomierz Samochodowy WST / WSTK',
     hero_sub:'autonomiczny monitor układu elektrycznego pojazdu z interpretacją stanu silnika',
     date:  'ok. 2011–2012 · 150 sztuk sprzedanych (WST) · ATmega + HD44780 + 2× DS18B20',

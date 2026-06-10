@@ -4,7 +4,7 @@
   const existing = window.i18nData['pl'].page || {};
   window.i18nData['pl'].page = Object.assign({}, existing, {
     title: '#02 Przenośny Głośnik Bateryjny — Artur Flamandzki',
-    hero_tag:'PORTFOLIO R&amp;D — PROJEKT #02 — PROJEKT HISTORYCZNY',
+    hero_tag:'PORTFOLIO R&D — PROJEKT #02 — PROJEKT HISTORYCZNY',
     hero_title:'Przenośny Głośnik Bateryjny',
     hero_sub:'koncepcja produktu przed rynkiem — 4–6 lat przed Jawbone Jambox',
     date:  '2004–2006 · liceum elektroniczne · Kradex + TDA + 9 V',

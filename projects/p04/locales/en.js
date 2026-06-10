@@ -4,7 +4,7 @@
   const existing = window.i18nData['en'].page || {};
   window.i18nData['en'].page = Object.assign({}, existing, {
     title: '#04 Car Voltmeter WST / WSTK — Artur Flamandzki',
-    hero_tag:'PORTFOLIO R&amp;D — PROJECT #04',
+    hero_tag:'PORTFOLIO R&D — PROJECT #04',
     hero_title:'Car Voltmeter WST / WSTK',
     hero_sub:'autonomous vehicle electrical system monitor with engine-state interpretation',
     date:  'c. 2011–2012 · 150 units sold (WST) · ATmega + HD44780 + 2× DS18B20',

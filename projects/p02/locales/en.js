@@ -4,7 +4,7 @@
   const existing = window.i18nData['en'].page || {};
   window.i18nData['en'].page = Object.assign({}, existing, {
     title: '#02 Portable Battery Speaker — Artur Flamandzki',
-    hero_tag:'PORTFOLIO R&amp;D — PROJECT #02 — HISTORICAL PROJECT',
+    hero_tag:'PORTFOLIO R&D — PROJECT #02 — HISTORICAL PROJECT',
     hero_title:'Portable Battery-Powered Speaker',
     hero_sub:'product concept ahead of the market — 4–6 years before Jawbone Jambox',
     date:  '2004–2006 · electronics high school · Kradex + TDA + 9 V',

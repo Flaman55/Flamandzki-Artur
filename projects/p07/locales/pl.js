@@ -4,7 +4,7 @@
   const existing = window.i18nData['pl'].page || {};
   window.i18nData['pl'].page = Object.assign({}, existing, {
     title: '#07 LX-GT01: Generator Tabel Kodów Laskomex — Artur Flamandzki',
-    hero_tag: 'PORTFOLIO R&amp;D — PROJEKT #07 — PRODUKT KOMERCYJNY',
+    hero_tag: 'PORTFOLIO R&D — PROJEKT #07 — PRODUKT KOMERCYJNY',
     hero_title: 'LX-GT01: Generator Tabel Kodów Laskomex',
     hero_sub: 'Eliminacja serwera przez algorytm deterministyczny · numer seryjny jako przenośny klucz tabeli · 2018–2019',
     date: '2018–2019 · produkt komercyjny · ATtiny + .NET/C# + PdfSharp · 50–75 szt. u dystrybutorów',

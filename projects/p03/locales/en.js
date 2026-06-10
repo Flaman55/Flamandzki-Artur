@@ -4,7 +4,7 @@
   const existing = window.i18nData['en'].page || {};
   window.i18nData['en'].page = Object.assign({}, existing, {
     title: '#03 Automatic LPG Injector Calibrator — Artur Flamandzki',
-    hero_tag:'PORTFOLIO R&amp;D — PROJECT #03 — COMMERCIAL CONTRACT',
+    hero_tag:'PORTFOLIO R&D — PROJECT #03 — COMMERCIAL CONTRACT',
     hero_title:'Automatic LPG Injector Calibrator',
     hero_sub:'closed-loop control replacing manual calliper calibration',
     date:  'c. 2010–2011 · commercial contract · ATmega32 + 2× stepper motor · 2 years before university',

@@ -4,7 +4,7 @@
   const existing = window.i18nData['en'].page || {};
   window.i18nData['en'].page = Object.assign({}, existing, {
     title: '#07 LX-GT01: Laskomex Code Table Generator — Artur Flamandzki',
-    hero_tag: 'PORTFOLIO R&amp;D — PROJECT #07 — COMMERCIAL PRODUCT',
+    hero_tag: 'PORTFOLIO R&D — PROJECT #07 — COMMERCIAL PRODUCT',
     hero_title: 'LX-GT01: Laskomex Code Table Generator',
     hero_sub: 'Server eliminated by deterministic algorithm · serial number as portable table key · 2018–2019',
     date: '2018–2019 · commercial product · ATtiny + .NET/C# + PdfSharp · 50–75 units at distributors',
