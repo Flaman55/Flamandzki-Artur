@@ -4,10 +4,10 @@
   const existing = window.i18nData['pl'].page || {};
   window.i18nData['pl'].page = Object.assign({}, existing, {
     title: '#06 Seria LX-DK: Moduły Resetowania Haseł Administratora Laskomex — Artur Flamandzki',
-    hero_tag: 'PORTFOLIO R&amp;D — PROJEKT #06 — PRODUKT KOMERCYJNY',
+    hero_tag: 'PORTFOLIO R&D — PROJEKT #06 — PRODUKT KOMERCYJNY',
     hero_title: 'Seria LX-DK: Moduły Resetowania Haseł Administratora Laskomex',
     hero_sub: 'LX-DK02 (hasło fabryczne) · LX-DK03 (hasło stałe, 500 szt.) · ATtiny + RS232 · 2015–2022',
-    date: '2015–2022 · produkt komercyjny / zewnętrzny dostawca · ATtiny, RS232, EAGLE, BASCOM · 500 sztuk, 7 lat',
+    date: '2015–2022 · produkt komercyjny / zewnętrzny dostawca · ATtiny, RS232, EAGLE · 500 sztuk, 7 lat',
     summary: '<p>Dwa warianty modułu do obsługi zapomnianych haseł administratora central domofonowych Laskomex — zbudowane na <strong>identycznej płytce PCB</strong>, różniące się wyłącznie firmware. Produkt zaprojektowany i wytworzony jako właściciel firmy DELFI Electronics i sprzedawany producentowi (Laskomex Sp. z o.o.) przez 7 lat (2015–2022), w tym 3 lata po odejściu autora z firmy.</p>',
     nav_prev: '← #05',
     nav_next: '#07 →',

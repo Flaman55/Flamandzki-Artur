@@ -4,10 +4,10 @@
   const existing = window.i18nData['en'].page || {};
   window.i18nData['en'].page = Object.assign({}, existing, {
     title: '#06 LX-DK Series: Laskomex Administrator Password Reset Modules — Artur Flamandzki',
-    hero_tag: 'PORTFOLIO R&amp;D — PROJECT #06 — COMMERCIAL PRODUCT',
+    hero_tag: 'PORTFOLIO R&D — PROJECT #06 — COMMERCIAL PRODUCT',
     hero_title: 'LX-DK Series: Laskomex Administrator Password Reset Modules',
     hero_sub: 'LX-DK02 (factory password) · LX-DK03 (fixed password, 500 units) · ATtiny + RS232 · 2015–2022',
-    date: '2015–2022 · commercial product / external supplier · ATtiny, RS232, EAGLE, BASCOM · 500 units, 7 years',
+    date: '2015–2022 · commercial product / external supplier · ATtiny, RS232, EAGLE · 500 units, 7 years',
     summary: '<p>Two variants of a module for handling forgotten administrator passwords on Laskomex intercom control units — built on an <strong>identical PCB</strong>, differing only in firmware. Designed and manufactured as owner of DELFI Electronics and sold to the manufacturer (Laskomex Sp. z o.o.) for 7 years (2015–2022), including 3 years after the author left the company.</p>',
     nav_prev: '← #05',
     nav_next: '#07 →',

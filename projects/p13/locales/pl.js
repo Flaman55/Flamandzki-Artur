@@ -4,10 +4,10 @@
   const existing = window.i18nData['pl'].page || {};
   window.i18nData['pl'].page = Object.assign({}, existing, {
     title: '#13 Sterownik Rozsiewacza BAGRAMET — Artur Flamandzki',
-    hero_tag: 'PORTFOLIO R&amp;D — PROJEKT #13 — ZLECENIE KOMERCYJNE',
+    hero_tag: 'PORTFOLIO R&D — PROJEKT #13 — ZLECENIE KOMERCYJNE',
     hero_title: 'Sterownik Rozsiewacza BAGRAMET — System Dwupłytkowy',
-    hero_sub: 'Zlecenie komercyjne dla firmy z Bytowa · dwie płytki PCB · Gerbery BAZECO · kilkanaście urządzeń',
-    date: 'DELFI Electronics · zlecenie komercyjne · Eagle PCB, BAZECO · płyta główna + płyta wyświetlacza, zastosowanie rolnicze',
+    hero_sub: 'Zlecenie komercyjne dla firmy z Bytowa · dwie płytki PCB · Gerbery · kilkanaście urządzeń',
+    date: 'DELFI Electronics · zlecenie komercyjne · Eagle PCB · płyta główna + płyta wyświetlacza, zastosowanie rolnicze',
     summary: '<p>Zlecenie komercyjne od firmy BAGRAMET z Bytowa: elektroniczny sterownik do rozsiewacza przyczepowego. Architektura dwupłytkowa — <strong>płyta główna</strong> (logika sterowania) i <strong>płyta wyświetlacza</strong> (panel operatora w kabinie). Wyprodukowano i sprzedano kilkanaście gotowych urządzeń.</p>',
     nav_prev: '← #12',
     nav_next: '#14 →',
