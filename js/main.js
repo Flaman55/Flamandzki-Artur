@@ -219,10 +219,11 @@ function initLightbox() {
   });
 
   document.addEventListener('click', e => {
-    const img = e.target.closest('.proj-figure img, .proj-figure-row img');
-    if (!img) return;
+    const el = e.target;
+    if (el.tagName !== 'IMG') return;
+    if (!el.closest('.proj-figure') && !el.closest('.proj-figure-row')) return;
     e.preventDefault();
-    document.getElementById('lightbox-img').src = img.src;
+    document.getElementById('lightbox-img').src = el.src;
     overlay.classList.add('open');
   });
 }
