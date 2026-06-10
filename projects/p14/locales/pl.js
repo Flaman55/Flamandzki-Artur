@@ -4,10 +4,10 @@
   const existing = window.i18nData['pl'].page || {};
   window.i18nData['pl'].page = Object.assign({}, existing, {
     title: '#14 RGB LED Fun: Zabawka Dydaktyczna dla Dzieci — Artur Flamandzki',
-    hero_tag: 'PORTFOLIO R&amp;D — PROJEKT #14 — PROJEKT HOBBYSTYCZNY',
+    hero_tag: 'PORTFOLIO R&D — PROJEKT #14 — PROJEKT HOBBYSTYCZNY',
     hero_title: 'RGB LED Fun: Zabawka Dydaktyczna dla Dzieci',
     hero_sub: 'RGB na 4 pinach ATtiny13A · tranzystory jako multiplekser ADC · laser CO₂ · DipTrace · ok. 2021–2022',
-    date: 'ok. 2021–2022 · projekt hobbystyczny · ATtiny13A, BASCOM, DipTrace, Cut2D, laser CO₂',
+    date: 'ok. 2021–2022 · projekt hobbystyczny · ATtiny13A, DipTrace, Cut2D, laser CO₂',
     summary: '<p>Zabawka dydaktyczna dla dzieci: trzy potencjometry R/G/B, dioda LED RGB, wyświetlanie wybranego koloru w czasie rzeczywistym. Kluczowe założenie: <strong>pełna obsługa RGB + 3 potencjometry na zaledwie 4 pinach MCU</strong>. Tranzystory LED pełnią jednocześnie rolę multipleksera ADC. Obudowa wycięta na własnym laserze CO₂.</p>',
     nav_prev: '← #13',
     nav_next: '#15 →',

@@ -4,10 +4,10 @@
   const existing = window.i18nData['en'].page || {};
   window.i18nData['en'].page = Object.assign({}, existing, {
     title: '#14 RGB LED Fun: Educational Toy for Children — Artur Flamandzki',
-    hero_tag: 'PORTFOLIO R&amp;D — PROJECT #14 — HOBBY PROJECT',
+    hero_tag: 'PORTFOLIO R&D — PROJECT #14 — HOBBY PROJECT',
     hero_title: 'RGB LED Fun: Educational Toy for Children',
     hero_sub: 'RGB on 4 ATtiny13A pins · transistors as ADC multiplexer · CO₂ laser · DipTrace · ca. 2021–2022',
-    date: 'ca. 2021–2022 · hobby project · ATtiny13A, BASCOM, DipTrace, Cut2D, CO₂ laser',
+    date: 'ca. 2021–2022 · hobby project · ATtiny13A, DipTrace, Cut2D, CO₂ laser',
     summary: '<p>Educational toy for children: three R/G/B potentiometers, RGB LED, real-time colour display. Key constraint: <strong>full RGB + 3 potentiometers on just 4 MCU pins</strong>. LED transistors simultaneously serve as ADC multiplexer. Enclosure cut on own CO₂ laser.</p>',
     nav_prev: '← #13',
     nav_next: '#15 →',

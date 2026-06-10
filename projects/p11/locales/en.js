@@ -4,10 +4,10 @@
   const existing = window.i18nData['en'].page || {};
   window.i18nData['en'].page = Object.assign({}, existing, {
     title: '#11 AutoMobilClub Łódź Timing System — Artur Flamandzki',
-    hero_tag: 'PORTFOLIO R&amp;D — PROJECT #11 — COMMERCIAL CONTRACT',
+    hero_tag: 'PORTFOLIO R&D — PROJECT #11 — COMMERCIAL CONTRACT',
     hero_title: 'AutoMobilClub Łódź Timing System',
     hero_sub: 'Distributed timing system for motorsport events · two timers in one ISR · false start detection · ATtiny2313 · 2011',
-    date: '2011 · commercial contract · ATtiny2313, BASCOM BASIC, RS232 · predecessor to DELFI Racing #05',
+    date: '2011 · commercial contract · ATtiny2313, RS232 · predecessor to DELFI Racing #05',
     summary: '<p>Commission from AutoMobilClub Łódź: electronic timing system for motorsport events. Requirements: start sequence with lights (5 red + green), lap time precision 0.01 s, driver reaction time 0.001 s, false-start detection, RS232 interface to stopwatch and PC. Core: ATtiny2313 with 2 KB flash — almost entirely full.</p>',
     nav_prev: '← #10',
     nav_next: '#12 →',

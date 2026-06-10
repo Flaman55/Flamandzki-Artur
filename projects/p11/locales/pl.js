@@ -4,10 +4,10 @@
   const existing = window.i18nData['pl'].page || {};
   window.i18nData['pl'].page = Object.assign({}, existing, {
     title: '#11 System Pomiaru Czasu AutoMobilClub Łódzki — Artur Flamandzki',
-    hero_tag: 'PORTFOLIO R&amp;D — PROJEKT #11 — ZLECENIE KOMERCYJNE',
+    hero_tag: 'PORTFOLIO R&D — PROJEKT #11 — ZLECENIE KOMERCYJNE',
     hero_title: 'System Pomiaru Czasu AutoMobilClub Łódzki',
     hero_sub: 'Rozproszony system timing dla zawodów samochodowych · dwa timery w jednym ISR · detekcja falstartu · ATtiny2313 · 2011',
-    date: '2011 · zlecenie komercyjne · ATtiny2313, BASCOM BASIC, RS232 · poprzednik DELFI Racing #05',
+    date: '2011 · zlecenie komercyjne · ATtiny2313, RS232 · poprzednik DELFI Racing #05',
     summary: '<p>Zlecenie od AutoMobilClub Łódzki: elektroniczny system pomiaru czasu na zawodach samochodowych. Wymagania: start ze światłami (5 czerwonych + zielone), czas przejazdu 0,01 s, czas reakcji kierowcy 0,001 s, detekcja falstartu, współpraca z chronometrem i komputerem przez RS232. Serce: ATtiny2313 z 2 KB flash — praktycznie całkowicie zapełnionym.</p>',
     nav_prev: '← #10',
     nav_next: '#12 →',

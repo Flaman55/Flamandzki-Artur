@@ -4,10 +4,10 @@
   const existing = window.i18nData['en'].page || {};
   window.i18nData['en'].page = Object.assign({}, existing, {
     title: '#21 HPC Factorisation: Classical Simulation of Shor\'s Algorithm — Artur Flamandzki',
-    hero_tag: 'PORTFOLIO R&amp;D — PROJECT #21 — ACTIVE R&amp;D',
+    hero_tag: 'PORTFOLIO R&D — PROJECT #21 — ACTIVE R&D',
     hero_title: 'HPC Factorisation: Classical Simulation of Shor\'s Algorithm',
     hero_sub: 'Adaptive period finder · Phase mechanism · Multithreaded Python · Numba/NumPy · 2025–2026',
-    date: '2025–2026 · mathematics / HPC · Python, NumPy, Numba, multiprocessing · active R&amp;D',
+    date: '2025–2026 · mathematics / HPC · Python, NumPy, Numba, multiprocessing · active R&D',
     summary: '<p>Classical implementation of the Shor\'s algorithm core — <strong>without a quantum computer</strong>. Once period r is found, factorisation N = gcd(a<sup>r/2</sup>±1, N) is instant. The system adaptively analyses the structure of N and deterministically narrows the candidate a-space. Phase mechanism works on 60–100+ digit numbers. Project connects Relational Mathematics (#17) and Resona (#18).</p>',
     nav_prev: '← #20',
     nav_next: '#22 →',

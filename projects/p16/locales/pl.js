@@ -4,10 +4,10 @@
   const existing = window.i18nData['pl'].page || {};
   window.i18nData['pl'].page = Object.assign({}, existing, {
     title: '#16 TrueSynth: Biblioteka Trygonometryczna dla Embedded — Artur Flamandzki',
-    hero_tag: 'PORTFOLIO R&amp;D — PROJEKT #16 — AKTYWNY R&amp;D',
+    hero_tag: 'PORTFOLIO R&D — PROJEKT #16 — AKTYWNY R&D',
     hero_title: 'TrueSynth: Biblioteka Trygonometryczna dla Embedded',
     hero_sub: 'Relacyjna Trygonometria · Prime Engine · Q31 fixed-point · Cortex-M0/M4F · 2025–2026',
-    date: '2025–2026 · embedded / DSP · C/ASM, Q31 fixed-point · STM32F030, STM32G474 · aktywny R&amp;D',
+    date: '2025–2026 · embedded / DSP · C/ASM, Q31 fixed-point · STM32F030, STM32G474 · aktywny R&D',
     summary: '<p>Cel: wyeliminować błąd aproksymacji trygonometrycznej w obliczeniach embedded algebraicznie — bez utraty prędkości. Metoda <strong>Prime Engine</strong>: kąt k/p (p pierwsze) gwarantuje, że każdy punkt LUT leży dokładnie na okręgu jednostkowym. Zero błędu, zero interpolacji, zero jittera — dowiedzione algebraicznie i zweryfikowane na Cortex-M0/M4F. Mode MI: <strong>3 cykle/para, 4,7× szybszy od CMSIS-DSP Q31</strong>.</p>',
     nav_prev: '← #15',
     nav_next: '#17 →',

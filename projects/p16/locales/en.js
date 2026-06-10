@@ -4,10 +4,10 @@
   const existing = window.i18nData['en'].page || {};
   window.i18nData['en'].page = Object.assign({}, existing, {
     title: '#16 TrueSynth: Trigonometric Library for Embedded — Artur Flamandzki',
-    hero_tag: 'PORTFOLIO R&amp;D — PROJECT #16 — ACTIVE R&amp;D',
+    hero_tag: 'PORTFOLIO R&D — PROJECT #16 — ACTIVE R&D',
     hero_title: 'TrueSynth: Trigonometric Library for Embedded',
     hero_sub: 'Relational Trigonometry · Prime Engine · Q31 fixed-point · Cortex-M0/M4F · 2025–2026',
-    date: '2025–2026 · embedded / DSP · C/ASM, Q31 fixed-point · STM32F030, STM32G474 · active R&amp;D',
+    date: '2025–2026 · embedded / DSP · C/ASM, Q31 fixed-point · STM32F030, STM32G474 · active R&D',
     summary: '<p>Goal: algebraically eliminate trigonometric approximation error in embedded computations — without sacrificing speed. <strong>Prime Engine</strong> method: angle k/p (p prime) guarantees every LUT point lies exactly on the unit circle. Zero error, zero interpolation, zero jitter — proved algebraically and verified on Cortex-M0/M4F. Mode MI: <strong>3 cycles/pair, 4.7× faster than CMSIS-DSP Q31</strong>.</p>',
     nav_prev: '← #15',
     nav_next: '#17 →',

@@ -4,10 +4,10 @@
   const existing = window.i18nData['en'].page || {};
   window.i18nData['en'].page = Object.assign({}, existing, {
     title: '#09 Divisor Algorithm: Rediscovering a Number Theory Theorem on ATmega8 — Artur Flamandzki',
-    hero_tag: 'PORTFOLIO R&amp;D — PROJECT #09 — ALGORITHMIC RESEARCH',
+    hero_tag: 'PORTFOLIO R&D — PROJECT #09 — ALGORITHMIC RESEARCH',
     hero_title: 'Divisor Algorithm: Rediscovering a Number Theory Theorem on ATmega8',
     hero_sub: 'From an algorithmic task to independently deriving a mathematical formula · ATmega8, 1 MHz · 2013',
-    date: '2013 · algorithmic research / number theory · ATmega8, BASCOM BASIC, C# · V1.0→V2.0',
+    date: '2013 · algorithmic research / number theory · ATmega8, C# · V1.0→V2.0',
     summary: '<p>Task: find a number with exactly 500 divisors. Platform: ATmega8, 1 MHz, BASCOM BASIC. In the process the author empirically derived a classical number-theory formula for constructing the minimal number with a given divisor count, and developed a four-path O(√N) algorithm far faster than the conventional approach. The project became the direct reason for pursuing an engineering degree.</p>',
     nav_prev: '← #08',
     nav_next: '#10 →',

@@ -4,10 +4,10 @@
   const existing = window.i18nData['pl'].page || {};
   window.i18nData['pl'].page = Object.assign({}, existing, {
     title: '#21 HPC Faktoryzacja: Klasyczna Symulacja Algorytmu Shora — Artur Flamandzki',
-    hero_tag: 'PORTFOLIO R&amp;D — PROJEKT #21 — AKTYWNY R&amp;D',
+    hero_tag: 'PORTFOLIO R&D — PROJEKT #21 — AKTYWNY R&D',
     hero_title: 'HPC Faktoryzacja: Klasyczna Symulacja Algorytmu Shora',
     hero_sub: 'Adaptacyjny finder okresu · Mechanizm fazowy · Wielowątkowy Python · Numba/NumPy · 2025–2026',
-    date: '2025–2026 · matematyka / HPC · Python, NumPy, Numba, multiprocessing · aktywny R&amp;D',
+    date: '2025–2026 · matematyka / HPC · Python, NumPy, Numba, multiprocessing · aktywny R&D',
     summary: '<p>Klasyczna implementacja rdzenia algorytmu Shora — <strong>bez komputera kwantowego</strong>. Gdy okres r zostanie wyznaczony, faktoryzacja N = gcd(a<sup>r/2</sup>±1, N) jest natychmiastowa. System adaptacyjnie analizuje strukturę N i deterministycznie zawęża przestrzeń kandydatów a. Mechanizm fazowy działa na liczbach 60–100+ cyfrowych. Projekt łączy Matematykę Relacyjną (#17) i Resona (#18).</p>',
     nav_prev: '← #20',
     nav_next: '#22 →',

@@ -4,10 +4,10 @@
   const existing = window.i18nData['pl'].page || {};
   window.i18nData['pl'].page = Object.assign({}, existing, {
     title: '#09 Algorytm Dzielników: Odkrycie Twierdzenia Teorii Liczb na ATmega8 — Artur Flamandzki',
-    hero_tag: 'PORTFOLIO R&amp;D — PROJEKT #09 — BADANIE ALGORYTMICZNE',
+    hero_tag: 'PORTFOLIO R&D — PROJEKT #09 — BADANIE ALGORYTMICZNE',
     hero_title: 'Algorytm Dzielników: Odkrycie Twierdzenia Teorii Liczb na ATmega8',
     hero_sub: 'Od zadania algorytmicznego do samodzielnego wyprowadzenia wzoru matematycznego · ATmega8, 1 MHz · 2013',
-    date: '2013 · badanie algorytmiczne / teoria liczb · ATmega8, BASCOM BASIC, C# · V1.0→V2.0',
+    date: '2013 · badanie algorytmiczne / teoria liczb · ATmega8, C# · V1.0→V2.0',
     summary: '<p>Zadanie: znaleźć liczbę posiadającą dokładnie 500 dzielników. Platforma: ATmega8, 1 MHz, BASCOM BASIC. W trakcie rozwiązywania autor wyprowadził empirycznie klasyczny wzór teorii liczb na minimalizację liczby z podaną liczbą dzielników oraz opracował czterościeżkowy algorytm O(√N) znacznie szybszy od konwencjonalnego. Projekt stał się bezpośrednią przyczyną podjęcia studiów inżynierskich.</p>',
     nav_prev: '← #08',
     nav_next: '#10 →',
