@@ -428,11 +428,11 @@ a.proj-link:hover .proj-name { color: #2d7dd2; text-decoration: underline; }
 }
 
 /* row category color bars */
-tbody tr[data-cat="embedded"]  td:first-child { border-left: 3px solid #2d7dd2; }
-tbody tr[data-cat="math"]      td:first-child { border-left: 3px solid #7b2d9b; }
-tbody tr[data-cat="ai"]        td:first-child { border-left: 3px solid #1b8a50; }
-tbody tr[data-cat="own"]       td:first-child { border-left: 3px solid #c47c00; }
-tbody tr[data-cat="commercial"]td:first-child { border-left: 3px solid #c0392b; }
+.table-wrapper tbody tr[data-cat="embedded"]   td:first-child { border-left: 4px solid #2d7dd2; }
+.table-wrapper tbody tr[data-cat="math"]       td:first-child { border-left: 4px solid #7b2d9b; }
+.table-wrapper tbody tr[data-cat="ai"]         td:first-child { border-left: 4px solid #1b8a50; }
+.table-wrapper tbody tr[data-cat="own"]        td:first-child { border-left: 4px solid #c47c00; }
+.table-wrapper tbody tr[data-cat="commercial"] td:first-child { border-left: 4px solid #c0392b; }
 
 .legend {
   display: flex;
