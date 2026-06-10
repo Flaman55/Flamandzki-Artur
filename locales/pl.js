@@ -403,18 +403,16 @@
       cta: {
         title: 'Kontakt i współpraca',
         text:  'Otwarty na projekty R&D, konsulting embedded, partnerstwo przy badaniach MR/AI.',
-        email:  '✉ flamandzki.artur@gmail.com',
-        zenodo: '🔬 Zenodo',
-        cv_en:  '📄 CV (EN)',
-        cv_pl:  '📄 CV (PL)'
+        email:        '✉ flamandzki.artur@gmail.com',
+        zenodo:       '🔬 Zenodo',
+        lang_pl:      'PL',
+        lang_en:      'EN',
+        portfolio_pl: 'Portfolio PL',
+        portfolio_en: 'Portfolio EN'
       }
     },
 
     footer: {
-      cv_pl:        '📄 CV (PL)',
-      cv_en:        '📄 CV (EN)',
-      portfolio_pl: '📁 Portfolio (PL)',
-      portfolio_en: '📁 Portfolio (EN)',
       text: '© 2026 Artur Flamandzki — Portfolio R&D. Matematyka Relacyjna jest autorską teorią i pozostaje własnością intelektualną autora. Skontaktuj się przed cytowaniem: <a href="mailto:flamandzki.artur@gmail.com">flamandzki.artur@gmail.com</a>'
     }
   };

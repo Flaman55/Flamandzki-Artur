@@ -603,6 +603,42 @@ tbody tr.filter-hidden { display: none; }
   color: #fff;
 }
 
+/* ── Download cards (CTA block) ──────────────────────────────── */
+.cta-downloads {
+  display: flex;
+  gap: 1.2rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 1.25rem;
+}
+.dl-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: .45rem;
+  padding: .75rem 1.1rem;
+  background: rgba(255,255,255,.08);
+  border: 1px solid rgba(255,255,255,.18);
+  border-radius: 8px;
+  color: #fff;
+  font-size: .85rem;
+  text-decoration: none;
+  transition: background var(--transition), transform var(--transition);
+  min-width: 88px;
+}
+.dl-card:hover {
+  background: rgba(255,255,255,.18);
+  transform: translateY(-2px);
+  text-decoration: none;
+  color: #fff;
+}
+.dl-icon svg { display: block; }
+.dl-label {
+  font-weight: 600;
+  letter-spacing: .02em;
+  color: #e0eef8;
+}
+
 /* ── Footer ──────────────────────────────────────────────────── */
 footer {
   background: var(--navy-dark);

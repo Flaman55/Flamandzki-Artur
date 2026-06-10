@@ -406,18 +406,16 @@
       cta: {
         title: 'Contact & Collaboration',
         text:  'Open to R&D projects, embedded consulting, and MR/AI research partnerships.',
-        email:  '✉ flamandzki.artur@gmail.com',
-        zenodo: '🔬 Zenodo',
-        cv_en:  '📄 CV (EN)',
-        cv_pl:  '📄 CV (PL)'
+        email:        '✉ flamandzki.artur@gmail.com',
+        zenodo:       '🔬 Zenodo',
+        lang_pl:      'PL',
+        lang_en:      'EN',
+        portfolio_pl: 'Portfolio PL',
+        portfolio_en: 'Portfolio EN'
       }
     },
 
     footer: {
-      cv_pl:        '📄 CV (PL)',
-      cv_en:        '📄 CV (EN)',
-      portfolio_pl: '📁 Portfolio (PL)',
-      portfolio_en: '📁 Portfolio (EN)',
       text: '© 2026 Artur Flamandzki — R&D Portfolio. Relational Mathematics is an original theory and remains the intellectual property of the author. Contact before citing: <a href="mailto:flamandzki.artur@gmail.com">flamandzki.artur@gmail.com</a>'
     }
   };
