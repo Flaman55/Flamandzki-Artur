@@ -95,7 +95,7 @@
         text:   'Corporate FinTech environment (Java / React / C#, COREP/FINREP). Unit and integration testing, Docker, CI/CD pipelines — corporate and big-tech tooling.'
       },
       t8: {
-        period: '2024 – present',
+        period: '2025 – present',
         title:  'Smart Home, MR, TrueSynth, FochBot — convergence of both tracks',
         text:   'Smart home (Home Assistant, #22), Resona trajectory model (#18), Relational Mathematics theory (#17), MR-AI framework (#20), FochBot AI assistant (#19), TrueSynth embedded trigonometry (#16), HPC Shor simulation (#21).'
       },
@@ -112,7 +112,7 @@
       fase3: {
         label: 'Phase 3 — Algorithm as product',
         title: 'TrueSynth · Resona · MR-AI · number theory',
-        text:  'If you understand hardware constraints and enterprise scale and mathematical foundations — you can design systems others consider impossible.'
+        text:  'If you understand hardware constraints, enterprise scale and mathematical foundations — you can design systems others consider impossible.'
       },
       fazepunchline: 'Hardware taught me to think in cycles. Banking taught me to think in volumes. Mathematics taught me to think in structures. I design at the intersection of all three.',
       note: '<strong>Two tracks:</strong> embedded hardware (projects #01–#15) and relational mathematics (#16–#21) developed in parallel for years. In 2022–2026 they <strong>converge into one</strong>: MR-AI, TrueSynth and Resona are where microcontroller physics meets number theory.'
@@ -123,7 +123,7 @@
       sub:   'Hierarchy: MR as foundational theory (#17) → five analytical frameworks → MR-AI (#20) as the framework combining them all for AI applications.',
       theory: {
         title: 'MR — Foundational Theory (project #17)',
-        text:  'Relational Mathematics (MR) is an original mathematical theory describing the structure of prime numbers through the lens of rhythmic relations, partitions and rotational models. It includes a hyperbolic proof of the Bertrand–Chebyshev theorem, CRT structures, Q (semigroups) and a rotational prime model. Published as 6 scientific preprints on Zenodo. MR provides the formal mathematical apparatus for five analytical frameworks.'
+        text:  'Relational Mathematics (MR) is an original mathematical theory describing the structure of prime numbers through the lens of rhythmic relations, partitions and rotational models — including a hyperbolic proof of the Bertrand–Chebyshev theorem, CRT structures and Q-semigroups. Published as 6 scientific preprints on Zenodo; provides the formal mathematical apparatus for five analytical frameworks.'
       },
       arr: {
         tag:     'ARR',

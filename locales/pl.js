@@ -92,7 +92,7 @@
         text:   'Środowisko korporacyjne FinTech (Java / React / C#, COREP/FINREP). Testy jednostkowe i integracyjne, Docker, pipeline CI/CD — narzędzia korporacyjne i big tech.'
       },
       t8: {
-        period: '2024 – obecnie',
+        period: '2025 – obecnie',
         title:  'Smart Home, MR, TrueSynth, FochBot — konwergencja obu ścieżek',
         text:   'Inteligentny dom (Home Assistant, #22), Resona trajektorowy model (#18), Matematyka Relacyjna teoria (#17), MR-AI framework (#20), FochBot asystent AI (#19), TrueSynth trygonometria embedded (#16), HPC symulacja algorytmu Shora (#21).'
       },
@@ -109,7 +109,7 @@
       fase3: {
         label: 'Faza 3 — Algorytm jako produkt',
         title: 'TrueSynth · Resona · MR-AI · teoria liczb',
-        text:  'Jeżeli rozumiesz ograniczenia sprzętowe i skalę enterprise i matematyczny fundament — możesz projektować systemy, które inni uznają za niemożliwe.'
+        text:  'Jeżeli rozumiesz ograniczenia sprzętowe, skalę enterprise i matematyczny fundament — możesz projektować systemy, które inni uznają za niemożliwe.'
       },
       fazepunchline: 'Hardware nauczył mnie myśleć w cyklach. Bank nauczył myśleć w wolumenach. Matematyka nauczyła myśleć w strukturach. Projektuję na przecięciu wszystkich trzech.',
       note: '<strong>Dwie ścieżki:</strong> hardware embedded (projekty #01–#15) i matematyka relacyjna (#16–#21) rozwijały się równolegle przez lata. W 2022–2026 <strong>zbiegają się w jedną</strong>: MR-AI, TrueSynth i Resona to miejsca, gdzie fizyka mikrokontrolerów spotyka teorię liczb.'
@@ -120,7 +120,7 @@
       sub:   'Hierarchia: MR jako teoria fundamentalna (#17) → pięć frameworków analitycznych → MR-AI (#20) jako framework łączący je wszystkie w zastosowaniach AI.',
       theory: {
         title: 'MR — Teoria Fundamentalna (projekt #17)',
-        text:  'Matematyka Relacyjna (MR) to autorska teoria matematyczna opisująca strukturę liczb pierwszych przez pryzmat relacji rytmicznych, partycji i modeli rotacyjnych. Obejmuje dowód hiperboliczny twierdzenia Bertranda–Czebyszewa, struktury CRT, Q (semigrupy) i model rotacyjny liczb pierwszych. Opublikowana jako 6 preprintów naukowych na Zenodo. MR dostarcza formalnego aparatu matematycznego dla pięciu frameworków analitycznych.'
+        text:  'Matematyka Relacyjna (MR) to autorska teoria matematyczna opisująca strukturę liczb pierwszych przez pryzmat relacji rytmicznych, partycji i modeli rotacyjnych — obejmuje dowód hiperboliczny twierdzenia Bertranda–Czebyszewa, struktury CRT oraz Q-semigrupy. Opublikowana jako 6 preprintów naukowych na Zenodo; dostarcza formalnego aparatu matematycznego dla pięciu frameworków analitycznych.'
       },
       arr: {
         tag:     'ARR',
