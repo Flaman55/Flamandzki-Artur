@@ -377,7 +377,7 @@
       sub:   'Profil techniczny na potrzeby współpracy projektowej i partnerstwa R&D.',
       sk1: {
         title: 'Embedded Systems / Firmware',
-        text:  'AVR (ATmega/ATtiny), ARM Cortex-M, AVR ASM, C. Własne PCB (KiCad/Eagle/Altium), sterowanie 230 V (triak, phase-angle control), protokoły UART/RS232/RS485/SPI/I²C/USB. Produkty w produkcji seryjnej.'
+        text:  'AVR (ATmega/ATtiny), ARM Cortex-M, AVR ASM, C. Własne PCB (DipTrace/Eagle/Altium), sterowanie 230 V (triak, phase-angle control), protokoły UART/RS232/RS485/SPI/I²C/USB. Produkty w produkcji seryjnej.'
       },
       sk2: {
         title: 'Systemy pomiarowe i czasu rzeczywistego',
