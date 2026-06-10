@@ -363,11 +363,11 @@
         },
         b2: {
           title: 'Benchmark — twarde liczby na sprzęcie',
-          text:  '<strong>Platforma M4F (STM32G474RE, 170 MHz):</strong> Mode MI → <strong>3 cykli/parę · 0,0 ppb · TAK deterministyczny</strong>. CMSIS-DSP Q31 → 14 cykli/parę · 18 825 ppb · NIE (do 530 cykli!). CMSIS-DSP F32 → 178 cykli/parę · 18 978 ppb. <strong>Platforma M0 (STM32F030R8, 48 MHz):</strong> Prime Direct LUT → 482 cykli · 0 ppb. CORDIC klasyczny → 271 cykli · 0,9 ppb. LUT 7500 Flash → 798 cykli · 5,6 ppb. Taylor → 888 cykli · 98 000 ppb. <strong>Test dryftu:</strong> 1 024 000 000 kroków — błąd końcowy 2,22·10⁻¹⁶ (epsilon maszynowy IEEE 754). Dryft: 0.'
+          text:  '<strong>Platforma M4F (STM32G474RE, 170 MHz):</strong> Mode MI → <strong>3 cykli/parę · 0,0 ppb · TAK deterministyczny</strong>. CMSIS-DSP Q31 → 14 cykli/parę · 18 825 ppb · NIE (do 530 cykli!). CMSIS-DSP F32 → 178 cykli/parę · 18 978 ppb. <strong>Platforma M0 (STM32F030R8, 48 MHz):</strong> Prime Direct LUT → 482 cykli · 0 ppb. CORDIC klasyczny → 271 cykli · 0,9 ppb. LUT 7500 Flash → 798 cykli · 5,6 ppb. Taylor → 888 cykli · 98 000 ppb. <strong>Test dryftu:</strong> 10<sup>9</sup> kroków — błąd końcowy 2,22·10⁻¹⁶ (epsilon maszynowy IEEE 754). Dryft: 0.'
         },
         res: {
           title: 'Wyniki',
-          html:  '<li>4,7× szybszy niż CMSIS-DSP Q31 (14→3 cykli/parę) · jitter wyeliminowany (0 vs do 530 cykli!)</li><li>Błąd aproksymacji: 18 825 ppb → 0,0 ppb — wynik algebraicznie dokładny</li><li>Zerowy dryft po 1 024 000 000 krokach (błąd końcowy = epsilon IEEE 754 = 2,22·10⁻¹⁶)</li><li>Działające demo na STM32G474 + biblioteka C (.a) + Docker REST API + broszura komercyjna</li>'
+          html:  '<li>4,7× szybszy niż CMSIS-DSP Q31 (14→3 cykli/parę) · jitter wyeliminowany (0 vs do 530 cykli!)</li><li>Błąd aproksymacji: 18 825 ppb → 0,0 ppb — wynik algebraicznie dokładny</li><li>Zerowy dryft po 10<sup>9</sup> krokach (błąd końcowy = epsilon IEEE 754 = 2,22·10⁻¹⁶)</li><li>Działające demo na STM32G474 + biblioteka C (.a) + Docker REST API + broszura komercyjna</li>'
         }
       }
     },

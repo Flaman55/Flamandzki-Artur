@@ -366,11 +366,11 @@
         },
         b2: {
           title: 'Benchmark — hard numbers on hardware',
-          text:  '<strong>M4F platform (STM32G474RE, 170 MHz):</strong> Mode MI → <strong>3 cycles/pair · 0.0 ppb · YES deterministic</strong>. CMSIS-DSP Q31 → 14 cycles/pair · 18,825 ppb · NO (up to 530 cycles!). CMSIS-DSP F32 → 178 cycles/pair · 18,978 ppb. <strong>M0 platform (STM32F030R8, 48 MHz):</strong> Prime Direct LUT → 482 cycles · 0 ppb. Classic CORDIC → 271 cycles · 0.9 ppb. LUT 7500 Flash → 798 cycles · 5.6 ppb. Taylor → 888 cycles · 98,000 ppb. <strong>Drift test:</strong> 1,024,000,000 steps — final error 2.22×10⁻¹⁶ (IEEE 754 machine epsilon). Drift: 0.'
+          text:  '<strong>M4F platform (STM32G474RE, 170 MHz):</strong> Mode MI → <strong>3 cycles/pair · 0.0 ppb · YES deterministic</strong>. CMSIS-DSP Q31 → 14 cycles/pair · 18,825 ppb · NO (up to 530 cycles!). CMSIS-DSP F32 → 178 cycles/pair · 18,978 ppb. <strong>M0 platform (STM32F030R8, 48 MHz):</strong> Prime Direct LUT → 482 cycles · 0 ppb. Classic CORDIC → 271 cycles · 0.9 ppb. LUT 7500 Flash → 798 cycles · 5.6 ppb. Taylor → 888 cycles · 98,000 ppb. <strong>Drift test:</strong> 10<sup>9</sup> steps — final error 2.22×10⁻¹⁶ (IEEE 754 machine epsilon). Drift: 0.'
         },
         res: {
           title: 'Results',
-          html:  '<li>4.7× faster than CMSIS-DSP Q31 (14→3 cycles/pair) · jitter eliminated (0 vs up to 530 cycles!)</li><li>Approximation error: 18,825 ppb → 0.0 ppb — algebraically exact result</li><li>Zero drift after 1,024,000,000 steps (final error = IEEE 754 epsilon = 2.22×10⁻¹⁶)</li><li>Working demo on STM32G474 + C library (.a) + Docker REST API + commercial brochure</li>'
+          html:  '<li>4.7× faster than CMSIS-DSP Q31 (14→3 cycles/pair) · jitter eliminated (0 vs up to 530 cycles!)</li><li>Approximation error: 18,825 ppb → 0.0 ppb — algebraically exact result</li><li>Zero drift after 10<sup>9</sup> steps (final error = IEEE 754 epsilon = 2.22×10⁻¹⁶)</li><li>Working demo on STM32G474 + C library (.a) + Docker REST API + commercial brochure</li>'
         }
       }
     },
