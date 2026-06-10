@@ -4,10 +4,10 @@
   const existing = window.i18nData['en'].page || {};
   window.i18nData['en'].page = Object.assign({}, existing, {
     title: '#10 Boiler Thermometer: Remote Boiler-Room Monitor for Non-Technical Users — Artur Flamandzki',
-    hero_tag: 'PORTFOLIO R&amp;D — PROJECT #10 — CONSUMER DEVICE',
+    hero_tag: 'PORTFOLIO R&D — PROJECT #10 — CONSUMER DEVICE',
     hero_title: 'Boiler Thermometer: Remote Boiler-Room Monitor',
     hero_sub: 'Information design instead of interface design · dot behaviour tells the whole story · ATmega8 · 2013',
-    date: '2013 · consumer device · ATmega8, DS18B20, BASCOM BASIC · >10 years of daily use',
+    date: '2013 · consumer device · ATmega8, DS18B20 · >10 years of daily use',
     summary: '<p>Remote coal-boiler temperature monitor: DS18B20 sensor in the boiler room, 4-digit display with buzzer in the living room. Key innovation: <strong>decimal-point behaviour as ambient indicator</strong> — three states (stable / heating / cooling) communicated visually without reading digits. Over 10 years of fault-free operation for non-technical users.</p>',
     nav_prev: '← #09',
     nav_next: '#11 →',

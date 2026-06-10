@@ -4,10 +4,10 @@
   const existing = window.i18nData['pl'].page || {};
   window.i18nData['pl'].page = Object.assign({}, existing, {
     title: '#05 System DELFI Racing: Pomiar Czasu i Aparatura Motorsportowa — Artur Flamandzki',
-    hero_tag:'PORTFOLIO R&amp;D — PROJEKT #05 — SYSTEM POMIAROWY',
+    hero_tag:'PORTFOLIO R&D — PROJEKT #05 — SYSTEM POMIAROWY',
     hero_title:'System DELFI Racing: Pomiar Czasu i Aparatura Motorsportowa',
     hero_sub:'Choinka RT1/RT2 · Aparatura Pomiarowa · Wyświetlacz DN03 · rodzina instrumentów · 2012–2017',
-    date:  '2012–2017 · system rozproszony / motorsport · ATmega64, RS485, RS232, BASCOM · 4 egz. w 2 tygodnie',
+    date:  '2012–2017 · system rozproszony / motorsport · ATmega64, RS485, RS232 · 4 egz. w 2 tygodnie',
     summary:'<p>Autorski system pomiaru czasu dla klubów motorsportowych: <strong>Choinka Startowa RT1/RT2</strong> steruje sekwencją świateł startowych, <strong>Aparatura Pomiarowa</strong> (4 egz.) obsłużyła trzy tory jednocześnie w Kamieńsku (2015) i zawody 400 m (2017) — wyniki potwierdzone przez Race Logic. <strong>Sterownik DN03</strong> adaptuje tablice LED Zamel do protokołu systemu.</p>',
     nav_prev:'← #04',
     nav_next:'#06 →',

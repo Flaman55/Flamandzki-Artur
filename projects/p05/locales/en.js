@@ -4,10 +4,10 @@
   const existing = window.i18nData['en'].page || {};
   window.i18nData['en'].page = Object.assign({}, existing, {
     title: '#05 DELFI Racing System: Timing and Motorsport Instrumentation — Artur Flamandzki',
-    hero_tag:'PORTFOLIO R&amp;D — PROJECT #05 — MEASUREMENT SYSTEM',
+    hero_tag:'PORTFOLIO R&D — PROJECT #05 — MEASUREMENT SYSTEM',
     hero_title:'DELFI Racing System: Timing and Motorsport Instrumentation',
     hero_sub:'Starting Tree RT1/RT2 · Timing Unit · DN03 Scoreboard · instrument family · 2012–2017',
-    date:  '2012–2017 · distributed system / motorsport · ATmega64, RS485, RS232, BASCOM · 4 units in 2 weeks',
+    date:  '2012–2017 · distributed system / motorsport · ATmega64, RS485, RS232 · 4 units in 2 weeks',
     summary:'<p>Custom timing system for motorsport clubs: <strong>Starting Tree RT1/RT2</strong> controls the start-light sequence, <strong>Timing Unit</strong> (4 units) simultaneously served three tracks at Kamieńsk (2015) and a 400 m event (2017) — results validated against Race Logic. <strong>DN03 controller</strong> adapts Zamel LED scoreboards to the system protocol.</p>',
     nav_prev:'← #04',
     nav_next:'#06 →',

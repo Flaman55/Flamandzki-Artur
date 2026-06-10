@@ -4,10 +4,10 @@
   const existing = window.i18nData['pl'].page || {};
   window.i18nData['pl'].page = Object.assign({}, existing, {
     title: '#10 Termometr Pieca: Zdalny Monitor Kotłowni dla Niespecjalisty — Artur Flamandzki',
-    hero_tag: 'PORTFOLIO R&amp;D — PROJEKT #10 — URZĄDZENIE UŻYTKOWE',
+    hero_tag: 'PORTFOLIO R&D — PROJEKT #10 — URZĄDZENIE UŻYTKOWE',
     hero_title: 'Termometr Pieca: Zdalny Monitor Kotłowni',
     hero_sub: 'Projektowanie informacji zamiast interfejsu · samo zachowanie kropki mówi co się dzieje · ATmega8 · 2013',
-    date: '2013 · urządzenie użytkowe · ATmega8, DS18B20, BASCOM BASIC · >10 lat w codziennym użytku',
+    date: '2013 · urządzenie użytkowe · ATmega8, DS18B20 · >10 lat w codziennym użytku',
     summary: '<p>Zdalny monitor temperatury pieca węglowego: czujnik DS18B20 w kotłowni, wyświetlacz 4-cyfrowy z buzzerem w salonie. Kluczowa innowacja: <strong>zachowanie kropki dziesiętnej jako ambient indicator</strong> — trzy stany (stabilna/nagrzewanie/stygnięcie) komunikowane zachowaniem wizualnym bez czytania cyfr. Ponad 10 lat bezawaryjnej pracy dla niespecjalistycznych użytkowników.</p>',
     nav_prev: '← #09',
     nav_next: '#11 →',
