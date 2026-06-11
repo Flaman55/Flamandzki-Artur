@@ -102,6 +102,8 @@
 .proj-box-body li { margin-bottom: .35rem; }
 .proj-box-body a { color: #2d7dd2; text-decoration: underline; }
 .proj-box-body a:hover { opacity: .75; }
+.proj-hero-date a { color: #e8c97a; text-decoration: underline; }
+.proj-hero-date a:hover { color: #fff; }
 
 /* Innovation style — blue */
 .proj-box--innovation {
