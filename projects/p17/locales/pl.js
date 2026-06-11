@@ -7,7 +7,7 @@
     hero_tag: 'PORTFOLIO R&D — PROJEKT #17 — AKTYWNY R&D',
     hero_title: 'Matematyka Relacyjna: Teoria Liczb',
     hero_sub: 'Bertrand–Czebyszew · CRT cykliczne · Sito Q O(N) · Partycje · Model Rotacyjny · 2021–obecnie',
-    date: '2021–obecnie · matematyka / R&D · Python, Haskell, Lean 4 · Zenodo · millenniumchecked.org · relationalmathematics.org',
+    date: '2021–obecnie · matematyka / R&D · Python, Haskell, Lean 4 · <a href="https://zenodo.org/search?q=Flamandzki" target="_blank" rel="noopener noreferrer">Zenodo</a> · <a href="https://millenniumchecked.org" target="_blank" rel="noopener noreferrer">millenniumchecked.org</a> · <a href="https://relationalmathematics.org" target="_blank" rel="noopener noreferrer">relationalmathematics.org</a>',
     summary: '<p>Pięć nowych wyników w teorii liczb wyprowadzonych z relacyjnego modelu arytmetyki. Obejmuje: hiperboliczny i sitowy dowód Bertranda–Czebyszewa, cykliczny wariant CRT, algorytm Q (semigrupy numeryczne) w O(N), twierdzenie partycyjne oraz <strong>rotacyjny model pierwszości</strong> — sito bez arytmetyki. Prace opublikowane na Zenodo, częściowa formalizacja w Lean 4.</p>',
     nav_prev: '← #16',
     nav_next: '#18 →',

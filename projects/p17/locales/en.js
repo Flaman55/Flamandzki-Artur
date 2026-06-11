@@ -7,7 +7,7 @@
     hero_tag: 'PORTFOLIO R&D — PROJECT #17 — ACTIVE R&D',
     hero_title: 'Relational Mathematics: Number Theory',
     hero_sub: 'Bertrand–Chebyshev · cyclic CRT · Sieve Q O(N) · Partitions · Rotational Model · 2021–present',
-    date: '2021–present · mathematics / R&D · Python, Haskell, Lean 4 · Zenodo · millenniumchecked.org · relationalmathematics.org',
+    date: '2021–present · mathematics / R&D · Python, Haskell, Lean 4 · <a href="https://zenodo.org/search?q=Flamandzki" target="_blank" rel="noopener noreferrer">Zenodo</a> · <a href="https://millenniumchecked.org" target="_blank" rel="noopener noreferrer">millenniumchecked.org</a> · <a href="https://relationalmathematics.org" target="_blank" rel="noopener noreferrer">relationalmathematics.org</a>',
     summary: '<p>Five new results in number theory derived from a relational model of arithmetic. Covers: hyperbolic and sieve proof of Bertrand–Chebyshev, cyclic CRT variant, Q algorithm for numerical semigroups in O(N), partition theorem, and <strong>rotational model of primality</strong> — a sieve without arithmetic. Papers published on Zenodo, partial formalisation in Lean 4.</p>',
     nav_prev: '← #16',
     nav_next: '#18 →',
