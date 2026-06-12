@@ -228,8 +228,55 @@ function initLightbox() {
   });
 }
 
+/* ── Shared project footer (injected) ────────────────────────── */
+function renderProjectFooter() {
+  const footer = document.querySelector('footer.site-footer');
+  if (!footer) return;
+
+  const prev    = footer.dataset.prev || '';
+  const next    = footer.dataset.next || '';
+  const prevNum = (prev.match(/p(\d+)/) || [])[1] || '';
+  const nextNum = (next.match(/p(\d+)/) || [])[1] || '';
+
+  footer.innerHTML =
+    '<div class="container footer-inner">' +
+      '<div class="footer-links">' +
+        '<a href="mailto:flamandzki.artur@gmail.com">✉ flamandzki.artur@gmail.com</a>' +
+        '<a href="https://millenniumchecked.org" target="_blank" rel="noopener">millenniumchecked.org</a>' +
+        '<a href="https://relationalmathematics.org" target="_blank" rel="noopener">relationalmathematics.org</a>' +
+        '<a href="https://zenodo.org/search?q=Flamandzki" target="_blank" rel="noopener">Zenodo</a>' +
+        '<a href="https://github.com/Flaman55/RelMathApps" target="_blank" rel="noopener">GitHub</a>' +
+        '<a href="https://www.linkedin.com/in/artur-flamandzki-74046918b/" target="_blank" rel="noopener">LinkedIn</a>' +
+      '</div>' +
+      '<p data-i18n-html="footer.text"></p>' +
+      '<p style="margin-top:.4rem"><a href="../../index.html" class="footer-back">← Portfolio R&amp;D</a></p>' +
+    '</div>';
+
+  if (!prev && !next) return;
+
+  const bar = document.createElement('div');
+  bar.className = 'proj-nav-sticky';
+  bar.innerHTML =
+    (prev
+      ? '<a href="' + prev + '" class="proj-nav-sticky-btn">' +
+          '<span class="pns-arrow">←</span>' +
+          '<span class="pns-label">#' + prevNum + '</span>' +
+        '</a>'
+      : '<span></span>') +
+    '<a href="../../index.html" class="pns-home" title="Portfolio">⌂</a>' +
+    (next
+      ? '<a href="' + next + '" class="proj-nav-sticky-btn">' +
+          '<span class="pns-label">#' + nextNum + '</span>' +
+          '<span class="pns-arrow">→</span>' +
+        '</a>'
+      : '<span></span>');
+  document.body.appendChild(bar);
+  document.body.classList.add('has-sticky-nav');
+}
+
 /* ── Boot ────────────────────────────────────────────────────── */
 document.addEventListener('DOMContentLoaded', () => {
+  renderProjectFooter();
   i18n.init();
   initProjectFilter();
   initLightbox();

@@ -211,7 +211,79 @@ em.math {
   font-family: 'Georgia', serif;
 }
 
-/* ── Footer nav ──────────────────────────────────────────────── */
+/* ── Shared project footer ───────────────────────────────────── */
+footer.site-footer {
+  background: var(--navy-dark, #06090f);
+  color: #6a8aaa;
+  text-align: center;
+  padding: 2rem 1.5rem;
+  font-size: .83rem;
+}
+footer.site-footer .footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: .5rem 1.5rem;
+  margin-bottom: 1rem;
+}
+footer.site-footer .footer-links a,
+footer.site-footer a { color: #8aaed0; text-decoration: none; }
+footer.site-footer .footer-links a:hover,
+footer.site-footer a:hover { color: #c9a84c; text-decoration: underline; }
+footer.site-footer .footer-back { font-size: .8rem; }
+
+/* ── Sticky prev/next nav bar ────────────────────────────────── */
+.proj-nav-sticky {
+  position: fixed;
+  bottom: 0; left: 0; right: 0;
+  height: 56px;
+  background: rgba(6, 9, 15, 0.96);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-top: 1px solid rgba(201, 168, 76, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1.5rem;
+  z-index: 200;
+  gap: 1rem;
+}
+body.has-sticky-nav { padding-bottom: 56px; }
+
+.proj-nav-sticky-btn {
+  display: flex;
+  align-items: center;
+  gap: .55rem;
+  padding: .45rem 1.25rem;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.11);
+  border-radius: 6px;
+  color: #c0c4d0;
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: .02em;
+  transition: background .15s, color .15s, border-color .15s;
+  min-width: 80px;
+}
+.proj-nav-sticky-btn:hover {
+  background: rgba(201, 168, 76, 0.14);
+  border-color: #c9a84c;
+  color: #c9a84c;
+}
+.pns-arrow { font-size: 1.15rem; line-height: 1; }
+.pns-label { font-size: .9rem; }
+.pns-home {
+  font-size: 1.3rem;
+  color: #6a8aaa;
+  text-decoration: none;
+  padding: .35rem .6rem;
+  border-radius: 4px;
+  transition: color .15s;
+}
+.pns-home:hover { color: #c9a84c; }
+
+/* ── Footer nav (legacy, keep for fallback) ──────────────────── */
 .proj-nav-btns {
   display: flex;
   gap: .75rem;
