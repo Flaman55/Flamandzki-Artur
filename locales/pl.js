@@ -205,7 +205,7 @@
         name:   'System DELFI Racing — Pomiar Czasu i Aparatura Motorsportowa',
         tag:    'Własny system · 2012–2017',
         tech:   'Choinka RT1/RT2, Aparatura DN03, ATtiny/ATmega, RS232, RS485, RTC, MMC, detekcja fałszywego startu',
-        result: 'Kompletna infrastruktura elektroniczna dla wyścigów. Dwa niezależne timery w jednym ISR (czas okrążenia 0,01 s + czas reakcji kierowcy 0,001 s). Poprzednik: #11. <a href="https://dzienniklodzki.pl/wyscigi-na-14-mili-w-lodzi-wystartowalo-kilkudziesieciu-kierowcow-zdjecia-film/ar/6459502" target="_blank" rel="noopener">Artykuł Dziennik Łódzki</a>'
+        result: 'Kompletna infrastruktura elektroniczna dla wyścigów. Dwa niezależne timery w jednym ISR (czas okrążenia 0,01 s + czas reakcji kierowcy 0,001 s). Następnik Systemu Pomiaru Czasu ACŁ (#11). <a href="https://dzienniklodzki.pl/wyscigi-na-14-mili-w-lodzi-wystartowalo-kilkudziesieciu-kierowcow-zdjecia-film/ar/6459502" target="_blank" rel="noopener">Artykuł Dziennik Łódzki</a>'
       },
       p06: {
         name:   'Seria LX-DK — Moduły Resetowania Haseł Administratora Laskomex',
@@ -214,16 +214,16 @@
         result: '~500 szt. sprzedanych przez 7 lat (w tym 3 lata po odejściu z firmy). Rozwiązanie flash-shortage: moduł sprzętowy warstwę wyżej zamiast modyfikacji firmware.'
       },
       p07: {
-        name:   'LX-GT01 — Moduł Generatora Tabel Kodów Laskomex',
-        tag:    'Komercja · Laskomex · 2019–2020',
+        name:   'LX-GT01 — Generator Tabel Kodów Laskomex',
+        tag:    'Komercja · Laskomex · 2018–2019',
         tech:   'CRC8, ELF binary patching, aplikacja PC (VB.NET)',
         result: 'Generator tabel kodów do produkcji seryjnej. ELF patching — modyfikacja binarnych tabel danych bez rekompilacji firmware.'
       },
       p08: {
-        name:   'LX-EMI01 — Moduł Edytora Pamięci EEPROM Laskomex / Proel',
-        tag:    'Komercja · Laskomex/Proel · 2018–2020',
-        tech:   'Edytor EEPROM, reverse-engineering protokołu komunikacyjnego, I²C/SPI',
-        result: 'Narzędzie do odczytu i zapisu pamięci EEPROM urządzeń bez dostępu do dokumentacji — reverse-engineering protokołu od zera.'
+        name:   'LX-EMI01 — Edytor Pamięci EEPROM Laskomex / Proel',
+        tag:    'Komercja · Laskomex/Proel · 2018–2019',
+        tech:   'Edytor EEPROM, reverse-engineering protokołu, ATmega, VB.NET, I²C/SPI, mostek USB↔RS232',
+        result: 'Chirurgiczny edytor EEPROM dla 8 modeli Laskomex/Proel — bez komputera na miejscu. PELP: przeniesienie tabeli kodów między markami i generacjami jednym przyciskiem. Mostek USB↔RS232 z trzywarstwową architekturą zdalnego zarządzania.'
       },
       p09: {
         name:   'Algorytm Szukania Dzielników Liczb na ATmega8',

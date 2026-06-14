@@ -199,7 +199,7 @@
         result: 'Calibration scatter reduced from >0.3 mm to <0.01 mm by closing the feedback loop on the physical coil-open event instead of caliper geometry.'
       },
       p04: {
-        name:   'Automotive Voltmeter WST / WSTK',
+        name:   'Car Voltmeter WST / WSTK',
         tag:    'Commercial product · 2011–2013',
         tech:   'ATmega, HD44780, DS18B20 (×2), lead-acid FSM, RGB backlight (8 colours)',
         result: '<strong>WST</strong> (car): 150 units sold nationwide. <strong>WSTK</strong> (motorcycle): ~15 units. Customer demo: <a href="https://www.youtube.com/watch?v=LHdiPH1gRtQ" target="_blank" rel="noopener">▶ YouTube</a>'
@@ -208,25 +208,25 @@
         name:   'DELFI Racing System — Timing and Motorsport Instrumentation',
         tag:    'Own system · 2012–2017',
         tech:   'Christmas Tree RT1/RT2, DN03 instrumentation, ATtiny/ATmega, RS232, RS485, RTC, MMC, false-start detection',
-        result: 'Complete electronic infrastructure for racing events. Two independent timers multiplexed in one ISR (lap time 0.01 s + driver reaction time 0.001 s). Predecessor: #11. <a href="https://dzienniklodzki.pl/wyscigi-na-14-mili-w-lodzi-wystartowalo-kilkudziesieciu-kierowcow-zdjecia-film/ar/6459502" target="_blank" rel="noopener">Dziennik Łódzki article</a>'
+        result: 'Complete electronic infrastructure for racing events. Two independent timers multiplexed in one ISR (lap time 0.01 s + driver reaction time 0.001 s). Successor to ACŁ Timing System (#11). <a href="https://dzienniklodzki.pl/wyscigi-na-14-mili-w-lodzi-wystartowalo-kilkudziesieciu-kierowcow-zdjecia-film/ar/6459502" target="_blank" rel="noopener">Dziennik Łódzki article</a>'
       },
       p06: {
-        name:   'LX-DK Series — Laskomex Admin Password Reset Modules',
+        name:   'LX-DK Series — Laskomex Administrator Password Reset Modules',
         tag:    'Commercial · Laskomex · 2015–2022',
         tech:   'DK02 + DK03, ATtiny, proprietary UART protocol, reverse-engineering',
         result: '~500 units sold over 7 years (including 3 years after leaving the company). Flash-shortage solution: hardware module one architectural layer above instead of modifying the firmware.'
       },
       p07: {
-        name:   'LX-GT01 — Laskomex Code Table Generator Module',
-        tag:    'Commercial · Laskomex · 2019–2020',
+        name:   'LX-GT01 — Laskomex Code Table Generator',
+        tag:    'Commercial · Laskomex · 2018–2019',
         tech:   'CRC8, ELF binary patching, PC application (VB.NET)',
         result: 'Code table generator for serial production. ELF patching — modifying binary data tables without recompiling firmware.'
       },
       p08: {
-        name:   'LX-EMI01 — Laskomex/Proel EEPROM Memory Editor Module',
-        tag:    'Commercial · Laskomex/Proel · 2018–2020',
-        tech:   'EEPROM editor, communication protocol reverse-engineering, I²C/SPI',
-        result: 'Tool for reading and writing EEPROM of devices without documentation — full protocol reverse-engineering from scratch.'
+        name:   'LX-EMI01 — Laskomex/Proel EEPROM Memory Editor',
+        tag:    'Commercial · Laskomex/Proel · 2018–2019',
+        tech:   'EEPROM editor, communication protocol reverse-engineering, ATmega, VB.NET, I²C/SPI, USB↔RS232 bridge',
+        result: 'Surgical EEPROM editor for 8 Laskomex/Proel models — no computer needed on-site. PELP: one-button code-table migration across brands and generations. USB↔RS232 bridge with three-tier remote management architecture.'
       },
       p09: {
         name:   'Prime Divisor Search Algorithm on ATmega8',
