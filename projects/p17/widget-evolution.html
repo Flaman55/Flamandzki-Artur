@@ -197,7 +197,7 @@ function renderPanel(el, k, isCurr){
 }
 
 /* ── Nav state ── */
-function render(){
+function render(scroll){
   const isPL=getLang()==='pl';
   renderPanel(document.getElementById('panel-prev'),step-1,false);
   renderPanel(document.getElementById('panel-curr'),step,true);
@@ -208,8 +208,8 @@ function render(){
   document.getElementById('btn-play').classList.toggle('active-play',playDir===1);
   document.getElementById('btn-rev').classList.toggle('active-play',playDir===-1);
   document.getElementById('btn-play').innerHTML=playDir===1?'&#9646;&#9646;':'&#9654;';
-  document.getElementById('btn-rev').innerHTML=playDir===-1?'&#9646;&#9646;':'&#9664;&#9664;';
-  fitParent();
+  document.getElementById('btn-rev').innerHTML=playDir===-1?'&#9646;&#9646;':'&#9664;';
+  fitParent(scroll);
 }
 
 function stopPlay(){
@@ -224,24 +224,31 @@ function startPlay(dir){
     step+=dir;
     if(step>=MAX_STEP&&dir===1){ step=MAX_STEP; stopPlay(); }
     else if(step<=1&&dir===-1){ step=1; stopPlay(); }
-    render();
+    render(true);
   },1200);
-  render();
+  render(true);
 }
 
 document.getElementById('btn-play').addEventListener('click',()=>{
-  playDir===1?stopPlay()&&render()||render():startPlay(1);
+  playDir===1?(stopPlay(),render(false)):startPlay(1);
 });
 document.getElementById('btn-rev').addEventListener('click',()=>{
-  playDir===-1?stopPlay()&&render()||render():startPlay(-1);
+  playDir===-1?(stopPlay(),render(false)):startPlay(-1);
 });
-document.getElementById('btn-prev').addEventListener('click',()=>{ stopPlay(); if(step>1){step--;render();} });
-document.getElementById('btn-next').addEventListener('click',()=>{ stopPlay(); if(step<MAX_STEP){step++;render();} });
-document.getElementById('btn-reset').addEventListener('click',()=>{ stopPlay(); step=1; render(); });
+document.getElementById('btn-prev').addEventListener('click',()=>{ stopPlay(); if(step>1){step--;render(true);} });
+document.getElementById('btn-next').addEventListener('click',()=>{ stopPlay(); if(step<MAX_STEP){step++;render(true);} });
+document.getElementById('btn-reset').addEventListener('click',()=>{ stopPlay(); step=1; render(true); });
 
-function fitParent(){
+function fitParent(scroll){
   if(!window.frameElement)return;
-  requestAnimationFrame(()=>{ window.frameElement.style.height=document.documentElement.scrollHeight+'px'; });
+  requestAnimationFrame(()=>{
+    window.frameElement.style.height=document.documentElement.scrollHeight+'px';
+    if(scroll){
+      requestAnimationFrame(()=>{
+        window.frameElement.scrollIntoView({behavior:'smooth',block:'end'});
+      });
+    }
+  });
 }
 
 render();
