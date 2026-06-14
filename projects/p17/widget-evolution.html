@@ -241,8 +241,10 @@ document.getElementById('btn-reset').addEventListener('click',()=>{ stopPlay(); 
 
 function fitParent(scroll){
   if(!window.frameElement)return;
-  const h=document.documentElement.scrollHeight;
+  // Collapse first so scrollHeight reflects actual content, not old iframe size
+  window.frameElement.style.height='10px';
   requestAnimationFrame(()=>{
+    const h=document.documentElement.scrollHeight;
     window.frameElement.style.height=h+'px';
     if(!scroll)return;
     // Scroll parent so iframe bottom sits just above the sticky nav bar (56px)

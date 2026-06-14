@@ -150,6 +150,7 @@ const wv  = document.getElementById('wns-val');
 
 function fitParent(){
   if(!window.frameElement) return;
+  window.frameElement.style.height = '10px';
   requestAnimationFrame(()=>{
     window.frameElement.style.height = document.documentElement.scrollHeight + 'px';
   });
