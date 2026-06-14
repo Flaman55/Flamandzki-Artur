@@ -241,12 +241,20 @@ document.getElementById('btn-reset').addEventListener('click',()=>{ stopPlay(); 
 
 function fitParent(scroll){
   if(!window.frameElement)return;
+  const h=document.documentElement.scrollHeight;
   requestAnimationFrame(()=>{
-    window.frameElement.style.height=document.documentElement.scrollHeight+'px';
-    if(scroll){
-      requestAnimationFrame(()=>{
-        window.frameElement.scrollIntoView({behavior:'smooth',block:'end'});
-      });
+    window.frameElement.style.height=h+'px';
+    if(!scroll)return;
+    // Scroll parent so iframe bottom sits just above the sticky nav bar (56px)
+    const pWin=window.parent;
+    const STICKY=56+8; // sticky bar height + small margin
+    // Walk offsetParent chain to get iframe's absolute top in parent document
+    let top=0, el=window.frameElement;
+    while(el){top+=el.offsetTop||0; el=el.offsetParent;}
+    const iframeBottom=top+h;
+    const targetScroll=iframeBottom-(pWin.innerHeight-STICKY);
+    if(targetScroll>pWin.scrollY){
+      pWin.scrollTo({top:targetScroll,behavior:'smooth'});
     }
   });
 }
