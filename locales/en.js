@@ -30,7 +30,7 @@
       quote: 'I design the architecture of technical systems at the intersection of hardware, software, and advanced algorithmics.',
       b1: '16 years of R&D practice',
       b2: 'Market-validated products',
-      b3: 'Firmware AVR · C# · Java · Python',
+      b3: 'AVR · ARM · Java · Python',
       b5: 'AI / Embedded'
     },
 
@@ -42,7 +42,7 @@
 
     s2: {
       title: 'Evolution — from prototype to theory',
-      sub:   'A chronology of key technical and research breakthroughs. Both tracks — embedded hardware and relational mathematics — converge in 2022–2026.',
+      sub:   'A chronology — from the first project born of necessity to systems running in production.',
       t1: {
         period: '2004',
         title:  'High school — first projects born of necessity',
@@ -99,7 +99,7 @@
         text:  'If you understand hardware constraints, enterprise scale and mathematical foundations — you can design systems others consider impossible.'
       },
       fazepunchline: 'Hardware taught me to think in cycles. Banking taught me to think in volumes. Mathematics taught me to think in structures. I design at the intersection of all three.',
-      note: '<strong>Two tracks:</strong> embedded hardware (projects #01–#15) and relational mathematics (#16–#21) developed in parallel for years. In 2022–2026 they <strong>converge into one</strong>: MR-AI, TrueSynth and Resona are where microcontroller physics meets number theory.'
+      note: 'Projects #01–#15: embedded hardware, commercial products, field-deployed systems. Projects #16–#22: algorithmics, AI, home automation — developed in parallel since 2022.'
     },
 
     s4: {
@@ -267,8 +267,8 @@
           text:  'Instead of a VFD: delay triac firing relative to the AC zero crossing (phase-angle control). For a centrifugal fan: torque M ∝ n² — reduced RMS voltage = natural stabilisation at lower speed, without an inverter. Three independent triac channels: blower / pump / boiler. Timer0 ISR measures phase delay every 10 ms (50 Hz network). Additional hardware cost: zero.'
         },
         b2: {
-          title: 'Innovation #2 — temperature delta · EMC window · seed of ARR',
-          text:  'Discrete temperature derivative computed every 15 s: <strong>T↑ → reduce airflow · T→ → hold · T↓ → increase</strong>. Anticipatory control before the temperature crosses the threshold — equivalent of the D-term of a PID controller, on an 8-bit MCU without libraries. Software EMC window: before each 1-Wire measurement, disable all triacs and both interrupts → zero electromagnetic interference → zero additional hardware. <em>Tendencja_sub is the first known implementation of ARR (Relational Rhythm Analyser) — running in production a decade before the MR-AI framework was formalised (#20).</em>'
+          title: 'Innovation #2 — temperature delta · EMC window',
+          text:  'Discrete temperature derivative computed every 15 s: <strong>T↑ → reduce airflow · T→ → hold · T↓ → increase</strong>. Anticipatory control before the temperature crosses the threshold — equivalent of the D-term of a PID controller, on an 8-bit MCU without libraries. Software EMC window: before each 1-Wire measurement, disable all triacs and both interrupts → zero electromagnetic interference → zero additional hardware. <em>Tendencja_sub: anticipatory algorithm based on direction of change rather than absolute values — running in production since 2016.</em>'
         },
         res: {
           title: 'Results (5.5 years of operation)',

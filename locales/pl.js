@@ -27,7 +27,7 @@
       quote: 'Projektuję architekturę systemów technicznych na styku sprzętu, oprogramowania i zaawansowanej algorytmiki.',
       b1: '16 lat praktyki w R&D',
       b2: 'Produkty zwalidowane rynkowo',
-      b3: 'Autorskie frameworki optymalizacyjne',
+      b3: 'AVR · ARM · Java · Python',
       b5: 'AI / Embedded'
     },
 
@@ -39,7 +39,7 @@
 
     s2: {
       title: 'Ewolucja — od prototypu do teorii',
-      sub:   'Chronologia kluczowych przełomów. Obie ścieżki — hardware embedded i matematyka relacyjna — zbiegają się w latach 2022–2026.',
+      sub:   'Chronologia — od pierwszego projektu z potrzeby do systemów działających w produkcji.',
       t1: {
         period: '2004',
         title:  'Liceum — pierwsze projekty z potrzeby',
@@ -96,7 +96,7 @@
         text:  'Jeżeli rozumiesz ograniczenia sprzętowe, skalę enterprise i matematyczny fundament — możesz projektować systemy, które inni uznają za niemożliwe.'
       },
       fazepunchline: 'Hardware nauczył mnie myśleć w cyklach. Bank nauczył myśleć w wolumenach. Matematyka nauczyła myśleć w strukturach. Projektuję na przecięciu wszystkich trzech.',
-      note: '<strong>Dwie ścieżki:</strong> hardware embedded (projekty #01–#15) i matematyka relacyjna (#16–#21) rozwijały się równolegle przez lata. W 2022–2026 <strong>zbiegają się w jedną</strong>: MR-AI, TrueSynth i Resona to miejsca, gdzie fizyka mikrokontrolerów spotyka teorię liczb.'
+      note: 'Projekty #01–#15: hardware embedded, produkty komercyjne, systemy w terenie. Projekty #16–#22: algorytmika, AI, automatyka — rozwijane równolegle od 2022.'
     },
 
     s4: {
@@ -265,7 +265,7 @@
         },
         b2: {
           title: 'Innowacja #2 — delta temperatury · okno EMC · zalążek ARR',
-          text:  'Co 15 sekund firmware oblicza dyskretną pochodną temperatury: <strong>T↑ → ogranicz nadmuch · T→ → utrzymaj · T↓ → wzmocnij</strong>. Regulacja antycypacyjna zanim temperatura przekroczy próg — odpowiednik członu D regulatora PID, zaimplementowany bez bibliotek na 8-bit MCU. Programowe okno EMC: przed każdym pomiarem 1-Wire wyłącz wszystkie triaki i oba przerwania → zero zakłóceń → zero dodatkowego hardware. <em>Podprogram Tendencja_sub to pierwsza znana implementacja ARR (Analizatora Rytmu Relacyjnego) — działająca w produkcji dekadę przed sformułowaniem frameworku MR-AI (#20).</em>'
+          text:  'Co 15 sekund firmware oblicza dyskretną pochodną temperatury: <strong>T↑ → ogranicz nadmuch · T→ → utrzymaj · T↓ → wzmocnij</strong>. Regulacja antycypacyjna zanim temperatura przekroczy próg — odpowiednik członu D regulatora PID, zaimplementowany bez bibliotek na 8-bit MCU. Programowe okno EMC: przed każdym pomiarem 1-Wire wyłącz wszystkie triaki i oba przerwania → zero zakłóceń → zero dodatkowego hardware. <em>Podprogram Tendencja_sub: algorytm antycypacyjny oparty na kierunku zmiany zamiast wartości bezwzględnych — działający w produkcji od 2016.</em>'
         },
         res: {
           title: 'Wyniki (5,5 roku eksploatacji)',
