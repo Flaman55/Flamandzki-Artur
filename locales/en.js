@@ -36,7 +36,7 @@
 
     s1: {
       title: 'Design Philosophy',
-      p1:   'I like to tackle a problem on my own before looking at how others solved it. To find out whether I can understand it, reach at least a conceptual solution, and attempt it. When I succeed — I search for similar problems and read other people\'s approaches. Not to compare who did it better, but to see what I missed, what I overlooked, or whether there was a simpler way.',
+      p1:   'Before I start looking for ready-made solutions, I tackle the problem on my own. Not by choice. Naturally and instinctively. When I succeed — I search for similar problems and read other people\'s approaches. Not to compare who did it better, but to see what I missed, what I overlooked, or whether there was a simpler way.',
       p2:   'Hence project #9: an algorithmic task that ended in independently deriving a number theory theorem — because no one told me it already existed. And hence every tool written from scratch: the COM terminal, the voltage divider calculator, the BigInteger library — because I only discovered the ready-made solutions after building my own.'
     },
 

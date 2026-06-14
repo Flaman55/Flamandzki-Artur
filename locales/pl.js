@@ -33,7 +33,7 @@
 
     s1: {
       title: 'Filozofia projektowa',
-      p1:   'Lubię zmierzyć się z problemem samodzielnie zanim spojrzę jak rozwiązali go inni. Sprawdzić czy jestem w stanie go zrozumieć, znaleźć przynajmniej koncepcję rozwiązania, podjąć próbę. Gdy mi się uda — wyszukuję podobne problemy i czytam cudze podejścia. Nie po to żeby porównywać kto lepszy, ale żeby zobaczyć co pominąłem, czego nie dostrzegłem, czy można było prościej.',
+      p1:   'Zanim zacznę szukać gotowych rozwiązań, mierzę się z problemem samodzielnie. Nie z wyboru. Naturalnie i odruchowo. Gdy mi się uda — wyszukuję podobne problemy i czytam cudze podejścia. Nie po to żeby porównywać kto lepszy, ale żeby zobaczyć co pominąłem, czego nie dostrzegłem, czy można było prościej.',
       p2:   'Stąd projekt nr 9: zadanie algorytmiczne które skończyło się samodzielnym wyprowadzeniem twierdzenia teorii liczb — bo nikt mi nie powiedział że ono istnieje. I stąd każde narzędzie napisane od zera: terminal COM, kalkulator dzielnika, biblioteka BigInteger — bo gotowe poznałem dopiero gdy stworzyłem własne.'
     },
 
