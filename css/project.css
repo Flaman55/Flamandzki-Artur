@@ -289,14 +289,22 @@ body.has-sticky-nav { padding-bottom: 56px; }
 }
 .proj-nav-sticky-btn:hover .pns-title { color: inherit; opacity: 1; }
 .pns-home {
-  font-size: 1.3rem;
-  color: #6a8aaa;
+  font-size: 1.25rem;
+  color: #c0c4d0;
   text-decoration: none;
-  padding: .35rem .6rem;
-  border-radius: 4px;
-  transition: color .15s;
+  padding: .45rem .9rem;
+  border-radius: 6px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.11);
+  transition: background .15s, color .15s, border-color .15s;
+  flex-shrink: 0;
+  line-height: 1;
 }
-.pns-home:hover { color: #c9a84c; }
+.pns-home:hover {
+  background: rgba(201, 168, 76, 0.14);
+  border-color: #c9a84c;
+  color: #c9a84c;
+}
 
 /* ── Footer nav (legacy, keep for fallback) ──────────────────── */
 .proj-nav-btns {
