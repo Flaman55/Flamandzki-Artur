@@ -6,38 +6,54 @@
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 body{background:#0d1117;color:#c0c4d0;font:13px/1.4 system-ui,sans-serif;padding:10px 10px 12px}
+html,body{height:auto}
 
 .panels{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:12px}
-.panel{border-radius:6px;border:1px solid #1e2533;padding:10px 12px;background:#111820}
-.panel.curr{border-color:#c9a84c;background:#131b14}
-.panel.faded{opacity:.45}
-.panel-title{font-size:10px;font-weight:700;letter-spacing:.06em;color:#6a8aaa;text-transform:uppercase;margin-bottom:7px}
+.panel{border-radius:6px;border:1px solid #1e2533;padding:10px 12px;background:#111820;min-height:160px}
+.panel.curr{border-color:#c9a84c;background:#111c12}
+.panel.faded{opacity:.4}
+.panel-title{font-size:10px;font-weight:700;letter-spacing:.07em;color:#6a8aaa;text-transform:uppercase;margin-bottom:7px}
 .panel.curr .panel-title{color:#c9a84c}
 
-.pills{display:flex;flex-wrap:wrap;gap:4px;margin-bottom:8px}
-.pill{background:#1a2a3a;border:1px solid #2a3f56;border-radius:4px;padding:2px 7px;font-size:11px;font-weight:600;color:#8aaed0}
-.pill.newest{background:#c9a84c;border-color:#c9a84c;color:#0d1117}
+.pills{display:flex;flex-wrap:wrap;gap:3px;margin-bottom:8px}
+.pill{background:#1a2a3a;border:1px solid #2a3f56;border-radius:4px;padding:1px 6px;font-size:11px;font-weight:600;color:#8aaed0}
+.pill.new{background:#c9a84c;border-color:#c9a84c;color:#0d1117}
 
-.formula{font-size:11px;color:#8aaed0;margin-bottom:8px;line-height:1.5}
+.formula{font-size:11px;color:#8aaed0;margin-bottom:7px;line-height:1.6}
 .formula strong{color:#c9a84c}
-.formula .f-range{color:#d0e4f4}
+.formula .fv{color:#d0e4f4;font-weight:600}
+.new-primes-line{font-size:11px;margin-bottom:7px;color:#8aaed0}
+.new-primes-line span{color:#c9a84c;font-weight:700}
+.next-range-line{font-size:10px;color:#6a8aaa;margin-bottom:7px}
+.next-range-line strong{color:#90b8e0}
 
-.bar-area{position:relative}
-.bar-track{height:14px;border-radius:3px;overflow:hidden;display:flex}
-.bar-gray{background:#1e2d3d}
-.bar-blue{background:#2d7dd2}
-.bar-labels{display:flex;justify-content:space-between;font-size:10px;color:#6a8aaa;margin-top:3px;position:relative}
-.bar-newp{position:absolute;top:-22px;transform:translateX(-50%);background:#c9a84c;color:#0d1117;font-size:10px;font-weight:800;border-radius:3px;padding:1px 4px;white-space:nowrap}
-.bar-dot{position:absolute;top:0;bottom:0;width:3px;background:#c9a84c;border-radius:2px}
+/* Bar */
+.bar-wrap{position:relative;padding-top:0;margin-top:2px}
+.bar-track{height:12px;border-radius:3px;overflow:hidden;display:flex;position:relative}
+.bar-gray{background:#1e2d3d;flex-shrink:0}
+.bar-blue{background:#2d7dd2;flex:1}
+.bar-marker{position:absolute;top:0;bottom:0;width:2px;background:#c9a84c}
+.bar-labels{display:flex;font-size:9px;color:#5a7a9a;margin-top:3px;position:relative;height:14px}
+.bar-lbl{position:absolute;transform:translateX(-50%);white-space:nowrap}
+.bar-lbl.right{transform:translateX(-100%)}
+.bar-lbl.left{transform:none}
 
-.nav{display:flex;align-items:center;justify-content:center;gap:14px}
-.nav-btn{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:6px;color:#c0c4d0;font-size:16px;width:34px;height:34px;cursor:pointer;transition:background .15s,border-color .15s,color .15s;display:flex;align-items:center;justify-content:center}
+/* Nav */
+.nav{display:flex;align-items:center;justify-content:center;gap:12px}
+.nav-btn{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:6px;
+  color:#c0c4d0;font-size:16px;width:34px;height:34px;cursor:pointer;
+  transition:background .15s,border-color .15s,color .15s;display:flex;align-items:center;justify-content:center}
 .nav-btn:hover:not(:disabled){background:rgba(201,168,76,.15);border-color:#c9a84c;color:#c9a84c}
 .nav-btn:disabled{opacity:.3;cursor:default}
-.nav-play{width:42px;height:34px;font-size:18px}
-.step-info{font-size:12px;color:#6a8aaa;min-width:60px;text-align:center}
+.nav-play{width:42px;font-size:18px}
+.step-info{font-size:12px;color:#6a8aaa;min-width:72px;text-align:center}
 
-@media(max-width:480px){
+/* Growth badge */
+.growth{display:inline-block;background:#1a2a3a;border:1px solid #2d7dd2;border-radius:4px;
+  font-size:10px;color:#8aaed0;padding:2px 7px;margin-top:5px}
+.growth strong{color:#c9a84c}
+
+@media(max-width:500px){
   .panels{grid-template-columns:1fr}
   .panel.faded{display:none}
 }
@@ -49,114 +65,172 @@ body{background:#0d1117;color:#c0c4d0;font:13px/1.4 system-ui,sans-serif;padding
   <div class="panel faded" id="panel-prev"></div>
   <div class="panel curr"  id="panel-curr"></div>
 </div>
-
 <div class="nav">
-  <button class="nav-btn" id="btn-prev" title="Previous">&#8592;</button>
-  <button class="nav-btn nav-play" id="btn-play" title="Play">&#9654;</button>
-  <button class="nav-btn" id="btn-next" title="Next">&#8594;</button>
+  <button class="nav-btn" id="btn-prev">&#8592;</button>
+  <button class="nav-btn nav-play" id="btn-play">&#9654;</button>
+  <button class="nav-btn" id="btn-next">&#8594;</button>
   <span class="step-info" id="step-info"></span>
 </div>
 
 <script>
-const PRIMES = [2,3,5,7,11,13,17,19,23,29,31,37,41,43,47];
-let step = 1;          // 1 = finding prime[1]=3, max = PRIMES.length-1
+/* ── Algorithm: generate steps ──────────────────────────────────
+   Each step finds ALL primes in (P_max, 2×P_max].
+   New P_max = largest found. Next search window doubles from there.
+─────────────────────────────────────────────────────────────────*/
+function buildSteps(){
+  const LIMIT = 400;
+  const isp = new Uint8Array(LIMIT+1).fill(1); isp[0]=isp[1]=0;
+  for(let i=2;i*i<=LIMIT;i++) if(isp[i]) for(let j=i*i;j<=LIMIT;j+=i) isp[j]=0;
+
+  const steps = [];
+  let pMax = 2;
+  let basis = [2];
+
+  // Step 0: initial state
+  steps.push({ pMax:2, range:4, newPrimes:[], basis:[2], prevPMax:null });
+
+  for(let k=0; k<7; k++){
+    const lo = pMax, hi = 2*pMax;
+    if(hi > LIMIT) break;
+    const found = [];
+    for(let n=lo+1; n<=hi; n++) if(isp[n]) found.push(n);
+    if(!found.length) break;
+
+    const prevPMax = pMax;
+    pMax = found[found.length-1];
+    basis = [...basis, ...found];
+    steps.push({ prevPMax, foundIn: hi, newPrimes: found, pMax, range: 2*pMax, basis:[...basis] });
+  }
+  return steps;
+}
+
+const STEPS = buildSteps();
+const MAX_STEP = STEPS.length - 1;
+let step = 1;
 let playTimer = null;
 
 function getLang(){
   try{ return window.parent.document.documentElement.lang||'en'; }catch(e){ return 'en'; }
 }
 
-function renderPanel(el, k, isCurr){
-  if(k < 1){
-    el.innerHTML = '<div class="panel-title">—</div><div style="color:#3d4f60;font-size:12px;padding:4px 0">start</div>';
-    return;
-  }
-  const isPL  = getLang()==='pl';
-  const prevP = PRIMES[k-1];
-  const newP  = PRIMES[k];
-  const range = 2 * prevP;
-  const basis = PRIMES.slice(0, k+1); // basis after this step
-
-  // Pills
-  const pillsHTML = basis.map((p,i)=>{
-    const cls = (isCurr && i===basis.length-1) ? 'pill newest' : 'pill';
-    return `<span class="${cls}">${p}</span>`;
-  }).join('');
-
-  // Formula
-  const fLabel = isPL ? 'Zasięg' : 'Range';
-  const nLabel = isPL ? 'Nowa p.' : 'New p.';
-  const formulaHTML =
-    `<span class="f-range">P<sub>min</sub> × P<sub>max</sub> = 2 × ${prevP} = <strong>${range}</strong></span>` +
-    ` &nbsp;·&nbsp; ${nLabel} = <strong>${newP}</strong>`;
-
-  // Bar: total width = range
-  // Split: [0, prevP] gray, [prevP, range] blue, dot at newP
+function renderBar(container, foundIn, prevPMax, newPrimes){
   const W = 240;
-  const grayW   = Math.round(prevP / range * W);
-  const blueW   = W - grayW;
-  const dotLeft = Math.round(newP  / range * W);
+  const grayW = Math.round(prevPMax / foundIn * W);
+  const blueW = W - grayW;
 
-  const lbl0    = '0';
-  const lblPrev = `${prevP}`;
-  const lblNew  = `${newP}`;
-  const lblMax  = `${range}`;
+  let markers = '';
+  newPrimes.forEach(p=>{
+    const x = Math.round(p / foundIn * W);
+    markers += `<div class="bar-marker" style="left:${x}px"></div>`;
+  });
 
-  // Position labels: 0 left, prevP center of gray, newP at dot, range at right
-  const prevPct  = (prevP  / range * 100).toFixed(1);
-  const newPct   = (newP   / range * 100).toFixed(1);
+  const lblPrev = prevPMax;
+  const lblMax  = foundIn;
 
-  const panelTitle = isPL
-    ? (k===1 ? 'Krok 1' : `Krok ${k}`)
-    : (k===1 ? 'Step 1' : `Step ${k}`);
-
-  el.innerHTML =
-    `<div class="panel-title">${panelTitle}</div>` +
-    `<div class="pills">${pillsHTML}</div>` +
-    `<div class="formula">${formulaHTML}</div>` +
-    `<div class="bar-area">` +
-      `<div style="position:relative;padding-top:22px">` +
-        `<div class="bar-newp" style="left:${dotLeft}px">${newP}</div>` +
-        `<div class="bar-dot"  style="left:${dotLeft-1}px"></div>` +
+  container.innerHTML =
+    `<div class="bar-wrap">` +
+      `<div style="position:relative;width:${W}px">` +
         `<div class="bar-track" style="width:${W}px">` +
           `<div class="bar-gray" style="width:${grayW}px"></div>` +
           `<div class="bar-blue" style="width:${blueW}px"></div>` +
         `</div>` +
+        markers +
       `</div>` +
       `<div class="bar-labels" style="width:${W}px">` +
-        `<span>${lbl0}</span>` +
-        `<span style="position:absolute;left:${grayW}px;transform:translateX(-50%)">${lblPrev}</span>` +
-        `<span style="margin-left:auto">${lblMax}</span>` +
+        `<span class="bar-lbl left">0</span>` +
+        `<span class="bar-lbl" style="left:${grayW}px">${lblPrev}</span>` +
+        `<span class="bar-lbl right" style="left:${W}px">${lblMax}</span>` +
       `</div>` +
     `</div>`;
+}
+
+function renderPanel(el, k, isCurr){
+  const s = STEPS[k];
+  if(!s){ el.innerHTML=''; return; }
+  const isPL = getLang()==='pl';
+
+  // Title
+  const title = k===0
+    ? (isPL?'START':'START')
+    : `${isPL?'KROK':'STEP'} ${k}`;
+
+  // Pills
+  const pills = s.basis.map(p=>{
+    const isNew = s.newPrimes.includes(p);
+    return `<span class="pill${isCurr&&isNew?' new':''}">${p}</span>`;
+  }).join('');
+
+  let body = `<div class="panel-title">${title}</div><div class="pills">${pills}</div>`;
+
+  if(k===0){
+    // Initial state
+    const fl = isPL?'Zasięg startowy':'Initial range';
+    body +=
+      `<div class="formula">${fl}: <span class="fv">2 × 2 = 4</span></div>`;
+    renderBar(el, 4, 2, []);
+    el.innerHTML = body;
+    el.querySelector('.bar-wrap') && (el.innerHTML += '');
+    // reattach bar
+    const tmp = document.createElement('div');
+    renderBar(tmp, 4, 2, []);
+    el.innerHTML = body + tmp.innerHTML;
+    return;
+  }
+
+  const { prevPMax, foundIn, newPrimes, pMax, range } = s;
+  const nLabel = isPL ? 'Nowe pierwsze' : 'New primes';
+  const nrLabel = isPL ? 'Nowy zasięg' : 'New range';
+
+  const formulaLine =
+    `<div class="formula">` +
+      `2 × P<sub>max</sub> = 2 × <span class="fv">${prevPMax}</span> = <strong>${foundIn}</strong>` +
+    `</div>`;
+
+  const newLine =
+    `<div class="new-primes-line">${nLabel}: ` +
+      newPrimes.map(p=>`<span>${p}</span>`).join(' · ') +
+    `</div>`;
+
+  const nextLine =
+    `<div class="next-range-line">${nrLabel}: 2 × <strong>${pMax}</strong> = <strong>${range}</strong></div>`;
+
+  body += formulaLine + newLine + nextLine;
+
+  // Badge: how many new primes
+  const cnt = newPrimes.length;
+  const cntLabel = isPL
+    ? `+<strong>${cnt}</strong> now${cnt===1?'a':'e'} ${cnt===1?'pierwsza':'pierwsze'}`
+    : `+<strong>${cnt}</strong> new prime${cnt===1?'':'s'}`;
+  body += `<div class="growth">${cntLabel}</div>`;
+
+  el.innerHTML = body;
+
+  const barEl = document.createElement('div');
+  renderBar(barEl, foundIn, prevPMax, newPrimes);
+  el.appendChild(barEl);
 }
 
 function render(){
   const isPL = getLang()==='pl';
   renderPanel(document.getElementById('panel-prev'), step-1, false);
   renderPanel(document.getElementById('panel-curr'), step,   true);
-
-  const maxStep = PRIMES.length - 1;
   document.getElementById('btn-prev').disabled = step <= 1;
-  document.getElementById('btn-next').disabled = step >= maxStep;
+  document.getElementById('btn-next').disabled = step >= MAX_STEP;
   document.getElementById('step-info').textContent =
-    `${isPL?'krok':'step'} ${step} / ${maxStep}`;
+    `${isPL?'krok':'step'} ${step} / ${MAX_STEP}`;
+  fitParent();
 }
-
-document.getElementById('btn-prev').addEventListener('click',()=>{ if(step>1){ step--; render(); } });
-document.getElementById('btn-next').addEventListener('click',()=>{ if(step<PRIMES.length-1){ step++; render(); } });
 
 const playBtn = document.getElementById('btn-play');
 function stopPlay(){ clearInterval(playTimer); playTimer=null; playBtn.innerHTML='&#9654;'; }
 function startPlay(){
-  if(step>=PRIMES.length-1) step=1;
+  if(step>=MAX_STEP) step=1;
   playBtn.innerHTML='&#9646;&#9646;';
-  playTimer=setInterval(()=>{
-    if(step>=PRIMES.length-1){ stopPlay(); return; }
-    step++; render();
-  },1200);
+  playTimer=setInterval(()=>{ if(step>=MAX_STEP){ stopPlay(); return; } step++; render(); }, 1400);
 }
 playBtn.addEventListener('click',()=>{ playTimer?stopPlay():startPlay(); });
+document.getElementById('btn-prev').addEventListener('click',()=>{ if(step>1){ step--; render(); } });
+document.getElementById('btn-next').addEventListener('click',()=>{ if(step<MAX_STEP){ step++; render(); } });
 
 function fitParent(){
   if(!window.frameElement) return;
@@ -166,10 +240,8 @@ function fitParent(){
 }
 
 render();
-fitParent();
-
 try{
-  new MutationObserver(()=>{ render(); fitParent(); })
+  new MutationObserver(()=>{ render(); })
     .observe(window.parent.document.documentElement,{attributes:true,attributeFilter:['lang']});
 }catch(e){}
 </script>
