@@ -6,7 +6,7 @@
     title: '#09 Algorytm Dzielników: Odkrycie Twierdzenia Teorii Liczb na ATmega8 — Artur Flamandzki',
     hero_tag: 'PORTFOLIO R&D — PROJEKT #09 — BADANIE ALGORYTMICZNE',
     hero_title: 'Algorytm Dzielników: Odkrycie Twierdzenia Teorii Liczb na ATmega8',
-    hero_sub: 'Od zadania algorytmicznego do samodzielnego wyprowadzenia wzoru matematycznego · ATmega8, 1 MHz · 2013',
+    hero_sub: 'Od zadania algorytmicznego do samodzielnego odkrycia klasycznego twierdzenia teorii liczb · ATmega8, 1 MHz · 2013',
     date: '2013 · badanie algorytmiczne / teoria liczb · ATmega8, C# · V1.0→V2.0',
     summary: '<p>Zadanie: znaleźć liczbę posiadającą dokładnie 500 dzielników. Platforma: ATmega8, 1 MHz. W trakcie rozwiązywania wyprowadziłem empirycznie klasyczny wzór teorii liczb na minimalizację liczby z podaną liczbą dzielników oraz opracowałem czterościeżkowy algorytm O(√N) znacznie szybszy od konwencjonalnego. Projekt stał się bezpośrednią przyczyną podjęcia studiów inżynierskich.</p>',
     nav_prev: '← #08',
