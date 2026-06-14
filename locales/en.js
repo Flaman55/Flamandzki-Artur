@@ -61,7 +61,7 @@
       title: 'Evolution — from prototype to theory',
       sub:   'A chronology of key technical and research breakthroughs. Both tracks — embedded hardware and relational mathematics — converge in 2022–2026.',
       t1: {
-        period: '2004 – 2006',
+        period: '2004',
         title:  'High school — first projects born of necessity',
         text:   'Portable battery speaker (#02). Starting point — electronics as a hobby, not a profession.'
       },
@@ -226,7 +226,7 @@
         name:   'LX-EMI01 — Laskomex/Proel EEPROM Memory Editor',
         tag:    'Commercial · Laskomex/Proel · 2018–2019',
         tech:   'EEPROM editor, communication protocol reverse-engineering, ATmega, VB.NET, I²C/SPI, USB↔RS232 bridge',
-        result: 'Surgical EEPROM editor for 8 Laskomex/Proel models — no computer needed on-site. PELP: one-button code-table migration across brands and generations. USB↔RS232 bridge with three-tier remote management architecture.'
+        result: 'EEPROM editor for 8 Laskomex/Proel models — no computer needed on-site. PELP: one-button code-table migration across brands and generations. USB↔RS232 bridge with three-tier remote management architecture.'
       },
       p09: {
         name:   'Prime Divisor Search Algorithm on ATmega8',

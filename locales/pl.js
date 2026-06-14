@@ -58,7 +58,7 @@
       title: 'Ewolucja — od prototypu do teorii',
       sub:   'Chronologia kluczowych przełomów. Obie ścieżki — hardware embedded i matematyka relacyjna — zbiegają się w latach 2022–2026.',
       t1: {
-        period: '2004 – 2006',
+        period: '2004',
         title:  'Liceum — pierwsze projekty z potrzeby',
         text:   'Przenośny głośnik bateryjny (#02). Punkt startowy — elektronika jako hobby, nie zawód.'
       },
@@ -223,7 +223,7 @@
         name:   'LX-EMI01 — Edytor Pamięci EEPROM Laskomex / Proel',
         tag:    'Komercja · Laskomex/Proel · 2018–2019',
         tech:   'Edytor EEPROM, reverse-engineering protokołu, ATmega, VB.NET, I²C/SPI, mostek USB↔RS232',
-        result: 'Chirurgiczny edytor EEPROM dla 8 modeli Laskomex/Proel — bez komputera na miejscu. PELP: przeniesienie tabeli kodów między markami i generacjami jednym przyciskiem. Mostek USB↔RS232 z trzywarstwową architekturą zdalnego zarządzania.'
+        result: 'Edytor EEPROM dla 8 modeli Laskomex/Proel — bez komputera na miejscu. PELP: przeniesienie tabeli kodów między markami i generacjami jednym przyciskiem. Mostek USB↔RS232 z trzywarstwową architekturą zdalnego zarządzania.'
       },
       p09: {
         name:   'Algorytm Szukania Dzielników Liczb na ATmega8',
