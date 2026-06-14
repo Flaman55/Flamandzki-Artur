@@ -229,12 +229,12 @@
         name:   'Algorytm Szukania Dzielników Liczb na ATmega8',
         tag:    'Embedded · algorytmika bare-metal, 2013',
         tech:   'AVR, ATmega8, optymalizacja dla 8-bit MCU',
-        result: 'Implementacja faktoryzacji na mikrokontrolerze 8-bit. Wczesny zalążek zainteresowań teorią liczb — bezpośredni poprzednik badań MR.'
+        result: 'Algorytm liczenia dzielników na ATmega8 (O(N) → O(√N)). Samodzielnie opracowana formuła τ(n) = ∏(eᵢ+1) — klasyczne twierdzenie teorii liczb, odkryte tu empirycznie od zera. Bezpośredni poprzednik badań MR.'
       },
       p10: {
         name:   'Termometr Pieca — Zdalny Monitor Kotłowni',
         tag:    'Embedded · IoT przed erą IoT, 2013',
-        tech:   'ATmega8, DS18B20, ambient display (widzialny z drugiego końca kotłowni), alarm, 2013',
+        tech:   'ATmega8, DS18B20, ambient display (widzialny z drugiego końca kotłowni), alarm',
         result: 'Zdalny monitoring temperatury pieca z wyświetlaczem ambientowym. Wzorzec file-based IoT gateway przez OneDrive — wdrożony zanim MQTT/Home Assistant stały się powszechne.'
       },
       p11: {
@@ -262,14 +262,14 @@
         result: 'Interaktywna zabawka edukacyjna — 3 przyciski RGB, software PWM na ATtiny13A (brak sprzętowego PWM). Obudowa wyfrezowana na własnym CNC.'
       },
       p15: {
-        name:   'Laser CO₂ — Infrastruktura i Układ Nadmuchu',
+        name:   'Laser CO₂ — Opanowanie Technologii i Transfer Wiedzy',
         tag:    'Własny system · 2020–obecnie',
         tech:   'CO₂ 50 W, elektrozawory, Ruida DSP, przekaźniki, chiller, własny air-assist',
-        result: 'Zautomatyzowana linia produkcyjna do obróbki drewna. Własny air-assist, kalibracja kontrolera Ruida DSP. Produkcja i komercjalizacja >1000 wyrobów gotowych.'
+        result: 'Pełne opanowanie technologii: kompensacja kerfa, profile materiałowe, kalibracja maszyny. Transfer wiedzy — żona samodzielnie obsługuje maszynę i wyprodukowała ponad 1000 gotowych wyrobów.'
       },
       p16: {
         name:   'TrueSynth — Biblioteka Trygonometryczna dla Embedded',
-        tag:    'Matematyka R&D · Prime Engine, 2025–2026',
+        tag:    'Matematyka R&D · Prime Engine, 2025–obecnie',
         tech:   'Prime Engine, Q31 Fixed-Point, Cortex-M0/M4F, FOC/DDS, ARM Assembly',
         result: 'Kąt jako ułamek oparty na liczbach pierwszych (Δ = k/p) — błąd aproksymacji ppb = 0. <strong>4,7× szybszy</strong> niż CMSIS-DSP Q31 bez FPU. Zero dryftu po 10⁹ krokach.'
       },
@@ -292,7 +292,7 @@
         result: 'Dwuwarstwowa architektura kognitywna: Warstwa A (mapa pamięci ChromaDB + ARR) + Warstwa B (kontroler wielomodelowy). Eliminacja rekomputacji → token cost = 0 dla lokalnych zadań.'
       },
       p20: {
-        name:   'MR-AI — Framework Rytmiczny',
+        name:   'MR-AI — Framework Rytmiczny dla Sztucznej Inteligencji',
         tag:    'AI / Software · 2025–obecnie',
         tech:   'ARR + MR-KL + MR-CL + MR-RG + RPP, sterowanie bez wartości bezwzględnych, Python',
         result: 'Framework łączący wszystkie 5 modułów MR w architekturę decyzyjną dla AI. „Sterowanie bez wartości" — decyzje oparte wyłącznie na rytmie zmian i relacjach przestrzennych.'
@@ -305,7 +305,7 @@
       },
       p22: {
         name:   'Inteligentny Dom — Architektura Bezpieczeństwa i Automatyzacji',
-        tag:    'Własny system · IoT, 2024–obecnie',
+        tag:    'Własny system · IoT, 2022–obecnie',
         tech:   'Home Assistant, YAML, REST API, mechaniczne interlocking (Power Isolation / Night Lockdown), hardware-integrated',
         result: 'Local-First, fizycznie bezpieczna instalacja automatyki domowej. Mechaniczne blokady sprzętowe zamiast wyłącznie softwarowych — bezpieczeństwo przez hardware.'
       }

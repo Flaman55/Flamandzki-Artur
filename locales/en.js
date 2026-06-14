@@ -232,12 +232,12 @@
         name:   'Prime Divisor Search Algorithm on ATmega8',
         tag:    'Embedded · bare-metal algorithmics, 2013',
         tech:   'AVR, ATmega8, 8-bit MCU optimisation',
-        result: 'Factorisation implementation on an 8-bit microcontroller. Early precursor to interest in number theory — direct predecessor of MR research.'
+        result: 'Divisor-counting algorithm on ATmega8 (O(N) → O(√N)). Independent empirical derivation of the classical formula τ(n) = ∏(eᵢ+1) — a theorem known in number theory, rediscovered here from scratch. Direct precursor of MR research.'
       },
       p10: {
         name:   'Boiler Thermometer — Remote Boiler Room Monitor',
         tag:    'Embedded · IoT before IoT era, 2013',
-        tech:   'ATmega8, DS18B20, ambient display (visible across the boiler room), alarm, 2013',
+        tech:   'ATmega8, DS18B20, ambient display (visible across the boiler room), alarm',
         result: 'Remote boiler temperature monitoring with ambient display. File-based IoT gateway via OneDrive — deployed before MQTT/Home Assistant became mainstream.'
       },
       p11: {
@@ -265,14 +265,14 @@
         result: 'Interactive educational toy — 3 RGB buttons, software PWM on ATtiny13A (no hardware PWM). Enclosure milled on own CNC machine.'
       },
       p15: {
-        name:   'CO₂ Laser — Infrastructure and Air-Assist System',
+        name:   'CO₂ Laser — Technology Mastery and Knowledge Transfer',
         tag:    'Own system · 2020–present',
         tech:   'CO₂ 50 W, solenoid valves, Ruida DSP, relays, chiller, custom air-assist',
-        result: 'Automated wood-processing production line. Custom air-assist, Ruida DSP calibration. Production and commercialisation of >1,000 finished products.'
+        result: 'Full technology mastery: kerf compensation, material profiles, machine calibration. Knowledge transfer to a non-technical user — wife operates independently and has produced over 1,000 finished products.'
       },
       p16: {
         name:   'TrueSynth — Trigonometric Library for Embedded',
-        tag:    'Mathematics R&D · Prime Engine, 2025–2026',
+        tag:    'Mathematics R&D · Prime Engine, 2025–present',
         tech:   'Prime Engine, Q31 Fixed-Point, Cortex-M0/M4F, FOC/DDS, ARM Assembly',
         result: 'Angle as a prime-number-based fraction (Δ = k/p) — approximation error ppb = 0. <strong>4.7× faster</strong> than CMSIS-DSP Q31 without FPU. Zero drift after 10⁹ steps.'
       },
@@ -295,7 +295,7 @@
         result: 'Two-layer cognitive architecture: Layer A (ChromaDB memory map + ARR) + Layer B (multi-model controller). Eliminates recomputation → token cost = 0 for local tasks.'
       },
       p20: {
-        name:   'MR-AI — Rhythmic Framework',
+        name:   'MR-AI — Rhythmic Framework for Artificial Intelligence',
         tag:    'AI / Software · 2025–present',
         tech:   'ARR + MR-KL + MR-CL + MR-RG + RPP, value-free control, Python',
         result: 'Framework combining all 5 MR modules into a decision architecture for AI. "Control without absolute values" — decisions based solely on the rhythm of change and spatial relations.'
@@ -308,7 +308,7 @@
       },
       p22: {
         name:   'Smart Home — Security and Automation Architecture',
-        tag:    'Own system · IoT, 2024–present',
+        tag:    'Own system · IoT, 2022–present',
         tech:   'Home Assistant, YAML, REST API, mechanical interlocking (Power Isolation / Night Lockdown), hardware-integrated',
         result: 'Local-First, physically secure home automation. Hardware mechanical locks instead of software-only — security through hardware.'
       }
