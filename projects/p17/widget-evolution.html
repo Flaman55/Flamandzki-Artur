@@ -158,10 +158,18 @@ function startPlay(){
 }
 playBtn.addEventListener('click',()=>{ playTimer?stopPlay():startPlay(); });
 
+function fitParent(){
+  if(!window.frameElement) return;
+  requestAnimationFrame(()=>{
+    window.frameElement.style.height = document.documentElement.scrollHeight + 'px';
+  });
+}
+
 render();
+fitParent();
 
 try{
-  new MutationObserver(render)
+  new MutationObserver(()=>{ render(); fitParent(); })
     .observe(window.parent.document.documentElement,{attributes:true,attributeFilter:['lang']});
 }catch(e){}
 </script>

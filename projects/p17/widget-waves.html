@@ -148,11 +148,19 @@ const wns = document.getElementById('wns');
 const rv  = document.getElementById('rng-val');
 const wv  = document.getElementById('wns-val');
 
-rng.addEventListener('input',()=>{ rv.textContent=rng.value; build(+rng.value,+wns.value); });
-wns.addEventListener('input',()=>{ wv.textContent=wns.value; build(+rng.value,+wns.value); });
+function fitParent(){
+  if(!window.frameElement) return;
+  requestAnimationFrame(()=>{
+    window.frameElement.style.height = document.documentElement.scrollHeight + 'px';
+  });
+}
+
+rng.addEventListener('input',()=>{ rv.textContent=rng.value; build(+rng.value,+wns.value); fitParent(); });
+wns.addEventListener('input',()=>{ wv.textContent=wns.value; build(+rng.value,+wns.value); fitParent(); });
 
 build(30, 3);
 applyLang();
+fitParent();
 
 try{
   new MutationObserver(()=>{ build(+rng.value,+wns.value); applyLang(); })
