@@ -5,7 +5,8 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
-body{background:#0d1117;color:#c0c4d0;font:13px/1.4 system-ui,sans-serif;padding:10px 10px 14px}
+body{background:#0d1117;color:#c0c4d0;font:13px/1.4 system-ui,sans-serif;padding:10px 10px 10px}
+html,body{height:auto}
 .controls{display:flex;gap:20px;align-items:center;flex-wrap:wrap;margin-bottom:12px}
 .ctrl-group{display:flex;align-items:center;gap:8px}
 label{font-size:12px;color:#8aaed0}
@@ -22,7 +23,10 @@ td.cm{background:#1e4a8a;color:#90b8e0;font-size:10px;font-weight:700}
 td.pm{background:#c9a84c;color:#0d1117;font-size:11px;font-weight:800}
 td.wp{background:transparent;color:#3d4f60;font-size:10px;font-weight:500;border-color:#1a2230}
 td.sep{height:3px;background:#1e2533;border:none;padding:0}
-.legend{display:flex;gap:14px;flex-wrap:wrap;margin-top:12px;font-size:11px;color:#8aaed0}
+.inne-list{margin-top:9px;font-size:12px;color:#6a8aaa}
+.inne-list .inne-key{color:#c9a84c;font-weight:700;margin-right:5px}
+.inne-list .inne-num{color:#c9a84c;font-weight:800;font-size:13px}
+.legend{display:flex;gap:14px;flex-wrap:wrap;margin-top:9px;font-size:11px;color:#8aaed0}
 .leg{display:flex;align-items:center;gap:5px}
 .leg-sq{width:13px;height:13px;border-radius:2px;flex-shrink:0}
 </style>
@@ -41,6 +45,7 @@ td.sep{height:3px;background:#1e2533;border:none;padding:0}
   </div>
 </div>
 <div class="wrap"><table id="tbl"></table></div>
+<div class="inne-list" id="inne-list"></div>
 <div class="legend" id="legend"></div>
 
 <script>
@@ -106,6 +111,18 @@ function build(N, nw){
   h+='</tr>';
 
   document.getElementById('tbl').innerHTML = h;
+
+  // Inne list: other primes not in shown waves
+  const otherPrimes = allPrimes.filter(p => !shownSet.has(p));
+  const inneLabel = isPL ? 'Inne' : 'Others';
+  const inneEl = document.getElementById('inne-list');
+  if(otherPrimes.length){
+    inneEl.innerHTML =
+      `<span class="inne-key">${inneLabel}:</span>` +
+      otherPrimes.map(p=>`<span class="inne-num">${p}</span>`).join(' · ');
+  } else {
+    inneEl.innerHTML = '';
+  }
 
   // Legend
   const waveLabel  = isPL ? 'Trafienie cyklu'           : 'Wave hit (cycle row)';
