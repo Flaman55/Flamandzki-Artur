@@ -9,13 +9,12 @@
 
     page: {
       title: 'Artur Flamandzki — Portfolio R&D',
-      description: '22 projekty — elektronika embedded, firmware AVR, Matematyka Relacyjna, FochBot AI.'
+      description: '22 projekty — elektronika embedded, firmware AVR, algorytmika, AI.'
     },
 
     nav: {
       filozofia:   'Filozofia',
       ewolucja:    'Ewolucja',
-      mr:          'MR / Teoria',
       projekty:    'Projekty',
       casestudies: 'Case Studies',
       podsumowanie:'Podsumowanie',
@@ -29,29 +28,13 @@
       b1: '16 lat praktyki w R&D',
       b2: 'Produkty zwalidowane rynkowo',
       b3: 'Autorskie frameworki optymalizacyjne',
-      b4: 'Matematyka Relacyjna',
       b5: 'AI / Embedded'
     },
 
     s1: {
       title: 'Filozofia projektowa',
-      sub:   'Obserwacja po fakcie: każde własne narzędzie wymusza pełne zrozumienie problemu, który ma rozwiązać.',
-      c1: {
-        title: '⚙️ Budowa własnych narzędzi',
-        text:  'Terminal COM do debugowania sterownika pieca? Napisany własny, bo dostępne terminale nie miały jednoczesnego multi-formatu danych i przycisku wyzwalającego bootloader jednym kliknięciem.'
-      },
-      c2: {
-        title: '🔢 Precyzja wymaga pomiaru',
-        text:  'Kalkulator dzielnika napięcia z trybem ADC? Powstał, bo potrzeba było dobrać R1/R2 i natychmiast zobaczyć rozdzielczość jednego bitu przy zadanej precyzji — żaden gotowy kalkulator online tego nie pokazał.'
-      },
-      c3: {
-        title: '🧩 Od koncepcji do efektu końcowego',
-        text:  'Hardware, firmware, aplikacje PC, narzędzia produkcyjne, systemy numeracji seryjnej. Opisane tu zarówno produkty sprzedane w setkach sztuk, jak i projekty jednorazowe — każdy z własną lekcją inżynierską.'
-      },
-      c4: {
-        title: '🧬 Teoria wynika z praktyki',
-        text:  'Matematyka Relacyjna nie powstała w akademiku — sterownik pieca z 2016 roku okazał się empirycznym dowodem ARR na dekadę przed sformalizowaniem teorii. Sprzętowe obserwacje i abstrakcja matematyczna zbiegają się w jednym miejscu.'
-      }
+      p1:   'Lubię zmierzyć się z problemem samodzielnie zanim spojrzę jak rozwiązali go inni. Sprawdzić czy jestem w stanie go zrozumieć, znaleźć przynajmniej koncepcję rozwiązania, podjąć próbę. Gdy mi się uda — wyszukuję podobne problemy i czytam cudze podejścia. Nie po to żeby porównywać kto lepszy, ale żeby zobaczyć co pominąłem, czego nie dostrzegłem, czy można było prościej.',
+      p2:   'Stąd projekt nr 9: zadanie algorytmiczne które skończyło się samodzielnym wyprowadzeniem twierdzenia teorii liczb — bo nikt mi nie powiedział że ono istnieje. I stąd każde narzędzie napisane od zera: terminal COM, kalkulator dzielnika, biblioteka BigInteger — bo gotowe poznałem dopiero gdy stworzyłem własne.'
     },
 
     s2: {
@@ -114,50 +97,6 @@
       },
       fazepunchline: 'Hardware nauczył mnie myśleć w cyklach. Bank nauczył myśleć w wolumenach. Matematyka nauczyła myśleć w strukturach. Projektuję na przecięciu wszystkich trzech.',
       note: '<strong>Dwie ścieżki:</strong> hardware embedded (projekty #01–#15) i matematyka relacyjna (#16–#21) rozwijały się równolegle przez lata. W 2022–2026 <strong>zbiegają się w jedną</strong>: MR-AI, TrueSynth i Resona to miejsca, gdzie fizyka mikrokontrolerów spotyka teorię liczb.'
-    },
-
-    s3: {
-      title: 'Matematyka Relacyjna (MR)',
-      sub:   'Hierarchia: MR jako teoria fundamentalna (#17) → pięć frameworków analitycznych → MR-AI (#20) jako framework łączący je wszystkie w zastosowaniach AI.',
-      theory: {
-        title: 'MR — Teoria Fundamentalna (projekt #17)',
-        text:  'Matematyka Relacyjna (MR) to autorska teoria matematyczna opisująca strukturę liczb pierwszych przez pryzmat relacji rytmicznych, partycji i modeli rotacyjnych — obejmuje dowód hiperboliczny twierdzenia Bertranda–Czebyszewa, struktury CRT oraz Q-semigrupy. Opublikowana jako 6 preprintów naukowych na Zenodo; dostarcza formalnego aparatu matematycznego dla pięciu frameworków analitycznych.'
-      },
-      arr: {
-        tag:     'ARR',
-        title:   'Analiza Rytmiczna i Rezonansowa',
-        text:    'Framework kontroli rytmu — identyfikuje wzorce periodyczne w sekwencjach i mierzy ich „rezonans". Zastosowanie: podejmowanie decyzji na podstawie kierunku zmian (↑ / → / ↓) zamiast wartości bezwzględnych — szczególnie przydatne na urządzeniach edge/RT z ograniczonymi zasobami.',
-        mandate: 'Mandat: pomiar i kontrola rytmu sekwencji.'
-      },
-      cl: {
-        tag:     'MR-CL',
-        title:   'Rytmiczne Grupowanie (Clustering)',
-        text:    'Wykrywa i segmentuje klastry o podobnych właściwościach rytmicznych. Stosowany do analizy lokalnej gęstości i wykrywania anomalii struktury w zbiorach danych opartych na MR.',
-        mandate: 'Mandat: segmentacja i grupowanie struktur rytmicznych.'
-      },
-      kl: {
-        tag:     'MR-KL',
-        title:   'Rytmiczna Klasyfikacja (Classification)',
-        text:    'Klasyfikuje elementy według kategorii rytmicznych zdefiniowanych w MR. Buduje taksonomię wzorców i pozwala na predykcję przynależności kategorialnej bez wartości bezwzględnych.',
-        mandate: 'Mandat: typologia i klasyfikacja wzorców MR.'
-      },
-      rg: {
-        tag:     'MR-RG',
-        title:   'Rytmiczna Regresja (Regression)',
-        text:    'Modeluje ilościowe zależności między parametrami rytmicznymi. Umożliwia ekstrapolację i predykcję numeryczną na bazie aparatu regresji MR — uzupełnienie klasycznej regresji o wymiar rytmiczny.',
-        mandate: 'Mandat: predykcja i modelowanie ilościowe.'
-      },
-      rpp: {
-        tag:     'RPP',
-        title:   'Relacyjna Przestrzeń Przesunięć',
-        text:    'Definiuje wielowymiarową przestrzeń, w której każdy element zajmuje pozycję wyznaczoną przez jego relacje przesunięcia. Formalizuje geometrię struktury MR i dostarcza aparatu przestrzennego dla pozostałych frameworków.',
-        mandate: 'Mandat: geometria i przestrzeń relacyjna MR.'
-      },
-      ai: {
-        label: 'Framework aplikacyjny AI — projekt #20',
-        title: 'MR-AI — Framework Rytmiczny dla sztucznej inteligencji',
-        text:  'MR-AI łączy wszystkie pięć frameworków (ARR, MR-CL, MR-KL, MR-RG, RPP) w spójną architekturę decyzyjną dla systemów AI — <strong>sterowanie bez wartości bezwzględnych</strong>. Zamiast porównywać liczby, system operuje na rytmie zmian i relacjach przestrzennych. Konkretyzmacją MR-AI jest <strong>FochBot</strong> (#19): autonomiczny asystent AI z dwuwarstwową architekturą kognitywną (mapa pamięci ChromaDB + kontroler wielomodelowy), eliminujący rekomputację znanych wniosków — token cost = 0 dla lokalnych zadań.'
-      }
     },
 
     s4: {

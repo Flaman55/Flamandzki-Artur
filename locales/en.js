@@ -12,13 +12,12 @@
 
     page: {
       title: 'Artur Flamandzki — R&D Portfolio',
-      description: '22 projects — embedded electronics, AVR firmware, Relational Mathematics, FochBot AI.'
+      description: '22 projects — embedded electronics, AVR firmware, algorithmics, AI.'
     },
 
     nav: {
       filozofia:   'Philosophy',
       ewolucja:    'Evolution',
-      mr:          'MR / Theory',
       projekty:    'Projects',
       casestudies: 'Case Studies',
       podsumowanie:'Summary',
@@ -32,29 +31,13 @@
       b1: '16 years of R&D practice',
       b2: 'Market-validated products',
       b3: 'Firmware AVR · C# · Java · Python',
-      b4: 'Relational Mathematics',
       b5: 'AI / Embedded'
     },
 
     s1: {
       title: 'Design Philosophy',
-      sub:   'An observation in retrospect: every self-built tool forces a complete understanding of the problem it is meant to solve.',
-      c1: {
-        title: '⚙️ Building your own tools',
-        text:  'A COM terminal for debugging the boiler controller? Written from scratch, because available terminals lacked simultaneous multi-format data display and a one-click bootloader trigger button.'
-      },
-      c2: {
-        title: '🔢 Precision requires measurement',
-        text:  'A voltage divider calculator with ADC mode? Built because there was a need to select R1/R2 and immediately see the single-bit resolution at a given precision — no online calculator showed that.'
-      },
-      c3: {
-        title: '🧩 From concept to finished product',
-        text:  'Hardware, firmware, PC applications, production tools, serial-number management systems. Described here are both products sold in hundreds of units and one-off projects — each with its own engineering lesson.'
-      },
-      c4: {
-        title: '🧬 Theory emerges from practice',
-        text:  'Relational Mathematics did not originate in academia — the 2016 boiler controller turned out to be an empirical proof of ARR a decade before the theory was formalised. Hardware observations and mathematical abstraction converge in one place.'
-      }
+      p1:   'I like to tackle a problem on my own before looking at how others solved it. To find out whether I can understand it, reach at least a conceptual solution, and attempt it. When I succeed — I search for similar problems and read other people\'s approaches. Not to compare who did it better, but to see what I missed, what I overlooked, or whether there was a simpler way.',
+      p2:   'Hence project #9: an algorithmic task that ended in independently deriving a number theory theorem — because no one told me it already existed. And hence every tool written from scratch: the COM terminal, the voltage divider calculator, the BigInteger library — because I only discovered the ready-made solutions after building my own.'
     },
 
     s2: {
@@ -117,50 +100,6 @@
       },
       fazepunchline: 'Hardware taught me to think in cycles. Banking taught me to think in volumes. Mathematics taught me to think in structures. I design at the intersection of all three.',
       note: '<strong>Two tracks:</strong> embedded hardware (projects #01–#15) and relational mathematics (#16–#21) developed in parallel for years. In 2022–2026 they <strong>converge into one</strong>: MR-AI, TrueSynth and Resona are where microcontroller physics meets number theory.'
-    },
-
-    s3: {
-      title: 'Relational Mathematics (MR)',
-      sub:   'Hierarchy: MR as foundational theory (#17) → five analytical frameworks → MR-AI (#20) as the framework combining them all for AI applications.',
-      theory: {
-        title: 'MR — Foundational Theory (project #17)',
-        text:  'Relational Mathematics (MR) is an original mathematical theory describing the structure of prime numbers through the lens of rhythmic relations, partitions and rotational models — including a hyperbolic proof of the Bertrand–Chebyshev theorem, CRT structures and Q-semigroups. Published as 6 scientific preprints on Zenodo; provides the formal mathematical apparatus for five analytical frameworks.'
-      },
-      arr: {
-        tag:     'ARR',
-        title:   'Rhythmic and Resonance Analysis',
-        text:    'Rhythm-control framework — identifies periodic patterns in sequences and measures their "resonance". Application: decision-making based on the direction of change (↑ / → / ↓) instead of absolute values — especially useful on edge/RT devices with constrained resources.',
-        mandate: 'Mandate: measurement and control of sequence rhythm.'
-      },
-      cl: {
-        tag:     'MR-CL',
-        title:   'Rhythmic Clustering',
-        text:    'Detects and segments clusters with similar rhythmic properties. Used for local density analysis and anomaly detection in MR-based data sets.',
-        mandate: 'Mandate: segmentation and grouping of rhythmic structures.'
-      },
-      kl: {
-        tag:     'MR-KL',
-        title:   'Rhythmic Classification',
-        text:    'Classifies elements according to rhythmic categories defined in MR. Builds a pattern taxonomy and enables categorical membership prediction without absolute values.',
-        mandate: 'Mandate: typology and classification of MR patterns.'
-      },
-      rg: {
-        tag:     'MR-RG',
-        title:   'Rhythmic Regression',
-        text:    'Models quantitative relationships between rhythmic parameters. Enables extrapolation and numerical prediction based on the MR regression apparatus — complementing classical regression with a rhythmic dimension.',
-        mandate: 'Mandate: prediction and quantitative modelling.'
-      },
-      rpp: {
-        tag:     'RPP',
-        title:   'Relational Displacement Space',
-        text:    'Defines a multidimensional space in which each element occupies a position determined by its displacement relations. Formalises the geometry of the MR structure and provides the spatial apparatus for the other frameworks.',
-        mandate: 'Mandate: geometry and relational space of MR.'
-      },
-      ai: {
-        label: 'AI application framework — project #20',
-        title: 'MR-AI — Rhythmic Framework for Artificial Intelligence',
-        text:  'MR-AI combines all five frameworks (ARR, MR-CL, MR-KL, MR-RG, RPP) into a coherent decision architecture for AI systems — <strong>control without absolute values</strong>. Instead of comparing numbers, the system operates on the rhythm of change and spatial relations. The concrete realisation of MR-AI is <strong>FochBot</strong> (#19): an autonomous AI assistant with a two-layer cognitive architecture (ChromaDB memory map + multi-model controller), eliminating recomputation of known conclusions — token cost = 0 for local tasks.'
-      }
     },
 
     s4: {
