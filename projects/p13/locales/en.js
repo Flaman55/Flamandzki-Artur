@@ -7,7 +7,7 @@
     hero_tag: 'PORTFOLIO R&D — PROJECT #13 — COMMERCIAL CONTRACT',
     hero_title: 'BAGRAMET Spreader Controller — Dual-Board System',
     hero_sub: 'Commercial contract for company from Bytów · two PCBs · Gerbers · a dozen units produced',
-    date: 'DELFI Electronics · commercial contract · Eagle PCB · main board + display board, agricultural application',
+    date: '2012 · DELFI Electronics · commercial contract · Eagle PCB · main board + display board, agricultural application',
     summary: '<p>Commercial contract from BAGRAMET, Bytów: electronic controller for a trailed spreader. Dual-board architecture — <strong>main board</strong> (motor control logic) and <strong>display board</strong> (operator panel in the tractor cab). A dozen complete devices manufactured and sold.</p>',
     nav_prev: '← #12',
     nav_next: '#14 →',
