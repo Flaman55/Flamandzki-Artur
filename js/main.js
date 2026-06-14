@@ -42,6 +42,12 @@ const i18n = (function () {
       const val = t(el.dataset.i18nHtml);
       if (typeof val === 'string') el.innerHTML = val;
     });
+    // Update sticky nav titles when language changes
+    const lang = document.documentElement.lang || 'en';
+    document.querySelectorAll('[data-pns-num]').forEach(el => {
+      const num = el.dataset.pnsNum;
+      el.textContent = (PROJECT_TITLES[num] || {})[lang] || '';
+    });
   }
 
   /** Switch to a language; persists choice in localStorage */
@@ -228,6 +234,32 @@ function initLightbox() {
   });
 }
 
+/* ── Bilingual project title lookup for sticky nav ───────────── */
+const PROJECT_TITLES = {
+  '01': { en: 'Boiler Controller',              pl: 'Sterownik Pieca CO' },
+  '02': { en: 'Battery Speaker',                pl: 'Głośnik Bateryjny' },
+  '03': { en: 'LPG Injector Calibrator',        pl: 'Kalibrator Wtryskiwaczy LPG' },
+  '04': { en: 'Car Voltmeter WST',              pl: 'Woltomierz Samochodowy WST' },
+  '05': { en: 'DELFI Racing: Timing System',    pl: 'DELFI Racing: Pomiar Czasu' },
+  '06': { en: 'LX-DK: Password Reset',          pl: 'LX-DK: Reset Haseł' },
+  '07': { en: 'LX-GT01: Code Generator',        pl: 'LX-GT01: Generator Kodów' },
+  '08': { en: 'LX-EMI01: EEPROM Editor',        pl: 'LX-EMI01: Edytor EEPROM' },
+  '09': { en: 'Divisor Algorithm',              pl: 'Algorytm Dzielników' },
+  '10': { en: 'Boiler Thermometer',             pl: 'Termometr Pieca CO' },
+  '11': { en: 'ACŁ Timing System',              pl: 'System Pomiaru Czasu ACŁ' },
+  '12': { en: 'USB-RS232 Converter',            pl: 'Konwerter USB-RS232' },
+  '13': { en: 'BAGRAMET Controller',            pl: 'Sterownik BAGRAMET' },
+  '14': { en: 'RGB LED Fun',                    pl: 'RGB LED Fun' },
+  '15': { en: 'CO₂ Laser',                      pl: 'Laser CO₂' },
+  '16': { en: 'TrueSynth: Trig Library',        pl: 'TrueSynth: Bibl. Trygonometryczna' },
+  '17': { en: 'Relational Mathematics',         pl: 'Matematyka Relacyjna' },
+  '18': { en: 'Resona: Trajectory Model',       pl: 'Resona: Model Trajektorowy' },
+  '19': { en: 'FochBot: AI Assistant',          pl: 'FochBot: Asystent AI' },
+  '20': { en: 'MR-AI: Rhythmic Framework',      pl: 'MR-AI: Framework Rytmiczny' },
+  '21': { en: 'HPC Factorisation',              pl: 'HPC Faktoryzacja' },
+  '22': { en: 'Smart Home',                     pl: 'Inteligentny Dom' },
+};
+
 /* ── Shared project footer (injected) ────────────────────────── */
 function renderProjectFooter() {
   const footer = document.querySelector('footer.site-footer');
@@ -261,11 +293,13 @@ function renderProjectFooter() {
       ? '<a href="' + prev + '" class="proj-nav-sticky-btn">' +
           '<span class="pns-arrow">←</span>' +
           '<span class="pns-label">#' + prevNum + '</span>' +
+          '<span class="pns-title" data-pns-num="' + prevNum + '"></span>' +
         '</a>'
       : '<span></span>') +
     '<a href="../../index.html" class="pns-home" title="Portfolio">⌂</a>' +
     (next
       ? '<a href="' + next + '" class="proj-nav-sticky-btn">' +
+          '<span class="pns-title" data-pns-num="' + nextNum + '"></span>' +
           '<span class="pns-label">#' + nextNum + '</span>' +
           '<span class="pns-arrow">→</span>' +
         '</a>'

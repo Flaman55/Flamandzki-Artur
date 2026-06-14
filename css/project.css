@@ -265,14 +265,29 @@ body.has-sticky-nav { padding-bottom: 56px; }
   letter-spacing: .02em;
   transition: background .15s, color .15s, border-color .15s;
   min-width: 80px;
+  flex: 1;
+  max-width: 44%;
+  overflow: hidden;
 }
 .proj-nav-sticky-btn:hover {
   background: rgba(201, 168, 76, 0.14);
   border-color: #c9a84c;
   color: #c9a84c;
 }
-.pns-arrow { font-size: 1.15rem; line-height: 1; }
-.pns-label { font-size: .9rem; }
+.pns-arrow { font-size: 1.15rem; line-height: 1; flex-shrink: 0; }
+.pns-label { font-size: .9rem; flex-shrink: 0; }
+.pns-title {
+  font-size: .78rem;
+  font-weight: 400;
+  color: #8aaed0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  flex: 1;
+  min-width: 0;
+  opacity: .85;
+}
+.proj-nav-sticky-btn:hover .pns-title { color: inherit; opacity: 1; }
 .pns-home {
   font-size: 1.3rem;
   color: #6a8aaa;
