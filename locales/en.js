@@ -229,7 +229,7 @@
       },
       p19: {
         name:   'FochBot — Autonomous AI Assistant',
-        tag:    'AI / Software · 2026',
+        tag:    'AI / Software · 2026–present',
         tech:   'FastAPI, microservices, BCRYPT, ChromaDB, LangChain, multi-LLM routing (Claude/GPT/Gemini), ARR context-selection',
         result: 'Two-layer cognitive architecture: Layer A (ChromaDB memory map + ARR) + Layer B (multi-model controller). Eliminates recomputation → token cost = 0 for local tasks.'
       },
